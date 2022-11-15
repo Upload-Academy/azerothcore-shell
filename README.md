@@ -75,7 +75,7 @@ Assuming a Windows (Server) installation:
 1. Download *all* the required, prerequisite software needed to compile [AzerothCore](https://www.azerothcore.org/)
 1. Read the instructions on how-to "install" modules
 1. Download the modules listed below
-1. Compile [AzerothCore] (and the modules you installed)(https://www.azerothcore.org/)
+1. Compile [AzerothCore](https://www.azerothcore.org/) (and the modules you installed)
 1. Run the MySQLd server
 1. Execute the `auth-server.exe` executable
 1. Create and override settings in `worldserver.conf` to adjust the world to your liking
