@@ -87,8 +87,6 @@ Assuming a Windows (Server) installation:
 
 ### What modules should I install, and why that module?
 
-I added a new NPC, with a quest/story (WIP)
-
 These are the *key* modules that I believe make for a true, working WoW solo experience:
 
 1. [`mod-autobalance`](https://github.com/azerothcore/mod-autobalance) (avoid `solocraft` as it breaks the experiece)
