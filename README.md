@@ -47,6 +47,8 @@ These Emblems where introduced by Blizzard as an endgame (soft) currency used to
 
 ### What the hell is a "Minigob Manabonk"?!
 
+*NOTE: This is due to change.*
+
 "Minigob Manabonk is an accentric mage who wonders Dalaran turning random players into sheep. He's really very annoying. Regardless, it was recently discovered that an unknown entity seems to have found a way to disenchant Emblems of Valor into a material that makes them immortal. An impressive feat of magic and intelligence. In an effort to harvest these Emblems, it's believed this unknown entity has bent time and space - reality itself - to force the Emblems to spawn whenever an adventurer completes a quest or kills a creature. It was also recently discovered (primarily due to an increase in sheep populations around cities and towns) that this unknown entity has also cloned and deployed an army of Minigobs! They're really *very* annoying. These clones are now enticing players to supercharge their adventures with sneaky shortcuts, wild teleportation tricks, cheap goods (with no warranty!), and other reality bending products and services that are simply too good for the young adventurer to ignore. And the bad news is this entity is paying city taxes on all sales and the clones have a good pension plan, so everything is above board!! I must remember to write a letter of complaint about this to the King. My closing thoughts are this: these clones are being used to collect these Emblems, but for whom? And will they stop at immortality?" - Nazaroth Dunne, Researcher, Bad Lands
 
 Now players are given some choices about how they can spend these Emblems:
@@ -127,4 +129,4 @@ Because Minigob Manabonk clones, that's why!!!
 
 ## Support
 
-Join the [AzerothCore Discord server](https://discord.gg/TZBZ6quZuG) and ask for assistance in the `#supporr-general`, but make sure to read the rules and notices first.
+Join the [AzerothCore Discord server](https://discord.gg/TZBZ6quZuG) and ask for assistance in the `#support-general`, but make sure to read the rules and notices first.
