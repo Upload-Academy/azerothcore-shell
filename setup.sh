@@ -28,7 +28,7 @@ sudo mysql < sql/00-initial-database-setup.sql
 
 # Clone AzerothCore
 # rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ]
+if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
 then
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
   git pull
