@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup build environment
-cd"${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 mkdir -p build
 cd build
 

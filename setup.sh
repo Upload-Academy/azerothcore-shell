@@ -28,7 +28,7 @@ sudo mysql -u root -p < sql/00-initial-database-setup.sql
 
 # Clone AzerothCore
 rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch azerothcore --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 
 # Include our compile script
 source compile.sh
