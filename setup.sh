@@ -83,6 +83,8 @@ echo ""
 echo "===================================================================================="
 echo ""
 
+read -p "Press any key to run worldserver..."
+
 cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
 
@@ -101,14 +103,14 @@ After=network.target
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/worldserver.pid
-WorkingDirectory="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
-ExecStart="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver"
+WorkingDirectory=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/
+ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver
 
 [Install]
 WantedBy=multi-user.target
 EOF
 
-sudo cat <<EOF > azerothcore-auth-server.service
+cat <<EOF > azerothcore-auth-server.service
 [Unit]
 Description=AzerothCore 3.3.5a Auth Server
 After=network.target
@@ -117,8 +119,8 @@ After=network.target
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/authserver.pid
-WorkingDirectory="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
-ExecStart="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/authserver"
+WorkingDirectory=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/
+ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/authserver
 
 [Install]
 WantedBy=multi-user.target
