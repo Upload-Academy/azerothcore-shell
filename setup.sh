@@ -58,15 +58,17 @@ fi
 
 # Move our configurations in place
 cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-cat <<EOF > "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+BindIP = $AZEROTHCORE_SERVER_BIND_IP
 SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+MySQLExecutable = "$(which mysql)"
 EOF
 
 cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-cat <<EOF > "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
 BindIP = $AZEROTHCORE_SERVER_BIND_IP
 SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-MySQLExecutable = $(which mysql)
+MySQLExecutable = "$(which mysql)"
 EOF
 
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
