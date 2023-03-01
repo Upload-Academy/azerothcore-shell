@@ -77,6 +77,7 @@ cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
 
 # Additional SQL steps
+cd $WHERE_WAS_I
 mysql -u acore -p acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_ENDPOINT}' WHERE id = 1;"
 mysql -u acore -p < sql/01-quality-of-life.sql
 
