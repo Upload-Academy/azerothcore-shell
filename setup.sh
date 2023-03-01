@@ -3,7 +3,7 @@
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
 export AZEROTHCORE_SERVER_ENDPOINT=127.0.0.1
-export AZEROTHCORE_SERVER_BIND_IP=192.168.88.48
+export AZEROTHCORE_SERVER_BIND_IP=127.0.0.1
 
 # Used to return back later
 export WHERE_WAS_I=$(pwd)
@@ -60,15 +60,11 @@ fi
 cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
 cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
 BindIP = $AZEROTHCORE_SERVER_BIND_IP
-SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-MySQLExecutable = "$(which mysql)"
 EOF
 
 cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
 cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
 BindIP = $AZEROTHCORE_SERVER_BIND_IP
-SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-MySQLExecutable = "$(which mysql)"
 EOF
 
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
@@ -93,7 +89,7 @@ cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 # Additional SQL steps
 cd $WHERE_WAS_I
 mysql -u acore -p acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_ENDPOINT}' WHERE id = 1;"
-mysql -u acore -p < sql/01-quality-of-life.sql
+mysql -u acore -p acore_world < sql/01-quality-of-life.sql
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
