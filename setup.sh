@@ -33,6 +33,7 @@ if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
 then
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
   git pull
+  cd $WHERE_WAS_I
 else
   git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 fi
@@ -59,9 +60,25 @@ cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 
+# Now we need to run the worldserver so that the database is populated
+echo ""
+echo "===================================================================================="
+echo ""
+echo "World Server is being being run to initialize DB and accounts."
+echo "When it's running and you see the AC> prompt, create whatever accounts"
+echo "you need NOW, then Contrl+C so the script and finalise the setup."
+echo ""
+echo "See here for creating account: https://www.azerothcore.org/wiki/creating-accounts"
+echo ""
+echo "===================================================================================="
+echo ""
+
+cd "${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/"
+./worldserver
+
 # Additional SQL steps
-mysql -u acore -p acore -e "use acore_auth; UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_ENDPOINT}' WHERE id = 1;"
-mysql -u acore -p acore < sql/01-quality-of-life.sql
+mysql -u acore -p acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_ENDPOINT}' WHERE id = 1;"
+mysql -u acore -p < sql/01-quality-of-life.sql
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
@@ -105,9 +122,4 @@ sudo systemctl enable azerothcore-auth-server.service
 sudo systemctl start azerothcore-auth-server.service
 
 sudo systemctl enable azerothcore-world-server.service
-# sudo systemctl start azerothcore-world-server.service
-
-# Now cd to ${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/ and run the world server
-# yourself. You need the AC console to create initial accounts + GM
-# account create user1 password
-# account set 
+sudo systemctl start azerothcore-world-server.service
