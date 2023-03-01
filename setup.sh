@@ -3,6 +3,7 @@
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
 export AZEROTHCORE_SERVER_ENDPOINT=127.0.0.1
+export AZEROTHCORE_SERVER_BIND_IP=192.168.88.48
 
 # Used to return back later
 export WHERE_WAS_I=$(pwd)
@@ -57,6 +58,17 @@ fi
 
 # Move our configurations in place
 cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
+cat <<EOF > "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+EOF
+
+cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
+cat <<EOF > "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+BindIP = $AZEROTHCORE_SERVER_BIND_IP
+SourceDirectory = "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+MySQLExecutable = $(which mysql)
+EOF
+
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 
