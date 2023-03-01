@@ -6,11 +6,11 @@ mkdir -p build/modules
 cd build
 
 # Pull and "install" the modules we want to compile in
-rm -rf modules/mod-autobalance; git clone --depth 1 https://github.com/azerothcore/mod-autobalance modules/mod-autobalance
-rm -rf modules/mod-solo-lfg; git clone --depth 1 https://github.com/milestorme/mod-solo-lfg modules/mod-solo-lfg
-rm -rf modules/mod-ah-bot; git clone --depth 1 https://github.com/azerothcore/mod-ah-bot modules/mod-ah-bot
-rm -rf modules/mod-learn-spells; git clone --depth 1 https://github.com/azerothcore/mod-learn-spells modules/mod-learn-spells
-rm -rf modules/mod-wos; git clone --depth 1 https://github.com/mrcrilly/mod-wos modules/mod-wos
+rm -rf ../modules/mod-autobalance; git clone --depth 1 https://github.com/azerothcore/mod-autobalance ../modules/mod-autobalance
+rm -rf ../modules/mod-solo-lfg; git clone --depth 1 https://github.com/milestorme/mod-solo-lfg ../modules/mod-solo-lfg
+rm -rf ../modules/mod-ah-bot; git clone --depth 1 https://github.com/azerothcore/mod-ah-bot ../modules/mod-ah-bot
+rm -rf ../modules/mod-learn-spells; git clone --depth 1 https://github.com/azerothcore/mod-learn-spells ../modules/mod-learn-spells
+rm -rf ../modules/mod-wos; git clone --depth 1 https://github.com/mrcrilly/mod-wos ../modules/mod-wos
 
 # cmake the configuration, ready for compilation
 cmake ../ -DCMAKE_INSTALL_PREFIX="${HOME}/${AZEROTHCORE_SERVER_DIR}/" \
