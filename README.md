@@ -1,5 +1,7 @@
 # World Of Solocraft (WoS)
 
+*NOTE: this project is a **Work In Progress**. There's a lot of work to be done on this project. It's got basically no instructions at the moment.*
+
 WoS is a project focused building a fully solo-able World of Warcraft experience whilst staying as close to "blizzlike" as possible.
 
 Put another way: WoS turns WoW into a single player RPG game that just so happens to support you and your friends playing in the same world (coop).
@@ -91,7 +93,7 @@ Assuming a Windows (Server) installation:
 
 These are the *key* modules that I believe make for a true, working WoW solo experience:
 
-1. [`mod-autobalance`](https://github.com/azerothcore/mod-autobalance) (avoid `solocraft` as it breaks the experiece)
+1. [`mod-autobalance`](https://github.com/azerothcore/mod-autobalance) (avoid `solocraft` as it breaks the experience)
 2. [`mod-solo-lfg`](https://github.com/milestorme/mod-solo-lfg)
 3. [`mod-ah-bot`](https://github.com/azerothcore/mod-ah-bot)
 5. [`mod-learn-spells`](https://github.com/azerothcore/mod-learn-spells)
