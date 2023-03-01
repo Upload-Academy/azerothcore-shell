@@ -16,6 +16,9 @@ sudo apt install -y git cmake make gcc g++ clang libssl-dev libbz2-dev libreadli
 # Install extra nice to have
 sudo apt install -y fail2ban lsof
 
+# A bit of clean up
+sudo apt autoremove
+
 # Prepare firewall for remote access
 # You can disable these lines if you don't want a firewall in place
 sudo ufw default deny incoming
@@ -74,9 +77,9 @@ cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 echo ""
 echo "===================================================================================="
 echo ""
-echo "World Server is being being run to initialize DB and accounts."
-echo "When it's running and you see the AC> prompt, create whatever accounts"
-echo "you need NOW, then Contrl+C so the script and finalise the setup."
+echo "World Server is about to be run to initialize DB and accounts."
+echo "When its finished running, and you see the AC> prompt, create whatever accounts"
+echo "you need NOW, then Contrl+C so the script can finalise the setup preocess."
 echo ""
 echo "See here for creating account: https://www.azerothcore.org/wiki/creating-accounts"
 echo ""
@@ -87,6 +90,11 @@ read -p "Press any key to run worldserver..."
 
 cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
+
+# I disable the console at this point because I'm running the service using systemd.
+sed -i 's/Console.Enable = 1/Console.Enable = 0/g' "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+
+read -p "You'll now be prompted twice for the MySQL 'acore' user password, which is (default: acore)..."
 
 # Additional SQL steps
 cd $WHERE_WAS_I
