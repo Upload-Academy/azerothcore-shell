@@ -73,7 +73,7 @@ echo ""
 echo "===================================================================================="
 echo ""
 
-cd "${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/"
+cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
 
 # Additional SQL steps
@@ -90,8 +90,8 @@ After=network.target
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/worldserver.pid
-WorkingDirectory="${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/"
-ExecStart="${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/worldserver"
+WorkingDirectory="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
+ExecStart="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver"
 
 [Install]
 WantedBy=multi-user.target
@@ -106,8 +106,8 @@ After=network.target
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/authserver.pid
-WorkingDirectory="${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/"
-ExecStart="${HOME}/${AZEROTHSERVER_SERVER_DIR}/bin/authserver"
+WorkingDirectory="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
+ExecStart="${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/authserver"
 
 [Install]
 WantedBy=multi-user.target
