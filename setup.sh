@@ -20,8 +20,11 @@ sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw enable
 
 # Prepare MySQL server for AzerothCore
+# This next line is required to overcome an issue with the "mysql_secure_installation" script
+sudo mysql -u root -p "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
+# This really does help lockdown a MySQL server
 sudo mysql_secure_installation
-mysql -u root -p < sql/00-initial-database-setup.sql
+sudo mysql -u root -p < sql/00-initial-database-setup.sql
 
 # Clone AzerothCore
 rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
