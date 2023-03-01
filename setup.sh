@@ -3,13 +3,16 @@
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
 export AZEROTHCORE_SERVER_ENDPOINT=127.0.0.1
+export MYSQL_SERVER_ROOT_PASSWORD="superbadpassword"
 
 # Used to return back later
-WHERE_WAS_I=$(pwd)
+export WHERE_WAS_I=$(pwd)
 
 # Install the required packages (requires root)
-sudo apt-get update
-sudo apt-get install git cmake make gcc g++ clang libmysqlclient-dev libssl-dev libbz2-dev libreadline-dev libncurses-dev mysql-server libboost-all-dev unzip ufw
+sudo apt update
+
+# This is the MariaDB set of packages
+sudo apt install -y git cmake make gcc g++ clang libssl-dev libbz2-dev libreadline-dev libncurses-dev libboost-all-dev mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat unzip ufw
 
 # Prepare firewall for remote access
 # You can disable these lines if you don't want a firewall in place
@@ -19,12 +22,9 @@ sudo ufw allow from 0.0.0.0/0 to any port 8085 # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw enable
 
-# Prepare MySQL server for AzerothCore
-# This next line is required to overcome an issue with the "mysql_secure_installation" script
-sudo mysql -u root -p "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
-# This really does help lockdown a MySQL server
-sudo mysql_secure_installation
-sudo mysql -u root -p < sql/00-initial-database-setup.sql
+# Prepare MariaDB server for AzerothCore (need to be root)
+# NOTE: you should probably lock down MySQL, especially the root user
+sudo mysql < sql/00-initial-database-setup.sql
 
 # Clone AzerothCore
 rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
