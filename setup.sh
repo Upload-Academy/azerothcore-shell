@@ -1,12 +1,21 @@
 #!/bin/bash
 
+#########################################################
+# Variables
+#########################################################
+
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
-export AZEROTHCORE_SERVER_ENDPOINT=127.0.0.1
-export AZEROTHCORE_SERVER_BIND_IP=127.0.0.1
-
-# Used to return back later
+export AZEROTHCORE_SERVER_BACKUPS_DIR=azerothcore-server-backups
+export AZEROTHCORE_SERVER_REMOTE_ENDPOINT=1.2.3.4
+export AZEROTHCORE_SERVER_BIND_IP=192.168.88.48
 export WHERE_WAS_I=$(pwd)
+
+
+
+#########################################################
+# Base OS
+#########################################################
 
 # Install the required packages (requires root)
 # (This is the MariaDB set of packages)
@@ -28,9 +37,27 @@ sudo ufw allow from 0.0.0.0/0 to any port 8085 # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw enable
 
+
+
+#########################################################
+# Initialise Database
+#########################################################
+
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
 sudo mysql < sql/00-initial-database-setup.sql
+
+# Prevent the need to type the password all the time
+cat <<EOF > $HOME/.my.cnf 
+[client]
+password=acore
+EOF
+
+
+
+#########################################################
+# AzerothCore 
+#########################################################
 
 # Clone AzerothCore
 if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
@@ -60,16 +87,18 @@ then
   unzip "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data/v16.zip" -d "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data"
 fi
 
+
+
+#########################################################
+# Server Configuration Files
+#########################################################
+
 # Move our configurations in place
 cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
-BindIP = $AZEROTHCORE_SERVER_BIND_IP
-EOF
+echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
 
 cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-cat <<EOF >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
-BindIP = $AZEROTHCORE_SERVER_BIND_IP
-EOF
+echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
 
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
@@ -93,14 +122,13 @@ cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
 
 # I disable the console at this point because I'm running the service using systemd.
-sed -i 's/Console.Enable = 1/Console.Enable = 0/g' "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
-
-read -p "You'll now be prompted twice for the MySQL 'acore' user password, which is (default: acore)..."
+sed -i 's/Console.Enable = 1/Console.Enable = 0/g' "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
 
 # Additional SQL steps
 cd $WHERE_WAS_I
-mysql -u acore -p acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_ENDPOINT}' WHERE id = 1;"
-mysql -u acore -p acore_world < sql/01-quality-of-life.sql
+mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_REMOTE_ENDPOINT}' WHERE id = 1;"
+mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
+mysql -u acore acore_world < sql/01-quality-of-life.sql
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
