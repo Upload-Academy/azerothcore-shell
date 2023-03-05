@@ -1,18 +1,6 @@
 #!/bin/bash
 
-echo ""
-echo "#########################################################"
-echo "# Variables"
-echo "#########################################################"
-echo ""
-
-export AZEROTHCORE_SOURCE_DIR=azerothcore
-export AZEROTHCORE_SERVER_DIR=azerothcore-server
-export AZEROTHCORE_SERVER_BACKUPS_DIR=azerothcore-server-backups
-export AZEROTHCORE_SERVER_REMOTE_ENDPOINT=1.2.3.4
-export AZEROTHCORE_SERVER_BIND_IP=192.168.88.48
-export WHERE_WAS_I=$(pwd)
-
+source config.sh
 
 echo ""
 echo "#########################################################"
