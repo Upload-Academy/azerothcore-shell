@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#########################################################
-# Variables
-#########################################################
+echo ""
+echo "#########################################################"
+echo "# Variables"
+echo "#########################################################"
+echo ""
 
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
@@ -12,10 +14,11 @@ export AZEROTHCORE_SERVER_BIND_IP=192.168.88.48
 export WHERE_WAS_I=$(pwd)
 
 
-
-#########################################################
-# Base OS
-#########################################################
+echo ""
+echo "#########################################################"
+echo "# Base OS"
+echo "#########################################################"
+echo ""
 
 # Install the required packages (requires root)
 # (This is the MariaDB set of packages)
@@ -38,10 +41,11 @@ sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw enable
 
 
-
-#########################################################
-# Initialise Database
-#########################################################
+echo ""
+echo "#########################################################"
+echo "# Initialise Database"
+echo "#########################################################"
+echo ""
 
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
@@ -54,10 +58,11 @@ password=acore
 EOF
 
 
-
-#########################################################
-# AzerothCore 
-#########################################################
+echo ""
+echo "#########################################################"
+echo "# AzerothCore "
+echo "#########################################################"
+echo ""
 
 # Clone AzerothCore
 if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
@@ -88,10 +93,11 @@ then
 fi
 
 
-
-#########################################################
-# Server Configuration Files
-#########################################################
+echo ""
+echo "#########################################################"
+echo "# Server Configuration Files"
+echo "#########################################################"
+echo ""
 
 # Move our configurations in place
 cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
