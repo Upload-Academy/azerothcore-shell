@@ -2,9 +2,19 @@
 
 *NOTE: this project is a **Work In Progress**. There's a lot of work to be done on this project. It's got basically no instructions at the moment.*
 
-WoS is a project focused building a fully solo-able World of Warcraft experience whilst staying as close to "blizzlike" as possible.
+WoS is a project focused building a fully solo-able World of Warcraft experience whilst staying as close to "blizzlike" as possible. The ability to run this as a public server and play with other players still remains, but some things have been tweaked to ensure someone playing alone can do so for the most part.
 
 Put another way: WoS turns WoW into a single player RPG game that just so happens to support you and your friends playing in the same world (coop).
+
+## How
+
+*This is very much a work in progress.*
+
+1. Clone this repository to a Ubuntu 22.04 server
+1. Open and edit the `config.sh` file...
+    1. ... replacing `AZEROTHCORE_SERVER_REMOTE_ENDPOINT` with your *public* IP address
+    1. ... replacing `AZEROTHCORE_SERVER_BIND_IP` with your *private*, *internal* IP address
+1. Run `bash setup.sh` and you should get a working WotLK server
 
 ## Why? 
 
