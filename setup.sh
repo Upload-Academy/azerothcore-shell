@@ -26,6 +26,7 @@ sudo ufw default allow outgoing
 sudo ufw allow from 0.0.0.0/0 to any port 22 # SSH - restrict the crap out this!!
 sudo ufw allow from 0.0.0.0/0 to any port 8085 # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
+sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
 sudo ufw enable
 
 
@@ -123,6 +124,7 @@ cd $WHERE_WAS_I
 mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_REMOTE_ENDPOINT}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
 mysql -u acore acore_world < sql/01-quality-of-life.sql
+mysql -u acore acore_world < sql/02-starting-mount-accessibility.sql
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
