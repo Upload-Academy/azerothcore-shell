@@ -1,0 +1,3777 @@
+
+-- 05 Better Mining Node Spawn NUMBERS (not rates!)
+
+-- Current values as of 2023-09-24:
+-- +-------+-----------+---------------------------------------------------------------------------------------+
+-- | entry | max_limit | description                                                                           |
+-- +-------+-----------+---------------------------------------------------------------------------------------+
+-- | 11688 |         1 | Spawn Point 8 - Searing Gorge - Zone 51                                               |
+-- | 11684 |         1 | Spawn Point 4 - Searing Gorge - Zone 51                                               |
+-- | 11643 |        20 | Copper Vein - Azuremyst Isle                                                          |
+-- | 50002 |        15 | Tin Vein - Westfall                                                                   |
+-- | 11681 |         1 | Spawn Point 1 - Searing Gorge - Zone 51                                               |
+-- | 11694 |         1 | Spawn Point 1 - Tanaris - Zone 440                                                    |
+-- | 11679 |         1 | Spawn Point 3 - Stranglethorn Vale - Zone 33                                          |
+-- | 11680 |         1 | Spawn Point 1 - Thousand Needles - Zone 400                                           |
+-- | 11696 |         1 | Spawn Point 2 - Maraudon - Zone 2100                                                  |
+-- | 11695 |         1 | Spawn Point 1 - Maraudon - Zone 2100                                                  |
+-- | 11698 |         1 | Spawn Point 1 - Winterspring - Zone 618                                               |
+-- |   447 |         4 | ZG Hakkari Thorium Vein                                                               |
+-- | 11683 |         1 | Spawn Point 3 - Searing Gorge - Zone 51                                               |
+-- | 11685 |         1 | Spawn Point 5 - Searing Gorge - Zone 51                                               |
+-- | 11686 |         1 | Spawn Point 6 - Searing Gorge - Zone 51                                               |
+-- | 11687 |         1 | Spawn Point 7 - Searing Gorge - Zone 51                                               |
+-- | 11689 |         1 | Spawn Point 1 - Uldaman - Zone 1337                                                   |
+-- | 11690 |         1 | Spawn Point 1 - Desolace - Zone 405                                                   |
+-- | 11691 |         1 | Spawn Point 1 - Darkshore - Zone 148                                                  |
+-- | 11697 |         1 | Spawn Point 3 - Maraudon - Zone 2100                                                  |
+-- | 11682 |         1 | Spawn Point 2 - Searing Gorge - Zone 51                                               |
+-- | 11692 |         1 | Spawn Point 1 - Silverpine Forest - Zone 130                                          |
+-- | 11693 |         1 | Spawn Point 1 - Blackfathom Deeps - Zone 719                                          |
+-- |  5123 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5138 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5139 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5140 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5141 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5124 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5125 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5142 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5126 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5143 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5144 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5127 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5128 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5145 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5146 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5147 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5148 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5149 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5617 |         1 | Wintergrasp mineral, node 1                                                           |
+-- |  5618 |         1 | Wintergrasp mineral, node 2                                                           |
+-- |  5619 |         1 | Wintergrasp mineral, node 3                                                           |
+-- |  5150 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5151 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5129 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5152 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5130 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5153 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5154 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5131 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5132 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5155 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5156 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5157 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5158 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5159 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5160 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5161 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5162 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5163 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5164 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5165 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5166 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5167 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5168 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5133 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5134 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5135 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5169 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5170 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5171 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5172 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5246 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5136 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5173 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5174 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5175 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5176 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5177 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5178 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5179 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5450 |         1 | Icecrown 189980, node 3                                                               |
+-- |  5180 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5239 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5620 |         1 | Wintergrasp mineral, node 4                                                           |
+-- | 11678 |         1 | Spawn Point 2 - Stranglethorn Vale - Zone 33                                          |
+-- |  5137 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5621 |         1 | Wintergrasp mineral, node 5                                                           |
+-- |  5622 |         1 | Wintergrasp mineral, node 6                                                           |
+-- |  5623 |         1 | Wintergrasp mineral, node 7                                                           |
+-- |  5624 |         1 | Wintergrasp mineral, node 8                                                           |
+-- |  5625 |         1 | Wintergrasp mineral, node 9                                                           |
+-- |  5626 |         1 | Wintergrasp mineral, node 10                                                          |
+-- |  5627 |         1 | Wintergrasp mineral, node 11                                                          |
+-- |  5628 |         1 | Wintergrasp mineral, node 12                                                          |
+-- |  5629 |         1 | Wintergrasp mineral, node 13                                                          |
+-- |  5630 |         1 | Wintergrasp mineral, node 14                                                          |
+-- |  5631 |         1 | Wintergrasp mineral, node 15                                                          |
+-- |  5632 |         1 | Wintergrasp mineral, node 16                                                          |
+-- |  5244 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5245 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5249 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5247 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5248 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5250 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5251 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5252 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5253 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5254 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5255 |         1 | Cobalt Dragonblight                                                                   |
+-- |  5633 |         1 | Wintergrasp mineral, node 17                                                          |
+-- |  5634 |         1 | Wintergrasp mineral, node 18                                                          |
+-- |  5635 |         1 | Wintergrasp mineral, node 19                                                          |
+-- |  5636 |         1 | Wintergrasp mineral, node 20                                                          |
+-- |  3000 |         1 | Spawn Point 1 - Alterac Mountains (Inner Section)                                     |
+-- |  3001 |         1 | Spawn Point 2 - Alterac Mountains (Inner Section)                                     |
+-- |  3002 |         1 | Spawn Point 3 - Alterac Mountains (Inner Section)                                     |
+-- |  3003 |         1 | Spawn Point 4 - Alterac Mountains (Inner Section)                                     |
+-- |  3004 |         1 | Spawn Point 5 - Alterac Mountains (Inner Section)                                     |
+-- |  3005 |         1 | Spawn Point 6 - Alterac Mountains (Inner Section)                                     |
+-- |  3006 |         1 | Spawn Point 7 - Alterac Mountains (Inner Section)                                     |
+-- |  3007 |         1 | Spawn Point 8 - Alterac Mountains (Inner Section)                                     |
+-- |  3008 |         1 | Spawn Point 9 - Alterac Mountains (Inner Section)                                     |
+-- |  3009 |         1 | Spawn Point 10 - Alterac Mountains (Inner Section)                                    |
+-- |  3010 |         1 | Spawn Point 11 - Alterac Mountains (Inner Section)                                    |
+-- |  3011 |         1 | Spawn Point 12 - Alterac Mountains (Inner Section)                                    |
+-- |  3012 |         1 | Spawn Point 13 - Alterac Mountains (Inner Section)                                    |
+-- |  3013 |         1 | Spawn Point 14 - Alterac Mountains (Inner Section)                                    |
+-- |  3014 |         1 | Spawn Point 15 - Alterac Mountains (Inner Section)                                    |
+-- |  3015 |         1 | Spawn Point 16 - Alterac Mountains (Inner Section)                                    |
+-- |  3016 |         1 | Spawn Point 17 - Alterac Mountains (Inner Section)                                    |
+-- |  3017 |         1 | Spawn Point 18 - Alterac Mountains (Inner Section)                                    |
+-- |  3018 |         1 | Spawn Point 19 - Alterac Mountains (Inner Section)                                    |
+-- |  3019 |         1 | Spawn Point 20 - Alterac Mountains (Inner Section)                                    |
+-- |  3020 |         1 | Spawn Point 21 - Alterac Mountains (Inner Section)                                    |
+-- |  3021 |         1 | Spawn Point 22 - Alterac Mountains (Inner Section)                                    |
+-- |  3022 |         1 | Spawn Point 23 - Alterac Mountains (Inner Section)                                    |
+-- |  3023 |         1 | Spawn Point 24 - Alterac Mountains (Inner Section)                                    |
+-- |  3024 |         1 | Spawn Point 25 - Alterac Mountains (Inner Section)                                    |
+-- |  3025 |         1 | Spawn Point 26 - Alterac Mountains (Inner Section)                                    |
+-- |  3026 |         1 | Spawn Point 27 - Alterac Mountains (Inner Section)                                    |
+-- |  3027 |         1 | Spawn Point 28 - Alterac Mountains (Inner Section)                                    |
+-- |  3028 |         1 | Spawn Point 29 - Alterac Mountains (Inner Section)                                    |
+-- |  3029 |         1 | Spawn Point 30 - Alterac Mountains (Inner Section)                                    |
+-- |  3030 |         1 | Spawn Point 31 - Alterac Mountains (Inner Section)                                    |
+-- |  3031 |         1 | Spawn Point 32 - Alterac Mountains (Inner Section)                                    |
+-- |  3032 |         1 | Spawn Point 33 - Alterac Mountains (Inner Section)                                    |
+-- |  3033 |         1 | Spawn Point 34 - Alterac Mountains (Inner Section)                                    |
+-- |  3034 |         1 | Spawn Point 35 - Alterac Mountains (Inner Section)                                    |
+-- |  3035 |         1 | Spawn Point 36 - Alterac Mountains (Inner Section)                                    |
+-- |  3036 |         1 | Spawn Point 37 - Alterac Mountains (Inner Section)                                    |
+-- |  3037 |         1 | Spawn Point 38 - Alterac Mountains (Inner Section)                                    |
+-- |  3038 |         1 | Spawn Point 39 - Alterac Mountains (Inner Section)                                    |
+-- |  3039 |         1 | Spawn Point 40 - Alterac Mountains (Inner Section)                                    |
+-- |  3040 |         1 | Spawn Point 41 - Alterac Mountains (Inner Section)                                    |
+-- |  3041 |         1 | Spawn Point 42 - Alterac Mountains (Inner Section)                                    |
+-- |  3042 |         1 | Spawn Point 43 - Alterac Mountains (Inner Section)                                    |
+-- |  3043 |         1 | Spawn Point 44 - Alterac Mountains (Inner Section)                                    |
+-- |  3044 |         1 | Spawn Point 45 - Alterac Mountains (Inner Section)                                    |
+-- |  3045 |         1 | Spawn Point 46 - Alterac Mountains (Inner Section)                                    |
+-- |  3046 |         1 | Spawn Point 47 - Alterac Mountains (Inner Section)                                    |
+-- |  3047 |         1 | Spawn Point 48 - Alterac Mountains (Inner Section)                                    |
+-- |  3048 |         1 | Spawn Point 49 - Alterac Mountains (Inner Section)                                    |
+-- |  3049 |         1 | Spawn Point 50 - Alterac Mountains (Inner Section)                                    |
+-- |  3050 |         1 | Spawn Point 51 - Alterac Mountains (Inner Section)                                    |
+-- |  3051 |         1 | Spawn Point 52 - Alterac Mountains (Inner Section)                                    |
+-- |  3052 |         1 | Spawn Point 53 - Alterac Mountains (Inner Section)                                    |
+-- |  3053 |         1 | Spawn Point 54 - Alterac Mountains (Inner Section)                                    |
+-- |  3054 |         1 | Spawn Point 55 - Alterac Mountains (Inner Section)                                    |
+-- |  3055 |         1 | Spawn Point 56 - Alterac Mountains (Inner Section)                                    |
+-- |  3056 |         1 | Spawn Point 57 - Alterac Mountains (Inner Section)                                    |
+-- |  3057 |         1 | Spawn Point 58 - Alterac Mountains (Inner Section)                                    |
+-- |  3058 |         1 | Spawn Point 59 - Alterac Mountains (Inner Section)                                    |
+-- |  3059 |         1 | Spawn Point 60 - Alterac Mountains (Inner Section)                                    |
+-- |  3060 |         1 | Spawn Point 61 - Alterac Mountains (Inner Section)                                    |
+-- |  3061 |         1 | Spawn Point 62 - Alterac Mountains (Inner Section)                                    |
+-- |  3062 |         1 | Spawn Point 63 - Alterac Mountains (Inner Section)                                    |
+-- |  3063 |         1 | Spawn Point 64 - Alterac Mountains (Inner Section)                                    |
+-- |  3064 |         1 | Spawn Point 65 - Alterac Mountains (Inner Section)                                    |
+-- |  3065 |         1 | Spawn Point 66 - Alterac Mountains (Inner Section)                                    |
+-- |  3066 |         1 | Spawn Point 67 - Alterac Mountains (Inner Section)                                    |
+-- |  3067 |         1 | Spawn Point 68 - Alterac Mountains (Inner Section)                                    |
+-- |  3068 |         1 | Spawn Point 69 - Alterac Mountains (Inner Section)                                    |
+-- |  3069 |         1 | Spawn Point 70 - Alterac Mountains (Inner Section)                                    |
+-- |  3070 |         1 | Spawn Point 71 - Alterac Mountains (Inner Section)                                    |
+-- |  3071 |         1 | Spawn Point 72 - Alterac Mountains (Inner Section)                                    |
+-- |  3072 |         1 | Spawn Point 73 - Alterac Mountains (Inner Section)                                    |
+-- |  3073 |         1 | Spawn Point 74 - Alterac Mountains (Inner Section)                                    |
+-- |  3074 |         1 | Spawn Point 75 - Alterac Mountains (Inner Section)                                    |
+-- |  3075 |         1 | Spawn Point 76 - Alterac Mountains (Inner Section)                                    |
+-- |  3076 |         1 | Spawn Point 77 - Alterac Mountains (Inner Section)                                    |
+-- |  3077 |         1 | Spawn Point 78 - Alterac Mountains (Inner Section)                                    |
+-- |  3078 |         1 | Spawn Point 79 - Alterac Mountains (Inner Section)                                    |
+-- |  3079 |         1 | Spawn Point 80 - Alterac Mountains (Inner Section)                                    |
+-- |  3080 |         1 | Spawn Point 81 - Alterac Mountains (Inner Section)                                    |
+-- |  3081 |         1 | Spawn Point 82 - Alterac Mountains (Inner Section)                                    |
+-- |  3082 |         1 | Spawn Point 83 - Alterac Mountains (Outer Section)                                    |
+-- |  3083 |         1 | Spawn Point 84 - Alterac Mountains (Outer Section)                                    |
+-- |  3084 |         1 | Spawn Point 85 - Alterac Mountains (Outer Section)                                    |
+-- |  3085 |         1 | Spawn Point 86 - Alterac Mountains (Outer Section)                                    |
+-- |  3086 |         1 | Spawn Point 87 - Alterac Mountains (Outer Section)                                    |
+-- |  3087 |         1 | Spawn Point 88 - Alterac Mountains (Outer Section)                                    |
+-- |  3088 |         1 | Spawn Point 89 - Alterac Mountains (Outer Section)                                    |
+-- |  3089 |         1 | Spawn Point 90 - Alterac Mountains (Outer Section)                                    |
+-- |  3090 |         1 | Spawn Point 91 - Alterac Mountains (Outer Section)                                    |
+-- |  3091 |         1 | Spawn Point 92 - Alterac Mountains (Outer Section)                                    |
+-- |  3092 |         1 | Spawn Point 93 - Alterac Mountains (Outer Section)                                    |
+-- |  3093 |         1 | Spawn Point 94 - Alterac Mountains (Outer Section)                                    |
+-- |  3094 |         1 | Spawn Point 95 - Alterac Mountains (Outer Section)                                    |
+-- |  3095 |         1 | Spawn Point 96 - Alterac Mountains (Outer Section)                                    |
+-- |  3096 |         1 | Spawn Point 97 - Alterac Mountains (Outer Section)                                    |
+-- |  3097 |         1 | Spawn Point 98 - Alterac Mountains (Outer Section)                                    |
+-- |  3098 |         1 | Spawn Point 99 - Alterac Mountains (Outer Section)                                    |
+-- |  3099 |         1 | Spawn Point 100 - Alterac Mountains (Outer Section)                                   |
+-- |  3100 |         1 | Spawn Point 101 - Alterac Mountains (Outer Section)                                   |
+-- |  3101 |         1 | Spawn Point 102 - Alterac Mountains (Outer Section)                                   |
+-- |  3102 |         1 | Spawn Point 103 - Alterac Mountains (Outer Section)                                   |
+-- |  3103 |         1 | Spawn Point 104 - Alterac Mountains (Outer Section)                                   |
+-- |  3104 |         1 | Spawn Point 105 - Alterac Mountains (Outer Section)                                   |
+-- |  3105 |         1 | Spawn Point 106 - Alterac Mountains (Outer Section)                                   |
+-- |  3106 |         1 | Spawn Point 107 - Alterac Mountains (Outer Section)                                   |
+-- |  3107 |         1 | Spawn Point 108 - Alterac Mountains (Outer Section)                                   |
+-- |  3108 |         1 | Spawn Point 109 - Alterac Mountains (Outer Section)                                   |
+-- |  3109 |         1 | Spawn Point 110 - Alterac Mountains (Outer Section)                                   |
+-- |  3110 |         1 | Spawn Point 111 - Alterac Mountains (Outer Section)                                   |
+-- |  3111 |         1 | Spawn Point 112 - Alterac Mountains (Outer Section)                                   |
+-- |  3112 |         1 | Spawn Point 113 - Alterac Mountains (Outer Section)                                   |
+-- |  3113 |         1 | Spawn Point 114 - Alterac Mountains (Outer Section)                                   |
+-- |  3114 |         1 | Spawn Point 115 - Alterac Mountains (Outer Section)                                   |
+-- |  3115 |         1 | Spawn Point 116 - Alterac Mountains (Outer Section)                                   |
+-- |  3116 |         1 | Spawn Point 117 - Alterac Mountains (Outer Section)                                   |
+-- |  3117 |         1 | Spawn Point 118 - Alterac Mountains (Outer Section)                                   |
+-- |  3118 |         1 | Spawn Point 119 - Alterac Mountains (Outer Section)                                   |
+-- |  3119 |         1 | Spawn Point 120 - Alterac Mountains (Outer Section)                                   |
+-- |  3120 |         1 | Spawn Point 121 - Alterac Mountains (Outer Section)                                   |
+-- |  3121 |         1 | Spawn Point 122 - Alterac Mountains (Inner Section)                                   |
+-- |  3130 |         1 | Spawn Point 131 - Alterac Mountains (Inner Section)                                   |
+-- |  3131 |         1 | Spawn Point 132 - Alterac Mountains (Inner Section)                                   |
+-- |  3132 |         1 | Spawn Point 133 - Alterac Mountains (Inner Section)                                   |
+-- |  3200 |         1 | Spawn Point 1 - Arathi Highlands                                                      |
+-- |  3201 |         1 | Spawn Point 2 - Arathi Highlands                                                      |
+-- |  3202 |         1 | Spawn Point 3 - Arathi Highlands                                                      |
+-- |  3203 |         1 | Spawn Point 4 - Arathi Highlands                                                      |
+-- |  3204 |         1 | Spawn Point 5 - Arathi Highlands                                                      |
+-- |  3205 |         1 | Spawn Point 6 - Arathi Highlands                                                      |
+-- |  3206 |         1 | Spawn Point 7 - Arathi Highlands                                                      |
+-- |  3207 |         1 | Spawn Point 8 - Arathi Highlands                                                      |
+-- |  3208 |         1 | Spawn Point 9 - Arathi Highlands                                                      |
+-- |  3209 |         1 | Spawn Point 10 - Arathi Highlands                                                     |
+-- |  3211 |         1 | Spawn Point 12 - Arathi Highlands                                                     |
+-- |  3212 |         1 | Spawn Point 13 - Arathi Highlands                                                     |
+-- |  3213 |         1 | Spawn Point 14 - Arathi Highlands                                                     |
+-- |  3214 |         1 | Spawn Point 15 - Arathi Highlands                                                     |
+-- |  3215 |         1 | Spawn Point 16 - Arathi Highlands                                                     |
+-- |  3216 |         1 | Spawn Point 17 - Arathi Highlands                                                     |
+-- |  3217 |         1 | Spawn Point 18 - Arathi Highlands                                                     |
+-- |  3218 |         1 | Spawn Point 19 - Arathi Highlands                                                     |
+-- |  3219 |         1 | Spawn Point 20 - Arathi Highlands                                                     |
+-- |  3220 |         1 | Spawn Point 21 - Arathi Highlands                                                     |
+-- |  3221 |         1 | Spawn Point 22 - Arathi Highlands                                                     |
+-- |  3222 |         1 | Spawn Point 23 - Arathi Highlands                                                     |
+-- |  3223 |         1 | Spawn Point 24 - Arathi Highlands                                                     |
+-- |  3224 |         1 | Spawn Point 25 - Arathi Highlands                                                     |
+-- |  3225 |         1 | Spawn Point 26 - Arathi Highlands                                                     |
+-- |  3226 |         1 | Spawn Point 27 - Arathi Highlands                                                     |
+-- |  3227 |         1 | Spawn Point 28 - Arathi Highlands                                                     |
+-- |  3228 |         1 | Spawn Point 29 - Arathi Highlands                                                     |
+-- |  3229 |         1 | Spawn Point 30 - Arathi Highlands                                                     |
+-- |  3230 |         1 | Spawn Point 31 - Arathi Highlands                                                     |
+-- |  3231 |         1 | Spawn Point 32 - Arathi Highlands                                                     |
+-- |  3232 |         1 | Spawn Point 33 - Arathi Highlands                                                     |
+-- |  3233 |         1 | Spawn Point 34 - Arathi Highlands                                                     |
+-- |  3234 |         1 | Spawn Point 35 - Arathi Highlands                                                     |
+-- |  3235 |         1 | Spawn Point 36 - Arathi Highlands                                                     |
+-- |  3236 |         1 | Spawn Point 37 - Arathi Highlands                                                     |
+-- |  3237 |         1 | Spawn Point 38 - Arathi Highlands                                                     |
+-- |  3238 |         1 | Spawn Point 39 - Arathi Highlands                                                     |
+-- |  3239 |         1 | Spawn Point 40 - Arathi Highlands                                                     |
+-- |  3240 |         1 | Spawn Point 41 - Arathi Highlands                                                     |
+-- |  3241 |         1 | Spawn Point 42 - Arathi Highlands                                                     |
+-- |  3242 |         1 | Spawn Point 43 - Arathi Highlands                                                     |
+-- |  3243 |         1 | Spawn Point 44 - Arathi Highlands                                                     |
+-- |  3244 |         1 | Spawn Point 45 - Arathi Highlands                                                     |
+-- |  3245 |         1 | Spawn Point 46 - Arathi Highlands                                                     |
+-- |  3246 |         1 | Spawn Point 47 - Arathi Highlands                                                     |
+-- |  3247 |         1 | Spawn Point 48 - Arathi Highlands                                                     |
+-- |  3248 |         1 | Spawn Point 49 - Arathi Highlands                                                     |
+-- |  3249 |         1 | Spawn Point 50 - Arathi Highlands                                                     |
+-- |  3250 |         1 | Spawn Point 51 - Arathi Highlands                                                     |
+-- |  3251 |         1 | Spawn Point 52 - Arathi Highlands                                                     |
+-- |  3252 |         1 | Spawn Point 53 - Arathi Highlands                                                     |
+-- |  3253 |         1 | Spawn Point 54 - Arathi Highlands                                                     |
+-- |  3254 |         1 | Spawn Point 55 - Arathi Highlands                                                     |
+-- |  3255 |         1 | Spawn Point 56 - Arathi Highlands                                                     |
+-- |  3256 |         1 | Spawn Point 57 - Arathi Highlands                                                     |
+-- |  3257 |         1 | Spawn Point 58 - Arathi Highlands                                                     |
+-- |  3258 |         1 | Spawn Point 59 - Arathi Highlands                                                     |
+-- |  3259 |         1 | Spawn Point 60 - Arathi Highlands                                                     |
+-- |  3260 |         1 | Spawn Point 61 - Arathi Highlands                                                     |
+-- |  3261 |         1 | Spawn Point 62 - Arathi Highlands                                                     |
+-- |  3262 |         1 | Spawn Point 63 - Arathi Highlands                                                     |
+-- |  3263 |         1 | Spawn Point 64 - Arathi Highlands                                                     |
+-- |  3264 |         1 | Spawn Point 65 - Arathi Highlands                                                     |
+-- |  3265 |         1 | Spawn Point 66 - Arathi Highlands                                                     |
+-- |  3266 |         1 | Spawn Point 67 - Arathi Highlands                                                     |
+-- |  3267 |         1 | Spawn Point 68 - Arathi Highlands                                                     |
+-- |  3268 |         1 | Spawn Point 69 - Arathi Highlands                                                     |
+-- |  3269 |         1 | Spawn Point 70 - Arathi Highlands                                                     |
+-- |  3270 |         1 | Spawn Point 71 - Arathi Highlands                                                     |
+-- |  3271 |         1 | Spawn Point 72 - Arathi Highlands                                                     |
+-- |  3272 |         1 | Spawn Point 73 - Arathi Highlands                                                     |
+-- |  3273 |         1 | Spawn Point 74 - Arathi Highlands                                                     |
+-- |  3274 |         1 | Spawn Point 75 - Arathi Highlands                                                     |
+-- |  3275 |         1 | Spawn Point 76 - Arathi Highlands                                                     |
+-- |  3276 |         1 | Spawn Point 77 - Arathi Highlands                                                     |
+-- |  3277 |         1 | Spawn Point 78 - Arathi Highlands                                                     |
+-- |  3278 |         1 | Spawn Point 79 - Arathi Highlands                                                     |
+-- |  3279 |         1 | Spawn Point 80 - Arathi Highlands                                                     |
+-- |  3280 |         1 | Spawn Point 81 - Arathi Highlands                                                     |
+-- |  3281 |         1 | Spawn Point 82 - Arathi Highlands                                                     |
+-- |  3282 |         1 | Spawn Point 83 - Arathi Highlands                                                     |
+-- |  3283 |         1 | Spawn Point 84 - Arathi Highlands                                                     |
+-- |  3284 |         1 | Spawn Point 85 - Arathi Highlands                                                     |
+-- |  3285 |         1 | Spawn Point 86 - Arathi Highlands                                                     |
+-- |  3286 |         1 | Spawn Point 87 - Arathi Highlands                                                     |
+-- |  3287 |         1 | Spawn Point 88 - Arathi Highlands                                                     |
+-- |  3288 |         1 | Spawn Point 89 - Arathi Highlands                                                     |
+-- |  3289 |         1 | Spawn Point 90 - Arathi Highlands                                                     |
+-- |  3290 |         1 | Spawn Point 91 - Arathi Highlands                                                     |
+-- |  3291 |         1 | Spawn Point 92 - Arathi Highlands                                                     |
+-- |  3292 |         1 | Spawn Point 93 - Arathi Highlands                                                     |
+-- |  3293 |         1 | Spawn Point 94 - Arathi Highlands                                                     |
+-- |  3294 |         1 | Spawn Point 95 - Arathi Highlands                                                     |
+-- |  3295 |         1 | Spawn Point 96 - Arathi Highlands                                                     |
+-- |  3296 |         1 | Spawn Point 97 - Arathi Highlands                                                     |
+-- |  3297 |         1 | Spawn Point 98 - Arathi Highlands                                                     |
+-- |  3298 |         1 | Spawn Point 99 - Arathi Highlands                                                     |
+-- |  3299 |         1 | Spawn Point 100 - Arathi Highlands                                                    |
+-- |  3300 |         1 | Spawn Point 101 - Arathi Highlands                                                    |
+-- |  3301 |         1 | Spawn Point 102 - Arathi Highlands                                                    |
+-- |  3302 |         1 | Spawn Point 103 - Arathi Highlands                                                    |
+-- |  3303 |         1 | Spawn Point 104 - Arathi Highlands                                                    |
+-- |  3304 |         1 | Spawn Point 105 - Arathi Highlands                                                    |
+-- |  3305 |         1 | Spawn Point 106 - Arathi Highlands                                                    |
+-- |  3306 |         1 | Spawn Point 107 - Arathi Highlands                                                    |
+-- |  3307 |         1 | Spawn Point 108 - Arathi Highlands                                                    |
+-- |  3308 |         1 | Spawn Point 109 - Arathi Highlands                                                    |
+-- |  3309 |         1 | Spawn Point 110 - Arathi Highlands                                                    |
+-- |  3311 |         1 | Spawn Point 112 - Arathi Highlands                                                    |
+-- |  3312 |         1 | Spawn Point 113 - Arathi Highlands                                                    |
+-- |  3313 |         1 | Spawn Point 114 - Arathi Highlands                                                    |
+-- |  3314 |         1 | Spawn Point 115 - Arathi Highlands                                                    |
+-- |  3315 |         1 | Spawn Point 116 - Arathi Highlands                                                    |
+-- |  3316 |         1 | Spawn Point 117 - Arathi Highlands                                                    |
+-- |  3317 |         1 | Spawn Point 118 - Arathi Highlands                                                    |
+-- |  3318 |         1 | Spawn Point 119 - Arathi Highlands                                                    |
+-- |  3319 |         1 | Spawn Point 120 - Arathi Highlands                                                    |
+-- |  3320 |         1 | Spawn Point 121 - Arathi Highlands                                                    |
+-- |  3321 |         1 | Spawn Point 122 - Arathi Highlands                                                    |
+-- |  3322 |         1 | Spawn Point 123 - Arathi Highlands                                                    |
+-- |  3323 |         1 | Spawn Point 124 - Arathi Highlands                                                    |
+-- |  3324 |         1 | Spawn Point 125 - Arathi Highlands                                                    |
+-- |  3325 |         1 | Spawn Point 126 - Arathi Highlands                                                    |
+-- |  3326 |         1 | Spawn Point 127 - Arathi Highlands                                                    |
+-- |  3327 |         1 | Spawn Point 128 - Arathi Highlands                                                    |
+-- |  3328 |         1 | Spawn Point 129 - Arathi Highlands                                                    |
+-- |  3329 |         1 | Spawn Point 130 - Arathi Highlands                                                    |
+-- |  3330 |         1 | Spawn Point 131 - Arathi Highlands                                                    |
+-- |  3331 |         1 | Spawn Point 132 - Arathi Highlands                                                    |
+-- |  3332 |         1 | Spawn Point 133 - Arathi Highlands                                                    |
+-- |  3333 |         1 | Spawn Point 134 - Arathi Highlands                                                    |
+-- |  3334 |         1 | Spawn Point 135 - Arathi Highlands                                                    |
+-- |  3335 |         1 | Spawn Point 136 - Arathi Highlands                                                    |
+-- |  3336 |         1 | Spawn Point 137 - Arathi Highlands                                                    |
+-- |  3337 |         1 | Spawn Point 138 - Arathi Highlands                                                    |
+-- |  3338 |         1 | Spawn Point 139 - Arathi Highlands                                                    |
+-- |  3339 |         1 | Spawn Point 140 - Arathi Highlands                                                    |
+-- |  3340 |         1 | Spawn Point 141 - Arathi Highlands                                                    |
+-- |  3341 |         1 | Spawn Point 142 - Arathi Highlands                                                    |
+-- |  3342 |         1 | Spawn Point 143 - Arathi Highlands                                                    |
+-- |  3343 |         1 | Spawn Point 144 - Arathi Highlands                                                    |
+-- |  3344 |         1 | Spawn Point 145 - Arathi Highlands                                                    |
+-- |  3345 |         1 | Spawn Point 146 - Arathi Highlands                                                    |
+-- |  3346 |         1 | Spawn Point 147 - Arathi Highlands                                                    |
+-- |  3347 |         1 | Spawn Point 148 - Arathi Highlands                                                    |
+-- |  3348 |         1 | Spawn Point 149 - Arathi Highlands                                                    |
+-- |  3349 |         1 | Spawn Point 150 - Arathi Highlands                                                    |
+-- |  3350 |         1 | Spawn Point 151 - Arathi Highlands                                                    |
+-- |  3351 |         1 | Spawn Point 152 - Arathi Highlands                                                    |
+-- |  3352 |         1 | Spawn Point 153 - Arathi Highlands                                                    |
+-- |  3353 |         1 | Spawn Point 154 - Arathi Highlands                                                    |
+-- |  3354 |         1 | Spawn Point 155 - Arathi Highlands                                                    |
+-- |  3355 |         1 | Spawn Point 156 - Arathi Highlands                                                    |
+-- |  3356 |         1 | Spawn Point 157 - Arathi Highlands                                                    |
+-- |  3357 |         1 | Spawn Point 158 - Arathi Highlands                                                    |
+-- |  3358 |         1 | Spawn Point 159 - Arathi Highlands                                                    |
+-- |  3359 |         1 | Spawn Point 160 - Arathi Highlands                                                    |
+-- |  3360 |         1 | Spawn Point 161 - Arathi Highlands                                                    |
+-- |  3361 |         1 | Spawn Point 162 - Arathi Highlands                                                    |
+-- |  3362 |         1 | Spawn Point 163 - Arathi Highlands                                                    |
+-- |  3363 |         1 | Spawn Point 164 - Arathi Highlands                                                    |
+-- |  3364 |         1 | Spawn Point 165 - Arathi Highlands                                                    |
+-- |  3365 |         1 | Spawn Point 166 - Arathi Highlands                                                    |
+-- |  3366 |         1 | Spawn Point 167 - Arathi Highlands                                                    |
+-- |  3367 |         1 | Spawn Point 168 - Arathi Highlands                                                    |
+-- |  3368 |         1 | Spawn Point 169 - Arathi Highlands                                                    |
+-- |  3369 |         1 | Spawn Point 170 - Arathi Highlands                                                    |
+-- |  3370 |         1 | Spawn Point 171 - Arathi Highlands                                                    |
+-- |  3371 |         1 | Spawn Point 172 - Arathi Highlands                                                    |
+-- |  3372 |         1 | Spawn Point 173 - Arathi Highlands                                                    |
+-- |  3373 |         1 | Spawn Point 174 - Arathi Highlands                                                    |
+-- |  3374 |         1 | Spawn Point 175 - Arathi Highlands                                                    |
+-- |  3375 |         1 | Spawn Point 176 - Arathi Highlands                                                    |
+-- |  3376 |         1 | Spawn Point 177 - Arathi Highlands                                                    |
+-- |  3377 |         1 | Spawn Point 178 - Arathi Highlands                                                    |
+-- |  3378 |         1 | Spawn Point 179 - Arathi Highlands                                                    |
+-- |  3379 |         1 | Spawn Point 180 - Arathi Highlands                                                    |
+-- |  3380 |         1 | Spawn Point 181 - Arathi Highlands                                                    |
+-- |  3381 |         1 | Spawn Point 182 - Arathi Highlands                                                    |
+-- |  3382 |         1 | Spawn Point 183 - Arathi Highlands                                                    |
+-- |  3383 |         1 | Spawn Point 184 - Arathi Highlands                                                    |
+-- |  3384 |         1 | Spawn Point 185 - Arathi Highlands                                                    |
+-- |  3385 |         1 | Spawn Point 186 - Arathi Highlands                                                    |
+-- |  3386 |         1 | Spawn Point 187 - Arathi Highlands                                                    |
+-- |  3387 |         1 | Spawn Point 188 - Arathi Highlands                                                    |
+-- |  3388 |         1 | Spawn Point 189 - Arathi Highlands                                                    |
+-- |  3389 |         1 | Spawn Point 190 - Arathi Highlands                                                    |
+-- |  3390 |         1 | Spawn Point 191 - Arathi Highlands                                                    |
+-- |  3391 |         1 | Spawn Point 192 - Arathi Highlands                                                    |
+-- |  3392 |         1 | Spawn Point 193 - Arathi Highlands                                                    |
+-- |  3393 |         1 | Spawn Point 194 - Arathi Highlands                                                    |
+-- |  3394 |         1 | Spawn Point 195 - Arathi Highlands                                                    |
+-- |  3395 |         1 | Spawn Point 196 - Arathi Highlands                                                    |
+-- |  3396 |         1 | Spawn Point 197 - Arathi Highlands                                                    |
+-- |  3397 |         1 | Spawn Point 198 - Arathi Highlands                                                    |
+-- |  3398 |         1 | Spawn Point 199 - Arathi Highlands                                                    |
+-- |  3399 |         1 | Spawn Point 200 - Arathi Highlands                                                    |
+-- |  3400 |         1 | Spawn Point 201 - Arathi Highlands                                                    |
+-- |  3401 |         1 | Spawn Point 202 - Arathi Highlands                                                    |
+-- |  3402 |         1 | Spawn Point 203 - Arathi Highlands                                                    |
+-- |  3403 |         1 | Spawn Point 204 - Arathi Highlands                                                    |
+-- |  3404 |         1 | Spawn Point 205 - Arathi Highlands                                                    |
+-- |  3405 |         1 | Spawn Point 206 - Arathi Highlands                                                    |
+-- |  3406 |         1 | Spawn Point 207 - Arathi Highlands                                                    |
+-- |  3407 |         1 | Spawn Point 208 - Arathi Highlands                                                    |
+-- |  3408 |         1 | Spawn Point 209 - Arathi Highlands                                                    |
+-- |  3409 |         1 | Spawn Point 210 - Arathi Highlands                                                    |
+-- |  3411 |         1 | Spawn Point 212 - Arathi Highlands                                                    |
+-- |  3412 |         1 | Spawn Point 213 - Arathi Highlands                                                    |
+-- |  3414 |         1 | Spawn Point 215 - Arathi Highlands                                                    |
+-- |  3415 |         1 | Spawn Point 216 - Arathi Highlands                                                    |
+-- |  3416 |         1 | Spawn Point 217 - Arathi Highlands                                                    |
+-- |  3417 |         1 | Spawn Point 218 - Arathi Highlands                                                    |
+-- |  3419 |         1 | Spawn Point 220 - Arathi Highlands                                                    |
+-- |  3420 |         1 | Spawn Point 221 - Arathi Highlands                                                    |
+-- |  3421 |         1 | Spawn Point 222 - Arathi Highlands                                                    |
+-- |  3422 |         1 | Spawn Point 223 - Arathi Highlands                                                    |
+-- |  3423 |         1 | Spawn Point 224 - Arathi Highlands                                                    |
+-- |  3424 |         1 | Spawn Point 225 - Arathi Highlands                                                    |
+-- |  3425 |         1 | Spawn Point 226 - Arathi Highlands                                                    |
+-- |  3426 |         1 | Spawn Point 227 - Arathi Highlands                                                    |
+-- |  3427 |         1 | Spawn Point 228 - Arathi Highlands                                                    |
+-- |  3428 |         1 | Spawn Point 229 - Arathi Highlands                                                    |
+-- |  3429 |         1 | Spawn Point 230 - Arathi Highlands                                                    |
+-- |  3430 |         1 | Spawn Point 231 - Arathi Highlands                                                    |
+-- |  3431 |         1 | Spawn Point 232 - Arathi Highlands                                                    |
+-- |  3432 |         1 | Spawn Point 233 - Arathi Highlands                                                    |
+-- |  3433 |         1 | Spawn Point 234 - Arathi Highlands                                                    |
+-- |  3434 |         1 | Spawn Point 235 - Arathi Highlands                                                    |
+-- |  3435 |         1 | Spawn Point 236 - Arathi Highlands                                                    |
+-- |  3436 |         1 | Spawn Point 237 - Arathi Highlands                                                    |
+-- |  3437 |         1 | Spawn Point 238 - Arathi Highlands                                                    |
+-- |  3438 |         1 | Spawn Point 239 - Arathi Highlands                                                    |
+-- |  3439 |         1 | Spawn Point 240 - Arathi Highlands                                                    |
+-- |  3440 |         1 | Spawn Point 241 - Arathi Highlands                                                    |
+-- |  3441 |         1 | Spawn Point 242 - Arathi Highlands                                                    |
+-- |  3442 |         1 | Spawn Point 243 - Arathi Highlands                                                    |
+-- |  3443 |         1 | Spawn Point 244 - Arathi Highlands                                                    |
+-- |  3445 |         1 | Spawn Point 246 - Arathi Highlands                                                    |
+-- |  3446 |         1 | Spawn Point 247 - Arathi Highlands                                                    |
+-- |  3447 |         1 | Spawn Point 248 - Arathi Highlands                                                    |
+-- |  3448 |         1 | Spawn Point 249 - Arathi Highlands                                                    |
+-- |  3449 |         1 | Spawn Point 250 - Arathi Highlands                                                    |
+-- |  3450 |         1 | Spawn Point 251 - Arathi Highlands                                                    |
+-- |  3451 |         1 | Spawn Point 252 - Arathi Highlands                                                    |
+-- |  3452 |         1 | Spawn Point 253 - Arathi Highlands                                                    |
+-- |  3453 |         1 | Spawn Point 254 - Arathi Highlands                                                    |
+-- |  3454 |         1 | Spawn Point 255 - Arathi Highlands                                                    |
+-- |  3455 |         1 | Spawn Point 256 - Arathi Highlands                                                    |
+-- |  3456 |         1 | Spawn Point 257 - Arathi Highlands                                                    |
+-- |  3457 |         1 | Spawn Point 258 - Arathi Highlands                                                    |
+-- |  3458 |         1 | Spawn Point 259 - Arathi Highlands                                                    |
+-- |  3459 |         1 | Spawn Point 260 - Arathi Highlands                                                    |
+-- |  3460 |         1 | Spawn Point 261 - Arathi Highlands                                                    |
+-- |  3461 |         1 | Spawn Point 262 - Arathi Highlands                                                    |
+-- |  3462 |         1 | Spawn Point 263 - Arathi Highlands                                                    |
+-- |  3464 |         1 | Spawn Point 265 - Arathi Highlands                                                    |
+-- |  3465 |         1 | Spawn Point 266 - Arathi Highlands                                                    |
+-- |  3466 |         1 | Spawn Point 267 - Arathi Highlands                                                    |
+-- |  3467 |         1 | Spawn Point 268 - Arathi Highlands                                                    |
+-- |  3468 |         1 | Spawn Point 269 - Arathi Highlands                                                    |
+-- |  3469 |         1 | Spawn Point 270 - Arathi Highlands                                                    |
+-- |  3470 |         1 | Spawn Point 271 - Arathi Highlands                                                    |
+-- |  3471 |         1 | Spawn Point 272 - Arathi Highlands                                                    |
+-- |  3472 |         1 | Spawn Point 273 - Arathi Highlands                                                    |
+-- |  3473 |         1 | Spawn Point 274 - Arathi Highlands                                                    |
+-- |  3474 |         1 | Spawn Point 275 - Arathi Highlands                                                    |
+-- |  3475 |         1 | Spawn Point 276 - Arathi Highlands                                                    |
+-- |  3476 |         1 | Spawn Point 277 - Arathi Highlands                                                    |
+-- |  3478 |         1 | Spawn Point 279 - Arathi Highlands                                                    |
+-- |  3480 |         1 | Spawn Point 281 - Arathi Highlands                                                    |
+-- |  3482 |         1 | Spawn Point 283 - Arathi Highlands                                                    |
+-- |  3483 |         1 | Spawn Point 284 - Arathi Highlands                                                    |
+-- |  3484 |         1 | Spawn Point 285 - Arathi Highlands                                                    |
+-- |  3485 |         1 | Spawn Point 286 - Arathi Highlands                                                    |
+-- |  3486 |         1 | Spawn Point 287 - Arathi Highlands                                                    |
+-- |  3487 |         1 | Spawn Point 288 - Arathi Highlands                                                    |
+-- |  3488 |         1 | Spawn Point 289 - Arathi Highlands                                                    |
+-- |  3489 |         1 | Spawn Point 290 - Arathi Highlands                                                    |
+-- |  3490 |         1 | Spawn Point 291 - Arathi Highlands                                                    |
+-- |  3492 |         1 | Spawn Point 293 - Arathi Highlands                                                    |
+-- |  3493 |         1 | Spawn Point 294 - Arathi Highlands                                                    |
+-- |  3494 |         1 | Spawn Point 295 - Arathi Highlands                                                    |
+-- |  3495 |         1 | Spawn Point 296 - Arathi Highlands                                                    |
+-- |  3496 |         1 | Spawn Point 297 - Arathi Highlands                                                    |
+-- |  3497 |         1 | Spawn Point 298 - Arathi Highlands                                                    |
+-- |  3498 |         1 | Spawn Point 299 - Arathi Highlands                                                    |
+-- |  3499 |         1 | Spawn Point 300 - Arathi Highlands                                                    |
+-- |  3500 |         1 | Spawn Point 301 - Arathi Highlands                                                    |
+-- |  3501 |         1 | Spawn Point 302 - Arathi Highlands                                                    |
+-- |  3502 |         1 | Spawn Point 303 - Arathi Highlands                                                    |
+-- |  3503 |         1 | Spawn Point 304 - Arathi Highlands                                                    |
+-- |  3504 |         1 | Spawn Point 305 - Arathi Highlands                                                    |
+-- |  3505 |         1 | Spawn Point 306 - Arathi Highlands                                                    |
+-- |  3506 |         1 | Spawn Point 307 - Arathi Highlands                                                    |
+-- |  3507 |         1 | Spawn Point 308 - Arathi Highlands                                                    |
+-- |  3508 |         1 | Spawn Point 309 - Arathi Highlands                                                    |
+-- |  3509 |         1 | Spawn Point 310 - Arathi Highlands                                                    |
+-- |  3510 |         1 | Spawn Point 311 - Arathi Highlands                                                    |
+-- |  3511 |         1 | Spawn Point 312 - Arathi Highlands                                                    |
+-- |  3512 |         1 | Spawn Point 313 - Arathi Highlands                                                    |
+-- |  3513 |         1 | Spawn Point 314 - Arathi Highlands                                                    |
+-- |  3514 |         1 | Spawn Point 315 - Arathi Highlands                                                    |
+-- |  3515 |         1 | Spawn Point 316 - Arathi Highlands                                                    |
+-- |  3516 |         1 | Spawn Point 317- Arathi Highlands                                                     |
+-- |  3517 |         1 | Spawn Point 318 - Arathi Highlands                                                    |
+-- |  3518 |         1 | Spawn Point 319 - Arathi Highlands                                                    |
+-- |  3519 |         1 | Spawn Point 320 - Arathi Highlands                                                    |
+-- |  3520 |         1 | Spawn Point 321 - Arathi Highlands                                                    |
+-- |  3521 |         1 | Spawn Point 322 - Arathi Highlands                                                    |
+-- |  3522 |         1 | Spawn Point 323 - Arathi Highlands                                                    |
+-- |  3600 |         1 | Spawn Point 1 - Badlands                                                              |
+-- |  3601 |         1 | Spawn Point 2 - Badlands                                                              |
+-- |  3602 |         1 | Spawn Point 3 - Badlands                                                              |
+-- |  3603 |         1 | Spawn Point 4 - Badlands                                                              |
+-- |  3604 |         1 | Spawn Point 5 - Badlands                                                              |
+-- |  3605 |         1 | Spawn Point 6 - Badlands                                                              |
+-- |  3606 |         1 | Spawn Point 7 - Badlands                                                              |
+-- |  3607 |         1 | Spawn Point 8 - Badlands                                                              |
+-- |  3608 |         1 | Spawn Point 9 - Badlands                                                              |
+-- |  3610 |         1 | Spawn Point 11 - Badlands                                                             |
+-- |  3611 |         1 | Spawn Point 12 - Badlands                                                             |
+-- |  3612 |         1 | Spawn Point 13 - Badlands                                                             |
+-- |  3613 |         1 | Spawn Point 14 - Badlands                                                             |
+-- |  3614 |         1 | Spawn Point 15 - Badlands                                                             |
+-- |  3615 |         1 | Spawn Point 16 - Badlands                                                             |
+-- |  3616 |         1 | Spawn Point 17 - Badlands                                                             |
+-- |  3617 |         1 | Spawn Point 18 - Badlands                                                             |
+-- |  3618 |         1 | Spawn Point 19 - Badlands                                                             |
+-- |  3619 |         1 | Spawn Point 20 - Badlands                                                             |
+-- |  3620 |         1 | Spawn Point 21 - Badlands                                                             |
+-- |  3621 |         1 | Spawn Point 22 - Badlands                                                             |
+-- |  3622 |         1 | Spawn Point 23 - Badlands                                                             |
+-- |  3623 |         1 | Spawn Point 24 - Badlands                                                             |
+-- |  3624 |         1 | Spawn Point 25 - Badlands                                                             |
+-- |  3625 |         1 | Spawn Point 26 - Badlands                                                             |
+-- |  3626 |         1 | Spawn Point 27 - Badlands                                                             |
+-- |  3627 |         1 | Spawn Point 28 - Badlands                                                             |
+-- |  3628 |         1 | Spawn Point 29 - Badlands                                                             |
+-- |  3629 |         1 | Spawn Point 30 - Badlands                                                             |
+-- |  3630 |         1 | Spawn Point 31 - Badlands                                                             |
+-- |  3631 |         1 | Spawn Point 32 - Badlands                                                             |
+-- |  3632 |         1 | Spawn Point 33 - Badlands                                                             |
+-- |  3633 |         1 | Spawn Point 34 - Badlands                                                             |
+-- |  3634 |         1 | Spawn Point 35 - Badlands                                                             |
+-- |  3635 |         1 | Spawn Point 36 - Badlands                                                             |
+-- |  3636 |         1 | Spawn Point 37 - Badlands                                                             |
+-- |  3637 |         1 | Spawn Point 38 - Badlands                                                             |
+-- |  3638 |         1 | Spawn Point 39 - Badlands                                                             |
+-- |  3639 |         1 | Spawn Point 40 - Badlands                                                             |
+-- |  3640 |         1 | Spawn Point 41 - Badlands                                                             |
+-- |  3641 |         1 | Spawn Point 42 - Badlands                                                             |
+-- |  3642 |         1 | Spawn Point 43 - Badlands                                                             |
+-- |  3643 |         1 | Spawn Point 44 - Badlands                                                             |
+-- |  3644 |         1 | Spawn Point 45 - Badlands                                                             |
+-- |  3645 |         1 | Spawn Point 46 - Badlands                                                             |
+-- |  3646 |         1 | Spawn Point 47 - Badlands                                                             |
+-- |  3647 |         1 | Spawn Point 48 - Badlands                                                             |
+-- |  3648 |         1 | Spawn Point 49 - Badlands                                                             |
+-- |  3649 |         1 | Spawn Point 50 - Badlands                                                             |
+-- |  3650 |         1 | Spawn Point 51 - Badlands                                                             |
+-- |  3651 |         1 | Spawn Point 52 - Badlands                                                             |
+-- |  3652 |         1 | Spawn Point 53 - Badlands                                                             |
+-- |  3653 |         1 | Spawn Point 54 - Badlands                                                             |
+-- |  3654 |         1 | Spawn Point 55 - Badlands                                                             |
+-- |  3655 |         1 | Spawn Point 56 - Badlands                                                             |
+-- |  3656 |         1 | Spawn Point 57 - Badlands                                                             |
+-- |  3657 |         1 | Spawn Point 58 - Badlands                                                             |
+-- |  3658 |         1 | Spawn Point 59 - Badlands                                                             |
+-- |  3659 |         1 | Spawn Point 60 - Badlands                                                             |
+-- |  3660 |         1 | Spawn Point 61 - Badlands                                                             |
+-- |  3661 |         1 | Spawn Point 62 - Badlands                                                             |
+-- |  3662 |         1 | Spawn Point 63 - Badlands                                                             |
+-- |  3663 |         1 | Spawn Point 64 - Badlands                                                             |
+-- |  3664 |         1 | Spawn Point 65 - Badlands                                                             |
+-- |  3665 |         1 | Spawn Point 66 - Badlands                                                             |
+-- |  3666 |         1 | Spawn Point 67 - Badlands                                                             |
+-- |  3667 |         1 | Spawn Point 68 - Badlands                                                             |
+-- |  3668 |         1 | Spawn Point 69 - Badlands                                                             |
+-- |  3669 |         1 | Spawn Point 70 - Badlands                                                             |
+-- |  3670 |         1 | Spawn Point 71 - Badlands                                                             |
+-- |  3671 |         1 | Spawn Point 72 - Badlands                                                             |
+-- |  3672 |         1 | Spawn Point 73 - Badlands                                                             |
+-- |  3673 |         1 | Spawn Point 74 - Badlands                                                             |
+-- |  3674 |         1 | Spawn Point 75 - Badlands                                                             |
+-- |  3675 |         1 | Spawn Point 76 - Badlands                                                             |
+-- |  3676 |         1 | Spawn Point 77 - Badlands                                                             |
+-- |  3677 |         1 | Spawn Point 78 - Badlands                                                             |
+-- |  3678 |         1 | Spawn Point 79 - Badlands                                                             |
+-- |  3679 |         1 | Spawn Point 80 - Badlands                                                             |
+-- |  3680 |         1 | Spawn Point 81 - Badlands                                                             |
+-- |  3681 |         1 | Spawn Point 82 - Badlands                                                             |
+-- |  3682 |         1 | Spawn Point 83 - Badlands                                                             |
+-- |  3683 |         1 | Spawn Point 84 - Badlands                                                             |
+-- |  3684 |         1 | Spawn Point 85 - Badlands                                                             |
+-- |  3685 |         1 | Spawn Point 86 - Badlands                                                             |
+-- |  3686 |         1 | Spawn Point 87 - Badlands                                                             |
+-- |  3687 |         1 | Spawn Point 88 - Badlands                                                             |
+-- |  3688 |         1 | Spawn Point 89 - Badlands                                                             |
+-- |  3689 |         1 | Spawn Point 90 - Badlands                                                             |
+-- |  3690 |         1 | Spawn Point 91 - Badlands                                                             |
+-- |  3691 |         1 | Spawn Point 92 - Badlands                                                             |
+-- |  3692 |         1 | Spawn Point 93 - Badlands                                                             |
+-- |  3693 |         1 | Spawn Point 94 - Badlands                                                             |
+-- |  3694 |         1 | Spawn Point 95 - Badlands                                                             |
+-- |  3695 |         1 | Spawn Point 96 - Badlands                                                             |
+-- |  3696 |         1 | Spawn Point 97 - Badlands                                                             |
+-- |  3697 |         1 | Spawn Point 98 - Badlands                                                             |
+-- |  3698 |         1 | Spawn Point 99 - Badlands                                                             |
+-- |  3699 |         1 | Spawn Point 100 - Badlands                                                            |
+-- |  3700 |         1 | Spawn Point 101 - Badlands                                                            |
+-- |  3701 |         1 | Spawn Point 102 - Badlands                                                            |
+-- |  3702 |         1 | Spawn Point 103 - Badlands                                                            |
+-- |  3703 |         1 | Spawn Point 104 - Badlands                                                            |
+-- |  3704 |         1 | Spawn Point 105 - Badlands                                                            |
+-- |  3705 |         1 | Spawn Point 106 - Badlands                                                            |
+-- |  3706 |         1 | Spawn Point 107 - Badlands                                                            |
+-- |  3707 |         1 | Spawn Point 108 - Badlands                                                            |
+-- |  3708 |         1 | Spawn Point 109 - Badlands                                                            |
+-- |  3709 |         1 | Spawn Point 110 - Badlands                                                            |
+-- |  3710 |         1 | Spawn Point 111 - Badlands                                                            |
+-- |  3711 |         1 | Spawn Point 112 - Badlands                                                            |
+-- |  3712 |         1 | Spawn Point 113 - Badlands                                                            |
+-- |  3713 |         1 | Spawn Point 114 - Badlands                                                            |
+-- |  3714 |         1 | Spawn Point 115 - Badlands                                                            |
+-- |  3715 |         1 | Spawn Point 116 - Badlands                                                            |
+-- |  3716 |         1 | Spawn Point 117 - Badlands                                                            |
+-- |  3717 |         1 | Spawn Point 118 - Badlands                                                            |
+-- |  3718 |         1 | Spawn Point 119 - Badlands                                                            |
+-- |  3719 |         1 | Spawn Point 120 - Badlands                                                            |
+-- |  3720 |         1 | Spawn Point 121 - Badlands                                                            |
+-- |  3721 |         1 | Spawn Point 122 - Badlands                                                            |
+-- |  3722 |         1 | Spawn Point 123 - Badlands                                                            |
+-- |  3723 |         1 | Spawn Point 124 - Badlands                                                            |
+-- |  3724 |         1 | Spawn Point 125 - Badlands                                                            |
+-- |  3725 |         1 | Spawn Point 126 - Badlands                                                            |
+-- |  3726 |         1 | Spawn Point 127 - Badlands                                                            |
+-- |  3727 |         1 | Spawn Point 128 - Badlands                                                            |
+-- |  3728 |         1 | Spawn Point 129 - Badlands                                                            |
+-- |  3729 |         1 | Spawn Point 130 - Badlands                                                            |
+-- |  3730 |         1 | Spawn Point 131 - Badlands                                                            |
+-- |  3731 |         1 | Spawn Point 132 - Badlands                                                            |
+-- |  3732 |         1 | Spawn Point 133 - Badlands                                                            |
+-- |  3733 |         1 | Spawn Point 134 - Badlands                                                            |
+-- |  3734 |         1 | Spawn Point 135 - Badlands                                                            |
+-- |  3735 |         1 | Spawn Point 136 - Badlands                                                            |
+-- |  3736 |         1 | Spawn Point 137 - Badlands                                                            |
+-- |  3737 |         1 | Spawn Point 138 - Badlands                                                            |
+-- |  3738 |         1 | Spawn Point 139 - Badlands                                                            |
+-- |  3739 |         1 | Spawn Point 140 - Badlands                                                            |
+-- |  3740 |         1 | Spawn Point 141 - Badlands                                                            |
+-- |  3741 |         1 | Spawn Point 142 - Badlands                                                            |
+-- |  3742 |         1 | Spawn Point 143 - Badlands                                                            |
+-- |  3743 |         1 | Spawn Point 144 - Badlands                                                            |
+-- |  3744 |         1 | Spawn Point 145 - Badlands                                                            |
+-- |  3745 |         1 | Spawn Point 146 - Badlands                                                            |
+-- |  3746 |         1 | Spawn Point 147 - Badlands                                                            |
+-- |  3747 |         1 | Spawn Point 148 - Badlands                                                            |
+-- |  3748 |         1 | Spawn Point 149 - Badlands                                                            |
+-- |  3749 |         1 | Spawn Point 150 - Badlands                                                            |
+-- |  3750 |         1 | Spawn Point 151 - Badlands                                                            |
+-- |  3751 |         1 | Spawn Point 152 - Badlands                                                            |
+-- |  3752 |         1 | Spawn Point 153 - Badlands                                                            |
+-- |  3753 |         1 | Spawn Point 154 - Badlands                                                            |
+-- |  3754 |         1 | Spawn Point 155 - Badlands                                                            |
+-- |  3755 |         1 | Spawn Point 156 - Badlands                                                            |
+-- |  3756 |         1 | Spawn Point 157 - Badlands                                                            |
+-- |  3900 |         1 | Spawn Point 1 - Blasted Lands                                                         |
+-- |  3901 |         1 | Spawn Point 2 - Blasted Lands                                                         |
+-- |  3902 |         1 | Spawn Point 3 - Blasted Lands                                                         |
+-- |  3903 |         1 | Spawn Point 4 - Blasted Lands                                                         |
+-- |  3904 |         1 | Spawn Point 5 - Blasted Lands                                                         |
+-- |  3905 |         1 | Spawn Point 6 - Blasted Lands                                                         |
+-- |  3906 |         1 | Spawn Point 7 - Blasted Lands                                                         |
+-- |  3907 |         1 | Spawn Point 8 - Blasted Lands                                                         |
+-- |  3908 |         1 | Spawn Point 9 - Blasted Lands                                                         |
+-- |  3909 |         1 | Spawn Point 10 - Blasted Lands                                                        |
+-- |  3910 |         1 | Spawn Point 11 - Blasted Lands                                                        |
+-- |  3911 |         1 | Spawn Point 12 - Blasted Lands                                                        |
+-- |  3912 |         1 | Spawn Point 13 - Blasted Lands                                                        |
+-- |  3913 |         1 | Spawn Point 14 - Blasted Lands                                                        |
+-- |  3914 |         1 | Spawn Point 15 - Blasted Lands                                                        |
+-- |  3915 |         1 | Spawn Point 16 - Blasted Lands                                                        |
+-- |  3916 |         1 | Spawn Point 17 - Blasted Lands                                                        |
+-- |  3917 |         1 | Spawn Point 18 - Blasted Lands                                                        |
+-- |  3918 |         1 | Spawn Point 19 - Blasted Lands                                                        |
+-- |  3919 |         1 | Spawn Point 20 - Blasted Lands                                                        |
+-- |  3920 |         1 | Spawn Point 21 - Blasted Lands                                                        |
+-- |  3921 |         1 | Spawn Point 22 - Blasted Lands                                                        |
+-- |  3922 |         1 | Spawn Point 23 - Blasted Lands                                                        |
+-- |  3923 |         1 | Spawn Point 24 - Blasted Lands                                                        |
+-- |  3924 |         1 | Spawn Point 25 - Blasted Lands                                                        |
+-- |  3925 |         1 | Spawn Point 26 - Blasted Lands                                                        |
+-- |  3926 |         1 | Spawn Point 27 - Blasted Lands                                                        |
+-- |  3927 |         1 | Spawn Point 28 - Blasted Lands                                                        |
+-- |  3928 |         1 | Spawn Point 29 - Blasted Lands                                                        |
+-- |  3929 |         1 | Spawn Point 30 - Blasted Lands                                                        |
+-- |  3930 |         1 | Spawn Point 31 - Blasted Lands                                                        |
+-- |  3931 |         1 | Spawn Point 32 - Blasted Lands                                                        |
+-- |  3932 |         1 | Spawn Point 33 - Blasted Lands                                                        |
+-- |  3933 |         1 | Spawn Point 34 - Blasted Lands                                                        |
+-- |  3934 |         1 | Spawn Point 35 - Blasted Lands                                                        |
+-- |  3935 |         1 | Spawn Point 36 - Blasted Lands                                                        |
+-- |  3936 |         1 | Spawn Point 37 - Blasted Lands                                                        |
+-- |  3937 |         1 | Spawn Point 38 - Blasted Lands                                                        |
+-- |  3938 |         1 | Spawn Point 39 - Blasted Lands                                                        |
+-- |  3939 |         1 | Spawn Point 40 - Blasted Lands                                                        |
+-- |  3940 |         1 | Spawn Point 41 - Blasted Lands                                                        |
+-- |  3941 |         1 | Spawn Point 42 - Blasted Lands                                                        |
+-- |  3942 |         1 | Spawn Point 43 - Blasted Lands                                                        |
+-- |  3943 |         1 | Spawn Point 44 - Blasted Lands                                                        |
+-- |  3944 |         1 | Spawn Point 45 - Blasted Lands                                                        |
+-- |  3945 |         1 | Spawn Point 46 - Blasted Lands                                                        |
+-- |  3946 |         1 | Spawn Point 47 - Blasted Lands                                                        |
+-- |  3947 |         1 | Spawn Point 48 - Blasted Lands                                                        |
+-- |  3948 |         1 | Spawn Point 49 - Blasted Lands                                                        |
+-- |  3949 |         1 | Spawn Point 50 - Blasted Lands                                                        |
+-- |  3950 |         1 | Spawn Point 51 - Blasted Lands                                                        |
+-- |  3951 |         1 | Spawn Point 52 - Blasted Lands                                                        |
+-- |  3952 |         1 | Spawn Point 53 - Blasted Lands                                                        |
+-- |  3953 |         1 | Spawn Point 54 - Blasted Lands                                                        |
+-- |  3954 |         1 | Spawn Point 55 - Blasted Lands                                                        |
+-- |  3955 |         1 | Spawn Point 56 - Blasted Lands                                                        |
+-- |  3956 |         1 | Spawn Point 57 - Blasted Lands                                                        |
+-- |  3957 |         1 | Spawn Point 58 - Blasted Lands                                                        |
+-- |  3958 |         1 | Spawn Point 59 - Blasted Lands                                                        |
+-- |  3959 |         1 | Spawn Point 60 - Blasted Lands                                                        |
+-- |  3960 |         1 | Spawn Point 61 - Blasted Lands                                                        |
+-- |  3961 |         1 | Spawn Point 62 - Blasted Lands                                                        |
+-- |  3962 |         1 | Spawn Point 63 - Blasted Lands                                                        |
+-- |  3963 |         1 | Spawn Point 64 - Blasted Lands                                                        |
+-- |  3964 |         1 | Spawn Point 65 - Blasted Lands                                                        |
+-- |  3965 |         1 | Spawn Point 66 - Blasted Lands                                                        |
+-- |  3966 |         1 | Spawn Point 67 - Blasted Lands                                                        |
+-- |  3967 |         1 | Spawn Point 68 - Blasted Lands                                                        |
+-- |  3968 |         1 | Spawn Point 69 - Blasted Lands                                                        |
+-- |  3969 |         1 | Spawn Point 70 - Blasted Lands                                                        |
+-- |  3970 |         1 | Spawn Point 71 - Blasted Lands                                                        |
+-- |  3971 |         1 | Spawn Point 72 - Blasted Lands                                                        |
+-- |  3972 |         1 | Spawn Point 73 - Blasted Lands                                                        |
+-- |  3973 |         1 | Spawn Point 74 - Blasted Lands                                                        |
+-- |  3974 |         1 | Spawn Point 75 - Blasted Lands                                                        |
+-- |  3975 |         1 | Spawn Point 76 - Blasted Lands                                                        |
+-- |  3976 |         1 | Spawn Point 77 - Blasted Lands                                                        |
+-- |  3977 |         1 | Spawn Point 78 - Blasted Lands                                                        |
+-- |  3978 |         1 | Spawn Point 79 - Blasted Lands                                                        |
+-- |  3979 |         1 | Spawn Point 80 - Blasted Lands                                                        |
+-- |  3980 |         1 | Spawn Point 81 - Blasted Lands                                                        |
+-- |  3981 |         1 | Spawn Point 82 - Blasted Lands                                                        |
+-- |  3982 |         1 | Spawn Point 83 - Blasted Lands                                                        |
+-- |  3983 |         1 | Spawn Point 84 - Blasted Lands                                                        |
+-- |  3984 |         1 | Spawn Point 85 - Blasted Lands                                                        |
+-- |  3985 |         1 | Spawn Point 86 - Blasted Lands                                                        |
+-- |  3986 |         1 | Spawn Point 87 - Blasted Lands                                                        |
+-- |  3987 |         1 | Spawn Point 88 - Blasted Lands                                                        |
+-- |  3988 |         1 | Spawn Point 89 - Blasted Lands                                                        |
+-- |  3989 |         1 | Spawn Point 90 - Blasted Lands                                                        |
+-- |  3990 |         1 | Spawn Point 91 - Blasted Lands                                                        |
+-- |  3992 |         1 | Spawn Point 93 - Blasted Lands                                                        |
+-- |  3993 |         1 | Spawn Point 94 - Blasted Lands                                                        |
+-- |  3994 |         1 | Spawn Point 95 - Blasted Lands                                                        |
+-- |  3995 |         1 | Spawn Point 96 - Blasted Lands                                                        |
+-- |  3996 |         1 | Spawn Point 97 - Blasted Lands                                                        |
+-- |  3997 |         1 | Spawn Point 98 - Blasted Lands                                                        |
+-- |  3998 |         1 | Spawn Point 99 - Blasted Lands                                                        |
+-- |  3999 |         1 | Spawn Point 100 - Blasted Lands                                                       |
+-- |  4000 |         1 | Spawn Point 101 - Blasted Lands                                                       |
+-- |  4002 |         1 | Spawn Point 103 - Blasted Lands                                                       |
+-- |  4003 |         1 | Spawn Point 104 - Blasted Lands                                                       |
+-- |  4004 |         1 | Spawn Point 105 - Blasted Lands                                                       |
+-- |  4005 |         1 | Spawn Point 106 - Blasted Lands                                                       |
+-- |  4006 |         1 | Spawn Point 107 - Blasted Lands                                                       |
+-- |  4007 |         1 | Spawn Point 108 - Blasted Lands                                                       |
+-- |  4008 |         1 | Spawn Point 109 - Blasted Lands                                                       |
+-- |  4009 |         1 | Spawn Point 110 - Blasted Lands                                                       |
+-- |  4010 |         1 | Spawn Point 111 - Blasted Lands                                                       |
+-- |  4011 |         1 | Spawn Point 112 - Blasted Lands                                                       |
+-- |  4012 |         1 | Spawn Point 113 - Blasted Lands                                                       |
+-- |  4013 |         1 | Spawn Point 114 - Blasted Lands                                                       |
+-- |  4014 |         1 | Spawn Point 115 - Blasted Lands                                                       |
+-- |  4015 |         1 | Spawn Point 116 - Blasted Lands                                                       |
+-- |  4016 |         1 | Spawn Point 117 - Blasted Lands                                                       |
+-- |  4017 |         1 | Spawn Point 118 - Blasted Lands                                                       |
+-- |  4018 |         1 | Spawn Point 119 - Blasted Lands                                                       |
+-- |  4019 |         1 | Spawn Point 120 - Blasted Lands                                                       |
+-- |  4020 |         1 | Spawn Point 121 - Blasted Lands                                                       |
+-- |  4100 |         1 | Spawn Point 1 - Burning Steppes                                                       |
+-- |  4101 |         1 | Spawn Point 2 - Burning Steppes                                                       |
+-- |  4102 |         1 | Spawn Point 3 - Burning Steppes                                                       |
+-- |  4103 |         1 | Spawn Point 4 - Burning Steppes                                                       |
+-- |  4104 |         1 | Spawn Point 5 - Burning Steppes                                                       |
+-- |  4105 |         1 | Spawn Point 6 - Burning Steppes                                                       |
+-- |  4106 |         1 | Spawn Point 7 - Burning Steppes                                                       |
+-- |  4107 |         1 | Spawn Point 8 - Burning Steppes                                                       |
+-- |  4108 |         1 | Spawn Point 9 - Burning Steppes                                                       |
+-- |  4109 |         1 | Spawn Point 10 - Burning Steppes                                                      |
+-- |  4110 |         1 | Spawn Point 11 - Burning Steppes                                                      |
+-- |  4111 |         1 | Spawn Point 12 - Burning Steppes                                                      |
+-- |  4112 |         1 | Spawn Point 13 - Burning Steppes                                                      |
+-- |  4113 |         1 | Spawn Point 14 - Burning Steppes                                                      |
+-- |  4114 |         1 | Spawn Point 15 - Burning Steppes                                                      |
+-- |  4115 |         1 | Spawn Point 16 - Burning Steppes                                                      |
+-- |  4116 |         1 | Spawn Point 17 - Burning Steppes                                                      |
+-- |  4117 |         1 | Spawn Point 18 - Burning Steppes                                                      |
+-- |  4118 |         1 | Spawn Point 19 - Burning Steppes                                                      |
+-- |  4119 |         1 | Spawn Point 20 - Burning Steppes                                                      |
+-- |  4120 |         1 | Spawn Point 21 - Burning Steppes                                                      |
+-- |  4121 |         1 | Spawn Point 22 - Burning Steppes                                                      |
+-- |  4122 |         1 | Spawn Point 23 - Burning Steppes                                                      |
+-- |  4123 |         1 | Spawn Point 24 - Burning Steppes                                                      |
+-- |  4124 |         1 | Spawn Point 25 - Burning Steppes                                                      |
+-- |  4125 |         1 | Spawn Point 26 - Burning Steppes                                                      |
+-- |  4126 |         1 | Spawn Point 27 - Burning Steppes                                                      |
+-- |  4127 |         1 | Spawn Point 28 - Burning Steppes                                                      |
+-- |  4128 |         1 | Spawn Point 29 - Burning Steppes                                                      |
+-- |  4129 |         1 | Spawn Point 30 - Burning Steppes                                                      |
+-- |  4130 |         1 | Spawn Point 31 - Burning Steppes                                                      |
+-- |  4131 |         1 | Spawn Point 32 - Burning Steppes                                                      |
+-- |  4132 |         1 | Spawn Point 33 - Burning Steppes                                                      |
+-- |  4133 |         1 | Spawn Point 34 - Burning Steppes                                                      |
+-- |  4134 |         1 | Spawn Point 35 - Burning Steppes                                                      |
+-- |  4135 |         1 | Spawn Point 36 - Burning Steppes                                                      |
+-- |  4136 |         1 | Spawn Point 37 - Burning Steppes                                                      |
+-- |  4137 |         1 | Spawn Point 38 - Burning Steppes                                                      |
+-- |  4138 |         1 | Spawn Point 39 - Burning Steppes                                                      |
+-- |  4139 |         1 | Spawn Point 40 - Burning Steppes                                                      |
+-- |  4140 |         1 | Spawn Point 41 - Burning Steppes                                                      |
+-- |  4141 |         1 | Spawn Point 42 - Burning Steppes                                                      |
+-- |  4142 |         1 | Spawn Point 43 - Burning Steppes                                                      |
+-- |  4143 |         1 | Spawn Point 44 - Burning Steppes                                                      |
+-- |  4144 |         1 | Spawn Point 45 - Burning Steppes                                                      |
+-- |  4145 |         1 | Spawn Point 46 - Burning Steppes                                                      |
+-- |  4146 |         1 | Spawn Point 47 - Burning Steppes                                                      |
+-- |  4147 |         1 | Spawn Point 48 - Burning Steppes                                                      |
+-- |  4148 |         1 | Spawn Point 49 - Burning Steppes                                                      |
+-- |  4149 |         1 | Spawn Point 50 - Burning Steppes                                                      |
+-- |  4150 |         1 | Spawn Point 51 - Burning Steppes                                                      |
+-- |  4151 |         1 | Spawn Point 52 - Burning Steppes                                                      |
+-- |  4152 |         1 | Spawn Point 53 - Burning Steppes                                                      |
+-- |  4153 |         1 | Spawn Point 54 - Burning Steppes                                                      |
+-- |  4154 |         1 | Spawn Point 55 - Burning Steppes                                                      |
+-- |  4155 |         1 | Spawn Point 56 - Burning Steppes                                                      |
+-- |  4156 |         1 | Spawn Point 57 - Burning Steppes                                                      |
+-- |  4157 |         1 | Spawn Point 58 - Burning Steppes                                                      |
+-- |  4158 |         1 | Spawn Point 59 - Burning Steppes                                                      |
+-- |  4159 |         1 | Spawn Point 60 - Burning Steppes                                                      |
+-- |  4160 |         1 | Spawn Point 61 - Burning Steppes                                                      |
+-- |  4161 |         1 | Spawn Point 62 - Burning Steppes                                                      |
+-- |  4162 |         1 | Spawn Point 63 - Burning Steppes                                                      |
+-- |  4163 |         1 | Spawn Point 64 - Burning Steppes                                                      |
+-- |  4164 |         1 | Spawn Point 65 - Burning Steppes                                                      |
+-- |  4165 |         1 | Spawn Point 66 - Burning Steppes                                                      |
+-- |  4166 |         1 | Spawn Point 67 - Burning Steppes                                                      |
+-- |  4167 |         1 | Spawn Point 68 - Burning Steppes                                                      |
+-- |  4168 |         1 | Spawn Point 69 - Burning Steppes                                                      |
+-- |  4169 |         1 | Spawn Point 70 - Burning Steppes                                                      |
+-- |  4170 |         1 | Spawn Point 71 - Burning Steppes                                                      |
+-- |  4171 |         1 | Spawn Point 72 - Burning Steppes                                                      |
+-- |  4172 |         1 | Spawn Point 73 - Burning Steppes                                                      |
+-- |  4173 |         1 | Spawn Point 74 - Burning Steppes                                                      |
+-- |  4174 |         1 | Spawn Point 75 - Burning Steppes                                                      |
+-- |  4175 |         1 | Spawn Point 76 - Burning Steppes                                                      |
+-- |  4176 |         1 | Spawn Point 77 - Burning Steppes                                                      |
+-- |  4177 |         1 | Spawn Point 78 - Burning Steppes                                                      |
+-- |  4178 |         1 | Spawn Point 79 - Burning Steppes                                                      |
+-- |  4179 |         1 | Spawn Point 80 - Burning Steppes                                                      |
+-- |  4180 |         1 | Spawn Point 81 - Burning Steppes                                                      |
+-- |  4181 |         1 | Spawn Point 82 - Burning Steppes                                                      |
+-- |  4182 |         1 | Spawn Point 83 - Burning Steppes                                                      |
+-- |  4183 |         1 | Spawn Point 84 - Burning Steppes                                                      |
+-- |  4184 |         1 | Spawn Point 85 - Burning Steppes                                                      |
+-- |  4185 |         1 | Spawn Point 86 - Burning Steppes                                                      |
+-- |  4186 |         1 | Spawn Point 87 - Burning Steppes                                                      |
+-- |  4187 |         1 | Spawn Point 88 - Burning Steppes                                                      |
+-- |  4188 |         1 | Spawn Point 89 - Burning Steppes                                                      |
+-- |  4189 |         1 | Spawn Point 90 - Burning Steppes                                                      |
+-- |  4190 |         1 | Spawn Point 91 - Burning Steppes                                                      |
+-- |  4191 |         1 | Spawn Point 92 - Burning Steppes                                                      |
+-- |  4192 |         1 | Spawn Point 93 - Burning Steppes                                                      |
+-- |  4193 |         1 | Spawn Point 94 - Burning Steppes                                                      |
+-- |  4194 |         1 | Spawn Point 95 - Burning Steppes                                                      |
+-- |  4195 |         1 | Spawn Point 96 - Burning Steppes                                                      |
+-- |  4196 |         1 | Spawn Point 97 - Burning Steppes                                                      |
+-- |  4197 |         1 | Spawn Point 98 - Burning Steppes                                                      |
+-- |  4198 |         1 | Spawn Point 99 - Burning Steppes                                                      |
+-- |  4199 |         1 | Spawn Point 100 - Burning Steppes                                                     |
+-- |  4200 |         1 | Spawn Point 101 - Burning Steppes                                                     |
+-- |  4201 |         1 | Spawn Point 102 - Burning Steppes                                                     |
+-- |  4202 |         1 | Spawn Point 103 - Burning Steppes                                                     |
+-- |  4203 |         1 | Spawn Point 104 - Burning Steppes                                                     |
+-- |  4204 |         1 | Spawn Point 105 - Burning Steppes                                                     |
+-- |  4205 |         1 | Spawn Point 106 - Burning Steppes                                                     |
+-- |  4206 |         1 | Spawn Point 107 - Burning Steppes                                                     |
+-- |  4207 |         1 | Spawn Point 108 - Burning Steppes                                                     |
+-- |  4208 |         1 | Spawn Point 109 - Burning Steppes                                                     |
+-- |  4209 |         1 | Spawn Point 110 - Burning Steppes                                                     |
+-- |  4210 |         1 | Spawn Point 111 - Burning Steppes                                                     |
+-- |  4211 |         1 | Spawn Point 112 - Burning Steppes                                                     |
+-- |  4212 |         1 | Spawn Point 113 - Burning Steppes                                                     |
+-- |  4213 |         1 | Spawn Point 114 - Burning Steppes                                                     |
+-- |  4214 |         1 | Spawn Point 115 - Burning Steppes                                                     |
+-- |  4215 |         1 | Spawn Point 116 - Burning Steppes                                                     |
+-- |  4216 |         1 | Spawn Point 117 - Burning Steppes                                                     |
+-- |  4217 |         1 | Spawn Point 118 - Burning Steppes                                                     |
+-- |  4218 |         1 | Spawn Point 119 - Burning Steppes                                                     |
+-- |  4219 |         1 | Spawn Point 120 - Burning Steppes                                                     |
+-- |  4220 |         1 | Spawn Point 121 - Burning Steppes                                                     |
+-- |  4221 |         1 | Spawn Point 122 - Burning Steppes                                                     |
+-- |  4222 |         1 | Spawn Point 123 - Burning Steppes                                                     |
+-- |  4223 |         1 | Spawn Point 124 - Burning Steppes                                                     |
+-- |  4224 |         1 | Spawn Point 125 - Burning Steppes                                                     |
+-- |  4225 |         1 | Spawn Point 126 - Burning Steppes                                                     |
+-- |  4226 |         1 | Spawn Point 127 - Burning Steppes                                                     |
+-- |  4227 |         1 | Spawn Point 128 - Burning Steppes                                                     |
+-- |  4228 |         1 | Spawn Point 129 - Burning Steppes                                                     |
+-- |  4229 |         1 | Spawn Point 130 - Burning Steppes                                                     |
+-- |  4230 |         1 | Spawn Point 131 - Burning Steppes                                                     |
+-- |  4231 |         1 | Spawn Point 132 - Burning Steppes                                                     |
+-- |  4232 |         1 | Spawn Point 133 - Burning Steppes                                                     |
+-- |  4233 |         1 | Spawn Point 134 - Burning Steppes                                                     |
+-- |  4234 |         1 | Spawn Point 135 - Burning Steppes                                                     |
+-- |  4235 |         1 | Spawn Point 136 - Burning Steppes                                                     |
+-- |  4236 |         1 | Spawn Point 137 - Burning Steppes                                                     |
+-- |  4237 |         1 | Spawn Point 138 - Burning Steppes                                                     |
+-- |  4238 |         1 | Spawn Point 139 - Burning Steppes                                                     |
+-- |  4239 |         1 | Spawn Point 140 - Burning Steppes                                                     |
+-- |  4240 |         1 | Spawn Point 141 - Burning Steppes                                                     |
+-- |  4241 |         1 | Spawn Point 142 - Burning Steppes                                                     |
+-- |  4242 |         1 | Spawn Point 143 - Burning Steppes                                                     |
+-- |  4243 |         1 | Spawn Point 144 - Burning Steppes                                                     |
+-- |  4244 |         1 | Spawn Point 145 - Burning Steppes                                                     |
+-- |  4245 |         1 | Spawn Point 146 - Burning Steppes                                                     |
+-- |  4246 |         1 | Spawn Point 147 - Burning Steppes                                                     |
+-- |  4247 |         1 | Spawn Point 148 - Burning Steppes                                                     |
+-- |  4248 |         1 | Spawn Point 149 - Burning Steppes                                                     |
+-- |  4249 |         1 | Spawn Point 150 - Burning Steppes                                                     |
+-- |  4250 |         1 | Spawn Point 151 - Burning Steppes                                                     |
+-- |  4251 |         1 | Spawn Point 152 - Burning Steppes                                                     |
+-- |  4252 |         1 | Spawn Point 153 - Burning Steppes                                                     |
+-- |  4253 |         1 | Spawn Point 154 - Burning Steppes                                                     |
+-- |  4254 |         1 | Spawn Point 155 - Burning Steppes                                                     |
+-- |  4255 |         1 | Spawn Point 156 - Burning Steppes                                                     |
+-- |  4256 |         1 | Spawn Point 157 - Burning Steppes                                                     |
+-- |  4257 |         1 | Spawn Point 158 - Burning Steppes                                                     |
+-- |  4258 |         1 | Spawn Point 159 - Burning Steppes                                                     |
+-- |  4259 |         1 | Spawn Point 160 - Burning Steppes                                                     |
+-- |  4260 |         1 | Spawn Point 161 - Burning Steppes                                                     |
+-- |  4261 |         1 | Spawn Point 162 - Burning Steppes                                                     |
+-- |  4262 |         1 | Spawn Point 163 - Burning Steppes                                                     |
+-- |  4263 |         1 | Spawn Point 164 - Burning Steppes                                                     |
+-- |  4264 |         1 | Spawn Point 165 - Burning Steppes                                                     |
+-- |  4265 |         1 | Spawn Point 166 - Burning Steppes                                                     |
+-- |  4266 |         1 | Spawn Point 167 - Burning Steppes                                                     |
+-- |  4267 |         1 | Spawn Point 168 - Burning Steppes                                                     |
+-- |  4268 |         1 | Spawn Point 169 - Burning Steppes                                                     |
+-- |  4269 |         1 | Spawn Point 170 - Burning Steppes                                                     |
+-- |  4270 |         1 | Spawn Point 171 - Burning Steppes                                                     |
+-- |  4271 |         1 | Spawn Point 172 - Burning Steppes                                                     |
+-- |  4272 |         1 | Spawn Point 173 - Burning Steppes                                                     |
+-- |  4273 |         1 | Spawn Point 174 - Burning Steppes                                                     |
+-- |  4274 |         1 | Spawn Point 175 - Burning Steppes                                                     |
+-- |  4275 |         1 | Spawn Point 176 - Burning Steppes                                                     |
+-- |  4276 |         1 | Spawn Point 177 - Burning Steppes                                                     |
+-- |  4277 |         1 | Spawn Point 178 - Burning Steppes                                                     |
+-- |  4278 |         1 | Spawn Point 179 - Burning Steppes                                                     |
+-- |  4279 |         1 | Spawn Point 180 - Burning Steppes                                                     |
+-- |  4280 |         1 | Spawn Point 181 - Burning Steppes                                                     |
+-- |  4281 |         1 | Spawn Point 182 - Burning Steppes                                                     |
+-- |  4282 |         1 | Spawn Point 183 - Burning Steppes                                                     |
+-- |  4283 |         1 | Spawn Point 184 - Burning Steppes                                                     |
+-- |  4284 |         1 | Spawn Point 185 - Burning Steppes                                                     |
+-- |  4285 |         1 | Spawn Point 186 - Burning Steppes                                                     |
+-- |  4286 |         1 | Spawn Point 187 - Burning Steppes                                                     |
+-- |  4287 |         1 | Spawn Point 188 - Burning Steppes                                                     |
+-- |  4288 |         1 | Spawn Point 189 - Burning Steppes                                                     |
+-- |  4289 |         1 | Spawn Point 190 - Burning Steppes                                                     |
+-- |  4290 |         1 | Spawn Point 191 - Burning Steppes                                                     |
+-- |  4291 |         1 | Spawn Point 192 - Burning Steppes                                                     |
+-- |  4292 |         1 | Spawn Point 193 - Burning Steppes                                                     |
+-- |  4293 |         1 | Spawn Point 194 - Burning Steppes                                                     |
+-- |  4294 |         1 | Spawn Point 195 - Burning Steppes                                                     |
+-- |  4295 |         1 | Spawn Point 196 - Burning Steppes                                                     |
+-- |  4296 |         1 | Spawn Point 197 - Burning Steppes                                                     |
+-- |  4297 |         1 | Spawn Point 198 - Burning Steppes                                                     |
+-- |  4298 |         1 | Spawn Point 199 - Burning Steppes                                                     |
+-- |  4299 |         1 | Spawn Point 200 - Burning Steppes                                                     |
+-- |  4300 |         1 | Spawn Point 201 - Burning Steppes                                                     |
+-- |  4301 |         1 | Spawn Point 202 - Burning Steppes                                                     |
+-- |  4302 |         1 | Spawn Point 203 - Burning Steppes                                                     |
+-- |  4303 |         1 | Spawn Point 204 - Burning Steppes                                                     |
+-- |  4304 |         1 | Spawn Point 205 - Burning Steppes                                                     |
+-- |  4305 |         1 | Spawn Point 206 - Burning Steppes                                                     |
+-- |  4306 |         1 | Spawn Point 207 - Burning Steppes                                                     |
+-- |  4307 |         1 | Spawn Point 208 - Burning Steppes                                                     |
+-- |  4308 |         1 | Spawn Point 209 - Burning Steppes                                                     |
+-- |  4309 |         1 | Spawn Point 210 - Burning Steppes                                                     |
+-- |  4310 |         1 | Spawn Point 211 - Burning Steppes                                                     |
+-- |  4311 |         1 | Spawn Point 212 - Burning Steppes                                                     |
+-- |  4312 |         1 | Spawn Point 213 - Burning Steppes                                                     |
+-- |  4313 |         1 | Spawn Point 214 - Burning Steppes                                                     |
+-- |  4314 |         1 | Spawn Point 215 - Burning Steppes                                                     |
+-- |  4315 |         1 | Spawn Point 216 - Burning Steppes                                                     |
+-- |  4316 |         1 | Spawn Point 217 - Burning Steppes                                                     |
+-- |  4317 |         1 | Spawn Point 218 - Burning Steppes                                                     |
+-- |  4318 |         1 | Spawn Point 219 - Burning Steppes                                                     |
+-- |  4319 |         1 | Spawn Point 220 - Burning Steppes                                                     |
+-- |  4320 |         1 | Spawn Point 221 - Burning Steppes                                                     |
+-- |  4321 |         1 | Spawn Point 222 - Burning Steppes                                                     |
+-- |  4322 |         1 | Spawn Point 223 - Burning Steppes                                                     |
+-- |  4323 |         1 | Spawn Point 224 - Burning Steppes                                                     |
+-- |  4324 |         1 | Spawn Point 225 - Burning Steppes                                                     |
+-- |  4325 |         1 | Spawn Point 226 - Burning Steppes                                                     |
+-- |  4326 |         1 | Spawn Point 227 - Burning Steppes                                                     |
+-- |  4327 |         1 | Spawn Point 228 - Burning Steppes                                                     |
+-- |  4328 |         1 | Spawn Point 229 - Burning Steppes                                                     |
+-- |  4329 |         1 | Spawn Point 230 - Burning Steppes                                                     |
+-- |  4330 |         1 | Spawn Point 231 - Burning Steppes                                                     |
+-- |  4331 |         1 | Spawn Point 232 - Burning Steppes                                                     |
+-- |  4332 |         1 | Spawn Point 233 - Burning Steppes                                                     |
+-- |  4335 |         1 | Spawn Point 236 - Burning Steppes                                                     |
+-- |  4336 |         1 | Spawn Point 237 - Burning Steppes                                                     |
+-- |  4338 |         1 | Spawn Point 239 - Burning Steppes                                                     |
+-- |  4339 |         1 | Spawn Point 240 - Burning Steppes                                                     |
+-- |  2008 |        15 | Master Mineral Pool - Dun Morogh                                                      |
+-- |  4400 |         1 | Spawn Point 1 - Duskwood                                                              |
+-- |  4401 |         1 | Spawn Point 2 - Duskwood                                                              |
+-- |  4402 |         1 | Spawn Point 3 - Duskwood                                                              |
+-- |  4403 |         1 | Spawn Point 4 - Duskwood                                                              |
+-- |  4404 |         1 | Spawn Point 5 - Duskwood                                                              |
+-- |  4405 |         1 | Spawn Point 6 - Duskwood                                                              |
+-- |  4406 |         1 | Spawn Point 7 - Duskwood                                                              |
+-- |  4407 |         1 | Spawn Point 8 - Duskwood                                                              |
+-- |  4408 |         1 | Spawn Point 9 - Duskwood                                                              |
+-- |  4409 |         1 | Spawn Point 10 - Duskwood                                                             |
+-- |  4410 |         1 | Spawn Point 11 - Duskwood                                                             |
+-- |  4411 |         1 | Spawn Point 12 - Duskwood                                                             |
+-- |  4412 |         1 | Spawn Point 13 - Duskwood                                                             |
+-- |  4413 |         1 | Spawn Point 14 - Duskwood                                                             |
+-- |  4415 |         1 | Spawn Point 16 - Duskwood                                                             |
+-- |  4416 |         1 | Spawn Point 17 - Duskwood                                                             |
+-- |  4417 |         1 | Spawn Point 18 - Duskwood                                                             |
+-- |  4418 |         1 | Spawn Point 19 - Duskwood                                                             |
+-- |  4419 |         1 | Spawn Point 20 - Duskwood                                                             |
+-- |  4420 |         1 | Spawn Point 21 - Duskwood                                                             |
+-- |  4421 |         1 | Spawn Point 22 - Duskwood                                                             |
+-- |  4422 |         1 | Spawn Point 23 - Duskwood                                                             |
+-- |  4423 |         1 | Spawn Point 24 - Duskwood                                                             |
+-- |  4424 |         1 | Spawn Point 25 - Duskwood                                                             |
+-- |  4425 |         1 | Spawn Point 26 - Duskwood                                                             |
+-- |  4426 |         1 | Spawn Point 27 - Duskwood                                                             |
+-- |  4427 |         1 | Spawn Point 28 - Duskwood                                                             |
+-- |  4428 |         1 | Spawn Point 29 - Duskwood                                                             |
+-- |  4429 |         1 | Spawn Point 30 - Duskwood                                                             |
+-- |  4430 |         1 | Spawn Point 31 - Duskwood                                                             |
+-- |  4431 |         1 | Spawn Point 32 - Duskwood                                                             |
+-- |  4432 |         1 | Spawn Point 33 - Duskwood                                                             |
+-- |  4433 |         1 | Spawn Point 34 - Duskwood                                                             |
+-- |  4434 |         1 | Spawn Point 35 - Duskwood                                                             |
+-- |  4435 |         1 | Spawn Point 36 - Duskwood                                                             |
+-- |  4436 |         1 | Spawn Point 37 - Duskwood                                                             |
+-- |  4437 |         1 | Spawn Point 38 - Duskwood                                                             |
+-- |  4438 |         1 | Spawn Point 39 - Duskwood                                                             |
+-- |  4439 |         1 | Spawn Point 40 - Duskwood                                                             |
+-- |  4440 |         1 | Spawn Point 41 - Duskwood                                                             |
+-- |  4441 |         1 | Spawn Point 42 - Duskwood                                                             |
+-- |  4442 |         1 | Spawn Point 43 - Duskwood                                                             |
+-- |  4443 |         1 | Spawn Point 44 - Duskwood                                                             |
+-- |  4444 |         1 | Spawn Point 45 - Duskwood                                                             |
+-- |  4445 |         1 | Spawn Point 46 - Duskwood                                                             |
+-- |  4446 |         1 | Spawn Point 47 - Duskwood                                                             |
+-- |  4447 |         1 | Spawn Point 48 - Duskwood                                                             |
+-- |  4448 |         1 | Spawn Point 49 - Duskwood                                                             |
+-- |  4449 |         1 | Spawn Point 50 - Duskwood                                                             |
+-- |  4450 |         1 | Spawn Point 51 - Duskwood                                                             |
+-- |  4451 |         1 | Spawn Point 52 - Duskwood                                                             |
+-- |  4452 |         1 | Spawn Point 53 - Duskwood                                                             |
+-- |  4453 |         1 | Spawn Point 54 - Duskwood                                                             |
+-- |  4454 |         1 | Spawn Point 55 - Duskwood                                                             |
+-- |  4455 |         1 | Spawn Point 56 - Duskwood                                                             |
+-- |  4456 |         1 | Spawn Point 57 - Duskwood                                                             |
+-- |  4457 |         1 | Spawn Point 58 - Duskwood                                                             |
+-- |  4458 |         1 | Spawn Point 59 - Duskwood                                                             |
+-- |  4459 |         1 | Spawn Point 60 - Duskwood                                                             |
+-- |  4460 |         1 | Spawn Point 61 - Duskwood                                                             |
+-- |  4461 |         1 | Spawn Point 62 - Duskwood                                                             |
+-- |  4462 |         1 | Spawn Point 63 - Duskwood                                                             |
+-- |  4463 |         1 | Spawn Point 64 - Duskwood                                                             |
+-- |  4464 |         1 | Spawn Point 65 - Duskwood                                                             |
+-- |  4465 |         1 | Spawn Point 66 - Duskwood                                                             |
+-- |  4466 |         1 | Spawn Point 67 - Duskwood                                                             |
+-- |  4467 |         1 | Spawn Point 68 - Duskwood                                                             |
+-- |  4468 |         1 | Spawn Point 69 - Duskwood                                                             |
+-- |  4469 |         1 | Spawn Point 70 - Duskwood                                                             |
+-- |  4470 |         1 | Spawn Point 71 - Duskwood                                                             |
+-- |  4471 |         1 | Spawn Point 72 - Duskwood                                                             |
+-- |  4472 |         1 | Spawn Point 73 - Duskwood                                                             |
+-- |  4473 |         1 | Spawn Point 74 - Duskwood                                                             |
+-- |  4474 |         1 | Spawn Point 75 - Duskwood                                                             |
+-- |  4475 |         1 | Spawn Point 76 - Duskwood                                                             |
+-- |  4476 |         1 | Spawn Point 77 - Duskwood                                                             |
+-- |  4477 |         1 | Spawn Point 78 - Duskwood                                                             |
+-- |  4478 |         1 | Spawn Point 79 - Duskwood                                                             |
+-- |  4479 |         1 | Spawn Point 80 - Duskwood                                                             |
+-- |  4480 |         1 | Spawn Point 81 - Duskwood                                                             |
+-- |  4481 |         1 | Spawn Point 82 - Duskwood                                                             |
+-- |  4482 |         1 | Spawn Point 83 - Duskwood                                                             |
+-- |  4483 |         1 | Spawn Point 84 - Duskwood                                                             |
+-- |  4484 |         1 | Spawn Point 85 - Duskwood                                                             |
+-- |  4485 |         1 | Spawn Point 86 - Duskwood                                                             |
+-- |  4487 |         1 | Spawn Point 88 - Duskwood                                                             |
+-- |  4488 |         1 | Spawn Point 89 - Duskwood                                                             |
+-- |  4491 |         1 | Spawn Point 92 - Duskwood                                                             |
+-- |  4492 |         1 | Spawn Point 93 - Duskwood                                                             |
+-- |  4493 |         1 | Spawn Point 94 - Duskwood                                                             |
+-- |  4494 |         1 | Spawn Point 95 - Duskwood                                                             |
+-- |  4496 |         1 | Spawn Point 97 - Duskwood                                                             |
+-- |  4497 |         1 | Spawn Point 98 - Duskwood                                                             |
+-- |  4499 |         1 | Spawn Point 100 - Duskwood                                                            |
+-- |  4500 |         1 | Spawn Point 101 - Duskwood                                                            |
+-- |  4501 |         1 | Spawn Point 102 - Duskwood                                                            |
+-- |  4502 |         1 | Spawn Point 103 - Duskwood                                                            |
+-- |  4503 |         1 | Spawn Point 104 - Duskwood                                                            |
+-- |  4504 |         1 | Spawn Point 105 - Duskwood                                                            |
+-- |  4505 |         1 | Spawn Point 106 - Duskwood                                                            |
+-- |  4506 |         1 | Spawn Point 107 - Duskwood                                                            |
+-- |  4509 |         1 | Spawn Point 110 - Duskwood                                                            |
+-- |  4510 |         1 | Spawn Point 111 - Duskwood                                                            |
+-- |  4511 |         1 | Spawn Point 112 - Duskwood                                                            |
+-- |  4512 |         1 | Spawn Point 113 - Duskwood                                                            |
+-- |  3133 |         1 | Spawn Point 134 - Alterac Mountains (Outer Section)                                   |
+-- |  3134 |         1 | Spawn Point 135 - Alterac Mountains (Outer Section)                                   |
+-- |  3135 |         1 | Spawn Point 136 - Alterac Mountains (Outer Section)                                   |
+-- |  3136 |         1 | Spawn Point 137 - Alterac Mountains (Outer Section)                                   |
+-- |  3137 |         1 | Spawn Point 138 - Alterac Mountains (Outer Section)                                   |
+-- |  3138 |         1 | Spawn Point 139 - Alterac Mountains (Outer Section)                                   |
+-- |  3139 |         1 | Spawn Point 140 - Alterac Mountains (Outer Section)                                   |
+-- |  3140 |         1 | Spawn Point 141 - Alterac Mountains (Outer Section)                                   |
+-- |  3141 |         1 | Spawn Point 142 - Alterac Mountains (Outer Section)                                   |
+-- |  3142 |         1 | Spawn Point 143 - Alterac Mountains (Outer Section)                                   |
+-- |  3143 |         1 | Spawn Point 144 - Alterac Mountains (Outer Section)                                   |
+-- |  3144 |         1 | Spawn Point 145 - Alterac Mountains (Outer Section)                                   |
+-- |  3145 |         1 | Spawn Point 146 - Alterac Mountains (Outer Section)                                   |
+-- |  3146 |         1 | Spawn Point 147 - Alterac Mountains (Outer Section)                                   |
+-- |  3147 |         1 | Spawn Point 148 - Alterac Mountains (Outer Section)                                   |
+-- |  3148 |         1 | Spawn Point 149 - Alterac Mountains (Outer Section)                                   |
+-- |  3149 |         1 | Spawn Point 150 - Alterac Mountains (Outer Section)                                   |
+-- |  3150 |         1 | Spawn Point 151 - Alterac Mountains (Outer Section)                                   |
+-- |  3151 |         1 | Spawn Point 152 - Alterac Mountains (Outer Section)                                   |
+-- |  3152 |         1 | Spawn Point 153 - Alterac Mountains (Outer Section)                                   |
+-- |  3153 |         1 | Spawn Point 154 - Alterac Mountains (Outer Section)                                   |
+-- |  3156 |         1 | Spawn Point 157 - Alterac Mountains (Outer Section)                                   |
+-- |  3157 |         1 | Spawn Point 158 - Alterac Mountains (Outer Section)                                   |
+-- |  3158 |         1 | Spawn Point 159 - Alterac Mountains (Outer Section)                                   |
+-- |  3159 |         1 | Spawn Point 160 - Alterac Mountains (Outer Section)                                   |
+-- |  3160 |         1 | Spawn Point 161 - Alterac Mountains (Outer Section)                                   |
+-- |  4600 |         1 | Spawn Point 1 - Eastern Plaguelands                                                   |
+-- |  4601 |         1 | Spawn Point 2 - Eastern Plaguelands                                                   |
+-- |  4602 |         1 | Spawn Point 3 - Eastern Plaguelands                                                   |
+-- |  4603 |         1 | Spawn Point 4 - Eastern Plaguelands                                                   |
+-- |  4604 |         1 | Spawn Point 5 - Eastern Plaguelands                                                   |
+-- |  4605 |         1 | Spawn Point 6 - Eastern Plaguelands                                                   |
+-- |  4606 |         1 | Spawn Point 7 - Eastern Plaguelands                                                   |
+-- |  4607 |         1 | Spawn Point 8 - Eastern Plaguelands                                                   |
+-- |  4608 |         1 | Spawn Point 9 - Eastern Plaguelands                                                   |
+-- |  4609 |         1 | Spawn Point 10 - Eastern Plaguelands                                                  |
+-- |  4610 |         1 | Spawn Point 11 - Eastern Plaguelands                                                  |
+-- |  4611 |         1 | Spawn Point 12 - Eastern Plaguelands                                                  |
+-- |  4612 |         1 | Spawn Point 13 - Eastern Plaguelands                                                  |
+-- |  4613 |         1 | Spawn Point 14 - Eastern Plaguelands                                                  |
+-- |  4614 |         1 | Spawn Point 15 - Eastern Plaguelands                                                  |
+-- |  4615 |         1 | Spawn Point 16 - Eastern Plaguelands                                                  |
+-- |  4616 |         1 | Spawn Point 17 - Eastern Plaguelands                                                  |
+-- |  4617 |         1 | Spawn Point 18 - Eastern Plaguelands                                                  |
+-- |  4618 |         1 | Spawn Point 19 - Eastern Plaguelands                                                  |
+-- |  4619 |         1 | Spawn Point 20 - Eastern Plaguelands                                                  |
+-- |  4620 |         1 | Spawn Point 21 - Eastern Plaguelands                                                  |
+-- |  4621 |         1 | Spawn Point 22 - Eastern Plaguelands                                                  |
+-- |  4622 |         1 | Spawn Point 23 - Eastern Plaguelands                                                  |
+-- |  4623 |         1 | Spawn Point 24 - Eastern Plaguelands                                                  |
+-- |  4624 |         1 | Spawn Point 25 - Eastern Plaguelands                                                  |
+-- |  4625 |         1 | Spawn Point 26 - Eastern Plaguelands                                                  |
+-- |  4626 |         1 | Spawn Point 27 - Eastern Plaguelands                                                  |
+-- |  4627 |         1 | Spawn Point 28 - Eastern Plaguelands                                                  |
+-- |  4628 |         1 | Spawn Point 29 - Eastern Plaguelands                                                  |
+-- |  4629 |         1 | Spawn Point 30 - Eastern Plaguelands                                                  |
+-- |  4631 |         1 | Spawn Point 32 - Eastern Plaguelands                                                  |
+-- |  4632 |         1 | Spawn Point 33 - Eastern Plaguelands                                                  |
+-- |  4633 |         1 | Spawn Point 34 - Eastern Plaguelands                                                  |
+-- |  4634 |         1 | Spawn Point 35 - Eastern Plaguelands                                                  |
+-- |  4635 |         1 | Spawn Point 36 - Eastern Plaguelands                                                  |
+-- |  4636 |         1 | Spawn Point 37 - Eastern Plaguelands                                                  |
+-- |  4637 |         1 | Spawn Point 38 - Eastern Plaguelands                                                  |
+-- |  4638 |         1 | Spawn Point 39 - Eastern Plaguelands                                                  |
+-- |  4639 |         1 | Spawn Point 40 - Eastern Plaguelands                                                  |
+-- |  4640 |         1 | Spawn Point 41 - Eastern Plaguelands                                                  |
+-- |  4641 |         1 | Spawn Point 42 - Eastern Plaguelands                                                  |
+-- |  4642 |         1 | Spawn Point 43 - Eastern Plaguelands                                                  |
+-- |  4643 |         1 | Spawn Point 44 - Eastern Plaguelands                                                  |
+-- |  4645 |         1 | Spawn Point 46 - Eastern Plaguelands                                                  |
+-- |  4646 |         1 | Spawn Point 47 - Eastern Plaguelands                                                  |
+-- |  4647 |         1 | Spawn Point 48 - Eastern Plaguelands                                                  |
+-- |  4648 |         1 | Spawn Point 49 - Eastern Plaguelands                                                  |
+-- |  4649 |         1 | Spawn Point 50 - Eastern Plaguelands                                                  |
+-- |  4650 |         1 | Spawn Point 51 - Eastern Plaguelands                                                  |
+-- |  4651 |         1 | Spawn Point 52 - Eastern Plaguelands                                                  |
+-- |  4652 |         1 | Spawn Point 53 - Eastern Plaguelands                                                  |
+-- |  4654 |         1 | Spawn Point 55 - Eastern Plaguelands                                                  |
+-- |  4655 |         1 | Spawn Point 56 - Eastern Plaguelands                                                  |
+-- |  4656 |         1 | Spawn Point 57 - Eastern Plaguelands                                                  |
+-- |  4657 |         1 | Spawn Point 58 - Eastern Plaguelands                                                  |
+-- |  4658 |         1 | Spawn Point 59 - Eastern Plaguelands                                                  |
+-- |  4659 |         1 | Spawn Point 60 - Eastern Plaguelands                                                  |
+-- |  4660 |         1 | Spawn Point 61 - Eastern Plaguelands                                                  |
+-- |  4661 |         1 | Spawn Point 62 - Eastern Plaguelands                                                  |
+-- |  4662 |         1 | Spawn Point 63 - Eastern Plaguelands                                                  |
+-- |  4663 |         1 | Spawn Point 64 - Eastern Plaguelands                                                  |
+-- |  4664 |         1 | Spawn Point 65 - Eastern Plaguelands                                                  |
+-- |  4665 |         1 | Spawn Point 66 - Eastern Plaguelands                                                  |
+-- |  4666 |         1 | Spawn Point 67 - Eastern Plaguelands                                                  |
+-- |  4667 |         1 | Spawn Point 68 - Eastern Plaguelands                                                  |
+-- |  4668 |         1 | Spawn Point 69 - Eastern Plaguelands                                                  |
+-- |  4669 |         1 | Spawn Point 70 - Eastern Plaguelands                                                  |
+-- |  4670 |         1 | Spawn Point 71 - Eastern Plaguelands                                                  |
+-- |  4672 |         1 | Spawn Point 73 - Eastern Plaguelands                                                  |
+-- |  4673 |         1 | Spawn Point 74 - Eastern Plaguelands                                                  |
+-- |  4674 |         1 | Spawn Point 75 - Eastern Plaguelands                                                  |
+-- |  4675 |         1 | Spawn Point 76 - Eastern Plaguelands                                                  |
+-- |  4676 |         1 | Spawn Point 77 - Eastern Plaguelands                                                  |
+-- |  2011 |        32 | Master Mineral Pool - Elwynn Forest                                                   |
+-- | 11644 |        30 | Copper Vein - Eversong Woods                                                          |
+-- |  4700 |         1 | Spawn Point 1 - Ghostlands                                                            |
+-- |  4701 |         1 | Spawn Point 2 - Ghostlands                                                            |
+-- |  4702 |         1 | Spawn Point 3 - Ghostlands                                                            |
+-- |  4703 |         1 | Spawn Point 4 - Ghostlands                                                            |
+-- |  4704 |         1 | Spawn Point 5 - Ghostlands                                                            |
+-- |  4705 |         1 | Spawn Point 6 - Ghostlands                                                            |
+-- |  4706 |         1 | Spawn Point 7 - Ghostlands                                                            |
+-- |  4707 |         1 | Spawn Point 8 - Ghostlands                                                            |
+-- |  4708 |         1 | Spawn Point 9 - Ghostlands                                                            |
+-- |  4709 |         1 | Spawn Point 10 - Ghostlands                                                           |
+-- |  4710 |         1 | Spawn Point 11 - Ghostlands                                                           |
+-- |  4711 |         1 | Spawn Point 12 - Ghostlands                                                           |
+-- |  4712 |         1 | Spawn Point 13 - Ghostlands                                                           |
+-- |  4713 |         1 | Spawn Point 14 - Ghostlands                                                           |
+-- |  4714 |         1 | Spawn Point 15 - Ghostlands                                                           |
+-- |  4715 |         1 | Spawn Point 16 - Ghostlands                                                           |
+-- |  4716 |         1 | Spawn Point 17 - Ghostlands                                                           |
+-- |  4717 |         1 | Spawn Point 18 - Ghostlands                                                           |
+-- |  4718 |         1 | Spawn Point 19 - Ghostlands                                                           |
+-- |  4719 |         1 | Spawn Point 20 - Ghostlands                                                           |
+-- |  4720 |         1 | Spawn Point 21 - Ghostlands                                                           |
+-- |  4721 |         1 | Spawn Point 22 - Ghostlands                                                           |
+-- |  4722 |         1 | Spawn Point 23 - Ghostlands                                                           |
+-- |  4723 |         1 | Spawn Point 24 - Ghostlands                                                           |
+-- |  4724 |         1 | Spawn Point 25 - Ghostlands                                                           |
+-- |  4725 |         1 | Spawn Point 26 - Ghostlands                                                           |
+-- |  4726 |         1 | Spawn Point 27 - Ghostlands                                                           |
+-- |  4727 |         1 | Spawn Point 28 - Ghostlands                                                           |
+-- |  4728 |         1 | Spawn Point 29 - Ghostlands                                                           |
+-- |  4729 |         1 | Spawn Point 30 - Ghostlands                                                           |
+-- |  4730 |         1 | Spawn Point 31 - Ghostlands                                                           |
+-- |  4731 |         1 | Spawn Point 32 - Ghostlands                                                           |
+-- |  4732 |         1 | Spawn Point 33 - Ghostlands                                                           |
+-- |  4733 |         1 | Spawn Point 34 - Ghostlands                                                           |
+-- |  4734 |         1 | Spawn Point 35 - Ghostlands                                                           |
+-- |  4735 |         1 | Spawn Point 36 - Ghostlands                                                           |
+-- |  4736 |         1 | Spawn Point 37 - Ghostlands                                                           |
+-- |  4737 |         1 | Spawn Point 38 - Ghostlands                                                           |
+-- |  4738 |         1 | Spawn Point 39 - Ghostlands                                                           |
+-- |  4739 |         1 | Spawn Point 40 - Ghostlands                                                           |
+-- |  4750 |         1 | Spawn Point 1 - Hillsbrad Foothills                                                   |
+-- |  4751 |         1 | Spawn Point 2 - Hillsbrad Foothills                                                   |
+-- |  4752 |         1 | Spawn Point 3 - Hillsbrad Foothills                                                   |
+-- |  4753 |         1 | Spawn Point 4 - Hillsbrad Foothills                                                   |
+-- |  4754 |         1 | Spawn Point 5 - Hillsbrad Foothills                                                   |
+-- |  4755 |         1 | Spawn Point 6 - Hillsbrad Foothills                                                   |
+-- |  4756 |         1 | Spawn Point 7 - Hillsbrad Foothills                                                   |
+-- |  4757 |         1 | Spawn Point 8 - Hillsbrad Foothills                                                   |
+-- |  4758 |         1 | Spawn Point 9 - Hillsbrad Foothills                                                   |
+-- |  4759 |         1 | Spawn Point 10 - Hillsbrad Foothills                                                  |
+-- |  4760 |         1 | Spawn Point 11 - Hillsbrad Foothills                                                  |
+-- |  4761 |         1 | Spawn Point 12 - Hillsbrad Foothills                                                  |
+-- |  4762 |         1 | Spawn Point 13 - Hillsbrad Foothills                                                  |
+-- |  4764 |         1 | Spawn Point 15 - Hillsbrad Foothills                                                  |
+-- |  4765 |         1 | Spawn Point 16 - Hillsbrad Foothills                                                  |
+-- |  4766 |         1 | Spawn Point 17 - Hillsbrad Foothills                                                  |
+-- |  4767 |         1 | Spawn Point 18 - Hillsbrad Foothills                                                  |
+-- |  4768 |         1 | Spawn Point 19 - Hillsbrad Foothills                                                  |
+-- |  4770 |         1 | Spawn Point 21 - Hillsbrad Foothills                                                  |
+-- |  4771 |         1 | Spawn Point 22 - Hillsbrad Foothills                                                  |
+-- |  4772 |         1 | Spawn Point 23 - Hillsbrad Foothills                                                  |
+-- |  4773 |         1 | Spawn Point 24 - Hillsbrad Foothills                                                  |
+-- |  4774 |         1 | Spawn Point 25 - Hillsbrad Foothills                                                  |
+-- |  4775 |         1 | Spawn Point 26 - Hillsbrad Foothills                                                  |
+-- |  4776 |         1 | Spawn Point 27 - Hillsbrad Foothills                                                  |
+-- |  4777 |         1 | Spawn Point 28 - Hillsbrad Foothills                                                  |
+-- |  4778 |         1 | Spawn Point 29 - Hillsbrad Foothills                                                  |
+-- |  4779 |         1 | Spawn Point 30 - Hillsbrad Foothills                                                  |
+-- |  4780 |         1 | Spawn Point 31 - Hillsbrad Foothills                                                  |
+-- |  4781 |         1 | Spawn Point 32 - Hillsbrad Foothills                                                  |
+-- |  4782 |         1 | Spawn Point 33 - Hillsbrad Foothills                                                  |
+-- |  4783 |         1 | Spawn Point 34 - Hillsbrad Foothills                                                  |
+-- |  4784 |         1 | Spawn Point 35 - Hillsbrad Foothills                                                  |
+-- |  4785 |         1 | Spawn Point 36 - Hillsbrad Foothills                                                  |
+-- |  4786 |         1 | Spawn Point 37 - Hillsbrad Foothills                                                  |
+-- |  4787 |         1 | Spawn Point 38 - Hillsbrad Foothills                                                  |
+-- |  4788 |         1 | Spawn Point 39 - Hillsbrad Foothills                                                  |
+-- |  4789 |         1 | Spawn Point 40 - Hillsbrad Foothills                                                  |
+-- |  4790 |         1 | Spawn Point 41 - Hillsbrad Foothills                                                  |
+-- |  4791 |         1 | Spawn Point 42 - Hillsbrad Foothills                                                  |
+-- |  4792 |         1 | Spawn Point 43 - Hillsbrad Foothills                                                  |
+-- |  4793 |         1 | Spawn Point 44 - Hillsbrad Foothills                                                  |
+-- |  4794 |         1 | Spawn Point 45 - Hillsbrad Foothills                                                  |
+-- |  4795 |         1 | Spawn Point 46 - Hillsbrad Foothills                                                  |
+-- |  4796 |         1 | Spawn Point 47 - Hillsbrad Foothills                                                  |
+-- |  4797 |         1 | Spawn Point 48 - Hillsbrad Foothills                                                  |
+-- |  4798 |         1 | Spawn Point 49 - Hillsbrad Foothills                                                  |
+-- |  4799 |         1 | Spawn Point 50 - Hillsbrad Foothills                                                  |
+-- |  4800 |         1 | Spawn Point 51 - Hillsbrad Foothills                                                  |
+-- |  4801 |         1 | Spawn Point 52 - Hillsbrad Foothills                                                  |
+-- |  4802 |         1 | Spawn Point 53 - Hillsbrad Foothills                                                  |
+-- |  4803 |         1 | Spawn Point 54 - Hillsbrad Foothills                                                  |
+-- |  4804 |         1 | Spawn Point 55 - Hillsbrad Foothills                                                  |
+-- |  4805 |         1 | Spawn Point 56 - Hillsbrad Foothills                                                  |
+-- |  4806 |         1 | Spawn Point 57 - Hillsbrad Foothills                                                  |
+-- |  4807 |         1 | Spawn Point 58 - Hillsbrad Foothills                                                  |
+-- |  4808 |         1 | Spawn Point 59 - Hillsbrad Foothills                                                  |
+-- |  4809 |         1 | Spawn Point 60 - Hillsbrad Foothills                                                  |
+-- |  4810 |         1 | Spawn Point 61 - Hillsbrad Foothills                                                  |
+-- |  4811 |         1 | Spawn Point 62 - Hillsbrad Foothills                                                  |
+-- |  4812 |         1 | Spawn Point 63 - Hillsbrad Foothills                                                  |
+-- |  4813 |         1 | Spawn Point 64 - Hillsbrad Foothills                                                  |
+-- |  4814 |         1 | Spawn Point 65 - Hillsbrad Foothills                                                  |
+-- |  4815 |         1 | Spawn Point 66 - Hillsbrad Foothills                                                  |
+-- |  4816 |         1 | Spawn Point 67 - Hillsbrad Foothills                                                  |
+-- |  4817 |         1 | Spawn Point 68 - Hillsbrad Foothills                                                  |
+-- |  4818 |         1 | Spawn Point 69 - Hillsbrad Foothills                                                  |
+-- |  4819 |         1 | Spawn Point 70 - Hillsbrad Foothills                                                  |
+-- |  4820 |         1 | Spawn Point 71 - Hillsbrad Foothills                                                  |
+-- |  4821 |         1 | Spawn Point 72 - Hillsbrad Foothills                                                  |
+-- |  4822 |         1 | Spawn Point 73 - Hillsbrad Foothills                                                  |
+-- |  4823 |         1 | Spawn Point 74 - Hillsbrad Foothills                                                  |
+-- |  4824 |         1 | Spawn Point 75 - Hillsbrad Foothills                                                  |
+-- |  4825 |         1 | Spawn Point 76 - Hillsbrad Foothills                                                  |
+-- |  4826 |         1 | Spawn Point 77 - Hillsbrad Foothills                                                  |
+-- |  4827 |         1 | Spawn Point 78 - Hillsbrad Foothills                                                  |
+-- |  4828 |         1 | Spawn Point 79 - Hillsbrad Foothills                                                  |
+-- |  4829 |         1 | Spawn Point 80 - Hillsbrad Foothills                                                  |
+-- |  4830 |         1 | Spawn Point 81 - Hillsbrad Foothills                                                  |
+-- |  4831 |         1 | Spawn Point 82 - Hillsbrad Foothills                                                  |
+-- |  4832 |         1 | Spawn Point 83 - Hillsbrad Foothills                                                  |
+-- |  4833 |         1 | Spawn Point 84 - Hillsbrad Foothills                                                  |
+-- |  4834 |         1 | Spawn Point 85 - Hillsbrad Foothills                                                  |
+-- |  4835 |         1 | Spawn Point 86 - Hillsbrad Foothills                                                  |
+-- |  4836 |         1 | Spawn Point 87 - Hillsbrad Foothills                                                  |
+-- |  4837 |         1 | Spawn Point 88 - Hillsbrad Foothills                                                  |
+-- |  4838 |         1 | Spawn Point 89 - Hillsbrad Foothills                                                  |
+-- |  4839 |         1 | Spawn Point 90 - Hillsbrad Foothills                                                  |
+-- |  4840 |         1 | Spawn Point 91 - Hillsbrad Foothills                                                  |
+-- |  4841 |         1 | Spawn Point 92 - Hillsbrad Foothills                                                  |
+-- |  4842 |         1 | Spawn Point 93 - Hillsbrad Foothills                                                  |
+-- |  4843 |         1 | Spawn Point 94 - Hillsbrad Foothills                                                  |
+-- |  4844 |         1 | Spawn Point 95 - Hillsbrad Foothills                                                  |
+-- |  4845 |         1 | Spawn Point 96 - Hillsbrad Foothills                                                  |
+-- |  4846 |         1 | Spawn Point 97 - Hillsbrad Foothills                                                  |
+-- |  4847 |         1 | Spawn Point 98 - Hillsbrad Foothills                                                  |
+-- |  2016 |         3 | Master Mineral Pool - Hillsbrad Foothills (Azurelode Mine) - Special Mineral GOs ONLY |
+-- |  4880 |         1 | Spawn Point 1 - Loch Modan                                                            |
+-- |  4881 |         1 | Spawn Point 2 - Loch Modan                                                            |
+-- |  4882 |         1 | Spawn Point 3 - Loch Modan                                                            |
+-- |  4883 |         1 | Spawn Point 4 - Loch Modan                                                            |
+-- |  4884 |         1 | Spawn Point 5 - Loch Modan                                                            |
+-- |  4885 |         1 | Spawn Point 6 - Loch Modan                                                            |
+-- |  4886 |         1 | Spawn Point 7 - Loch Modan                                                            |
+-- |  4887 |         1 | Spawn Point 8 - Loch Modan                                                            |
+-- |  4888 |         1 | Spawn Point 9 - Loch Modan                                                            |
+-- |  4889 |         1 | Spawn Point 10 - Loch Modan                                                           |
+-- |  4890 |         1 | Spawn Point 11 - Loch Modan                                                           |
+-- |  4891 |         1 | Spawn Point 12 - Loch Modan                                                           |
+-- |  4892 |         1 | Spawn Point 13 - Loch Modan                                                           |
+-- |  4893 |         1 | Spawn Point 14 - Loch Modan                                                           |
+-- |  4894 |         1 | Spawn Point 15 - Loch Modan                                                           |
+-- |  4895 |         1 | Spawn Point 16 - Loch Modan                                                           |
+-- |  4896 |         1 | Spawn Point 17 - Loch Modan                                                           |
+-- |  4897 |         1 | Spawn Point 18 - Loch Modan                                                           |
+-- |  4898 |         1 | Spawn Point 19 - Loch Modan                                                           |
+-- |  4899 |         1 | Spawn Point 20 - Loch Modan                                                           |
+-- |  4900 |         1 | Spawn Point 21 - Loch Modan                                                           |
+-- |  4901 |         1 | Spawn Point 22 - Loch Modan                                                           |
+-- |  4902 |         1 | Spawn Point 23 - Loch Modan                                                           |
+-- |  4903 |         1 | Spawn Point 24 - Loch Modan                                                           |
+-- |  4904 |         1 | Spawn Point 25 - Loch Modan                                                           |
+-- |  4905 |         1 | Spawn Point 26 - Loch Modan                                                           |
+-- |  4906 |         1 | Spawn Point 27 - Loch Modan                                                           |
+-- |  4907 |         1 | Spawn Point 28 - Loch Modan                                                           |
+-- |  4908 |         1 | Spawn Point 29 - Loch Modan                                                           |
+-- |  4909 |         1 | Spawn Point 30 - Loch Modan                                                           |
+-- |  4910 |         1 | Spawn Point 31 - Loch Modan                                                           |
+-- |  4911 |         1 | Spawn Point 32 - Loch Modan                                                           |
+-- |  4912 |         1 | Spawn Point 33 - Loch Modan                                                           |
+-- |  4913 |         1 | Spawn Point 34 - Loch Modan                                                           |
+-- |  4914 |         1 | Spawn Point 35 - Loch Modan                                                           |
+-- |  4915 |         1 | Spawn Point 36 - Loch Modan                                                           |
+-- |  4916 |         1 | Spawn Point 37 - Loch Modan                                                           |
+-- |  4917 |         1 | Spawn Point 38 - Loch Modan                                                           |
+-- |  4918 |         1 | Spawn Point 39 - Loch Modan                                                           |
+-- |  4919 |         1 | Spawn Point 40 - Loch Modan                                                           |
+-- |  4920 |         1 | Spawn Point 41 - Loch Modan                                                           |
+-- |  4921 |         1 | Spawn Point 42 - Loch Modan                                                           |
+-- |  4922 |         1 | Spawn Point 43 - Loch Modan                                                           |
+-- |  4923 |         1 | Spawn Point 44 - Loch Modan                                                           |
+-- |  4924 |         1 | Spawn Point 45 - Loch Modan                                                           |
+-- |  4925 |         1 | Spawn Point 46 - Loch Modan                                                           |
+-- |  4926 |         1 | Spawn Point 47 - Loch Modan                                                           |
+-- |  4927 |         1 | Spawn Point 48 - Loch Modan                                                           |
+-- |  4928 |         1 | Spawn Point 49 - Loch Modan                                                           |
+-- |  4929 |         1 | Spawn Point 50 - Loch Modan                                                           |
+-- |  4930 |         1 | Spawn Point 51 - Loch Modan                                                           |
+-- |  4931 |         1 | Spawn Point 52 - Loch Modan                                                           |
+-- |  4932 |         1 | Spawn Point 53 - Loch Modan                                                           |
+-- |  4933 |         1 | Spawn Point 54 - Loch Modan                                                           |
+-- |  4935 |         1 | Spawn Point 56 - Loch Modan                                                           |
+-- |  4936 |         1 | Spawn Point 57 - Loch Modan                                                           |
+-- |  4937 |         1 | Spawn Point 58 - Loch Modan                                                           |
+-- |  4938 |         1 | Spawn Point 59 - Loch Modan                                                           |
+-- |  4939 |         1 | Spawn Point 60 - Loch Modan                                                           |
+-- |  4940 |         1 | Spawn Point 61 - Loch Modan                                                           |
+-- |  4941 |         1 | Spawn Point 62 - Loch Modan                                                           |
+-- |  4942 |         1 | Spawn Point 63 - Loch Modan                                                           |
+-- |  4943 |         1 | Spawn Point 64 - Loch Modan                                                           |
+-- |  4944 |         1 | Spawn Point 65 - Loch Modan                                                           |
+-- |  4945 |         1 | Spawn Point 66 - Loch Modan                                                           |
+-- |  4946 |         1 | Spawn Point 67 - Loch Modan                                                           |
+-- |  4947 |         1 | Spawn Point 68 - Loch Modan                                                           |
+-- |  4948 |         1 | Spawn Point 69 - Loch Modan                                                           |
+-- |  4949 |         1 | Spawn Point 70 - Loch Modan                                                           |
+-- |  4950 |         1 | Spawn Point 71 - Loch Modan                                                           |
+-- |  4951 |         1 | Spawn Point 72 - Loch Modan                                                           |
+-- |  4952 |         1 | Spawn Point 73 - Loch Modan                                                           |
+-- |  4953 |         1 | Spawn Point 74 - Loch Modan                                                           |
+-- |  4954 |         1 | Spawn Point 75 - Loch Modan                                                           |
+-- |  4955 |         1 | Spawn Point 76 - Loch Modan                                                           |
+-- |  4956 |         1 | Spawn Point 77 - Loch Modan                                                           |
+-- |  4957 |         1 | Spawn Point 78 - Loch Modan                                                           |
+-- |  4958 |         1 | Spawn Point 79 - Loch Modan                                                           |
+-- |  4959 |         1 | Spawn Point 80 - Loch Modan                                                           |
+-- |  4960 |         1 | Spawn Point 81 - Loch Modan                                                           |
+-- |  4961 |         1 | Spawn Point 82 - Loch Modan                                                           |
+-- |  4962 |         1 | Spawn Point 83 - Loch Modan                                                           |
+-- |  4963 |         1 | Spawn Point 84 - Loch Modan                                                           |
+-- |  4964 |         1 | Spawn Point 85 - Loch Modan                                                           |
+-- |  4965 |         1 | Spawn Point 86 - Loch Modan                                                           |
+-- |  4966 |         1 | Spawn Point 87 - Loch Modan                                                           |
+-- |  4967 |         1 | Spawn Point 88 - Loch Modan                                                           |
+-- |  4968 |         1 | Spawn Point 89 - Loch Modan                                                           |
+-- |  4969 |         1 | Spawn Point 90 - Loch Modan                                                           |
+-- |  4970 |         1 | Spawn Point 91 - Loch Modan                                                           |
+-- |  4971 |         1 | Spawn Point 92 - Loch Modan                                                           |
+-- |  4972 |         1 | Spawn Point 93 - Loch Modan                                                           |
+-- |  4973 |         1 | Spawn Point 94 - Loch Modan                                                           |
+-- |  4974 |         1 | Spawn Point 95 - Loch Modan                                                           |
+-- |  4975 |         1 | Spawn Point 96 - Loch Modan                                                           |
+-- |  4976 |         1 | Spawn Point 97 - Loch Modan                                                           |
+-- |  4977 |         1 | Spawn Point 98 - Loch Modan                                                           |
+-- |  4978 |         1 | Spawn Point 99 - Loch Modan                                                           |
+-- |  4979 |         1 | Spawn Point 100 - Loch Modan                                                          |
+-- |  4980 |         1 | Spawn Point 101 - Loch Modan                                                          |
+-- |  4981 |         1 | Spawn Point 102 - Loch Modan                                                          |
+-- |  4982 |         1 | Spawn Point 103 - Loch Modan                                                          |
+-- |  4983 |         1 | Spawn Point 104 - Loch Modan                                                          |
+-- |  4984 |         1 | Spawn Point 105 - Loch Modan                                                          |
+-- |  4985 |         1 | Spawn Point 106 - Loch Modan                                                          |
+-- |  4986 |         1 | Spawn Point 107 - Loch Modan                                                          |
+-- |  4987 |         1 | Spawn Point 108 - Loch Modan                                                          |
+-- |  4988 |         1 | Spawn Point 109 - Loch Modan                                                          |
+-- |  4989 |         1 | Spawn Point 110 - Loch Modan                                                          |
+-- |  4990 |         1 | Spawn Point 111 - Loch Modan                                                          |
+-- |  4992 |         1 | Spawn Point 113 - Loch Modan                                                          |
+-- |   547 |         3 | Copper Vein Durotar Skull Rock (3 spawns 12 locs)                                     |
+-- |   548 |         3 | Copper Vein Durotar Outside Skull Rock North (3 spawns 12 locs)                       |
+-- |   549 |         3 | Copper Vein Durotar Outside Skull Rock South (3 spawns 8 locs)                        |
+-- |   550 |         2 | Copper Vein Durotar Dustwind Cave (2 spawns 8 locs)                                   |
+-- |   551 |         5 | Copper Vein Durotar Eastern Harpy Area (5 spawns 10 locs)                             |
+-- |   552 |         2 | Copper Vein Durotar Western Harpy Area (2 spawns 5 locs)                              |
+-- |   553 |         3 | Copper Vein Durotar Tor'kren Farm West (3 spawns 6 locs)                              |
+-- |   554 |         3 | Copper Vein Durotar Tor'kren Farm East (3 spawns 5 locs)                              |
+-- |   556 |         4 | Copper Vein Durotar Above Thunder Ridge (4 spawns 9 locs)                             |
+-- |   557 |         4 | Copper Vein Durotar Inside Thunder Ridge (4 spawns 9 locs)                            |
+-- |   558 |         3 | Copper Vein Durotar Razormane Grounds (South/West) (3 spawns 9 locs)                  |
+-- |   559 |         1 | Copper Vein Durotar Razormane Grounds East (1 spawn 2 locs)                           |
+-- |   560 |         3 | Copper Vein Durotar South of Razormane Grounds (3 spawns 8 locs)                      |
+-- |   561 |         2 | Copper Vein Durotar Tiragarde Keep (2 spawns 7 locs)                                  |
+-- |   562 |         3 | Copper Vein Durotar Around Sen'Jin Village (3 spawns 9 locs)                          |
+-- |   563 |         2 | Copper Vein Durotar Kolkar Crag (2 spawns 5 locs)                                     |
+-- |   555 |         2 | Copper Vein Durotar Echo Isles (2 spawns 4 locs)                                      |
+-- | 12000 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12001 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12002 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12003 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12004 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12005 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12006 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12007 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12008 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12009 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12010 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12011 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12012 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12013 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12014 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12015 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12016 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12017 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12018 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12019 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12020 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12021 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12022 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12023 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12024 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12025 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12026 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12027 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12028 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12029 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12030 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12031 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12032 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12033 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12034 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12035 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12036 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12037 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12038 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12039 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12040 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12041 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12042 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12043 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12044 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12045 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12046 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12047 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12048 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12049 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12050 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12051 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12052 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12053 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12054 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12055 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12056 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12057 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12058 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12059 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12060 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12061 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12062 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12063 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12064 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12065 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12066 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12067 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12068 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12069 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12070 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12071 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12072 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12073 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12074 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12075 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12076 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12077 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12078 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12079 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12080 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12081 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12082 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12083 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12084 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12085 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12086 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12087 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12088 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12089 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12090 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12091 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12092 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12093 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12094 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12095 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12096 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12097 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12098 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12099 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12100 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12101 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12102 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12103 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12104 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12105 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12106 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12107 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12108 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12109 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12110 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12111 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12112 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12113 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12114 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12115 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12116 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12117 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12118 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12119 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12120 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12121 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12122 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12123 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12124 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12125 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12126 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12127 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12128 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12129 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12130 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12131 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12132 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12133 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12134 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12135 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12136 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12137 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12138 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12139 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12140 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12141 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12142 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12143 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12144 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12145 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12146 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12147 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12148 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12149 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12150 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12151 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12152 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12153 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12154 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12155 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12156 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12157 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12158 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12159 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12160 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12161 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12162 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12163 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12164 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12165 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12166 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12167 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12168 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12169 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12170 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12171 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12172 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12173 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12174 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12175 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12176 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12177 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12178 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12179 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12180 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12181 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12182 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12183 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12184 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12185 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12186 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12187 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12188 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12189 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12190 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12191 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12192 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12193 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12194 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12195 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12196 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12197 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12198 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12199 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12200 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12201 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12202 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12203 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12204 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12205 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12206 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12207 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12208 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12209 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12210 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12211 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12212 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12213 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12214 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12215 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12216 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12217 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12218 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12219 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12220 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12221 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12222 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12223 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12224 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12225 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12226 |         1 | Hellfire Peninsula - Fel Iron Deposit / Khorium Vein                                  |
+-- | 12227 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12228 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12229 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12230 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12231 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12232 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12233 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12234 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12235 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12236 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12237 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12238 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12239 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12240 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12241 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12242 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12243 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12244 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12245 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12246 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12247 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12248 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12249 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12250 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12251 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12252 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12253 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12254 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12255 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12256 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12257 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12258 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12259 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12260 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12261 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12262 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12263 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12264 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12265 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12266 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12267 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12268 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12269 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12270 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12271 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12272 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12273 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12274 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12275 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12276 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12277 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12278 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12279 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12280 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12281 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12282 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12283 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12284 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12285 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12286 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12287 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12288 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12289 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12290 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12291 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12292 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12293 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12294 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12295 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12296 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12297 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12298 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12299 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12300 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12301 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12302 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12303 |         1 | Zangarmarsh - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12304 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12305 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12306 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12307 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12308 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12309 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12310 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12311 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12312 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12313 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12314 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12315 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12316 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12317 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12318 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12319 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12320 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12321 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12322 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12323 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12324 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12325 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12326 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12327 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12328 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12329 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12330 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12331 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12332 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12333 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12334 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12335 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12336 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12337 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12338 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12339 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12340 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12341 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12342 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12343 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12344 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12345 |         1 | Zangarmarsh - Adamantite Deposit / Khorium Vein                                       |
+-- | 12346 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12347 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12348 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12349 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12350 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12351 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12352 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12353 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12354 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12355 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12356 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12357 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12358 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12359 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12360 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12361 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12362 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12363 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12364 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12365 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12366 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12367 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12368 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12369 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12370 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12371 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12372 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12373 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12374 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12375 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12376 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12377 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12378 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12379 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12380 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12381 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12382 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12383 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12384 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12385 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12386 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12387 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12388 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12389 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12390 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12391 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12392 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12393 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12394 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12395 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12396 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12397 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12398 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12399 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12400 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12401 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12402 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12403 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12404 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12405 |         1 | Terokkar Forest - Fel Iron Deposit / Khorium Vein                                     |
+-- | 12406 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12407 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12408 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12409 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12410 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12411 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12412 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12413 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12414 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12415 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12416 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12417 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12418 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12419 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12420 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12421 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12422 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12423 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12424 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12425 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12426 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12427 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12428 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12429 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12430 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12431 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12432 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12433 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12434 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12435 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12436 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12437 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12438 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12439 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12440 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12441 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12442 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12443 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12444 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12445 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12446 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12447 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12448 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12449 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12450 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12451 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12452 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12453 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12454 |         1 | Terokkar Forest - Adamantite Deposit / Khorium Vein                                   |
+-- | 12455 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12456 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12457 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12458 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12459 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12460 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12461 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12462 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12463 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12464 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12465 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12466 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12467 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12468 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12469 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12470 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12471 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12472 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12473 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12474 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12475 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12476 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12477 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12478 |         1 | Terokkar Forest - Adamantite / Khorium / Rich                                         |
+-- | 12479 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12480 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12481 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12482 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12483 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12484 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12485 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12486 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12487 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12488 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12489 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12490 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12491 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12492 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12493 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12494 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12495 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12496 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12497 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12498 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12499 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12500 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12501 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12502 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12503 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12504 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12505 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12506 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12507 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12508 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12509 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12510 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12511 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12512 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12513 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12514 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12515 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12516 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12517 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12518 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12519 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12520 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12521 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12522 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12523 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12524 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12525 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12526 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12527 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12528 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12529 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12530 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12531 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12532 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12533 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12534 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12535 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12536 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12537 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12538 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12539 |         1 | Nagrand - Fel Iron Deposit / Khorium Vein                                             |
+-- | 12540 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12541 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12542 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12543 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12544 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12545 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12546 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12547 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12548 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12549 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12550 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12551 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12552 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12553 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12554 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12555 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12556 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12557 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12558 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12559 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12560 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12561 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12562 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12563 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12564 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12565 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12566 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12567 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12568 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12569 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12570 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12571 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12572 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12573 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12574 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12575 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12576 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12577 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12578 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12579 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12580 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12581 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12582 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12583 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12584 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12585 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12586 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12587 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12588 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12589 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12590 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12591 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12592 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12593 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12594 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12595 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12596 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12597 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12598 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12599 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12600 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12601 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12602 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12603 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12604 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12605 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12606 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12607 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12608 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12609 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12610 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12611 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12612 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12613 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12614 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12615 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12616 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12617 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12618 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12619 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12620 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12621 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12622 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12623 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12624 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12625 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12626 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12627 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12628 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12629 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12630 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12631 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12632 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12633 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12634 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12635 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12636 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12637 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12638 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12639 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12640 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12641 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12642 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12643 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12644 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12645 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12646 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12647 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12648 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12649 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12650 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12651 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12652 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12653 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12654 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12655 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12656 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12657 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12658 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12659 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12660 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12661 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12662 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12663 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12664 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12665 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12666 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12667 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12668 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12669 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12670 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12671 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12672 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12673 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12674 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12675 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12676 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12677 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12678 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12679 |         1 | Nagrand - Adamantite / Khorium / Rich                                                 |
+-- | 12680 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12681 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12682 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12683 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12684 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12685 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12686 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12687 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12688 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12689 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12690 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12691 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12692 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12693 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12694 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12695 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12696 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12697 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12698 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12699 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12700 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12701 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12702 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12703 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12704 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12705 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12706 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12707 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12708 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12709 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12710 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12711 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12712 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12713 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12714 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12715 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12716 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12717 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12718 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12719 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12720 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12721 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12722 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12723 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12724 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12725 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12726 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12727 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12728 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12729 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12730 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12731 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12732 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12733 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12734 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12735 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12736 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12737 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12738 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12739 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12740 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12741 |         1 | Blade's Edge Mountains - Fel Iron Deposit / Khorium Vein                              |
+-- | 12742 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12743 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12744 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12745 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12746 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12747 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12748 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12749 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12750 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12751 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12752 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12753 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12754 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12755 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12756 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12757 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12758 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12759 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12760 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12761 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12762 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12763 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12764 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12765 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12766 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12767 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12768 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12769 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12770 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12771 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12772 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12773 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12774 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12775 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12776 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12777 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12778 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12779 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12780 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12781 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12782 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12783 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12784 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12785 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12786 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12787 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12788 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12789 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12790 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12791 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12792 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12793 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12794 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12795 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12796 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12797 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12798 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12799 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12800 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12801 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12802 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12803 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12804 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12805 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12806 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12807 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12808 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12809 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12810 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12811 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12812 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12813 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12814 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12815 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12816 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12817 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12818 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12819 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12820 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12821 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12822 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12823 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12824 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12825 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12826 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12827 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12828 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12829 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12830 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12831 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12832 |         1 | Blade's Edge Mountains - Adamantite Deposit / Khorium Vein                            |
+-- | 12833 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12834 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12835 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12836 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12837 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12838 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12839 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12840 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12841 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12842 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12843 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12844 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12845 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12846 |         1 | Blade's Edge Mountains - Adamantite / Khorium / Rich Adamantite                       |
+-- | 12847 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12848 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12849 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12850 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12851 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12852 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12853 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12854 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12855 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12856 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12857 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12858 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12859 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12860 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12861 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12862 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12863 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12864 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12865 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12866 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12867 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12868 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12869 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12870 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12871 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12872 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12873 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12874 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12875 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12876 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12877 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12878 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12879 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12880 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12881 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12882 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12883 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12884 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12885 |         1 | Netherstorm - Fel Iron Deposit / Khorium Vein                                         |
+-- | 12886 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12887 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12888 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12889 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12890 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12891 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12892 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12893 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12894 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12895 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12896 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12897 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12898 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12899 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12900 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12901 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12902 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12903 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12904 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12905 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12906 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12907 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12908 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12909 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12910 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12911 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12912 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12913 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12914 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12915 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12916 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12917 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12918 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12919 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12920 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12921 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12922 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12923 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12924 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12925 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12926 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12927 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12928 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12929 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12930 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12931 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12932 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12933 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12934 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12935 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12936 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12937 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12938 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12939 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12940 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12941 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12942 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12943 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12944 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12945 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12946 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12947 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12948 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12949 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12950 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12951 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12952 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12953 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12954 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12955 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12956 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12957 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12958 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12959 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12960 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12961 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12962 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12963 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12964 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12965 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12966 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12967 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12968 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12969 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12970 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12971 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12972 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12973 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12974 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12975 |         1 | Netherstorm - Adamantite / Khorium / Rich                                             |
+-- | 12976 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12977 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12978 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12979 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12980 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12981 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12982 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12983 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12984 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12985 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12986 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12987 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12988 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12989 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12990 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12991 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12992 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12993 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12994 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12995 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12996 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12997 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12998 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 12999 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13000 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13001 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13002 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13003 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13004 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13005 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13006 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13007 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13008 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13009 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13010 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13011 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13012 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13013 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13014 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13015 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13016 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13017 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13018 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13019 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13020 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13021 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13022 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13023 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13024 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13025 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13026 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13027 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13028 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13029 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13030 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13031 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13032 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13033 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13034 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13035 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13036 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13037 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13038 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13039 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13040 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13041 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13042 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13043 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13044 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13045 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13046 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13047 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13048 |         1 | Shadowmoon Valley - Fel Iron Deposit / Khorium Vein                                   |
+-- | 13049 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13050 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13051 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13052 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13053 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13054 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13055 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13056 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13057 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13058 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13059 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13060 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13061 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13062 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13063 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13064 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13065 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13066 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13067 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13068 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13069 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13070 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13071 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13072 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13073 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13074 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13075 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13076 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13077 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13078 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13079 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13080 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13081 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13082 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13083 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13084 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13085 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13086 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13087 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13088 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13089 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13090 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13091 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13092 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13093 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13094 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13095 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13096 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13097 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13098 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13099 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13100 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13101 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13102 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13103 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13104 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13105 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13106 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13107 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13108 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13109 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13110 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13111 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13112 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13113 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13114 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13115 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13116 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13117 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13118 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13119 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13120 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13121 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13122 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13123 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13124 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13125 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13126 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13127 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13128 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13129 |         1 | Shadowmoon Valley - Adamantite / Khorium / Rich                                       |
+-- | 13130 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13131 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13132 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13133 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13134 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13135 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13136 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13137 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13138 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13139 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13140 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13141 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13142 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13143 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13144 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13145 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13146 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13147 |         1 | Isle of Quel'Danas - Adamantite / Khorium / Rich                                      |
+-- | 13297 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13298 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13299 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13300 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13301 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13302 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13303 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13304 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13305 |         1 | The Underbog - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein            |
+-- | 13321 |         1 | The Slave Pens - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13322 |         1 | The Slave Pens - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13323 |         1 | The Slave Pens - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13324 |         1 | The Slave Pens - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13325 |         1 | The Slave Pens - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13326 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13327 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13328 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13329 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13330 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13331 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13332 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13333 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- | 13334 |         1 | Mana-Tombs - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein              |
+-- |  8328 |         8 | Nethercite Deposit (185877)                                                           |
+-- | 13335 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13336 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13337 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13338 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13339 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13340 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13341 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13342 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13343 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13344 |         1 | Auchenai Crypts - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein         |
+-- | 13345 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13346 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13347 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13348 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13349 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13350 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13351 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13352 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13353 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13354 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13355 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13356 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13357 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13358 |         1 | Sethekk Halls - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein           |
+-- | 13359 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13360 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13361 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13362 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13363 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13364 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13365 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13366 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13367 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13368 |         1 | Shadow Labyrinth - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein        |
+-- | 13423 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13424 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13425 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13426 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13427 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13428 |         1 | The Steamvault - Fel Iron Deposit / Khorium Vein                                      |
+-- | 13429 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13430 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13431 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13432 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13433 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13434 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- | 13435 |         1 | The Steamvault - Adamantite Deposit / Rich Adamantite Deposit / Khorium Vein          |
+-- |  5637 |         1 | Wintergrasp mineral, node 21                                                          |
+-- |  5638 |         1 | Wintergrasp mineral, node 22                                                          |
+-- |  5639 |         1 | Wintergrasp mineral, node 23                                                          |
+-- |  5506 |         1 | Icecrown 189980, node 59                                                              |
+-- |  5640 |         1 | Wintergrasp mineral, node 24                                                          |
+-- |  5641 |         1 | Wintergrasp mineral, node 25                                                          |
+-- |  5517 |         1 | Icecrown 189981, node 70                                                              |
+-- |  5642 |         1 | Wintergrasp mineral, node 26                                                          |
+-- |  5643 |         1 | Wintergrasp mineral, node 27                                                          |
+-- |  5644 |         1 | Wintergrasp mineral, node 28                                                          |
+-- |  5645 |         1 | Wintergrasp mineral, node 29                                                          |
+-- |  5646 |         1 | Wintergrasp mineral, node 30                                                          |
+-- |  5647 |         1 | Wintergrasp mineral, node 31                                                          |
+-- |  5648 |         1 | Wintergrasp mineral, node 32                                                          |
+-- |  5649 |         1 | Wintergrasp mineral, node 33                                                          |
+-- |  5650 |         1 | Wintergrasp mineral, node 34                                                          |
+-- |  5651 |         1 | Wintergrasp mineral, node 35                                                          |
+-- |  5652 |         1 | Wintergrasp mineral, node 36                                                          |
+-- |  5653 |         1 | Wintergrasp mineral, node 37                                                          |
+-- |  5654 |         1 | Wintergrasp mineral, node 38                                                          |
+-- | 11646 |        30 | Mineral Veins - Bloodmyst Isle                                                        |
+-- |  5655 |         1 | Wintergrasp mineral, node 39                                                          |
+-- |  5656 |         1 | Wintergrasp mineral, node 40                                                          |
+-- |  5608 |         1 | Icecrown 189980, node 161                                                             |
+-- |  5657 |         1 | Wintergrasp mineral, node 41                                                          |
+-- |  5658 |         1 | Wintergrasp mineral, node 42                                                          |
+-- |  5659 |         1 | Wintergrasp mineral, node 43                                                          |
+-- |  5660 |         1 | Wintergrasp mineral, node 44                                                          |
+-- |  5661 |         1 | Wintergrasp mineral, node 45                                                          |
+-- | 10000 |         1 | Borean Tundra Ore Spawnpoint 1                                                        |
+-- | 10001 |         1 | Borean Tundra Ore Spawnpoint 2                                                        |
+-- | 10002 |         1 | Borean Tundra Ore Spawnpoint 3                                                        |
+-- | 10003 |         1 | Borean Tundra Ore Spawnpoint 4                                                        |
+-- | 10004 |         1 | Borean Tundra Ore Spawnpoint 5                                                        |
+-- | 10005 |         1 | Borean Tundra Ore Spawnpoint 6                                                        |
+-- | 10006 |         1 | Borean Tundra Ore Spawnpoint 7                                                        |
+-- | 10007 |         1 | Borean Tundra Ore Spawnpoint 8                                                        |
+-- | 10008 |         1 | Borean Tundra Ore Spawnpoint 9                                                        |
+-- | 10009 |         1 | Borean Tundra Ore Spawnpoint 10                                                       |
+-- | 10010 |         1 | Borean Tundra Ore Spawnpoint 11                                                       |
+-- | 10011 |         1 | Borean Tundra Ore Spawnpoint 12                                                       |
+-- | 10012 |         1 | Borean Tundra Ore Spawnpoint 13                                                       |
+-- | 10013 |         1 | Borean Tundra Ore Spawnpoint 14                                                       |
+-- | 10014 |         1 | Borean Tundra Ore Spawnpoint 15                                                       |
+-- | 10015 |         1 | Borean Tundra Ore Spawnpoint 16                                                       |
+-- | 10016 |         1 | Borean Tundra Ore Spawnpoint 17                                                       |
+-- | 10017 |         1 | Borean Tundra Ore Spawnpoint 18                                                       |
+-- | 10018 |         1 | Borean Tundra Ore Spawnpoint 19                                                       |
+-- | 10019 |         1 | Borean Tundra Ore Spawnpoint 20                                                       |
+-- | 10020 |         1 | Borean Tundra Ore Spawnpoint 21                                                       |
+-- | 10021 |         1 | Borean Tundra Ore Spawnpoint 22                                                       |
+-- | 10022 |         1 | Borean Tundra Ore Spawnpoint 23                                                       |
+-- | 10023 |         1 | Borean Tundra Ore Spawnpoint 24                                                       |
+-- | 10024 |         1 | Borean Tundra Ore Spawnpoint 25                                                       |
+-- | 10025 |         1 | Borean Tundra Ore Spawnpoint 26                                                       |
+-- | 10026 |         1 | Borean Tundra Ore Spawnpoint 27                                                       |
+-- | 10027 |         1 | Borean Tundra Ore Spawnpoint 28                                                       |
+-- | 10028 |         1 | Borean Tundra Ore Spawnpoint 29                                                       |
+-- | 10029 |         1 | Borean Tundra Ore Spawnpoint 30                                                       |
+-- | 10030 |         1 | Borean Tundra Ore Spawnpoint 31                                                       |
+-- | 10031 |         1 | Borean Tundra Ore Spawnpoint 32                                                       |
+-- | 10032 |         1 | Borean Tundra Ore Spawnpoint 33                                                       |
+-- | 10033 |         1 | Borean Tundra Ore Spawnpoint 34                                                       |
+-- | 10034 |         1 | Borean Tundra Ore Spawnpoint 35                                                       |
+-- | 10035 |         1 | Borean Tundra Ore Spawnpoint 36                                                       |
+-- | 10036 |         1 | Borean Tundra Ore Spawnpoint 37                                                       |
+-- | 10037 |         1 | Borean Tundra Ore Spawnpoint 38                                                       |
+-- | 10038 |         1 | Borean Tundra Ore Spawnpoint 39                                                       |
+-- | 10039 |         1 | Borean Tundra Ore Spawnpoint 40                                                       |
+-- | 10040 |         1 | Borean Tundra Ore Spawnpoint 41                                                       |
+-- | 10041 |         1 | Borean Tundra Ore Spawnpoint 42                                                       |
+-- | 10042 |         1 | Borean Tundra Ore Spawnpoint 43                                                       |
+-- | 10043 |         1 | Borean Tundra Ore Spawnpoint 44                                                       |
+-- | 10044 |         1 | Borean Tundra Ore Spawnpoint 45                                                       |
+-- | 10045 |         1 | Borean Tundra Ore Spawnpoint 46                                                       |
+-- | 10046 |         1 | Borean Tundra Ore Spawnpoint 47                                                       |
+-- | 10047 |         1 | Borean Tundra Ore Spawnpoint 48                                                       |
+-- | 10048 |         1 | Borean Tundra Ore Spawnpoint 49                                                       |
+-- | 10049 |         1 | Borean Tundra Ore Spawnpoint 50                                                       |
+-- | 10050 |         1 | Borean Tundra Ore Spawnpoint 51                                                       |
+-- | 10051 |         1 | Borean Tundra Ore Spawnpoint 52                                                       |
+-- | 10052 |         1 | Borean Tundra Ore Spawnpoint 53                                                       |
+-- | 10053 |         1 | Borean Tundra Ore Spawnpoint 54                                                       |
+-- | 10054 |         1 | Borean Tundra Ore Spawnpoint 55                                                       |
+-- | 10055 |         1 | Borean Tundra Ore Spawnpoint 56                                                       |
+-- | 10056 |         1 | Borean Tundra Ore Spawnpoint 57                                                       |
+-- | 10057 |         1 | Borean Tundra Ore Spawnpoint 58                                                       |
+-- | 10058 |         1 | Borean Tundra Ore Spawnpoint 59                                                       |
+-- | 10059 |         1 | Borean Tundra Ore Spawnpoint 60                                                       |
+-- | 10060 |         1 | Borean Tundra Ore Spawnpoint 61                                                       |
+-- | 10061 |         1 | Borean Tundra Ore Spawnpoint 62                                                       |
+-- | 10062 |         1 | Borean Tundra Ore Spawnpoint 63                                                       |
+-- | 10063 |         1 | Borean Tundra Ore Spawnpoint 64                                                       |
+-- | 10064 |         1 | Borean Tundra Ore Spawnpoint 65                                                       |
+-- | 10065 |         1 | Borean Tundra Ore Spawnpoint 66                                                       |
+-- | 10066 |         1 | Borean Tundra Ore Spawnpoint 67                                                       |
+-- | 10067 |         1 | Borean Tundra Ore Spawnpoint 68                                                       |
+-- | 10068 |         1 | Borean Tundra Ore Spawnpoint 69                                                       |
+-- | 10069 |         1 | Borean Tundra Ore Spawnpoint 70                                                       |
+-- | 10070 |         1 | Borean Tundra Ore Spawnpoint 71                                                       |
+-- | 10071 |         1 | Borean Tundra Ore Spawnpoint 72                                                       |
+-- | 10072 |         1 | Borean Tundra Ore Spawnpoint 73                                                       |
+-- | 10073 |         1 | Borean Tundra Ore Spawnpoint 74                                                       |
+-- | 10074 |         1 | Borean Tundra Ore Spawnpoint 75                                                       |
+-- | 10075 |         1 | Borean Tundra Ore Spawnpoint 76                                                       |
+-- | 10076 |         1 | Borean Tundra Ore Spawnpoint 77                                                       |
+-- | 10077 |         1 | Borean Tundra Ore Spawnpoint 78                                                       |
+-- | 10078 |         1 | Borean Tundra Ore Spawnpoint 79                                                       |
+-- | 10079 |         1 | Borean Tundra Ore Spawnpoint 80                                                       |
+-- | 10080 |         1 | Borean Tundra Ore Spawnpoint 81                                                       |
+-- | 10081 |         1 | Borean Tundra Ore Spawnpoint 82                                                       |
+-- | 10082 |         1 | Borean Tundra Ore Spawnpoint 83                                                       |
+-- | 10083 |         1 | Borean Tundra Ore Spawnpoint 84                                                       |
+-- | 10084 |         1 | Borean Tundra Ore Spawnpoint 85                                                       |
+-- | 10085 |         1 | Borean Tundra Ore Spawnpoint 86                                                       |
+-- | 10086 |         1 | Borean Tundra Ore Spawnpoint 87                                                       |
+-- | 10087 |         1 | Borean Tundra Ore Spawnpoint 88                                                       |
+-- | 10088 |         1 | Borean Tundra Ore Spawnpoint 89                                                       |
+-- | 10089 |         1 | Borean Tundra Ore Spawnpoint 90                                                       |
+-- | 10090 |         1 | Borean Tundra Ore Spawnpoint 91                                                       |
+-- | 10150 |         1 | Howling Fjord Ore Spawnpoint 1                                                        |
+-- | 10151 |         1 | Howling Fjord Ore Spawnpoint 2                                                        |
+-- | 10152 |         1 | Howling Fjord Ore Spawnpoint 3                                                        |
+-- | 10153 |         1 | Howling Fjord Ore Spawnpoint 4                                                        |
+-- | 10154 |         1 | Howling Fjord Ore Spawnpoint 5                                                        |
+-- | 10155 |         1 | Howling Fjord Ore Spawnpoint 6                                                        |
+-- | 10156 |         1 | Howling Fjord Ore Spawnpoint 7                                                        |
+-- | 10157 |         1 | Howling Fjord Ore Spawnpoint 8                                                        |
+-- | 10158 |         1 | Howling Fjord Ore Spawnpoint 9                                                        |
+-- | 10159 |         1 | Howling Fjord Ore Spawnpoint 10                                                       |
+-- | 10160 |         1 | Howling Fjord Ore Spawnpoint 11                                                       |
+-- | 10161 |         1 | Howling Fjord Ore Spawnpoint 12                                                       |
+-- | 10162 |         1 | Howling Fjord Ore Spawnpoint 13                                                       |
+-- | 10163 |         1 | Howling Fjord Ore Spawnpoint 14                                                       |
+-- | 10164 |         1 | Howling Fjord Ore Spawnpoint 15                                                       |
+-- | 10165 |         1 | Howling Fjord Ore Spawnpoint 16                                                       |
+-- | 10166 |         1 | Howling Fjord Ore Spawnpoint 17                                                       |
+-- | 10167 |         1 | Howling Fjord Ore Spawnpoint 18                                                       |
+-- | 10168 |         1 | Howling Fjord Ore Spawnpoint 19                                                       |
+-- | 10169 |         1 | Howling Fjord Ore Spawnpoint 20                                                       |
+-- | 10170 |         1 | Howling Fjord Ore Spawnpoint 21                                                       |
+-- | 10171 |         1 | Howling Fjord Ore Spawnpoint 22                                                       |
+-- | 10172 |         1 | Howling Fjord Ore Spawnpoint 23                                                       |
+-- | 10173 |         1 | Howling Fjord Ore Spawnpoint 24                                                       |
+-- | 10174 |         1 | Howling Fjord Ore Spawnpoint 25                                                       |
+-- | 10175 |         1 | Howling Fjord Ore Spawnpoint 26                                                       |
+-- | 10176 |         1 | Howling Fjord Ore Spawnpoint 27                                                       |
+-- | 10177 |         1 | Howling Fjord Ore Spawnpoint 28                                                       |
+-- | 10178 |         1 | Howling Fjord Ore Spawnpoint 29                                                       |
+-- | 10179 |         1 | Howling Fjord Ore Spawnpoint 30                                                       |
+-- | 10180 |         1 | Howling Fjord Ore Spawnpoint 31                                                       |
+-- | 10181 |         1 | Howling Fjord Ore Spawnpoint 32                                                       |
+-- | 10182 |         1 | Howling Fjord Ore Spawnpoint 33                                                       |
+-- | 10183 |         1 | Howling Fjord Ore Spawnpoint 34                                                       |
+-- | 10184 |         1 | Howling Fjord Ore Spawnpoint 35                                                       |
+-- | 10185 |         1 | Howling Fjord Ore Spawnpoint 36                                                       |
+-- | 10186 |         1 | Howling Fjord Ore Spawnpoint 37                                                       |
+-- | 10187 |         1 | Howling Fjord Ore Spawnpoint 38                                                       |
+-- | 10188 |         1 | Howling Fjord Ore Spawnpoint 39                                                       |
+-- | 10189 |         1 | Howling Fjord Ore Spawnpoint 40                                                       |
+-- | 10190 |         1 | Howling Fjord Ore Spawnpoint 41                                                       |
+-- | 10191 |         1 | Howling Fjord Ore Spawnpoint 42                                                       |
+-- | 10192 |         1 | Howling Fjord Ore Spawnpoint 43                                                       |
+-- | 10193 |         1 | Howling Fjord Ore Spawnpoint 44                                                       |
+-- | 10194 |         1 | Howling Fjord Ore Spawnpoint 45                                                       |
+-- | 10195 |         1 | Howling Fjord Ore Spawnpoint 46                                                       |
+-- | 10196 |         1 | Howling Fjord Ore Spawnpoint 47                                                       |
+-- | 10197 |         1 | Howling Fjord Ore Spawnpoint 48                                                       |
+-- | 10198 |         1 | Howling Fjord Ore Spawnpoint 49                                                       |
+-- | 10199 |         1 | Howling Fjord Ore Spawnpoint 50                                                       |
+-- | 10200 |         1 | Howling Fjord Ore Spawnpoint 51                                                       |
+-- | 10201 |         1 | Howling Fjord Ore Spawnpoint 52                                                       |
+-- | 10202 |         1 | Howling Fjord Ore Spawnpoint 53                                                       |
+-- | 10203 |         1 | Howling Fjord Ore Spawnpoint 54                                                       |
+-- | 10204 |         1 | Howling Fjord Ore Spawnpoint 55                                                       |
+-- | 10205 |         1 | Howling Fjord Ore Spawnpoint 56                                                       |
+-- | 10206 |         1 | Howling Fjord Ore Spawnpoint 57                                                       |
+-- | 10207 |         1 | Howling Fjord Ore Spawnpoint 58                                                       |
+-- | 10208 |         1 | Howling Fjord Ore Spawnpoint 59                                                       |
+-- | 10209 |         1 | Howling Fjord Ore Spawnpoint 60                                                       |
+-- | 10210 |         1 | Howling Fjord Ore Spawnpoint 61                                                       |
+-- | 10211 |         1 | Howling Fjord Ore Spawnpoint 62                                                       |
+-- | 10212 |         1 | Howling Fjord Ore Spawnpoint 63                                                       |
+-- | 10213 |         1 | Howling Fjord Ore Spawnpoint 64                                                       |
+-- | 10214 |         1 | Howling Fjord Ore Spawnpoint 65                                                       |
+-- | 10215 |         1 | Howling Fjord Ore Spawnpoint 66                                                       |
+-- | 10216 |         1 | Howling Fjord Ore Spawnpoint 67                                                       |
+-- | 10217 |         1 | Howling Fjord Ore Spawnpoint 68                                                       |
+-- | 10218 |         1 | Howling Fjord Ore Spawnpoint 69                                                       |
+-- | 10219 |         1 | Howling Fjord Ore Spawnpoint 70                                                       |
+-- | 10220 |         1 | Howling Fjord Ore Spawnpoint 71                                                       |
+-- | 10221 |         1 | Howling Fjord Ore Spawnpoint 72                                                       |
+-- | 10222 |         1 | Howling Fjord Ore Spawnpoint 73                                                       |
+-- | 10223 |         1 | Howling Fjord Ore Spawnpoint 74                                                       |
+-- | 10224 |         1 | Howling Fjord Ore Spawnpoint 75                                                       |
+-- | 10225 |         1 | Howling Fjord Ore Spawnpoint 76                                                       |
+-- | 10226 |         1 | Howling Fjord Ore Spawnpoint 77                                                       |
+-- | 10227 |         1 | Howling Fjord Ore Spawnpoint 78                                                       |
+-- | 10228 |         1 | Howling Fjord Ore Spawnpoint 79                                                       |
+-- | 10229 |         1 | Howling Fjord Ore Spawnpoint 80                                                       |
+-- | 10230 |         1 | Howling Fjord Ore Spawnpoint 81                                                       |
+-- | 10231 |         1 | Howling Fjord Ore Spawnpoint 82                                                       |
+-- | 10232 |         1 | Howling Fjord Ore Spawnpoint 83                                                       |
+-- | 10233 |         1 | Howling Fjord Ore Spawnpoint 84                                                       |
+-- | 10234 |         1 | Howling Fjord Ore Spawnpoint 85                                                       |
+-- | 10235 |         1 | Howling Fjord Ore Spawnpoint 86                                                       |
+-- | 10236 |         1 | Howling Fjord Ore Spawnpoint 87                                                       |
+-- | 10237 |         1 | Howling Fjord Ore Spawnpoint 88                                                       |
+-- | 10238 |         1 | Howling Fjord Ore Spawnpoint 89                                                       |
+-- | 10239 |         1 | Howling Fjord Ore Spawnpoint 90                                                       |
+-- | 10240 |         1 | Howling Fjord Ore Spawnpoint 91                                                       |
+-- | 10241 |         1 | Howling Fjord Ore Spawnpoint 92                                                       |
+-- | 10242 |         1 | Howling Fjord Ore Spawnpoint 93                                                       |
+-- | 10243 |         1 | Howling Fjord Ore Spawnpoint 94                                                       |
+-- | 10244 |         1 | Howling Fjord Ore Spawnpoint 95                                                       |
+-- | 10245 |         1 | Howling Fjord Ore Spawnpoint 96                                                       |
+-- | 10246 |         1 | Howling Fjord Ore Spawnpoint 97                                                       |
+-- | 10247 |         1 | Howling Fjord Ore Spawnpoint 98                                                       |
+-- | 10248 |         1 | Howling Fjord Ore Spawnpoint 99                                                       |
+-- | 10249 |         1 | Howling Fjord Ore Spawnpoint 100                                                      |
+-- | 10300 |         1 | Grizzly Hills Ore Spawnpoint 1                                                        |
+-- | 10301 |         1 | Grizzly Hills Ore Spawnpoint 2                                                        |
+-- | 10302 |         1 | Grizzly Hills Ore Spawnpoint 3                                                        |
+-- | 10303 |         1 | Grizzly Hills Ore Spawnpoint 4                                                        |
+-- | 10304 |         1 | Grizzly Hills Ore Spawnpoint 5                                                        |
+-- | 10305 |         1 | Grizzly Hills Ore Spawnpoint 6                                                        |
+-- | 10306 |         1 | Grizzly Hills Ore Spawnpoint 7                                                        |
+-- | 10307 |         1 | Grizzly Hills Ore Spawnpoint 8                                                        |
+-- | 10308 |         1 | Grizzly Hills Ore Spawnpoint 9                                                        |
+-- | 10309 |         1 | Grizzly Hills Ore Spawnpoint 10                                                       |
+-- | 10310 |         1 | Grizzly Hills Ore Spawnpoint 11                                                       |
+-- | 10311 |         1 | Grizzly Hills Ore Spawnpoint 12                                                       |
+-- | 10312 |         1 | Grizzly Hills Ore Spawnpoint 13                                                       |
+-- | 10313 |         1 | Grizzly Hills Ore Spawnpoint 14                                                       |
+-- | 10314 |         1 | Grizzly Hills Ore Spawnpoint 15                                                       |
+-- | 10315 |         1 | Grizzly Hills Ore Spawnpoint 16                                                       |
+-- | 10316 |         1 | Grizzly Hills Ore Spawnpoint 17                                                       |
+-- | 10317 |         1 | Grizzly Hills Ore Spawnpoint 18                                                       |
+-- | 10318 |         1 | Grizzly Hills Ore Spawnpoint 19                                                       |
+-- | 10319 |         1 | Grizzly Hills Ore Spawnpoint 20                                                       |
+-- | 10320 |         1 | Grizzly Hills Ore Spawnpoint 21                                                       |
+-- | 10321 |         1 | Grizzly Hills Ore Spawnpoint 22                                                       |
+-- | 10322 |         1 | Grizzly Hills Ore Spawnpoint 23                                                       |
+-- | 10323 |         1 | Grizzly Hills Ore Spawnpoint 24                                                       |
+-- | 10324 |         1 | Grizzly Hills Ore Spawnpoint 25                                                       |
+-- | 10325 |         1 | Grizzly Hills Ore Spawnpoint 26                                                       |
+-- | 10326 |         1 | Grizzly Hills Ore Spawnpoint 27                                                       |
+-- | 10327 |         1 | Grizzly Hills Ore Spawnpoint 28                                                       |
+-- | 10328 |         1 | Grizzly Hills Ore Spawnpoint 29                                                       |
+-- | 10329 |         1 | Grizzly Hills Ore Spawnpoint 30                                                       |
+-- | 10330 |         1 | Grizzly Hills Ore Spawnpoint 31                                                       |
+-- | 10331 |         1 | Grizzly Hills Ore Spawnpoint 32                                                       |
+-- | 10332 |         1 | Grizzly Hills Ore Spawnpoint 33                                                       |
+-- | 10333 |         1 | Grizzly Hills Ore Spawnpoint 34                                                       |
+-- | 10334 |         1 | Grizzly Hills Ore Spawnpoint 35                                                       |
+-- | 10335 |         1 | Grizzly Hills Ore Spawnpoint 36                                                       |
+-- | 10336 |         1 | Grizzly Hills Ore Spawnpoint 37                                                       |
+-- | 10337 |         1 | Grizzly Hills Ore Spawnpoint 38                                                       |
+-- | 10338 |         1 | Grizzly Hills Ore Spawnpoint 39                                                       |
+-- | 10339 |         1 | Grizzly Hills Ore Spawnpoint 40                                                       |
+-- | 10340 |         1 | Grizzly Hills Ore Spawnpoint 41                                                       |
+-- | 10341 |         1 | Grizzly Hills Ore Spawnpoint 42                                                       |
+-- | 10342 |         1 | Grizzly Hills Ore Spawnpoint 43                                                       |
+-- | 10343 |         1 | Grizzly Hills Ore Spawnpoint 44                                                       |
+-- | 10344 |         1 | Grizzly Hills Ore Spawnpoint 45                                                       |
+-- | 10345 |         1 | Grizzly Hills Ore Spawnpoint 46                                                       |
+-- | 10346 |         1 | Grizzly Hills Ore Spawnpoint 47                                                       |
+-- | 10347 |         1 | Grizzly Hills Ore Spawnpoint 48                                                       |
+-- | 10348 |         1 | Grizzly Hills Ore Spawnpoint 49                                                       |
+-- | 10349 |         1 | Grizzly Hills Ore Spawnpoint 50                                                       |
+-- | 10350 |         1 | Grizzly Hills Ore Spawnpoint 51                                                       |
+-- | 10351 |         1 | Grizzly Hills Ore Spawnpoint 52                                                       |
+-- | 10352 |         1 | Grizzly Hills Ore Spawnpoint 53                                                       |
+-- | 10353 |         1 | Grizzly Hills Ore Spawnpoint 54                                                       |
+-- | 10354 |         1 | Grizzly Hills Ore Spawnpoint 55                                                       |
+-- | 10355 |         1 | Grizzly Hills Ore Spawnpoint 56                                                       |
+-- | 10356 |         1 | Grizzly Hills Ore Spawnpoint 57                                                       |
+-- | 10357 |         1 | Grizzly Hills Ore Spawnpoint 58                                                       |
+-- | 10358 |         1 | Grizzly Hills Ore Spawnpoint 59                                                       |
+-- | 10359 |         1 | Grizzly Hills Ore Spawnpoint 60                                                       |
+-- | 10360 |         1 | Grizzly Hills Ore Spawnpoint 61                                                       |
+-- | 10650 |         1 | Zul'Drak Ore Spawnpoint 1                                                             |
+-- | 10651 |         1 | Zul'Drak Ore Spawnpoint 2                                                             |
+-- | 10652 |         1 | Zul'Drak Ore Spawnpoint 3                                                             |
+-- | 10653 |         1 | Zul'Drak Ore Spawnpoint 4                                                             |
+-- | 10654 |         1 | Zul'Drak Ore Spawnpoint 5                                                             |
+-- | 10655 |         1 | Zul'Drak Ore Spawnpoint 6                                                             |
+-- | 10656 |         1 | Zul'Drak Ore Spawnpoint 7                                                             |
+-- | 10657 |         1 | Zul'Drak Ore Spawnpoint 8                                                             |
+-- | 10658 |         1 | Zul'Drak Ore Spawnpoint 9                                                             |
+-- | 10659 |         1 | Zul'Drak Ore Spawnpoint 10                                                            |
+-- | 10660 |         1 | Zul'Drak Ore Spawnpoint 11                                                            |
+-- | 10661 |         1 | Zul'Drak Ore Spawnpoint 12                                                            |
+-- | 10662 |         1 | Zul'Drak Ore Spawnpoint 13                                                            |
+-- | 10663 |         1 | Zul'Drak Ore Spawnpoint 14                                                            |
+-- | 10664 |         1 | Zul'Drak Ore Spawnpoint 15                                                            |
+-- | 10665 |         1 | Zul'Drak Ore Spawnpoint 16                                                            |
+-- | 10666 |         1 | Zul'Drak Ore Spawnpoint 17                                                            |
+-- | 10667 |         1 | Zul'Drak Ore Spawnpoint 18                                                            |
+-- | 10668 |         1 | Zul'Drak Ore Spawnpoint 19                                                            |
+-- | 10669 |         1 | Zul'Drak Ore Spawnpoint 20                                                            |
+-- | 10670 |         1 | Zul'Drak Ore Spawnpoint 21                                                            |
+-- | 10671 |         1 | Zul'Drak Ore Spawnpoint 22                                                            |
+-- | 10672 |         1 | Zul'Drak Ore Spawnpoint 23                                                            |
+-- | 10673 |         1 | Zul'Drak Ore Spawnpoint 24                                                            |
+-- | 10674 |         1 | Zul'Drak Ore Spawnpoint 25                                                            |
+-- | 10675 |         1 | Zul'Drak Ore Spawnpoint 26                                                            |
+-- | 10676 |         1 | Zul'Drak Ore Spawnpoint 27                                                            |
+-- | 10677 |         1 | Zul'Drak Ore Spawnpoint 28                                                            |
+-- | 10678 |         1 | Zul'Drak Ore Spawnpoint 29                                                            |
+-- | 10679 |         1 | Zul'Drak Ore Spawnpoint 30                                                            |
+-- | 10680 |         1 | Zul'Drak Ore Spawnpoint 31                                                            |
+-- | 10681 |         1 | Zul'Drak Ore Spawnpoint 32                                                            |
+-- | 10682 |         1 | Zul'Drak Ore Spawnpoint 33                                                            |
+-- | 10683 |         1 | Zul'Drak Ore Spawnpoint 34                                                            |
+-- | 10684 |         1 | Zul'Drak Ore Spawnpoint 35                                                            |
+-- | 10685 |         1 | Zul'Drak Ore Spawnpoint 36                                                            |
+-- | 10686 |         1 | Zul'Drak Ore Spawnpoint 37                                                            |
+-- | 10687 |         1 | Zul'Drak Ore Spawnpoint 38                                                            |
+-- | 10688 |         1 | Zul'Drak Ore Spawnpoint 39                                                            |
+-- | 10689 |         1 | Zul'Drak Ore Spawnpoint 40                                                            |
+-- | 10690 |         1 | Zul'Drak Ore Spawnpoint 41                                                            |
+-- | 10691 |         1 | Zul'Drak Ore Spawnpoint 42                                                            |
+-- | 10692 |         1 | Zul'Drak Ore Spawnpoint 43                                                            |
+-- | 10693 |         1 | Zul'Drak Ore Spawnpoint 44                                                            |
+-- | 10694 |         1 | Zul'Drak Ore Spawnpoint 45                                                            |
+-- | 10695 |         1 | Zul'Drak Ore Spawnpoint 46                                                            |
+-- | 10696 |         1 | Zul'Drak Ore Spawnpoint 47                                                            |
+-- | 10697 |         1 | Zul'Drak Ore Spawnpoint 48                                                            |
+-- | 10698 |         1 | Zul'Drak Ore Spawnpoint 49                                                            |
+-- | 10699 |         1 | Zul'Drak Ore Spawnpoint 50                                                            |
+-- | 10700 |         1 | Zul'Drak Ore Spawnpoint 51                                                            |
+-- | 10701 |         1 | Zul'Drak Ore Spawnpoint 52                                                            |
+-- | 10702 |         1 | Zul'Drak Ore Spawnpoint 53                                                            |
+-- | 10703 |         1 | Zul'Drak Ore Spawnpoint 54                                                            |
+-- | 10704 |         1 | Zul'Drak Ore Spawnpoint 55                                                            |
+-- | 10705 |         1 | Zul'Drak Ore Spawnpoint 56                                                            |
+-- | 10706 |         1 | Zul'Drak Ore Spawnpoint 57                                                            |
+-- | 10707 |         1 | Zul'Drak Ore Spawnpoint 58                                                            |
+-- | 10708 |         1 | Zul'Drak Ore Spawnpoint 59                                                            |
+-- | 10709 |         1 | Zul'Drak Ore Spawnpoint 60                                                            |
+-- | 10710 |         1 | Zul'Drak Ore Spawnpoint 61                                                            |
+-- | 10711 |         1 | Zul'Drak Ore Spawnpoint 62                                                            |
+-- | 10712 |         1 | Zul'Drak Ore Spawnpoint 63                                                            |
+-- | 10713 |         1 | Zul'Drak Ore Spawnpoint 64                                                            |
+-- | 10714 |         1 | Zul'Drak Ore Spawnpoint 65                                                            |
+-- | 10715 |         1 | Zul'Drak Ore Spawnpoint 66                                                            |
+-- | 10716 |         1 | Zul'Drak Ore Spawnpoint 67                                                            |
+-- | 10717 |         1 | Zul'Drak Ore Spawnpoint 68                                                            |
+-- | 10718 |         1 | Zul'Drak Ore Spawnpoint 69                                                            |
+-- | 10719 |         1 | Zul'Drak Ore Spawnpoint 70                                                            |
+-- | 10720 |         1 | Zul'Drak Ore Spawnpoint 71                                                            |
+-- | 10721 |         1 | Zul'Drak Ore Spawnpoint 72                                                            |
+-- | 10722 |         1 | Zul'Drak Ore Spawnpoint 73                                                            |
+-- | 10723 |         1 | Zul'Drak Ore Spawnpoint 74                                                            |
+-- | 10724 |         1 | Zul'Drak Ore Spawnpoint 75                                                            |
+-- | 10725 |         1 | Zul'Drak Ore Spawnpoint 76                                                            |
+-- | 10726 |         1 | Zul'Drak Ore Spawnpoint 77                                                            |
+-- | 10727 |         1 | Zul'Drak Ore Spawnpoint 78                                                            |
+-- | 10728 |         1 | Zul'Drak Ore Spawnpoint 79                                                            |
+-- | 10729 |         1 | Zul'Drak Ore Spawnpoint 80                                                            |
+-- | 10730 |         1 | Zul'Drak Ore Spawnpoint 81                                                            |
+-- | 10731 |         1 | Zul'Drak Ore Spawnpoint 82                                                            |
+-- | 10732 |         1 | Zul'Drak Ore Spawnpoint 83                                                            |
+-- | 10733 |         1 | Zul'Drak Ore Spawnpoint 84                                                            |
+-- | 10734 |         1 | Zul'Drak Ore Spawnpoint 85                                                            |
+-- | 10735 |         1 | Zul'Drak Ore Spawnpoint 86                                                            |
+-- | 10736 |         1 | Zul'Drak Ore Spawnpoint 87                                                            |
+-- | 10737 |         1 | Zul'Drak Ore Spawnpoint 88                                                            |
+-- | 10738 |         1 | Zul'Drak Ore Spawnpoint 89                                                            |
+-- | 10739 |         1 | Zul'Drak Ore Spawnpoint 90                                                            |
+-- | 10740 |         1 | Zul'Drak Ore Spawnpoint 91                                                            |
+-- | 10741 |         1 | Zul'Drak Ore Spawnpoint 92                                                            |
+-- | 10742 |         1 | Zul'Drak Ore Spawnpoint 93                                                            |
+-- | 10800 |         1 | Sholazar Basin Ore Spawnpoint 1                                                       |
+-- | 10801 |         1 | Sholazar Basin Ore Spawnpoint 2                                                       |
+-- | 10802 |         1 | Sholazar Basin Ore Spawnpoint 3                                                       |
+-- | 10803 |         1 | Sholazar Basin Ore Spawnpoint 4                                                       |
+-- | 10804 |         1 | Sholazar Basin Ore Spawnpoint 5                                                       |
+-- | 10805 |         1 | Sholazar Basin Ore Spawnpoint 6                                                       |
+-- | 10806 |         1 | Sholazar Basin Ore Spawnpoint 7                                                       |
+-- | 10807 |         1 | Sholazar Basin Ore Spawnpoint 8                                                       |
+-- | 10808 |         1 | Sholazar Basin Ore Spawnpoint 9                                                       |
+-- | 10809 |         1 | Sholazar Basin Ore Spawnpoint 10                                                      |
+-- | 10810 |         1 | Sholazar Basin Ore Spawnpoint 11                                                      |
+-- | 10811 |         1 | Sholazar Basin Ore Spawnpoint 12                                                      |
+-- | 10812 |         1 | Sholazar Basin Ore Spawnpoint 13                                                      |
+-- | 10813 |         1 | Sholazar Basin Ore Spawnpoint 14                                                      |
+-- | 10814 |         1 | Sholazar Basin Ore Spawnpoint 15                                                      |
+-- | 10815 |         1 | Sholazar Basin Ore Spawnpoint 16                                                      |
+-- | 10816 |         1 | Sholazar Basin Ore Spawnpoint 17                                                      |
+-- | 10817 |         1 | Sholazar Basin Ore Spawnpoint 18                                                      |
+-- | 10818 |         1 | Sholazar Basin Ore Spawnpoint 19                                                      |
+-- | 10819 |         1 | Sholazar Basin Ore Spawnpoint 20                                                      |
+-- | 10820 |         1 | Sholazar Basin Ore Spawnpoint 21                                                      |
+-- | 10821 |         1 | Sholazar Basin Ore Spawnpoint 22                                                      |
+-- | 10822 |         1 | Sholazar Basin Ore Spawnpoint 23                                                      |
+-- | 10823 |         1 | Sholazar Basin Ore Spawnpoint 24                                                      |
+-- | 10824 |         1 | Sholazar Basin Ore Spawnpoint 25                                                      |
+-- | 10825 |         1 | Sholazar Basin Ore Spawnpoint 26                                                      |
+-- | 10826 |         1 | Sholazar Basin Ore Spawnpoint 27                                                      |
+-- | 10827 |         1 | Sholazar Basin Ore Spawnpoint 28                                                      |
+-- | 10828 |         1 | Sholazar Basin Ore Spawnpoint 29                                                      |
+-- | 10829 |         1 | Sholazar Basin Ore Spawnpoint 30                                                      |
+-- | 10830 |         1 | Sholazar Basin Ore Spawnpoint 31                                                      |
+-- | 10831 |         1 | Sholazar Basin Ore Spawnpoint 32                                                      |
+-- | 10832 |         1 | Sholazar Basin Ore Spawnpoint 33                                                      |
+-- | 10833 |         1 | Sholazar Basin Ore Spawnpoint 34                                                      |
+-- | 10834 |         1 | Sholazar Basin Ore Spawnpoint 35                                                      |
+-- | 10835 |         1 | Sholazar Basin Ore Spawnpoint 36                                                      |
+-- | 10836 |         1 | Sholazar Basin Ore Spawnpoint 37                                                      |
+-- | 10837 |         1 | Sholazar Basin Ore Spawnpoint 38                                                      |
+-- | 10838 |         1 | Sholazar Basin Ore Spawnpoint 39                                                      |
+-- | 10839 |         1 | Sholazar Basin Ore Spawnpoint 40                                                      |
+-- | 10840 |         1 | Sholazar Basin Ore Spawnpoint 41                                                      |
+-- | 10841 |         1 | Sholazar Basin Ore Spawnpoint 42                                                      |
+-- | 10842 |         1 | Sholazar Basin Ore Spawnpoint 43                                                      |
+-- | 10843 |         1 | Sholazar Basin Ore Spawnpoint 44                                                      |
+-- | 10844 |         1 | Sholazar Basin Ore Spawnpoint 45                                                      |
+-- | 10845 |         1 | Sholazar Basin Ore Spawnpoint 46                                                      |
+-- | 10846 |         1 | Sholazar Basin Ore Spawnpoint 47                                                      |
+-- | 10847 |         1 | Sholazar Basin Ore Spawnpoint 48                                                      |
+-- | 10848 |         1 | Sholazar Basin Ore Spawnpoint 49                                                      |
+-- | 10849 |         1 | Sholazar Basin Ore Spawnpoint 50                                                      |
+-- | 10850 |         1 | Sholazar Basin Ore Spawnpoint 51                                                      |
+-- | 10851 |         1 | Sholazar Basin Ore Spawnpoint 52                                                      |
+-- | 10852 |         1 | Sholazar Basin Ore Spawnpoint 53                                                      |
+-- | 10853 |         1 | Sholazar Basin Ore Spawnpoint 54                                                      |
+-- | 10854 |         1 | Sholazar Basin Ore Spawnpoint 55                                                      |
+-- | 10855 |         1 | Sholazar Basin Ore Spawnpoint 56                                                      |
+-- | 10856 |         1 | Sholazar Basin Ore Spawnpoint 57                                                      |
+-- | 10857 |         1 | Sholazar Basin Ore Spawnpoint 58                                                      |
+-- | 10858 |         1 | Sholazar Basin Ore Spawnpoint 59                                                      |
+-- | 10859 |         1 | Sholazar Basin Ore Spawnpoint 60                                                      |
+-- | 10860 |         1 | Sholazar Basin Ore Spawnpoint 61                                                      |
+-- | 10861 |         1 | Sholazar Basin Ore Spawnpoint 62                                                      |
+-- | 10862 |         1 | Sholazar Basin Ore Spawnpoint 63                                                      |
+-- | 10863 |         1 | Sholazar Basin Ore Spawnpoint 64                                                      |
+-- | 10864 |         1 | Sholazar Basin Ore Spawnpoint 65                                                      |
+-- | 10865 |         1 | Sholazar Basin Ore Spawnpoint 66                                                      |
+-- | 10866 |         1 | Sholazar Basin Ore Spawnpoint 67                                                      |
+-- | 10867 |         1 | Sholazar Basin Ore Spawnpoint 68                                                      |
+-- | 10868 |         1 | Sholazar Basin Ore Spawnpoint 69                                                      |
+-- | 10869 |         1 | Sholazar Basin Ore Spawnpoint 70                                                      |
+-- | 10870 |         1 | Sholazar Basin Ore Spawnpoint 71                                                      |
+-- | 10871 |         1 | Sholazar Basin Ore Spawnpoint 72                                                      |
+-- | 10872 |         1 | Sholazar Basin Ore Spawnpoint 73                                                      |
+-- | 10873 |         1 | Sholazar Basin Ore Spawnpoint 74                                                      |
+-- | 10874 |         1 | Sholazar Basin Ore Spawnpoint 75                                                      |
+-- | 10875 |         1 | Sholazar Basin Ore Spawnpoint 76                                                      |
+-- | 10876 |         1 | Sholazar Basin Ore Spawnpoint 77                                                      |
+-- | 10877 |         1 | Sholazar Basin Ore Spawnpoint 78                                                      |
+-- | 10878 |         1 | Sholazar Basin Ore Spawnpoint 79                                                      |
+-- | 10879 |         1 | Sholazar Basin Ore Spawnpoint 80                                                      |
+-- | 10880 |         1 | Sholazar Basin Ore Spawnpoint 81                                                      |
+-- | 10881 |         1 | Sholazar Basin Ore Spawnpoint 82                                                      |
+-- | 10882 |         1 | Sholazar Basin Ore Spawnpoint 83                                                      |
+-- | 10883 |         1 | Sholazar Basin Ore Spawnpoint 84                                                      |
+-- | 10884 |         1 | Sholazar Basin Ore Spawnpoint 85                                                      |
+-- | 10885 |         1 | Sholazar Basin Ore Spawnpoint 86                                                      |
+-- | 10886 |         1 | Sholazar Basin Ore Spawnpoint 87                                                      |
+-- | 10887 |         1 | Sholazar Basin Ore Spawnpoint 88                                                      |
+-- | 10888 |         1 | Sholazar Basin Ore Spawnpoint 89                                                      |
+-- | 10889 |         1 | Sholazar Basin Ore Spawnpoint 90                                                      |
+-- | 10890 |         1 | Sholazar Basin Ore Spawnpoint 91                                                      |
+-- | 10891 |         1 | Sholazar Basin Ore Spawnpoint 92                                                      |
+-- | 10892 |         1 | Sholazar Basin Ore Spawnpoint 93                                                      |
+-- | 10893 |         1 | Sholazar Basin Ore Spawnpoint 94                                                      |
+-- | 10894 |         1 | Sholazar Basin Ore Spawnpoint 95                                                      |
+-- | 10895 |         1 | Sholazar Basin Ore Spawnpoint 96                                                      |
+-- | 10896 |         1 | Sholazar Basin Ore Spawnpoint 97                                                      |
+-- | 10897 |         1 | Sholazar Basin Ore Spawnpoint 98                                                      |
+-- | 10898 |         1 | Sholazar Basin Ore Spawnpoint 99                                                      |
+-- | 10899 |         1 | Sholazar Basin Ore Spawnpoint 100                                                     |
+-- | 10900 |         1 | Sholazar Basin Ore Spawnpoint 101                                                     |
+-- | 10901 |         1 | Sholazar Basin Ore Spawnpoint 102                                                     |
+-- | 10902 |         1 | Sholazar Basin Ore Spawnpoint 103                                                     |
+-- | 10903 |         1 | Sholazar Basin Ore Spawnpoint 104                                                     |
+-- | 10904 |         1 | Sholazar Basin Ore Spawnpoint 105                                                     |
+-- | 10905 |         1 | Sholazar Basin Ore Spawnpoint 106                                                     |
+-- | 10906 |         1 | Sholazar Basin Ore Spawnpoint 107                                                     |
+-- | 10907 |         1 | Sholazar Basin Ore Spawnpoint 108                                                     |
+-- | 10908 |         1 | Sholazar Basin Ore Spawnpoint 109                                                     |
+-- | 10909 |         1 | Sholazar Basin Ore Spawnpoint 110                                                     |
+-- | 10910 |         1 | Sholazar Basin Ore Spawnpoint 111                                                     |
+-- | 10911 |         1 | Sholazar Basin Ore Spawnpoint 112                                                     |
+-- | 11150 |         1 | Storm Peaks Ore Spawnpoint 1                                                          |
+-- | 11151 |         1 | Storm Peaks Ore Spawnpoint 2                                                          |
+-- | 11152 |         1 | Storm Peaks Ore Spawnpoint 3                                                          |
+-- | 11153 |         1 | Storm Peaks Ore Spawnpoint 4                                                          |
+-- | 11154 |         1 | Storm Peaks Ore Spawnpoint 5                                                          |
+-- | 11155 |         1 | Storm Peaks Ore Spawnpoint 6                                                          |
+-- | 11156 |         1 | Storm Peaks Ore Spawnpoint 7                                                          |
+-- | 11157 |         1 | Storm Peaks Ore Spawnpoint 8                                                          |
+-- | 11158 |         1 | Storm Peaks Ore Spawnpoint 9                                                          |
+-- | 11159 |         1 | Storm Peaks Ore Spawnpoint 10                                                         |
+-- | 11160 |         1 | Storm Peaks Ore Spawnpoint 11                                                         |
+-- | 11161 |         1 | Storm Peaks Ore Spawnpoint 12                                                         |
+-- | 11162 |         1 | Storm Peaks Ore Spawnpoint 13                                                         |
+-- | 11163 |         1 | Storm Peaks Ore Spawnpoint 14                                                         |
+-- | 11164 |         1 | Storm Peaks Ore Spawnpoint 15                                                         |
+-- | 11165 |         1 | Storm Peaks Ore Spawnpoint 16                                                         |
+-- | 11166 |         1 | Storm Peaks Ore Spawnpoint 17                                                         |
+-- | 11167 |         1 | Storm Peaks Ore Spawnpoint 18                                                         |
+-- | 11168 |         1 | Storm Peaks Ore Spawnpoint 19                                                         |
+-- | 11169 |         1 | Storm Peaks Ore Spawnpoint 20                                                         |
+-- | 11170 |         1 | Storm Peaks Ore Spawnpoint 21                                                         |
+-- | 11171 |         1 | Storm Peaks Ore Spawnpoint 22                                                         |
+-- | 11172 |         1 | Storm Peaks Ore Spawnpoint 23                                                         |
+-- | 11173 |         1 | Storm Peaks Ore Spawnpoint 24                                                         |
+-- | 11174 |         1 | Storm Peaks Ore Spawnpoint 25                                                         |
+-- | 11175 |         1 | Storm Peaks Ore Spawnpoint 26                                                         |
+-- | 11176 |         1 | Storm Peaks Ore Spawnpoint 27                                                         |
+-- | 11177 |         1 | Storm Peaks Ore Spawnpoint 28                                                         |
+-- | 11178 |         1 | Storm Peaks Ore Spawnpoint 29                                                         |
+-- | 11179 |         1 | Storm Peaks Ore Spawnpoint 30                                                         |
+-- | 11180 |         1 | Storm Peaks Ore Spawnpoint 31                                                         |
+-- | 11181 |         1 | Storm Peaks Ore Spawnpoint 32                                                         |
+-- | 11182 |         1 | Storm Peaks Ore Spawnpoint 33                                                         |
+-- | 11183 |         1 | Storm Peaks Ore Spawnpoint 34                                                         |
+-- | 11184 |         1 | Storm Peaks Ore Spawnpoint 35                                                         |
+-- | 11185 |         1 | Storm Peaks Ore Spawnpoint 36                                                         |
+-- | 11186 |         1 | Storm Peaks Ore Spawnpoint 37                                                         |
+-- | 11187 |         1 | Storm Peaks Ore Spawnpoint 38                                                         |
+-- | 11188 |         1 | Storm Peaks Ore Spawnpoint 39                                                         |
+-- | 11189 |         1 | Storm Peaks Ore Spawnpoint 40                                                         |
+-- | 11190 |         1 | Storm Peaks Ore Spawnpoint 41                                                         |
+-- | 11191 |         1 | Storm Peaks Ore Spawnpoint 42                                                         |
+-- | 11192 |         1 | Storm Peaks Ore Spawnpoint 43                                                         |
+-- | 11193 |         1 | Storm Peaks Ore Spawnpoint 44                                                         |
+-- | 11194 |         1 | Storm Peaks Ore Spawnpoint 45                                                         |
+-- | 11195 |         1 | Storm Peaks Ore Spawnpoint 46                                                         |
+-- | 11196 |         1 | Storm Peaks Ore Spawnpoint 47                                                         |
+-- | 11197 |         1 | Storm Peaks Ore Spawnpoint 48                                                         |
+-- | 11198 |         1 | Storm Peaks Ore Spawnpoint 49                                                         |
+-- | 11199 |         1 | Storm Peaks Ore Spawnpoint 50                                                         |
+-- | 11200 |         1 | Storm Peaks Ore Spawnpoint 51                                                         |
+-- | 11201 |         1 | Storm Peaks Ore Spawnpoint 52                                                         |
+-- | 11202 |         1 | Storm Peaks Ore Spawnpoint 53                                                         |
+-- | 11203 |         1 | Storm Peaks Ore Spawnpoint 54                                                         |
+-- | 11204 |         1 | Storm Peaks Ore Spawnpoint 55                                                         |
+-- | 11205 |         1 | Storm Peaks Ore Spawnpoint 56                                                         |
+-- | 11206 |         1 | Storm Peaks Ore Spawnpoint 57                                                         |
+-- | 11207 |         1 | Storm Peaks Ore Spawnpoint 58                                                         |
+-- | 11208 |         1 | Storm Peaks Ore Spawnpoint 59                                                         |
+-- | 11209 |         1 | Storm Peaks Ore Spawnpoint 60                                                         |
+-- | 11210 |         1 | Storm Peaks Ore Spawnpoint 61                                                         |
+-- | 11211 |         1 | Storm Peaks Ore Spawnpoint 62                                                         |
+-- | 11213 |         1 | Storm Peaks Ore Spawnpoint 64                                                         |
+-- | 11214 |         1 | Storm Peaks Ore Spawnpoint 65                                                         |
+-- | 11215 |         1 | Storm Peaks Ore Spawnpoint 66                                                         |
+-- | 11216 |         1 | Storm Peaks Ore Spawnpoint 67                                                         |
+-- | 11217 |         1 | Storm Peaks Ore Spawnpoint 68                                                         |
+-- | 11218 |         1 | Storm Peaks Ore Spawnpoint 69                                                         |
+-- | 11219 |         1 | Storm Peaks Ore Spawnpoint 70                                                         |
+-- | 11220 |         1 | Storm Peaks Ore Spawnpoint 71                                                         |
+-- | 11221 |         1 | Storm Peaks Ore Spawnpoint 72                                                         |
+-- | 11222 |         1 | Storm Peaks Ore Spawnpoint 73                                                         |
+-- | 11223 |         1 | Storm Peaks Ore Spawnpoint 74                                                         |
+-- | 11224 |         1 | Storm Peaks Ore Spawnpoint 75                                                         |
+-- | 11225 |         1 | Storm Peaks Ore Spawnpoint 76                                                         |
+-- | 11226 |         1 | Storm Peaks Ore Spawnpoint 77                                                         |
+-- | 11227 |         1 | Storm Peaks Ore Spawnpoint 78                                                         |
+-- | 11228 |         1 | Storm Peaks Ore Spawnpoint 79                                                         |
+-- | 11229 |         1 | Storm Peaks Ore Spawnpoint 80                                                         |
+-- | 11230 |         1 | Storm Peaks Ore Spawnpoint 81                                                         |
+-- | 11231 |         1 | Storm Peaks Ore Spawnpoint 82                                                         |
+-- | 11232 |         1 | Storm Peaks Ore Spawnpoint 83                                                         |
+-- | 11233 |         1 | Storm Peaks Ore Spawnpoint 84                                                         |
+-- | 11234 |         1 | Storm Peaks Ore Spawnpoint 85                                                         |
+-- | 11235 |         1 | Storm Peaks Ore Spawnpoint 86                                                         |
+-- | 11236 |         1 | Storm Peaks Ore Spawnpoint 87                                                         |
+-- | 11237 |         1 | Storm Peaks Ore Spawnpoint 88                                                         |
+-- | 11238 |         1 | Storm Peaks Ore Spawnpoint 89                                                         |
+-- | 11239 |         1 | Storm Peaks Ore Spawnpoint 90                                                         |
+-- | 11240 |         1 | Storm Peaks Ore Spawnpoint 91                                                         |
+-- | 11241 |         1 | Storm Peaks Ore Spawnpoint 92                                                         |
+-- | 11242 |         1 | Storm Peaks Ore Spawnpoint 93                                                         |
+-- | 11243 |         1 | Storm Peaks Ore Spawnpoint 94                                                         |
+-- | 11244 |         1 | Storm Peaks Ore Spawnpoint 95                                                         |
+-- | 11245 |         1 | Storm Peaks Ore Spawnpoint 96                                                         |
+-- | 11246 |         1 | Storm Peaks Ore Spawnpoint 97                                                         |
+-- | 11247 |         1 | Storm Peaks Ore Spawnpoint 98                                                         |
+-- | 11248 |         1 | Storm Peaks Ore Spawnpoint 99                                                         |
+-- | 11249 |         1 | Storm Peaks Ore Spawnpoint 100                                                        |
+-- | 11250 |         1 | Storm Peaks Ore Spawnpoint 101                                                        |
+-- | 11251 |         1 | Storm Peaks Ore Spawnpoint 102                                                        |
+-- | 11252 |         1 | Storm Peaks Ore Spawnpoint 103                                                        |
+-- | 11253 |         1 | Storm Peaks Ore Spawnpoint 104                                                        |
+-- | 11254 |         1 | Storm Peaks Ore Spawnpoint 105                                                        |
+-- | 11255 |         1 | Storm Peaks Ore Spawnpoint 106                                                        |
+-- | 11256 |         1 | Storm Peaks Ore Spawnpoint 107                                                        |
+-- | 11257 |         1 | Storm Peaks Ore Spawnpoint 108                                                        |
+-- | 11258 |         1 | Storm Peaks Ore Spawnpoint 109                                                        |
+-- | 11259 |         1 | Storm Peaks Ore Spawnpoint 110                                                        |
+-- | 11389 |         1 | Storm Peaks Ore Spawnpoint 240                                                        |
+-- | 11400 |         1 | Icecrown Ore Spawnpoint 1                                                             |
+-- | 11401 |         1 | Icecrown Ore Spawnpoint 2                                                             |
+-- | 11402 |         1 | Icecrown Ore Spawnpoint 3                                                             |
+-- | 11403 |         1 | Icecrown Ore Spawnpoint 4                                                             |
+-- | 11404 |         1 | Icecrown Ore Spawnpoint 5                                                             |
+-- | 11405 |         1 | Icecrown Ore Spawnpoint 6                                                             |
+-- | 11406 |         1 | Icecrown Ore Spawnpoint 7                                                             |
+-- | 11407 |         1 | Icecrown Ore Spawnpoint 8                                                             |
+-- | 11408 |         1 | Icecrown Ore Spawnpoint 9                                                             |
+-- | 11409 |         1 | Icecrown Ore Spawnpoint 10                                                            |
+-- | 11410 |         1 | Icecrown Ore Spawnpoint 11                                                            |
+-- | 11411 |         1 | Icecrown Ore Spawnpoint 12                                                            |
+-- | 11412 |         1 | Icecrown Ore Spawnpoint 13                                                            |
+-- | 11413 |         1 | Icecrown Ore Spawnpoint 14                                                            |
+-- | 11414 |         1 | Icecrown Ore Spawnpoint 15                                                            |
+-- | 11415 |         1 | Icecrown Ore Spawnpoint 16                                                            |
+-- | 11416 |         1 | Icecrown Ore Spawnpoint 17                                                            |
+-- | 11417 |         1 | Icecrown Ore Spawnpoint 18                                                            |
+-- | 11418 |         1 | Icecrown Ore Spawnpoint 19                                                            |
+-- | 11419 |         1 | Icecrown Ore Spawnpoint 20                                                            |
+-- | 11420 |         1 | Icecrown Ore Spawnpoint 21                                                            |
+-- | 11421 |         1 | Icecrown Ore Spawnpoint 22                                                            |
+-- | 11422 |         1 | Icecrown Ore Spawnpoint 23                                                            |
+-- | 11423 |         1 | Icecrown Ore Spawnpoint 24                                                            |
+-- | 11424 |         1 | Icecrown Ore Spawnpoint 25                                                            |
+-- | 11425 |         1 | Icecrown Ore Spawnpoint 26                                                            |
+-- | 11426 |         1 | Icecrown Ore Spawnpoint 27                                                            |
+-- | 11427 |         1 | Icecrown Ore Spawnpoint 28                                                            |
+-- | 11428 |         1 | Icecrown Ore Spawnpoint 29                                                            |
+-- | 11429 |         1 | Icecrown Ore Spawnpoint 30                                                            |
+-- | 11430 |         1 | Icecrown Ore Spawnpoint 31                                                            |
+-- | 11431 |         1 | Icecrown Ore Spawnpoint 32                                                            |
+-- | 11432 |         1 | Icecrown Ore Spawnpoint 33                                                            |
+-- | 11433 |         1 | Icecrown Ore Spawnpoint 34                                                            |
+-- | 11434 |         1 | Icecrown Ore Spawnpoint 35                                                            |
+-- | 11435 |         1 | Icecrown Ore Spawnpoint 36                                                            |
+-- | 11436 |         1 | Icecrown Ore Spawnpoint 37                                                            |
+-- | 11437 |         1 | Icecrown Ore Spawnpoint 38                                                            |
+-- | 11438 |         1 | Icecrown Ore Spawnpoint 39                                                            |
+-- | 11439 |         1 | Icecrown Ore Spawnpoint 40                                                            |
+-- | 11440 |         1 | Icecrown Ore Spawnpoint 41                                                            |
+-- | 11441 |         1 | Icecrown Ore Spawnpoint 42                                                            |
+-- | 11442 |         1 | Icecrown Ore Spawnpoint 43                                                            |
+-- | 11443 |         1 | Icecrown Ore Spawnpoint 44                                                            |
+-- | 11444 |         1 | Icecrown Ore Spawnpoint 45                                                            |
+-- | 11445 |         1 | Icecrown Ore Spawnpoint 46                                                            |
+-- | 11446 |         1 | Icecrown Ore Spawnpoint 47                                                            |
+-- | 11447 |         1 | Icecrown Ore Spawnpoint 48                                                            |
+-- | 11448 |         1 | Icecrown Ore Spawnpoint 49                                                            |
+-- | 11449 |         1 | Icecrown Ore Spawnpoint 50                                                            |
+-- | 11450 |         1 | Icecrown Ore Spawnpoint 51                                                            |
+-- | 11451 |         1 | Icecrown Ore Spawnpoint 52                                                            |
+-- | 11452 |         1 | Icecrown Ore Spawnpoint 53                                                            |
+-- | 11453 |         1 | Icecrown Ore Spawnpoint 54                                                            |
+-- | 11454 |         1 | Icecrown Ore Spawnpoint 55                                                            |
+-- | 11455 |         1 | Icecrown Ore Spawnpoint 56                                                            |
+-- | 11456 |         1 | Icecrown Ore Spawnpoint 57                                                            |
+-- | 11457 |         1 | Icecrown Ore Spawnpoint 58                                                            |
+-- | 11458 |         1 | Icecrown Ore Spawnpoint 59                                                            |
+-- | 11459 |         1 | Icecrown Ore Spawnpoint 60                                                            |
+-- | 11460 |         1 | Icecrown Ore Spawnpoint 61                                                            |
+-- | 11461 |         1 | Icecrown Ore Spawnpoint 62                                                            |
+-- | 11462 |         1 | Icecrown Ore Spawnpoint 63                                                            |
+-- | 11463 |         1 | Icecrown Ore Spawnpoint 64                                                            |
+-- | 11464 |         1 | Icecrown Ore Spawnpoint 65                                                            |
+-- | 11465 |         1 | Icecrown Ore Spawnpoint 66                                                            |
+-- | 11466 |         1 | Icecrown Ore Spawnpoint 67                                                            |
+-- | 11467 |         1 | Icecrown Ore Spawnpoint 68                                                            |
+-- | 11468 |         1 | Icecrown Ore Spawnpoint 69                                                            |
+-- | 11469 |         1 | Icecrown Ore Spawnpoint 70                                                            |
+-- | 11470 |         1 | Icecrown Ore Spawnpoint 71                                                            |
+-- | 11471 |         1 | Icecrown Ore Spawnpoint 72                                                            |
+-- | 11472 |         1 | Icecrown Ore Spawnpoint 73                                                            |
+-- | 11473 |         1 | Icecrown Ore Spawnpoint 74                                                            |
+-- | 11474 |         1 | Icecrown Ore Spawnpoint 75                                                            |
+-- | 11475 |         1 | Icecrown Ore Spawnpoint 76                                                            |
+-- | 11476 |         1 | Icecrown Ore Spawnpoint 77                                                            |
+-- | 11477 |         1 | Icecrown Ore Spawnpoint 78                                                            |
+-- | 11478 |         1 | Icecrown Ore Spawnpoint 79                                                            |
+-- | 11479 |         1 | Icecrown Ore Spawnpoint 80                                                            |
+-- | 11480 |         1 | Icecrown Ore Spawnpoint 81                                                            |
+-- | 11481 |         1 | Icecrown Ore Spawnpoint 82                                                            |
+-- | 11482 |         1 | Icecrown Ore Spawnpoint 83                                                            |
+-- | 11483 |         1 | Icecrown Ore Spawnpoint 84                                                            |
+-- | 11484 |         1 | Icecrown Ore Spawnpoint 85                                                            |
+-- | 11485 |         1 | Icecrown Ore Spawnpoint 86                                                            |
+-- | 11486 |         1 | Icecrown Ore Spawnpoint 87                                                            |
+-- | 11487 |         1 | Icecrown Ore Spawnpoint 88                                                            |
+-- | 11488 |         1 | Icecrown Ore Spawnpoint 89                                                            |
+-- | 11489 |         1 | Icecrown Ore Spawnpoint 90                                                            |
+-- | 11490 |         1 | Icecrown Ore Spawnpoint 91                                                            |
+-- | 11491 |         1 | Icecrown Ore Spawnpoint 92                                                            |
+-- | 11492 |         1 | Icecrown Ore Spawnpoint 93                                                            |
+-- | 11493 |         1 | Icecrown Ore Spawnpoint 94                                                            |
+-- | 11494 |         1 | Icecrown Ore Spawnpoint 95                                                            |
+-- | 11495 |         1 | Icecrown Ore Spawnpoint 96                                                            |
+-- | 11496 |         1 | Icecrown Ore Spawnpoint 97                                                            |
+-- | 11497 |         1 | Icecrown Ore Spawnpoint 98                                                            |
+-- | 11498 |         1 | Icecrown Ore Spawnpoint 99                                                            |
+-- | 11499 |         1 | Icecrown Ore Spawnpoint 100                                                           |
+-- | 11500 |         1 | Icecrown Ore Spawnpoint 101                                                           |
+-- | 11501 |         1 | Icecrown Ore Spawnpoint 102                                                           |
+-- | 11502 |         1 | Icecrown Ore Spawnpoint 103                                                           |
+-- | 11503 |         1 | Icecrown Ore Spawnpoint 104                                                           |
+-- | 11504 |         1 | Icecrown Ore Spawnpoint 105                                                           |
+-- | 11505 |         1 | Icecrown Ore Spawnpoint 106                                                           |
+-- | 11506 |         1 | Icecrown Ore Spawnpoint 107                                                           |
+-- | 11507 |         1 | Icecrown Ore Spawnpoint 108                                                           |
+-- | 11508 |         1 | Icecrown Ore Spawnpoint 109                                                           |
+-- | 11509 |         1 | Icecrown Ore Spawnpoint 110                                                           |
+-- | 11510 |         1 | Icecrown Ore Spawnpoint 111                                                           |
+-- | 11511 |         1 | Icecrown Ore Spawnpoint 112                                                           |
+-- | 11512 |         1 | Icecrown Ore Spawnpoint 113                                                           |
+-- | 11513 |         1 | Icecrown Ore Spawnpoint 114                                                           |
+-- | 11514 |         1 | Icecrown Ore Spawnpoint 115                                                           |
+-- | 11515 |         1 | Icecrown Ore Spawnpoint 116                                                           |
+-- | 11516 |         1 | Icecrown Ore Spawnpoint 117                                                           |
+-- | 11517 |         1 | Icecrown Ore Spawnpoint 118                                                           |
+-- | 11518 |         1 | Icecrown Ore Spawnpoint 119                                                           |
+-- | 11519 |         1 | Icecrown Ore Spawnpoint 120                                                           |
+-- | 11520 |         1 | Icecrown Ore Spawnpoint 121                                                           |
+-- | 11521 |         1 | Icecrown Ore Spawnpoint 122                                                           |
+-- | 11522 |         1 | Icecrown Ore Spawnpoint 123                                                           |
+-- | 11523 |         1 | Icecrown Ore Spawnpoint 124                                                           |
+-- | 11524 |         1 | Icecrown Ore Spawnpoint 125                                                           |
+-- | 11525 |         1 | Icecrown Ore Spawnpoint 126                                                           |
+-- | 11526 |         1 | Icecrown Ore Spawnpoint 127                                                           |
+-- | 11527 |         1 | Icecrown Ore Spawnpoint 128                                                           |
+-- | 11528 |         1 | Icecrown Ore Spawnpoint 129                                                           |
+-- | 11529 |         1 | Icecrown Ore Spawnpoint 130                                                           |
+-- | 11530 |         1 | Icecrown Ore Spawnpoint 131                                                           |
+-- | 11531 |         1 | Icecrown Ore Spawnpoint 132                                                           |
+-- | 11532 |         1 | Icecrown Ore Spawnpoint 133                                                           |
+-- | 11533 |         1 | Icecrown Ore Spawnpoint 134                                                           |
+-- | 11534 |         1 | Icecrown Ore Spawnpoint 135                                                           |
+-- | 11535 |         1 | Icecrown Ore Spawnpoint 136                                                           |
+-- | 11536 |         1 | Icecrown Ore Spawnpoint 137                                                           |
+-- | 11537 |         1 | Icecrown Ore Spawnpoint 138                                                           |
+-- | 11538 |         1 | Icecrown Ore Spawnpoint 139                                                           |
+-- | 11539 |         1 | Icecrown Ore Spawnpoint 140                                                           |
+-- | 11540 |         1 | Icecrown Ore Spawnpoint 141                                                           |
+-- | 11541 |         1 | Icecrown Ore Spawnpoint 142                                                           |
+-- | 11542 |         1 | Icecrown Ore Spawnpoint 143                                                           |
+-- | 11543 |         1 | Icecrown Ore Spawnpoint 144                                                           |
+-- | 11544 |         1 | Icecrown Ore Spawnpoint 145                                                           |
+-- | 11545 |         1 | Icecrown Ore Spawnpoint 146                                                           |
+-- | 11546 |         1 | Icecrown Ore Spawnpoint 147                                                           |
+-- | 11547 |         1 | Icecrown Ore Spawnpoint 148                                                           |
+-- | 11548 |         1 | Icecrown Ore Spawnpoint 149                                                           |
+-- | 11549 |         1 | Icecrown Ore Spawnpoint 150                                                           |
+-- | 11550 |         1 | Icecrown Ore Spawnpoint 151                                                           |
+-- | 11551 |         1 | Icecrown Ore Spawnpoint 152                                                           |
+-- | 11552 |         1 | Icecrown Ore Spawnpoint 153                                                           |
+-- | 11553 |         1 | Icecrown Ore Spawnpoint 154                                                           |
+-- | 11554 |         1 | Icecrown Ore Spawnpoint 155                                                           |
+-- | 11555 |         1 | Icecrown Ore Spawnpoint 156                                                           |
+-- | 11556 |         1 | Icecrown Ore Spawnpoint 157                                                           |
+-- | 11557 |         1 | Icecrown Ore Spawnpoint 158                                                           |
+-- | 11558 |         1 | Icecrown Ore Spawnpoint 159                                                           |
+-- | 11559 |         1 | Icecrown Ore Spawnpoint 160                                                           |
+-- | 11560 |         1 | Icecrown Ore Spawnpoint 161                                                           |
+-- | 11561 |         1 | Icecrown Ore Spawnpoint 162                                                           |
+-- | 11562 |         1 | Icecrown Ore Spawnpoint 163                                                           |
+-- | 11563 |         1 | Icecrown Ore Spawnpoint 164                                                           |
+-- | 11564 |         1 | Icecrown Ore Spawnpoint 165                                                           |
+-- | 11565 |         1 | Icecrown Ore Spawnpoint 166                                                           |
+-- | 11566 |         1 | Icecrown Ore Spawnpoint 167                                                           |
+-- | 11567 |         1 | Icecrown Ore Spawnpoint 168                                                           |
+-- | 11568 |         1 | Icecrown Ore Spawnpoint 169                                                           |
+-- | 11569 |         1 | Icecrown Ore Spawnpoint 170                                                           |
+-- | 11570 |         1 | Icecrown Ore Spawnpoint 171                                                           |
+-- | 11571 |         1 | Icecrown Ore Spawnpoint 172                                                           |
+-- | 11572 |         1 | Icecrown Ore Spawnpoint 173                                                           |
+-- | 11573 |         1 | Icecrown Ore Spawnpoint 174                                                           |
+-- | 11574 |         1 | Icecrown Ore Spawnpoint 175                                                           |
+-- | 11575 |         1 | Icecrown Ore Spawnpoint 176                                                           |
+-- | 11576 |         1 | Icecrown Ore Spawnpoint 177                                                           |
+-- | 11577 |         1 | Icecrown Ore Spawnpoint 178                                                           |
+-- | 11578 |         1 | Icecrown Ore Spawnpoint 179                                                           |
+-- | 11579 |         1 | Icecrown Ore Spawnpoint 180                                                           |
+-- | 11580 |         1 | Icecrown Ore Spawnpoint 181                                                           |
+-- | 11581 |         1 | Icecrown Ore Spawnpoint 182                                                           |
+-- | 11582 |         1 | Icecrown Ore Spawnpoint 183                                                           |
+-- | 11583 |         1 | Icecrown Ore Spawnpoint 184                                                           |
+-- | 11584 |         1 | Icecrown Ore Spawnpoint 185                                                           |
+-- | 11585 |         1 | Icecrown Ore Spawnpoint 186                                                           |
+-- | 11586 |         1 | Icecrown Ore Spawnpoint 187                                                           |
+-- | 11587 |         1 | Icecrown Ore Spawnpoint 188                                                           |
+-- | 11588 |         1 | Icecrown Ore Spawnpoint 189                                                           |
+-- | 11589 |         1 | Icecrown Ore Spawnpoint 190                                                           |
+-- | 11590 |         1 | Icecrown Ore Spawnpoint 191                                                           |
+-- | 11591 |         1 | Icecrown Ore Spawnpoint 192                                                           |
+-- | 11592 |         1 | Icecrown Ore Spawnpoint 193                                                           |
+-- | 11593 |         1 | Icecrown Ore Spawnpoint 194                                                           |
+-- | 11594 |         1 | Icecrown Ore Spawnpoint 195                                                           |
+-- | 11595 |         1 | Icecrown Ore Spawnpoint 196                                                           |
+-- | 11596 |         1 | Icecrown Ore Spawnpoint 197                                                           |
+-- | 11597 |         1 | Icecrown Ore Spawnpoint 198                                                           |
+-- | 11598 |         1 | Icecrown Ore Spawnpoint 199                                                           |
+-- | 11599 |         1 | Icecrown Ore Spawnpoint 200                                                           |
+-- | 11600 |         1 | Icecrown Ore Spawnpoint 201                                                           |
+-- | 11601 |         1 | Icecrown Ore Spawnpoint 202                                                           |
+-- | 11602 |         1 | Icecrown Ore Spawnpoint 203                                                           |
+-- | 11603 |         1 | Icecrown Ore Spawnpoint 204                                                           |
+-- | 11604 |         1 | Icecrown Ore Spawnpoint 205                                                           |
+-- | 11605 |         1 | Icecrown Ore Spawnpoint 206                                                           |
+-- | 11606 |         1 | Icecrown Ore Spawnpoint 207                                                           |
+-- | 11607 |         1 | Icecrown Ore Spawnpoint 208                                                           |
+-- | 11608 |         1 | Icecrown Ore Spawnpoint 209                                                           |
+-- | 11609 |         1 | Icecrown Ore Spawnpoint 210                                                           |
+-- | 11610 |         1 | Icecrown Ore Spawnpoint 211                                                           |
+-- | 11611 |         1 | Icecrown Ore Spawnpoint 212                                                           |
+-- | 11612 |         1 | Icecrown Ore Spawnpoint 213                                                           |
+-- | 11613 |         1 | Icecrown Ore Spawnpoint 214                                                           |
+-- | 11614 |         1 | Icecrown Ore Spawnpoint 215                                                           |
+-- | 11615 |         1 | Icecrown Ore Spawnpoint 216                                                           |
+-- | 11616 |         1 | Icecrown Ore Spawnpoint 217                                                           |
+-- | 11617 |         1 | Icecrown Ore Spawnpoint 218                                                           |
+-- | 11618 |         1 | Icecrown Ore Spawnpoint 219                                                           |
+-- | 11619 |         1 | Icecrown Ore Spawnpoint 220                                                           |
+-- | 11620 |         1 | Icecrown Ore Spawnpoint 221                                                           |
+-- | 11621 |         1 | Icecrown Ore Spawnpoint 222                                                           |
+-- | 11622 |         1 | Icecrown Ore Spawnpoint 223                                                           |
+-- | 11623 |         1 | Icecrown Ore Spawnpoint 224                                                           |
+-- | 11624 |         1 | Icecrown Ore Spawnpoint 225                                                           |
+-- | 11625 |         1 | Icecrown Ore Spawnpoint 226                                                           |
+-- | 11626 |         1 | Icecrown Ore Spawnpoint 227                                                           |
+-- | 11627 |         1 | Icecrown Ore Spawnpoint 228                                                           |
+-- | 11628 |         1 | Icecrown Ore Spawnpoint 229                                                           |
+-- | 11629 |         1 | Icecrown Ore Spawnpoint 230                                                           |
+-- | 11630 |         1 | Icecrown Ore Spawnpoint 231                                                           |
+-- | 11631 |         1 | Icecrown Ore Spawnpoint 232                                                           |
+-- | 11632 |         1 | Icecrown Ore Spawnpoint 233                                                           |
+-- | 11633 |         1 | Icecrown Ore Spawnpoint 234                                                           |
+-- | 11634 |         1 | Icecrown Ore Spawnpoint 235                                                           |
+-- | 11712 |         2 | Rich Thorium Vein - Dire Maul East                                                    |
+-- +-------+-----------+---------------------------------------------------------------------------------------+
+-- 3588 rows in set (0.086 sec)
+
+-- UNABLE to set Mining Node default values for idempotence because of the sheer number of them.
+
+SET @NodeMaxLimitMultiplier = 6;
+
+SET -- Node IDs
+@AdamantiteDeposit = 181556,
+@AncientGemVein = 185557,
+@CobaltDeposit = 189978,
+@CopperVein = 1731,
+@CopperVein2 = 2055,
+@CopperVein3 = 3763,
+@CopperVein4 = 103713,
+@CopperVein5 = 181248,
+@DarkIronDeposit = 165658,
+@FelIronDeposit = 181555,
+@GoldVein = 1734,
+@GoldVein2 = 150080,
+@GoldVein3 = 181109,
+@HakkariThoriumVein = 180215,
+@IncendiciteMineralVein = 1610,
+@IncendiciteMineralVein2 = 1667,
+@InduriumMineralVein = 19903,
+@IronDeposit = 1735,
+@KhoriumVein = 181557,
+@LesserBloodstoneDeposit = 2653,
+@MithrilDeposit = 2040,
+@MithrilDeposit2 = 150079,
+@MithrilDeposit3 = 176645,
+@NetherciteDeposit = 185877,
+@OozeCoveredGoldVein = 73941,
+@OozeCoveredIronDeposit = 73939,
+@OozeCoveredMithrilDeposit = 123310,
+@OozeCoveredRichThoriumVein = 177388,
+@OozeCoveredSilverVein = 73940,
+@OozeCoveredThoriumVein = 123848,
+@OozeCoveredTruesilverDeposit = 123309,
+@PureSaroniteDeposit = 195036,
+@RichAdamantiteDeposit = 181569,
+@RichAdamantiteDeposit2 = 181570,
+@RichCobaltDeposit = 189979,
+@RichSaroniteDeposit = 189981,
+@RichThoriumVein = 175404,
+@SaroniteDeposit = 189980,
+@SilverVein = 1733,
+@SilverVein2 = 105569,
+@SmallThoriumVein = 324,
+@SmallThoriumVein2 = 150082,
+@SmallThoriumVein3 = 176643,
+@TinVein = 1732,
+@TinVein2 = 2054,
+@TinVein3 = 3764,
+@TinVein4 = 103711,
+@TinVein5 = 181249,
+@TitaniumVein = 191133,
+@TruesilverDeposit = 2047,
+@TruesilverDeposit2 = 150081,
+@TruesilverDeposit3 = 181108;
+
+-- SELECT entry, name FROM gameobject_template WHERE name like '%Silverleaf%';
+
+-- Lookup current values:
+-- SELECT DISTINCT pt.* FROM acore_world.pool_template pt
+--     INNER JOIN gameobject g ON g.id IN (
+--         @AdamantiteDeposit,
+--         @AncientGemVein,
+--         @CobaltDeposit,
+--         @CopperVein,
+--         @CopperVein2,
+--         @CopperVein3,
+--         @CopperVein4,
+--         @CopperVein5,
+--         @DarkIronDeposit,
+--         @FelIronDeposit,
+--         @GoldVein,
+--         @GoldVein2,
+--         @GoldVein3,
+--         @HakkariThoriumVein,
+--         @IncendiciteMineralVein,
+--         @IncendiciteMineralVein2,
+--         @InduriumMineralVein,
+--         @IronDeposit,
+--         @KhoriumVein,
+--         @LesserBloodstoneDeposit,
+--         @MithrilDeposit,
+--         @MithrilDeposit2,
+--         @MithrilDeposit3,
+--         @NetherciteDeposit,
+--         @OozeCoveredGoldVein,
+--         @OozeCoveredIronDeposit,
+--         @OozeCoveredMithrilDeposit,
+--         @OozeCoveredRichThoriumVein,
+--         @OozeCoveredSilverVein,
+--         @OozeCoveredThoriumVein,
+--         @OozeCoveredTruesilverDeposit,
+--         @PureSaroniteDeposit,
+--         @RichAdamantiteDeposit,
+--         @RichAdamantiteDeposit2,
+--         @RichCobaltDeposit,
+--         @RichSaroniteDeposit,
+--         @RichThoriumVein,
+--         @SaroniteDeposit,
+--         @SilverVein,
+--         @SilverVein2,
+--         @SmallThoriumVein,
+--         @SmallThoriumVein2,
+--         @SmallThoriumVein3,
+--         @TinVein,
+--         @TinVein2,
+--         @TinVein3,
+--         @TinVein4,
+--         @TinVein5,
+--         @TitaniumVein,
+--         @TruesilverDeposit,
+--         @TruesilverDeposit2,
+--         @TruesilverDeposit3
+--     )
+--     INNER JOIN acore_world.pool_gameobject pgo ON pgo.guid=g.guid
+-- WHERE pt.entry=pgo.pool_entry;
+
+UPDATE acore_world.pool_template
+INNER JOIN (SELECT pt.* FROM acore_world.pool_template pt
+    INNER JOIN acore_world.gameobject g ON g.id IN (
+        @AdamantiteDeposit,
+        @AncientGemVein,
+        @CobaltDeposit,
+        @CopperVein,
+        @CopperVein2,
+        @CopperVein3,
+        @CopperVein4,
+        @CopperVein5,
+        @DarkIronDeposit,
+        @FelIronDeposit,
+        @GoldVein,
+        @GoldVein2,
+        @GoldVein3,
+        @HakkariThoriumVein,
+        @IncendiciteMineralVein,
+        @IncendiciteMineralVein2,
+        @InduriumMineralVein,
+        @IronDeposit,
+        @KhoriumVein,
+        @LesserBloodstoneDeposit,
+        @MithrilDeposit,
+        @MithrilDeposit2,
+        @MithrilDeposit3,
+        @NetherciteDeposit,
+        @OozeCoveredGoldVein,
+        @OozeCoveredIronDeposit,
+        @OozeCoveredMithrilDeposit,
+        @OozeCoveredRichThoriumVein,
+        @OozeCoveredSilverVein,
+        @OozeCoveredThoriumVein,
+        @OozeCoveredTruesilverDeposit,
+        @PureSaroniteDeposit,
+        @RichAdamantiteDeposit,
+        @RichAdamantiteDeposit2,
+        @RichCobaltDeposit,
+        @RichSaroniteDeposit,
+        @RichThoriumVein,
+        @SaroniteDeposit,
+        @SilverVein,
+        @SilverVein2,
+        @SmallThoriumVein,
+        @SmallThoriumVein2,
+        @SmallThoriumVein3,
+        @TinVein,
+        @TinVein2,
+        @TinVein3,
+        @TinVein4,
+        @TinVein5,
+        @TitaniumVein,
+        @TruesilverDeposit,
+        @TruesilverDeposit2,
+        @TruesilverDeposit3
+    )
+    INNER JOIN acore_world.pool_gameobject pgo ON pgo.guid=g.guid
+WHERE pt.entry=pgo.pool_entry) as objects
+ON acore_world.pool_template.entry = objects.entry
+SET acore_world.pool_template.max_limit=(acore_world.pool_template.max_limit * @NodeMaxLimitMultiplier);
