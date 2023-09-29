@@ -73,8 +73,8 @@ rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"; git clone --dep
 rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"; git clone --depth 1 https://github.com/azerothcore/mod-solocraft.git "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"
 
 # Apply the solo-lfg patch to our core's code
-cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"
-git apply lfg-solo.patch # needed core patch
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+git apply "modules/mod-solo-lfg/lfg-solo.patch" # needed core patch
 cd $WHERE_WAS_I
 
 # Apply the SQL required for mod-solocraft
