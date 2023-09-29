@@ -46,7 +46,6 @@ cat <<EOF > $HOME/.my.cnf
 password=acore
 EOF
 
-
 echo ""
 echo "#########################################################"
 echo "# AzerothCore "
@@ -63,7 +62,7 @@ else
   git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 fi
 
-# Include our compile script
+# Include our compile script (including modules)
 source compile.sh
 
 # Return HOME
@@ -81,7 +80,6 @@ then
   unzip "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data/v16.zip" -d "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data"
 fi
 
-
 echo ""
 echo "#########################################################"
 echo "# Server Configuration Files"
@@ -89,11 +87,25 @@ echo "#########################################################"
 echo ""
 
 # Move our configurations in place
-cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+# ... but only if they don't already exist, because there might be
+# custom changes we'll end up overriding...
+if [ ! -f "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf" ];
+then
+  cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
+  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+fi
 
-cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
-echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+if [ ! -f "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf" ];
+then
+  cp confs/authserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
+  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+fi
+
+echo ""
+echo "#########################################################"
+echo "# First run of World Server"
+echo "#########################################################"
+echo ""
 
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
@@ -123,8 +135,12 @@ sed -i 's/Console.Enable = 1/Console.Enable = 0/g' "${HOME}/${AZEROTHCORE_SERVER
 cd $WHERE_WAS_I
 mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_REMOTE_ENDPOINT}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
+mysql -u acore acore_auth -e "UPDATE realmlist SET localSubnetMask = '${AZEROTHCORE_SERVER_LOCAL_SUBNETMASK}' WHERE id = 1;"
 mysql -u acore acore_world < sql/01-quality-of-life.sql
 mysql -u acore acore_world < sql/02-starting-mount-accessibility.sql
+mysql -u acore acore_world < sql/03-the-cartographers.sql
+mysql -u acore acore_world < sql/04-better-herb-spawns.sql
+mysql -u acore acore_world < sql/05-better-mining-spawns.sql
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
