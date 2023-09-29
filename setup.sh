@@ -62,6 +62,30 @@ else
   git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 fi
 
+echo ""
+echo "#########################################################"
+echo "# AzerothCore - Modules"
+echo "#########################################################"
+echo ""
+
+# Pull and "install" the modules we want to compile in
+rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"; git clone --depth 1 https://github.com/milestorme/mod-solo-lfg "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"
+rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"; git clone --depth 1 https://github.com/azerothcore/mod-solocraft.git "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"
+
+# Apply the solo-lfg patch to our core's code
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"
+git apply lfg-solo.patch # needed core patch
+cd $WHERE_WAS_I
+
+# Apply the SQL required for mod-solocraft
+sudo mysql < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
+
+echo ""
+echo "#########################################################"
+echo "# AzerothCore - compile all"
+echo "#########################################################"
+echo ""
+
 # Include our compile script (including modules)
 source compile.sh
 

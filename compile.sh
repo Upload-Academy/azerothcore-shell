@@ -2,10 +2,8 @@
 
 # Setup build environment
 cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-mkdir -p build/modules 
+mkdir -p build/
 cd build
-
-source ${WHERE_WAS_I}/modules.sh
 
 # cmake the configuration, ready for compilation
 cmake ../ -DCMAKE_INSTALL_PREFIX="${HOME}/${AZEROTHCORE_SERVER_DIR}/" \
