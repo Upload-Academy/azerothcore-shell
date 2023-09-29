@@ -78,7 +78,7 @@ git apply "modules/mod-solo-lfg/lfg-solo.patch" # needed core patch
 cd $WHERE_WAS_I
 
 # Apply the SQL required for mod-solocraft
-sudo mysql < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
+sudo mysql acore_characters < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
 
 echo ""
 echo "#########################################################"
@@ -161,7 +161,7 @@ mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERV
 mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localSubnetMask = '${AZEROTHCORE_SERVER_LOCAL_SUBNETMASK}' WHERE id = 1;"
 mysql -u acore acore_world < sql/01-quality-of-life.sql
-mysql -u acore acore_world < sql/02-starting-mount-accessibility.sql
+mysql -u acore acore_world < sql/02-starting-mount-accessiblity.sql
 mysql -u acore acore_world < sql/03-the-cartographers.sql
 mysql -u acore acore_world < sql/04-better-herb-spawns.sql
 mysql -u acore acore_world < sql/05-better-mining-spawns.sql
