@@ -1,0 +1,563 @@
+---
+
+# rank:
+#   1 = Hated
+#   2 = Hostile
+#   4 = Unfriendly
+#   8 = Neutral
+#  16 = Friendly
+#  32 = Honored
+#  64 = Revered
+# 128 = Exalted
+
+costs:
+  base: 35000 # 1g 20s
+  # These are multipliers of "costs.base"
+  # As the tier goes up, so does the price
+  tier1a:
+    reputation: 32
+    level: 20
+    weapon: 1.2
+    clothing: 1.1
+    other: 1.05
+  tier1b:
+    reputation: 32
+    level: 25
+    weapon: 1.3
+    clothing: 1.2
+    other: 1.15
+  tier2a:
+    reputation: 32
+    level: 30
+    weapon: 1.4
+    clothing: 1.3
+    other: 1.25
+  tier2b:
+    reputation: 32
+    level: 35
+    weapon: 1.5
+    clothing: 1.4
+    other: 1.35
+  tier3a:
+    reputation: 32
+    level: 40
+    weapon: 1.6
+    clothing: 1.5
+    other: 1.35
+  tier3b:
+    reputation: 32
+    level: 45
+    weapon: 1.7
+    clothing: 1.6
+    other: 1.45
+  tier4a:
+    level: 50
+    reputation: 32
+    weapon: 2.2
+    clothing: 2.1
+    other: 2.05
+  tier4b:
+    level: 55
+    reputation: 32
+    weapon: 2.3
+    clothing: 2.2
+    other: 2.15
+  tier5a:
+    level: 60
+    reputation: 32
+    weapon: 3.5
+    clothing: 3.4
+    other: 3.2
+  tier5b:
+    level: 65
+    reputation: 32
+    weapon: 5.5
+    clothing: 5.4
+    other: 5.2
+  tier6a:
+    level: 70
+    reputation: 64
+    weapon: 7.5
+    clothing: 7.4
+    other: 7.2
+  tier6b:
+    level: 75
+    reputation: 64
+    weapon: 9.5
+    clothing: 9.4
+    other: 9.2
+  tier7a:
+    level: 80
+    reputation: 128
+    weapon: 12.5
+    clothing: 12.4
+    other: 12.2
+  tier7b:
+    level: 80
+    reputation: 128
+    weapon: 15.5
+    clothing: 15.4
+    other: 15.2
+
+# Map IDs:
+# @MAP_EASTERN_KINGDOMS := 0,
+# @MAP_KALIMDOR := 1,
+# @MAP_OUTLAND := 530,
+# @MAP_NORTHREND := 571;
+dungeon_vendor_groups:
+  - where: Wailing Caverns
+    map: 1
+    tier: tier1a
+    vendor_home:
+      tent01:
+        id: 950004
+        X: -870.023376
+        Y: -1987.217285
+        Z: 92.529778
+        Orientation: 5.082149
+      tent02:
+        id: 950005
+        X: -855.239807
+        Y: -1985.682495
+        Z: 91.937462
+        Orientation: 4.182871
+      tent03: null
+      boxes01:
+        id: 950001
+        X: -850.34869
+        Y: -1987.8153
+        Z: 91.768799
+        Orientation: 4.010049
+      boxes02:
+        id: 950002
+        X: -322.87237
+        Y: 1445.92395
+        Z: 30.831896
+        Orientation: 0.215336
+      boxes03: null
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -857.33636
+      y: -1989.1666
+      z: 91.671768
+      o: 4.295179
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -852.08715
+      y: -1993.8306
+      z: 91.291885
+      o: 3.631512
+    other_vendor: null
+    items:
+      - id: 6627
+        npc: 3654
+        type: clothing
+
+      - id: 6461
+        npc: 3654
+        type: clothing
+
+      - id: 6463
+        npc: 3654
+        type: other
+
+      - id: 6446
+        npc: 3671
+        type: other
+
+      - id: 6630
+        npc: 5775
+        type: weapon
+
+      - id: 6631
+        npc: 5775
+        type: weapon
+
+      - id: 6460
+        npc: 3669
+        type: clothing
+
+      - id: 6469
+        npc: 3673
+        type: weapon
+
+      - id: 6472
+        npc: 3670
+        type: weapon
+
+      - id: 5404
+        npc: 3671
+        type: clothing
+
+      - id: 5970
+        npc: 3673
+        type: clothing
+
+      - id: 6459
+        npc: 3673
+        type: clothing
+
+      - id: 6473
+        npc: 3670
+        type: clothing
+
+      - id: 6629
+        npc: 5775
+        type: clothing
+
+      - id: 10410
+        npc: 3669
+        type: clothing
+
+      - id: 10411
+        npc: 3673
+        type: clothing
+
+      - id: 6448
+        npc: 3674
+        type: weapon
+
+      - id: 6449
+        npc: 3674
+        type: clothing
+
+      - id: 6465
+        npc: 3669
+        type: clothing
+
+      - id: 10412
+        npc: 3671
+        type: clothing
+
+      - id: 5243
+        npc: 5912
+        type: weapon
+
+      - id: 6447
+        npc: 3653
+        type: weapon
+
+      - id: 6632
+        npc: 5912
+        type: clothing
+
+      - id: 13245
+        npc: 3653
+        type: weapon
+
+      - id: 10413
+        npc: 3840
+        type: clothing
+  
+  - where: Deadmines
+    map: 0
+    tier: tier1a
+    vendor_home: null
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -10507.704
+      y: 1026.67419
+      z: 60.522846
+      o: 0.674236
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -10505.896
+      y: 1024.38439
+      z: 60.522846
+      o: 1.110132
+    other_vendor:
+      models:
+        - 7104 # Booty Bay Bruiser
+        - 0
+        - 0
+        - 0
+      name: "Snazzle"
+      title: "Trinkets"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -10509.912
+      y: 1027.70227
+      z: 60.522869
+      o: 0.650674
+    items:
+      - id: 5193
+        npc: 639
+        type: clothing
+      - id: 5191
+        npc: 639
+        type: weapon
+      - id: 5202
+        npc: 639
+        type: clothing
+      - id: 10399
+        npc: 639
+        type: clothing
+      - id: 5201
+        npc: 647
+        type: weapon
+      - id: 7230
+        npc: 646
+        type: weapon
+      - id: 5187
+        npc: 644
+        type: weapon
+      - id: 872
+        npc: 644
+        type: weapon
+      - id: 5194
+        npc: 643
+        type: weapon
+      - id: 5200
+        npc: 647
+        type: weapon
+      - id: 10403
+        npc: 647
+        type: clothing
+      - id: 5198
+        npc: 645
+        type: weapon
+      - id: 1156
+        npc: 1763
+        type: other
+      - id: 5192
+        npc: 646
+        type: weapon
+      - id: 5196
+        npc: 646
+        type: weapon
+      - id: 5195
+        npc: 643
+        type: clothing
+      - id: 5197
+        npc: 645
+        type: weapon
+      - id: 5199
+        npc: 1763
+        type: clothing
+      - id: 1937
+        npc: 642
+        type: weapon
+      - id: 2169
+        npc: 642
+        type: weapon
+      - id: 5443
+        npc: 3586
+        type: weapon
+  
+  - where: Shadowfang Keep
+    map: 0
+    tier: tier1a
+    vendor_home:
+      tent01:
+        id: 950000
+        X: -320.85003
+        Y: 1451.38818
+        Z: 30.831896
+        Orientation: 6.06263
+      boxes01:
+        id: 950002
+        X: -319.94238
+        Y: 1441.51611
+        Z: 30.867828
+        Orientation: 0.395984
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -315.94293
+      y: 1448.59252
+      z: 31.213396
+      o: 0.038621
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 25
+      max_level: 30
+      map: 
+      x: -316.53732
+      y: 1445.32824
+      z: 31.086363
+      o: 6.097972
+    other_vendor: null
+    items:
+      - id: 6314
+        npc: 3927
+        type: clothing
+      - id: 3748
+        npc: 3927
+        type: clothing
+      - id: 23171
+        npc: 14682
+        type: weapon
+      - id: 23173
+        npc: 14682
+        type: clothing
+      - id: 6226
+        npc: 3886
+        type: clothing
+      - id: 6633
+        npc: 3886
+        type: weapon
+      - id: 1292
+        npc: 3886
+        type: weapon
+      - id: 6318
+        npc: 4279
+        type: weapon
+      - id: 6319
+        npc: 4279
+        type: clothing
+      - id: 3230
+        npc: 4274
+        type: clothing
+      - id: 6340
+        npc: 4274
+        type: clothing
+      - id: 6642
+        npc: 3872
+        type: clothing
+      - id: 6641
+        npc: 3872
+        type: weapon
+      - id: 3191
+        npc: 4278
+        type: weapon
+      - id: 6320
+        npc: 4278
+        type: weapon
+      - id: 6323
+        npc: 3887
+        type: weapon
+      - id: 6321
+        npc: 3887
+        type: clothing
+      - id: 5943
+        npc: 4627
+        type: clothing
+      - id: 6220
+        npc: 4275
+        type: weapon
+      - id: 6324
+        npc: 4275
+        type: clothing
+      - id: 6392
+        npc: 4275
+        type: clothing
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# These are used to place an NPC and then have them walk
+# around (repeatidly) a pre-defined path (set of waypoints)
+usable_paths:
+  - name: Ruins of Mathystra
+    id: 1
+    min_level: 10
+    max_level: 20
+    waypoints:
+      # In order: waypoints[0] = spawn point...
+      - {x: 7565.04541, y: -1086.2781, z: 40.766079, o: 3.293756} # first, also usable_location
+      - {x: 7504.74169, y: -1081.3033, z: 36.88031, o: 4.004541}
+      - {x: 7489.14453, y: -1104.4848, z: 36.38229, o: 2.830368}
+      - {x: 7437.06152, y: -1081.5590, z: 37.946327, o: 2.685069}
+      - {x: 7446.61230, y: -1063.9003, z: 36.255062, o: 1.075002}
+      - {x: 7478.10996, y: -1076.2098, z: 34.980301, o: 0.2307}
+      - {x: 7508.73535, y: -1069.2908, z: 35.399921, o: 0.222846}
+      - {x: 7556.99462, y: -1066.9573, z: 39.388748, o: 0.050058}
+      - {x: 7610.75, y: -1060.2985, z: 38.295273, o: 0.124674}
+      - {x: 7565.04541, y: -1086.2781, z: 40.766079, o: 3.293756} # loop
+  - name: Ruins of Mathystra
+    id: 2
+    min_level: 10
+    max_level: 20
+    waypoints:
+      # In order: waypoints[0] = spawn point...
+      - {x: 7515.23828, y: -958.53674, z: -9.87995, o: 4.950947} # first, also usable_location
+      - {x: 7530.27587, y: -989.23596, z: -9.881342, o: 5.166928}
+      - {x: 7511.24560, y: -1012.2099, z: -9.881342, o: 3.992768}
+      - {x: 7497.34521, y: -1004.7437, z: -9.881342, o: 2.626175}
+      - {x: 7515.23828, y: -958.53674, z: -9.87995, o: 4.950947} # loop
+
+usable_npcs:
+  - entry: 2183
+    objective: kill
+    faction: 74
+  - entry: 960001
+    objective: quest
+    faction: 79
+
+usable_locations:
+  - name: Ruins of Mathystra
+    coordinates:
+      - uses: [npc, object]
+        value: {x: 7326.18359, y: -922.23663, z: 26.885874, o: 5.414324}
+      - uses: [npc]
+        value: {x: 7471.63525, y: -875.99871, z: 12.898063, o: 2.166711}
+      - uses: [npc]
+        value: {x: 7336.70214, y: -917.87823, z: 32.534771, o: 5.257241}
+      - uses: [object]
+        value: {x: 7343.93603, y: -933.01782, z: -5.438598, o: 2.174542}

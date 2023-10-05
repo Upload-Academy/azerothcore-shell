@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script **is not** idempotent: it's a one-time thing.
+# If you do run it several times, then things should be OK,
+# but there's not guarantee.
+
 source config.sh
 
 echo ""
@@ -28,7 +32,6 @@ sudo ufw allow from 0.0.0.0/0 to any port 8085 # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
 sudo ufw enable
-
 
 echo ""
 echo "#########################################################"

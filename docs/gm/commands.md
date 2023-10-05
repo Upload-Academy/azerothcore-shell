@@ -1,0 +1,12 @@
+# GM Commands
+
+useful GM commands I use over and over during development.
+
+- `.additem #itemid/[#itemname]/#shift-click-item-link #itemcount`
+- `.cheat *`
+- `.appear #char`
+- `.tele #place`
+- `.summon #char`
+- `.learn all *`
+- `.quest *`
+    - `.quest remove #id` is a useful one for quest development
