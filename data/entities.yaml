@@ -105,6 +105,454 @@ costs:
 # @MAP_OUTLAND := 530,
 # @MAP_NORTHREND := 571;
 dungeon_vendor_groups:
+  # Template
+  # - where: Shadowfang Keep
+  #   map: 0
+  #   tier: tier1a
+  #   vendor_home:
+  #     tent01:
+  #       id: 950000
+  #       X: -320.85003
+  #       Y: 1451.38818
+  #       Z: 30.831896
+  #       Orientation: 6.06263
+  #     boxes01:
+  #       id: 950002
+  #       X: -319.94238
+  #       Y: 1441.51611
+  #       Z: 30.867828
+  #       Orientation: 0.395984
+  #   weapon_vendor:
+  #     models:
+  #       - 7106 # Wharfmaster Lozgil
+  #       - 0
+  #       - 0
+  #       - 0
+  #     name: "Rixxle"
+  #     title: "Weapons"
+  #     min_level: 25
+  #     max_level: 30
+  #     map: 
+  #     x: -315.94293
+  #     y: 1448.59252
+  #     z: 31.213396
+  #     o: 0.038621
+  #   clothing_vendor:
+  #     models:
+  #       - 7212 # Sprogger
+  #       - 0
+  #       - 0
+  #       - 0
+  #     name: "Zoggit"
+  #     title: "Armour"
+  #     min_level: 25
+  #     max_level: 30
+  #     map: 
+  #     x: -316.53732
+  #     y: 1445.32824
+  #     z: 31.086363
+  #     o: 6.097972
+  #   other_vendor: null
+  - where: Uldaman
+    map: 0
+    tier: tier2a
+    vendor_home:
+      tent01:
+        id: 950000
+        X: -6440.316406
+        Y: -3259.992432
+        Z: 241.683899
+        Orientation: 5.505644
+      boxes01:
+        id: 950002
+        X: -6433.562500 
+        Y: -3258.819336 
+        Z: 241.763412 
+        Orientation: 4.150846
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 35
+      max_level: 45
+      map: 0
+      X: -6437.630371 
+      Y: -3262.943604 
+      Z: 241.669159 
+      Orientation: 5.478165
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 35
+      max_level: 45
+      map: 0
+      X: -6432.616211 
+      Y: -3260.275391 
+      Z: 241.727966 
+      Orientation: 4.645665
+    other_vendor:
+      models:
+        - 7104 # Booty Bay Bruiser
+        - 0
+        - 0
+        - 0
+      name: "Snazzle"
+      title: "Trinkets"
+      min_level: 35
+      max_level: 45
+      map: 0
+      X: -6430.789551 
+      Y: -3262.597412 
+      Z: 241.699326 
+      Orientation: 3.809223
+    items:
+      - id: 3871
+        type: other
+        npc: 4852 # Stonevault Oracle
+      - id: 4298
+        type: other
+        npc: 4852 # Stonevault Oracle
+      - id: 4354
+        type: other
+        npc: 4860 # Stone Steward
+      - id: 4415
+        type: other
+        npc: 7022 # Venomlash Scorpid
+      - id: 7452
+        type: other
+        npc: 4852 # Stonevault Oracle
+      - id: 7976
+        type: other
+        npc: 4860 # Stone Steward
+      - id: 7991
+        type: other
+        npc: 4853 # Stonevault Geomancer
+      - id: 8028
+        type: other
+        npc: 7030 # Shadowforge Geologist
+      - id: 8384
+        type: other
+        npc: 4861 # Shrike Bat
+      - id: 9381
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9383
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9384
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9386
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9387
+        type: weapon
+        npc: 6910 # Revelosh
+      - id: 9388
+        type: weapon
+        npc: 6910 # Revelosh
+      - id: 9389
+        type: weapon
+        npc: 6910 # Revelosh
+      - id: 9390
+        type: weapon
+        npc: 6910 # Revelosh
+      - id: 9391
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9392
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9393
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9394
+        type: weapon
+        npc: 6907 # Eric "The Swift
+      - id: 9396
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9397
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9398
+        type: weapon
+        npc: 6907 # Eric "The Swift
+      - id: 9400
+        type: clothing
+        npc: 6906 # Baelog
+      - id: 9401
+        type: clothing
+        npc: 6906 # Baelog
+      - id: 9403
+        type: weapon
+        npc: 6908 # Olaf
+      - id: 9404
+        type: weapon
+        npc: 6908 # Olaf
+      - id: 9406
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9407
+        type: weapon
+        npc: 7228 # Ironaya
+      - id: 9408
+        type: clothing
+        npc: 7228 # Ironaya
+      - id: 9409
+        type: weapon
+        npc: 7228 # Ironaya
+      - id: 9410
+        type: weapon
+        npc: 7206 # Ancient Stone Keeper
+      - id: 9411
+        type: weapon
+        npc: 7206 # Ancient Stone Keeper
+      - id: 9412
+        type: clothing
+        npc: 7291 # Galgann Firehammer
+      - id: 9413
+        type: clothing
+        npc: 2748 # Archaedas
+      - id: 9414
+        type: weapon
+        npc: 4854 # Grimlok
+      - id: 9415
+        type: weapon
+        npc: 4854 # Grimlok
+      - id: 9416
+        type: clothing
+        npc: 4854 # Grimlok
+      - id: 9418
+        type: clothing
+        npc: 2748 # Archaedas
+      - id: 9419
+        type: clothing
+        npc: 7291 # Galgann Firehammer
+      - id: 9420
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9422
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9423
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9424
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9425
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9426
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9427
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 9428
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9429
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9430
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9431
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9432
+        type: weapon
+        npc: 4860 # Stone Steward
+      - id: 9465
+        type: clothing
+        npc: 4860 # Stone Steward
+      - id: 10605
+        type: other
+        npc: 4860 # Stone Steward
+      - id: 10608
+        type: other
+        npc: 4860 # Stone Steward
+      - id: 11118
+        type: weapon
+        npc: 2748 # Archaedas
+      - id: 11310
+        type: weapon
+        npc: 7291 # Galgann Firehammer
+      - id: 11311
+        type: weapon
+        npc: 7291 # Galgann Firehammer
+
+  - where: Gnomeregan
+    map: 0
+    tier: tier2a
+    vendor_home:
+      tent01:
+        id: 950000
+        X: -5206.961426 
+        Y: 474.492371 
+        Z: 386.625732 
+        Orientation: 1.456900
+      boxes01:
+        id: 950002
+        X: -5203.503906 
+        Y: 475.031250 
+        Z: 386.682587
+        Orientation: 1.771060
+      misc01:
+        id: 102990 # dwarven campfire
+        X: -5206.217773 
+        Y: 485.584717 
+        Z: 387.519897 
+        Orientation: 4.975510
+
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 25
+      max_level: 30
+      map: 0
+      X: -5202.669922 
+      Y: 479.067535 
+      Z: 386.820068 
+      Orientation: 2.104870
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 25
+      max_level: 30
+      map: 0
+      X: -5209.738770 
+      Y: 479.852631 
+      Z: 387.138885 
+      Orientation: 0.777547
+    other_vendor:
+      models:
+        - 7104 # Booty Bay Bruiser
+        - 0
+        - 0
+        - 0
+      name: "Snazzle"
+      title: "Trinkets"
+      min_level: 25
+      max_level: 30
+      map: 0
+      X: -5207.291016 
+      Y: 489.281647 
+      Z: 387.876465 
+      Orientation: 4.975509
+    items:
+      - id: 3871
+        type: other
+        npc: 6233 # Mechanized Sentry
+      - id: 3875
+        type: other
+        npc: 6226 # Mechano-Flamewalker
+      - id: 4298
+        type: other
+        npc: 6233 # Mechanized Sentry
+      - id: 4415
+        type: other
+        npc: 7800 # Mekgineer Thermaplugg
+      - id: 7452
+        type: other
+        npc: 6227 # Mechano-Frostwalker
+      - id: 8384
+        type: other
+        npc: 6212 # Dark Iron Agent
+      - id: 9446
+        type: weapon
+        npc: 6235 # Electrocutioner 6000
+      - id: 9447
+        type: clothing
+        npc: 6235 # Electrocutioner 6000
+      - id: 9448
+        type: clothing
+        npc: 6235 # Electrocutioner 6000
+      - id: 9449
+        type: weapon
+        npc: 6229 # Crowd Pummeler 9-60
+      - id: 9450
+        type: clothing
+        npc: 6229 # Crowd Pummeler 9-60
+      - id: 9452
+        type: weapon
+        npc: 7079 # Viscous Fallout
+      - id: 9453
+        type: weapon
+        npc: 7079 # Viscous Fallout
+      - id: 9454
+        type: clothing
+        npc: 7079 # Viscous Fallout
+      - id: 9455
+        type: clothing
+        npc: 6228 # Dark Iron Ambassador
+      - id: 9456
+        type: weapon
+        npc: 6228 # Dark Iron Ambassador
+      - id: 9457
+        type: weapon
+        npc: 6228 # Dark Iron Ambassador
+      - id: 9458
+        type: clothing
+        npc: 7800 # Mekgineer Thermaplugg
+      - id: 9459
+        type: weapon
+        npc: 7800 # Mekgineer Thermaplugg
+      - id: 9461
+        type: clothing
+        npc: 7800 # Mekgineer Thermaplugg
+      - id: 9485
+        type: weapon
+        npc: 6233 # Mechanized Sentry
+      - id: 9486
+        type: weapon
+        npc: 6233 # Mechanized Sentry
+      - id: 9487
+        type: weapon
+        npc: 6233 # Mechanized Sentry
+      - id: 9488
+        type: weapon
+        npc: 6233 # Mechanized Sentry
+      - id: 9490
+        type: weapon
+        npc: 6233 # Mechanized Sentry
+      - id: 9491
+        type: clothing
+        npc: 6233 # Mechanized Sentry
+      - id: 9492
+        type: clothing
+        npc: 7800 # Mekgineer Thermaplugg
+      - id: 9508
+        type: clothing
+        npc: 6233 # Mechanized Sentry
+      - id: 9509
+        type: clothing
+        npc: 6233 # Mechanized Sentry
+      - id: 9510
+        type: clothing
+        npc: 6233 # Mechanized Sentry
+
   - where: Wailing Caverns
     map: 1
     tier: tier1a
@@ -145,11 +593,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
-      map: 
-      x: -857.33636
-      y: -1989.1666
-      z: 91.671768
-      o: 4.295179
+      map: 1
+      X: -857.33636
+      Y: -1989.1666
+      Z: 91.671768
+      Orientation: 4.295179
     clothing_vendor:
       models:
         - 7212 # Sprogger
@@ -160,11 +608,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
-      map: 
-      x: -852.08715
-      y: -1993.8306
-      z: 91.291885
-      o: 3.631512
+      map: 1
+      X: -852.08715
+      Y: -1993.8306
+      Z: 91.291885
+      Orientation: 3.631512
     other_vendor: null
     items:
       - id: 6627
@@ -281,11 +729,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
-      map: 
-      x: -10507.704
-      y: 1026.67419
-      z: 60.522846
-      o: 0.674236
+      map: 0
+      X: -10507.704
+      Y: 1026.67419
+      Z: 60.522846
+      Orientation: 0.674236
     clothing_vendor:
       models:
         - 7212 # Sprogger
@@ -296,11 +744,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
-      map: 
-      x: -10505.896
-      y: 1024.38439
-      z: 60.522846
-      o: 1.110132
+      map: 0
+      X: -10505.896
+      Y: 1024.38439
+      Z: 60.522846
+      Orientation: 1.110132
     other_vendor:
       models:
         - 7104 # Booty Bay Bruiser
@@ -311,11 +759,11 @@ dungeon_vendor_groups:
       title: "Trinkets"
       min_level: 25
       max_level: 30
-      map: 
-      x: -10509.912
-      y: 1027.70227
-      z: 60.522869
-      o: 0.650674
+      map: 0
+      X: -10509.912
+      Y: 1027.70227
+      Z: 60.522869
+      Orientation: 0.650674
     items:
       - id: 5193
         npc: 639
@@ -407,11 +855,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
-      map: 
-      x: -315.94293
-      y: 1448.59252
-      z: 31.213396
-      o: 0.038621
+      map: 0
+      X: -315.94293
+      Y: 1448.59252
+      Z: 31.213396
+      Orientation: 0.038621
     clothing_vendor:
       models:
         - 7212 # Sprogger
@@ -422,11 +870,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
-      map: 
-      x: -316.53732
-      y: 1445.32824
-      z: 31.086363
-      o: 6.097972
+      map: 0
+      X: -316.53732
+      Y: 1445.32824
+      Z: 31.086363
+      Orientation: 6.097972
     other_vendor: null
     items:
       - id: 6314
@@ -493,23 +941,150 @@ dungeon_vendor_groups:
         npc: 4275
         type: clothing
 
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  - where: Razorfen Kraul
+    map: 1
+    tier: tier2a
+    vendor_home:
+      tent01:
+        id: 950000
+        X: -320.85003
+        Y: 1451.38818
+        Z: 30.831896
+        Orientation: 6.06263
+      boxes01:
+        id: 950002
+        X: -319.94238
+        Y: 1441.51611
+        Z: 30.867828
+        Orientation: 0.395984
+    weapon_vendor:
+      models:
+        - 7106 # Wharfmaster Lozgil
+        - 0
+        - 0
+        - 0
+      name: "Rixxle"
+      title: "Weapons"
+      min_level: 25
+      max_level: 30
+      map: 1
+      X: -315.94293
+      Y: 1448.59252
+      Z: 31.213396
+      Orientation: 0.038621
+    clothing_vendor:
+      models:
+        - 7212 # Sprogger
+        - 0
+        - 0
+        - 0
+      name: "Zoggit"
+      title: "Armour"
+      min_level: 25
+      max_level: 30
+      map: 1
+      X: -316.53732
+      Y: 1445.32824
+      Z: 31.086363
+      Orientation: 6.097972
+    other_vendor: null
+    items:
+      - id: 776
+        type: weapon
+        npc: 4512
+      - id: 1488
+        type: clothing
+        npc: 4512
+      - id: 1727
+        type: weapon
+        npc: 4512
+      - id: 1975
+        type: weapon
+        npc: 4512
+      - id: 1976
+        type: weapon
+        npc: 4436
+      - id: 1978
+        type: clothing
+        npc: 4512
+      - id: 2039
+        type: clothing
+        npc: 4512
+      - id: 2264
+        type: clothing
+        npc: 4512
+      - id: 2549
+        type: weapon
+        npc: 4512
+      - id: 2816
+        type: weapon
+        npc: 4428
+      - id: 3871
+        type: other
+        npc: 4520
+      - id: 4298
+        type: other
+        npc: 4530
+      - id: 4438
+        type: clothing
+        npc: 4512
+      - id: 6679
+        type: weapon
+        npc: 4438
+      - id: 6681
+        type: weapon
+        npc: 4424
+      - id: 6682
+        type: clothing
+        npc: 4428
+      - id: 6685
+        type: clothing
+        npc: 4428
+      - id: 6686
+        type: clothing
+        npc: 4420
+      - id: 6687
+        type: weapon
+        npc: 4420
+      - id: 6688
+        type: clothing
+        npc: 4842
+      - id: 6689
+        type: weapon
+        npc: 4842
+      - id: 6690
+        type: clothing
+        npc: 4422
+      - id: 6691
+        type: weapon
+        npc: 4422
+      - id: 6692
+        type: weapon
+        npc: 4421
+      - id: 6693
+        type: clothing
+        npc: 4421
+      - id: 6694
+        type: clothing
+        npc: 4421
+      - id: 6695
+        type: clothing
+        npc: 4425
+      - id: 6696
+        type: weapon
+        npc: 4425
+      - id: 6697
+        type: clothing
+        npc: 4425
+      - id: 24063
+        type: clothing
+        npc: 4436
+      - id: 24064
+        type: clothing
+        npc: 4436
+      - id: 24069
+        type: weapon
+        npc: 4436
 
 # These are used to place an NPC and then have them walk
 # around (repeatidly) a pre-defined path (set of waypoints)

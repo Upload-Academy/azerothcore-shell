@@ -17,7 +17,66 @@ And then you want to update and push (to the server) the resulting `results/*.sq
 
 ## Items
 
-Everything is managed inside of `data/items/items.yaml`
+Everything is managed inside of `data/entities.yaml`
+
+### Generating Data
+
+We have to data mine the DB to find what we're looking for. Although not the most refined way of working, this SQL will find the Elite NPCs in a dungeon or raid that drop a weapon, armor, or recipe that's blue or better quality:
+
+You have to change `c.map` to the map of the dungeon you want to data mine.
+
+```sql
+SET
+@SuitableLevel := 45,
+@Map := 70;
+
+SELECT
+    items.LootItem,
+    itemtemplate.class,
+    items.CreatureID,
+    itemtemplate.subclass,
+    itemtemplate.quality,
+    itemtemplate.requiredlevel,
+    items.CreatureMap,
+    items.CreatureName
+FROM
+    item_template AS itemtemplate,
+    (
+        SELECT
+            c.map AS CreatureMap,
+            ct.entry AS CreatureTemplateEntry,
+            ct.name as CreatureName,
+            ct.entry AS CreatureID,
+            clt.item AS LootItem,
+            clt.groupid AS LootItemGroupID
+
+        FROM creature AS c
+            INNER JOIN creature_template AS ct ON ct.entry = c.id1
+            INNER JOIN creature_loot_template AS clt ON ct.entry = clt.entry
+        WHERE
+            -- Map or "instance", like Blackfathom Deeps
+            -- Can be looked up in instance_template
+            c.map=@Map AND
+
+            -- Creature's rank is at minimum Elite
+            -- (Personally not interested in what non-Elites drop)
+            ct.rank >= 1
+    ) AS items
+WHERE
+    items.LootItem = itemtemplate.entry AND
+    
+    -- Item is at minimum blue quality
+    itemtemplate.quality >= 3 AND
+
+    -- Item is suitable level
+    itemtemplate.requiredlevel <= @SuitableLevel AND
+
+    -- I only want weapon, armor, or recipes
+    itemtemplate.class IN (2, 4, 9)
+GROUP BY
+    items.LootItem
+;
+```
 
 ### Vendor Groups
 
