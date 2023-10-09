@@ -103,20 +103,20 @@ VALUES (
 
 -- Vendor Home Game Objects
 -- tent 01
-DELETE FROM `gameobject` WHERE (`id` = 950004 AND `position_x` = -870.023376 AND `position_y` = -1987.217285 AND `position_z` = 92.529778);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950004, 1, 0, 0, 1, 1, -870.023376, -1987.217285, 92.529778, 5.082149, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000004 AND `position_x` = -870.023376 AND `position_y` = -1987.217285 AND `position_z` = 92.529778);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000004, 1, 0, 0, 1, 1, -870.023376, -1987.217285, 92.529778, 5.082149, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- tent 02
-DELETE FROM `gameobject` WHERE (`id` = 950005 AND `position_x` = -855.239807 AND `position_y` = -1985.682495 AND `position_z` = 91.937462);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950005, 1, 0, 0, 1, 1, -855.239807, -1985.682495, 91.937462, 4.182871, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000005 AND `position_x` = -855.239807 AND `position_y` = -1985.682495 AND `position_z` = 91.937462);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000005, 1, 0, 0, 1, 1, -855.239807, -1985.682495, 91.937462, 4.182871, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- boxes 01
-DELETE FROM `gameobject` WHERE (`id` = 950001 AND `position_x` = -850.34869 AND `position_y` = -1987.8153 AND `position_z` = 91.768799);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950001, 1, 0, 0, 1, 1, -850.34869, -1987.8153, 91.768799, 4.010049, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000001 AND `position_x` = -850.34869 AND `position_y` = -1987.8153 AND `position_z` = 91.768799);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000001, 1, 0, 0, 1, 1, -850.34869, -1987.8153, 91.768799, 4.010049, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- boxes 02
-DELETE FROM `gameobject` WHERE (`id` = 950002 AND `position_x` = -322.87237 AND `position_y` = 1445.92395 AND `position_z` = 30.831896);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950002, 1, 0, 0, 1, 1, -322.87237, 1445.92395, 30.831896, 0.215336, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000002 AND `position_x` = -322.87237 AND `position_y` = 1445.92395 AND `position_z` = 30.831896);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000002, 1, 0, 0, 1, 1, -322.87237, 1445.92395, 30.831896, 0.215336, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- Clothing: 6627 / 38500c / 3654
 UPDATE `item_template` SET `BuyPrice` = 38500 WHERE (`entry` = 6627);

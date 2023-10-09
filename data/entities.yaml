@@ -202,13 +202,13 @@ dungeon_vendor_groups:
     tier: tier2a
     vendor_home:
       tent01:
-        id: 950000
+        id: 941000001
         X: -6440.316406
         Y: -3259.992432
         Z: 241.683899
         Orientation: 5.505644
       boxes01:
-        id: 950002
+        id: 941000002
         X: -6433.562500 
         Y: -3258.819336 
         Z: 241.763412 
@@ -442,13 +442,13 @@ dungeon_vendor_groups:
     tier: tier2a
     vendor_home:
       tent01:
-        id: 950000
+        id: 941000000
         X: -5206.961426 
         Y: 474.492371 
         Z: 386.625732 
         Orientation: 1.456900
       boxes01:
-        id: 950002
+        id: 941000002
         X: -5203.503906 
         Y: 475.031250 
         Z: 386.682587
@@ -602,26 +602,26 @@ dungeon_vendor_groups:
     tier: tier1a
     vendor_home:
       tent01:
-        id: 950004
+        id: 941000004
         X: -870.023376
         Y: -1987.217285
         Z: 92.529778
         Orientation: 5.082149
       tent02:
-        id: 950005
+        id: 941000005
         X: -855.239807
         Y: -1985.682495
         Z: 91.937462
         Orientation: 4.182871
       tent03: null
       boxes01:
-        id: 950001
+        id: 941000001
         X: -850.34869
         Y: -1987.8153
         Z: 91.768799
         Orientation: 4.010049
       boxes02:
-        id: 950002
+        id: 941000002
         X: -322.87237
         Y: 1445.92395
         Z: 30.831896
@@ -878,13 +878,13 @@ dungeon_vendor_groups:
     tier: tier1a
     vendor_home:
       tent01:
-        id: 950000
+        id: 941000000
         X: -320.85003
         Y: 1451.38818
         Z: 30.831896
         Orientation: 6.06263
       boxes01:
-        id: 950002
+        id: 941000002
         X: -319.94238
         Y: 1441.51611
         Z: 30.867828
@@ -990,13 +990,13 @@ dungeon_vendor_groups:
     tier: tier2a
     vendor_home:
       tent01:
-        id: 950000
+        id: 941000001
         X: -320.85003
         Y: 1451.38818
         Z: 30.831896
         Orientation: 6.06263
       boxes01:
-        id: 950002
+        id: 941000002
         X: -319.94238
         Y: 1441.51611
         Z: 30.867828

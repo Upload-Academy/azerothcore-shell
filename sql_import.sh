@@ -21,7 +21,6 @@ mysql -u acore acore_world < sql/M-07-the-argent-dawn.sql
 # VG = Vendor Groups
 for sqlfile in $(ls sql/A-VG-*.sql);
 do
-    echo $sqlfile
-    # mysql -u acore acore_world < $sqlfile
+    mysql -u acore acore_world < $sqlfile
 done
 

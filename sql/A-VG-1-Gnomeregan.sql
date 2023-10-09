@@ -154,12 +154,12 @@ VALUES (
 
 -- Vendor Home Game Objects
 -- tent 01
-DELETE FROM `gameobject` WHERE (`id` = 950000 AND `position_x` = -5206.961426 AND `position_y` = 474.492371 AND `position_z` = 386.625732);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950000, 0, 0, 0, 1, 1, -5206.961426, 474.492371, 386.625732, 1.4569, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000000 AND `position_x` = -5206.961426 AND `position_y` = 474.492371 AND `position_z` = 386.625732);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000000, 0, 0, 0, 1, 1, -5206.961426, 474.492371, 386.625732, 1.4569, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- boxes 01
-DELETE FROM `gameobject` WHERE (`id` = 950002 AND `position_x` = -5203.503906 AND `position_y` = 475.03125 AND `position_z` = 386.682587);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950002, 0, 0, 0, 1, 1, -5203.503906, 475.03125, 386.682587, 1.77106, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000002 AND `position_x` = -5203.503906 AND `position_y` = 475.03125 AND `position_z` = 386.682587);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000002, 0, 0, 0, 1, 1, -5203.503906, 475.03125, 386.682587, 1.77106, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- misc 01
 DELETE FROM `gameobject` WHERE (`id` = 102990 AND `position_x` = -5206.217773 AND `position_y` = 485.584717 AND `position_z` = 387.519897);

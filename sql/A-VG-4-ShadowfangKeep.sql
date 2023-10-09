@@ -103,12 +103,12 @@ VALUES (
 
 -- Vendor Home Game Objects
 -- tent 01
-DELETE FROM `gameobject` WHERE (`id` = 950000 AND `position_x` = -320.85003 AND `position_y` = 1451.38818 AND `position_z` = 30.831896);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950000, 0, 0, 0, 1, 1, -320.85003, 1451.38818, 30.831896, 6.06263, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000000 AND `position_x` = -320.85003 AND `position_y` = 1451.38818 AND `position_z` = 30.831896);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000000, 0, 0, 0, 1, 1, -320.85003, 1451.38818, 30.831896, 6.06263, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- boxes 01
-DELETE FROM `gameobject` WHERE (`id` = 950002 AND `position_x` = -319.94238 AND `position_y` = 1441.51611 AND `position_z` = 30.867828);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (950002, 0, 0, 0, 1, 1, -319.94238, 1441.51611, 30.867828, 0.395984, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000002 AND `position_x` = -319.94238 AND `position_y` = 1441.51611 AND `position_z` = 30.867828);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000002, 0, 0, 0, 1, 1, -319.94238, 1441.51611, 30.867828, 0.395984, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- Clothing: 6314 / 38500c / 3927
 UPDATE `item_template` SET `BuyPrice` = 38500 WHERE (`entry` = 6314);
