@@ -157,17 +157,16 @@ cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 
 # I disable the console at this point because I'm running the service using systemd.
 sed -i 's/Console.Enable = 1/Console.Enable = 0/g' "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+cd $WHERE_WAS_I
 
 # Additional SQL steps
-cd $WHERE_WAS_I
+# Configure our realm related information
 mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_REMOTE_ENDPOINT}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localSubnetMask = '${AZEROTHCORE_SERVER_LOCAL_SUBNETMASK}' WHERE id = 1;"
-mysql -u acore acore_world < sql/01-quality-of-life.sql
-mysql -u acore acore_world < sql/02-starting-mount-accessiblity.sql
-mysql -u acore acore_world < sql/03-the-cartographers.sql
-mysql -u acore acore_world < sql/04-better-herb-spawns.sql
-mysql -u acore acore_world < sql/05-better-mining-spawns.sql
+
+# Configure our world content
+source sql_import.sh
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service

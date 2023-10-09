@@ -10,6 +10,50 @@
 #  64 = Revered
 # 128 = Exalted
 
+entry_id_start: 900000
+
+# entry_ids:
+#   Start: 900000 # this has a unique usecase - be aware of it and read the SQL!
+#   Generic: 910000
+#   TheVendors: 920000
+#   TheArgent Dawn: 930000
+#   BloodsailBuccaneers: 940000
+#   CenarionCircle: 950000
+#   Hydraxian Waterlords: 960000
+#   ThoriumBrotherhood: 970000
+#   TimbermawHold: 980000
+
+# npc_entry_ids:
+#   Guid: 920000 # this has a unique usecase - be aware of it and read the SQL!
+#   Generic: 921000
+#   TheArgentDawn: 921100
+#   BloodsailBuccaneers: 921200
+#   CenarionCircle: 921300
+#   HydraxianWaterlords: 921400
+#   ThoriumBrotherhood: 921500
+#   TimbermawHold: 921600
+#   BootyBay: 921700
+
+# item_entry_ids:
+#   Guid: 930000 # this has a unique usecase - be aware of it and read the SQL!
+#   Generic: 931000
+#   TheArgentDawn: 931100
+#   BloodsailBuccaneers: 931200
+#   CenarionCircle: 931300
+#   HydraxianWaterlords: 931400
+#   ThoriumBrotherhood: 931500
+#   TimbermawHold: 931600
+
+# gameobject_entry_ids:
+#   Guid: 940000 # this has a unique usecase - be aware of it and read the SQL!
+#   Generic: 941000
+#   The Argent Dawn: 941100
+#   Bloodsail Buccaneers: 941200
+#   Cenarion Circle: 941300
+#   Hydraxian Waterlords: 941400
+#   Thorium Brotherhood: 941500
+#   Timbermaw Hold: 941600
+
 costs:
   base: 35000 # 1g 20s
   # These are multipliers of "costs.base"
@@ -106,7 +150,7 @@ costs:
 # @MAP_NORTHREND := 571;
 dungeon_vendor_groups:
   # Template
-  # - where: Shadowfang Keep
+  # where: ShadowfangKee
   #   map: 0
   #   tier: tier1a
   #   vendor_home:
@@ -1136,3 +1180,25 @@ usable_locations:
         value: {x: 7336.70214, y: -917.87823, z: 32.534771, o: 5.257241}
       - uses: [object]
         value: {x: 7343.93603, y: -933.01782, z: -5.438598, o: 2.174542}
+
+daily_quests:
+  - NPCEntry: 0
+    QuestLevel: ""
+    QuestLevelMin: "" 
+    RewardMoney: "" 
+    QuestTitle: ""
+    QuestDescription: ""
+    QuestDetails: ""
+    QuestComplete: ""
+    DailyItem1: ""
+    DailyItem1Count: ""
+    QuestObjective1Text: ""
+    DailyItem2: ""
+    DailyItem2Count: ""
+    QuestObjective2Text: ""
+    DailyItem3: ""
+    DailyItem3Count: ""
+    QuestObjective3Text: ""
+    DailyItem4: ""
+    DailyItem4Count: ""
+    QuestObjective4Text: ""
