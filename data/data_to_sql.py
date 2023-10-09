@@ -2,6 +2,7 @@
 import os
 import sys
 import yaml 
+import re
 
 DEBUGGING = os.getenv("DEBUGGING") or False
 
@@ -143,10 +144,16 @@ def next_entry_id():
 
 def generate_dungeon_vendor_groups(data):
     for i, group in enumerate(data['dungeon_vendor_groups']):
-        out_file = f"../sql/VG-{i}-{group['where']}.sql"
+        # safe_name = "".join([c for c in group['where'] if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+        safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
+
+
+        out_file = f"../sql/A-VG-{i}-{safe_name}.sql"
         out_fd = open(out_file, 'w')
         
-        if DEBUGGING: print(f"\nWhere: {group['where']}")
+        if DEBUGGING:
+            print(f"\nWhere: {group['where']}")
+            print(f"safe_name = {safe_name}")
 
         weaponVendorEntry = next_entry_id()
         if DEBUGGING: print(f"weaponVendorEntry = {weaponVendorEntry}")
