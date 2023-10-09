@@ -166,7 +166,7 @@ mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE
 mysql -u acore acore_auth -e "UPDATE realmlist SET localSubnetMask = '${AZEROTHCORE_SERVER_LOCAL_SUBNETMASK}' WHERE id = 1;"
 
 # Configure our world content
-source sql_import.sh
+source import_sql.sh
 
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service

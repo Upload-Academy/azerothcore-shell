@@ -14,12 +14,18 @@ mysql -u acore acore_world < sql/M-03-better-herb-spawns.sql
 mysql -u acore acore_world < sql/M-04-better-mining-spawns.sql
 mysql -u acore acore_world < sql/M-05-various-spawnable-objects.sql
 mysql -u acore acore_world < sql/M-06-various-spawnable-npcs.sql
-mysql -u acore acore_world < sql/M-07-the-argent-dawn.sql
+mysql -u acore acore_world < sql/M-07-the-argent-dawn.DELETE.sql
 
 # These are automatically generated SQL files and as
 # such, we have to use wildcards to find and apply them
 # VG = Vendor Groups
+# AV = Alliance Vanguard
 for sqlfile in $(ls sql/A-VG-*.sql);
+do
+    mysql -u acore acore_world < $sqlfile
+done
+
+for sqlfile in $(ls sql/A-AV-*.sql);
 do
     mysql -u acore acore_world < $sqlfile
 done
