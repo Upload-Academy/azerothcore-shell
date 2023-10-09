@@ -1,9 +1,23 @@
 #!/bin/bash
 
 function import() {
+    imported_name="sql/imported/$(basename $1)"
+    if [ -e $imported_name ];
+    then
+        echo "File $1 already imported. Ignoring."
+        return
+    fi
+
     echo "Importing: $1"
     mysql -u acore acore_world < $1
-    if [ $? -gt 0 ]; then echo "MySQL import of '${1}' failed. Stopping."; exit 1; fi
+    if [ $? -gt 0 ];
+    then
+        echo "MySQL import of '${1}' failed. Stopping."
+        exit 1
+    fi
+
+    mkdir -p sql/imported/
+    touch "sql/imported/$(basename $1)"
 }
 
 # We _always_ do a backup of the database before we
