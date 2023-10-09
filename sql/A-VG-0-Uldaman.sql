@@ -154,8 +154,8 @@ VALUES (
 
 -- Vendor Home Game Objects
 -- tent 01
-DELETE FROM `gameobject` WHERE (`id` = 941000001 AND `position_x` = -6440.316406 AND `position_y` = -3259.992432 AND `position_z` = 241.683899);
-INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000001, 0, 0, 0, 1, 1, -6440.316406, -3259.992432, 241.683899, 5.505644, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
+DELETE FROM `gameobject` WHERE (`id` = 941000000 AND `position_x` = -6440.316406 AND `position_y` = -3259.992432 AND `position_z` = 241.683899);
+INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `position_x`, `position_y`, `position_z`, `orientation`, `rotation0`, `rotation1`, `rotation2`, `rotation3`, `spawntimesecs`, `animprogress`, `state`, `ScriptName`, `VerifiedBuild`, `Comment`) VALUES (941000000, 0, 0, 0, 1, 1, -6440.316406, -3259.992432, 241.683899, 5.505644, 0, 0, 0, 0, 300, 0, 1, '', NULL, NULL);
 
 -- boxes 01
 DELETE FROM `gameobject` WHERE (`id` = 941000002 AND `position_x` = -6433.5625 AND `position_y` = -3258.819336 AND `position_z` = 241.763412);

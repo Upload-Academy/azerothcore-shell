@@ -202,7 +202,7 @@ dungeon_vendor_groups:
     tier: tier2a
     vendor_home:
       tent01:
-        id: 941000001
+        id: 941000000
         X: -6440.316406
         Y: -3259.992432
         Z: 241.683899
