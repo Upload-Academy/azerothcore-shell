@@ -2,8 +2,6 @@
 -- Augments/hijacks Alliance Vanguard to produce dailies and weeklies
 -- in every major city and some major towns
 
-use acore_world;
-
 -- (Generic) Alliance Vanguard NPC
 SET
 @NPCEntry := 9211000,
@@ -61,7 +59,7 @@ SET -- Stormwind #3
 
 DELETE FROM `creature` WHERE (`guid` = @NPCEntry+3 AND `id1` = @NPCEntry+3);
 -- INSERT INTO `creature` (`guid`, `id1`, `id2`, `id3`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMask`, `equipment_id`, `position_x`, `position_y`, `position_z`, `orientation`, `spawntimesecs`, `wander_distance`, `currentwaypoint`, `curhealth`, `curmana`, `MovementType`, `npcflag`, `unit_flags`, `dynamicflags`, `ScriptName`, `VerifiedBuild`, `CreateObject`, `Comment`) VALUES
-(@NPCEntry+3, @NPCEntry+3, 0, 0, 0, 0, 0, 1, 1, 1, @X, @Y, @Z, @Orientation, 610, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, NULL);
+-- (@NPCEntry+3, @NPCEntry+3, 0, 0, 0, 0, 0, 1, 1, 1, @X, @Y, @Z, @Orientation, 610, 0, 0, 0, 0, 0, 0, 0, 0, '', 0, 0, NULL);
 
 -- Level 1-10 Daily: Medical
 SET
