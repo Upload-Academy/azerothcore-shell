@@ -103,6 +103,12 @@ REPUTATION_RANK_HONORED = 32
 REPUTATION_RANK_REVERED = 64
 REPUTATION_RANK_EXALTED = 128
 
+# Map IDs:
+MAP_EASTERN_KINGDOMS = 0
+MAP_KALIMDOR = 1
+MAP_OUTLAND = 530
+MAP_NORTHREND = 571
+
 # Global state maintained across the entire runtime
 last_entry_id = 0
    
@@ -118,6 +124,11 @@ def new_vendor(data):
             Title = data['Title'],
             MinLevel = data['MinLevel'],
             MaxLevel = data['MaxLevel'],
+            Faction = data['Faction'],
+            NPCFlags = data['NPCFlags'],
+            Rank = data['Rank'],
+            Type = data['Type'],
+            RunSpeed = data['RunSpeed'],
         )
 
 def new_vendor_spawn(data):
@@ -142,6 +153,44 @@ def next_entry_id():
     last_entry_id += 1
     return last_entry_id - 1
 
+def generate_alliance_vanguard(data):
+    for i, group in enumerate(data['alliance_vanguard_npcs']):
+        safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
+        out_file = f"../sql/A-AV-{i}-{safe_name}.sql"
+        fd = open(out_file, 'w')
+
+        if DEBUGGING:
+            print(f"\generate_alliance_vanguard()")
+            print(f"Where: {group['where']}")
+            print(f"safe_name = {out_file}")
+
+        for npc in group['npcs']:
+            entry = next_entry_id()
+            fd.write(new_vendor({
+                'Entry': entry,
+                'Model_1': npc['models'][0],
+                'Model_2': npc['models'][1],
+                'Model_3': npc['models'][2],
+                'Model_4': npc['models'][3],
+                'Name': npc['name'],
+                'Title': npc['title'],
+                'MinLevel': npc['min_level'],
+                'MaxLevel': npc['max_level'],
+                'Faction' : npc['faction'],
+                'NPCFlags' : npc['npcflags'],
+                'Rank' : npc['rank'],
+                'Type' : npc['type'],
+                'RunSpeed' : npc['runspeed'],
+            }))
+            fd.write(new_vendor_spawn({
+                'Entry': entry,
+                'Map': npc['map'],
+                'X': npc['X'],
+                'Y': npc['Y'],
+                'Z': npc['Z'],
+                'Orientation': npc['Orientation'],
+            }))
+
 def generate_dungeon_vendor_groups(data):
     for i, group in enumerate(data['dungeon_vendor_groups']):
         # safe_name = "".join([c for c in group['where'] if c.isalpha() or c.isdigit() or c==' ']).rstrip()
@@ -152,7 +201,8 @@ def generate_dungeon_vendor_groups(data):
         out_fd = open(out_file, 'w')
         
         if DEBUGGING:
-            print(f"\nWhere: {group['where']}")
+            print(f"\ngenerate_dungeon_vendor_groups()")
+            print(f"Where: {group['where']}")
             print(f"safe_name = {safe_name}")
 
         weaponVendorEntry = next_entry_id()
@@ -173,7 +223,12 @@ def generate_dungeon_vendor_groups(data):
                 'Name': group['weapon_vendor']['name'],
                 'Title': group['weapon_vendor']['title'],
                 'MinLevel': group['weapon_vendor']['min_level'],
-                'MaxLevel': group['weapon_vendor']['max_level'], 
+                'MaxLevel': group['weapon_vendor']['max_level'],
+                'Faction' : group['weapon_vendor']['faction'],
+                'NPCFlags' : group['weapon_vendor']['npcflags'],
+                'Rank' : group['weapon_vendor']['rank'],
+                'Type' : group['weapon_vendor']['type'],
+                'RunSpeed' : group['weapon_vendor']['runspeed'],
             })
             weaponVendorSpawn = new_vendor_spawn({
                 'Entry': weaponVendorEntry,
@@ -198,6 +253,11 @@ def generate_dungeon_vendor_groups(data):
                 'Title': group['clothing_vendor']['title'],
                 'MinLevel': group['clothing_vendor']['min_level'],
                 'MaxLevel': group['clothing_vendor']['max_level'], 
+                'Faction' : group['clothing_vendor']['faction'],
+                'NPCFlags' : group['clothing_vendor']['npcflags'],
+                'Rank' : group['clothing_vendor']['rank'],
+                'Type' : group['clothing_vendor']['type'],
+                'RunSpeed' : group['clothing_vendor']['runspeed'],
             })
             clothingVendorSpawn = new_vendor_spawn({
                 'Entry': clothingVendorEntry,
@@ -221,7 +281,12 @@ def generate_dungeon_vendor_groups(data):
                 'Name': group['other_vendor']['name'],
                 'Title': group['other_vendor']['title'],
                 'MinLevel': group['other_vendor']['min_level'],
-                'MaxLevel': group['other_vendor']['max_level'], 
+                'MaxLevel': group['other_vendor']['max_level'],
+                'Faction' : group['other_vendor']['faction'],
+                'NPCFlags' : group['other_vendor']['npcflags'],
+                'Rank' : group['other_vendor']['rank'],
+                'Type' : group['other_vendor']['type'],
+                'RunSpeed' : group['other_vendor']['runspeed'],
             })
             otherVendorSpawn = new_vendor_spawn({
                 'Entry': otherVendorEntry,
@@ -486,9 +551,6 @@ def generate_dungeon_vendor_groups(data):
                 # out_fd.write(f"DELETE FROM conditions WHERE `SourceTypeOrReferenceId`={SourceTypeOrReferenceId} AND `SourceGroup`={SourceGroup} AND `SourceEntry`={SourceEntry} AND `ConditionTypeOrReference`={ConditionTypeOrReference} AND `ConditionValue1`={ConditionValue1} AND `ConditionValue2`={ConditionValue2};\n")
                 # out_fd.write(f"INSERT INTO conditions (`SourceTypeOrReferenceId`,`SourceGroup`,`SourceEntry`,`SourceId`,`ConditionTarget`,`ElseGroup`,`ConditionTypeOrReference`,`ConditionValue1`,`ConditionValue2`,`ScriptName`) VALUES ({SourceTypeOrReferenceId},{SourceGroup},{SourceEntry},{SourceId},{ConditionTarget},{ElseGroup},{ConditionTypeOrReference},{ConditionValue1},{ConditionValue2},'');\n\n")
 
-def generate_alliance_vangaurd(data):
-    pass
-
 def main():
     data = None
     with open('entities.yaml', 'r') as fd:
@@ -501,7 +563,7 @@ def main():
         print(f"last_entry_id = {last_entry_id}")
 
     generate_dungeon_vendor_groups(data)
-    generate_alliance_vangaurd(data)
+    generate_alliance_vanguard(data)
 
 if __name__ == "__main__":
     main()

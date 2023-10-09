@@ -10,49 +10,11 @@
 #  64 = Revered
 # 128 = Exalted
 
+defaults:
+  npc:
+    runspeed: &defaultNpcRunspeed 1.14286
+
 entry_id_start: 900000
-
-# entry_ids:
-#   Start: 900000 # this has a unique usecase - be aware of it and read the SQL!
-#   Generic: 910000
-#   TheVendors: 920000
-#   TheArgent Dawn: 930000
-#   BloodsailBuccaneers: 940000
-#   CenarionCircle: 950000
-#   Hydraxian Waterlords: 960000
-#   ThoriumBrotherhood: 970000
-#   TimbermawHold: 980000
-
-# npc_entry_ids:
-#   Guid: 920000 # this has a unique usecase - be aware of it and read the SQL!
-#   Generic: 921000
-#   TheArgentDawn: 921100
-#   BloodsailBuccaneers: 921200
-#   CenarionCircle: 921300
-#   HydraxianWaterlords: 921400
-#   ThoriumBrotherhood: 921500
-#   TimbermawHold: 921600
-#   BootyBay: 921700
-
-# item_entry_ids:
-#   Guid: 930000 # this has a unique usecase - be aware of it and read the SQL!
-#   Generic: 931000
-#   TheArgentDawn: 931100
-#   BloodsailBuccaneers: 931200
-#   CenarionCircle: 931300
-#   HydraxianWaterlords: 931400
-#   ThoriumBrotherhood: 931500
-#   TimbermawHold: 931600
-
-# gameobject_entry_ids:
-#   Guid: 940000 # this has a unique usecase - be aware of it and read the SQL!
-#   Generic: 941000
-#   The Argent Dawn: 941100
-#   Bloodsail Buccaneers: 941200
-#   Cenarion Circle: 941300
-#   Hydraxian Waterlords: 941400
-#   Thorium Brotherhood: 941500
-#   Timbermaw Hold: 941600
 
 costs:
   base: 35000 # 1g 20s
@@ -143,60 +105,7 @@ costs:
     clothing: 15.4
     other: 15.2
 
-# Map IDs:
-# @MAP_EASTERN_KINGDOMS := 0,
-# @MAP_KALIMDOR := 1,
-# @MAP_OUTLAND := 530,
-# @MAP_NORTHREND := 571;
 dungeon_vendor_groups:
-  # Template
-  # where: ShadowfangKee
-  #   map: 0
-  #   tier: tier1a
-  #   vendor_home:
-  #     tent01:
-  #       id: 950000
-  #       X: -320.85003
-  #       Y: 1451.38818
-  #       Z: 30.831896
-  #       Orientation: 6.06263
-  #     boxes01:
-  #       id: 950002
-  #       X: -319.94238
-  #       Y: 1441.51611
-  #       Z: 30.867828
-  #       Orientation: 0.395984
-  #   weapon_vendor:
-  #     models:
-  #       - 7106 # Wharfmaster Lozgil
-  #       - 0
-  #       - 0
-  #       - 0
-  #     name: "Rixxle"
-  #     title: "Weapons"
-  #     min_level: 25
-  #     max_level: 30
-  #     map: 
-  #     x: -315.94293
-  #     y: 1448.59252
-  #     z: 31.213396
-  #     o: 0.038621
-  #   clothing_vendor:
-  #     models:
-  #       - 7212 # Sprogger
-  #       - 0
-  #       - 0
-  #       - 0
-  #     name: "Zoggit"
-  #     title: "Armour"
-  #     min_level: 25
-  #     max_level: 30
-  #     map: 
-  #     x: -316.53732
-  #     y: 1445.32824
-  #     z: 31.086363
-  #     o: 6.097972
-  #   other_vendor: null
   - where: Uldaman
     map: 0
     tier: tier2a
@@ -223,6 +132,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 35
       max_level: 45
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -6437.630371 
       Y: -3262.943604 
@@ -238,6 +152,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 35
       max_level: 45
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -6432.616211 
       Y: -3260.275391 
@@ -253,6 +172,11 @@ dungeon_vendor_groups:
       title: "Trinkets"
       min_level: 35
       max_level: 45
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -6430.789551 
       Y: -3262.597412 
@@ -436,7 +360,6 @@ dungeon_vendor_groups:
       - id: 11311
         type: weapon
         npc: 7291 # Galgann Firehammer
-
   - where: Gnomeregan
     map: 0
     tier: tier2a
@@ -470,6 +393,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -5202.669922 
       Y: 479.067535 
@@ -485,6 +413,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -5209.738770 
       Y: 479.852631 
@@ -500,6 +433,11 @@ dungeon_vendor_groups:
       title: "Trinkets"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -5207.291016 
       Y: 489.281647 
@@ -596,7 +534,6 @@ dungeon_vendor_groups:
       - id: 9510
         type: clothing
         npc: 6233 # Mechanized Sentry
-
   - where: Wailing Caverns
     map: 1
     tier: tier1a
@@ -637,6 +574,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 1
       X: -857.33636
       Y: -1989.1666
@@ -652,6 +594,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 1
       X: -852.08715
       Y: -1993.8306
@@ -758,7 +705,6 @@ dungeon_vendor_groups:
       - id: 10413
         npc: 3840
         type: clothing
-  
   - where: Deadmines
     map: 0
     tier: tier1a
@@ -773,6 +719,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -10507.704
       Y: 1026.67419
@@ -788,6 +739,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -10505.896
       Y: 1024.38439
@@ -803,6 +759,11 @@ dungeon_vendor_groups:
       title: "Trinkets"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -10509.912
       Y: 1027.70227
@@ -872,7 +833,6 @@ dungeon_vendor_groups:
       - id: 5443
         npc: 3586
         type: weapon
-  
   - where: Shadowfang Keep
     map: 0
     tier: tier1a
@@ -899,6 +859,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -315.94293
       Y: 1448.59252
@@ -914,6 +879,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 0
       X: -316.53732
       Y: 1445.32824
@@ -984,7 +954,6 @@ dungeon_vendor_groups:
       - id: 6392
         npc: 4275
         type: clothing
-
   - where: Razorfen Kraul
     map: 1
     tier: tier2a
@@ -1011,6 +980,11 @@ dungeon_vendor_groups:
       title: "Weapons"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 1
       X: -315.94293
       Y: 1448.59252
@@ -1026,6 +1000,11 @@ dungeon_vendor_groups:
       title: "Armour"
       min_level: 25
       max_level: 30
+      npcflags: 129
+      faction: 75
+      type: 7
+      rank: 0
+      runspeed: *defaultNpcRunspeed
       map: 1
       X: -316.53732
       Y: 1445.32824
@@ -1130,6 +1109,83 @@ dungeon_vendor_groups:
         type: weapon
         npc: 4436
 
+alliance_vanguard_quests:
+  Stormwind:
+    daily:
+      - whom: 0 # the 0 element in the alliance_vanguard_npcs.$where.npc[] list
+
+alliance_vanguard_npcs:
+  - where: Stormwind
+    map: 0
+    objects:
+      - name: Boxes
+        id: 941000001
+        X: -8561.586914 
+        Y: 705.978760 
+        Z: 103.519882 
+        Orientation: 2.270258
+    npcs:
+      - name: "Vanguard Agent"
+        title: "Alliance Vanguard Quartermaster"
+        models:
+        - 21754
+        - 0
+        - 0
+        - 0
+        min_level: 77
+        max_level: 80
+        npcflags: 3
+        faction: 1891
+        type: 7
+        rank: 32
+        runspeed: *defaultNpcRunspeed
+        map: 1
+        X: -8562.104492
+        Y: 709.038513
+        Z: 103.520973
+        Orientation: 2.248944
+
+      - name: "Vanguard Agent"
+        title: "Alliance Vanguard Quartermaster"
+        models:
+        - 21755
+        - 0
+        - 0
+        - 0
+        min_level: 77
+        max_level: 80
+        npcflags: 3
+        faction: 1891
+        type: 7
+        rank: 32
+        runspeed: *defaultNpcRunspeed
+        map: 1
+        X: -8564.754883
+        Y: 707.545959
+        Z: 103.521019
+        Orientation: 1.831123
+
+      - name: "Vanguard Agent"
+        title: "Alliance Vanguard Quartermaster"
+        models:
+        - 21756
+        - 0
+        - 0
+        - 0
+        min_level: 77
+        max_level: 80
+        npcflags: 3
+        faction: 1891
+        type: 7
+        rank: 32
+        runspeed: *defaultNpcRunspeed
+        map: 1
+        X: -8570.877930
+        Y: 710.083313
+        Z: 103.722351
+        Orientation: 0.510682
+
+
 # These are used to place an NPC and then have them walk
 # around (repeatidly) a pre-defined path (set of waypoints)
 usable_paths:
@@ -1181,24 +1237,24 @@ usable_locations:
       - uses: [object]
         value: {x: 7343.93603, y: -933.01782, z: -5.438598, o: 2.174542}
 
-daily_quests:
-  - NPCEntry: 0
-    QuestLevel: ""
-    QuestLevelMin: "" 
-    RewardMoney: "" 
-    QuestTitle: ""
-    QuestDescription: ""
-    QuestDetails: ""
-    QuestComplete: ""
-    DailyItem1: ""
-    DailyItem1Count: ""
-    QuestObjective1Text: ""
-    DailyItem2: ""
-    DailyItem2Count: ""
-    QuestObjective2Text: ""
-    DailyItem3: ""
-    DailyItem3Count: ""
-    QuestObjective3Text: ""
-    DailyItem4: ""
-    DailyItem4Count: ""
-    QuestObjective4Text: ""
+# daily_quests:
+#   - NPCEntry: 0
+#     QuestLevel: ""
+#     QuestLevelMin: "" 
+#     RewardMoney: "" 
+#     QuestTitle: ""
+#     QuestDescription: ""
+#     QuestDetails: ""
+#     QuestComplete: ""
+#     DailyItem1: ""
+#     DailyItem1Count: ""
+#     QuestObjective1Text: ""
+#     DailyItem2: ""
+#     DailyItem2Count: ""
+#     QuestObjective2Text: ""
+#     DailyItem3: ""
+#     DailyItem3Count: ""
+#     QuestObjective3Text: ""
+#     DailyItem4: ""
+#     DailyItem4Count: ""
+#     QuestObjective4Text: ""
