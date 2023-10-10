@@ -2,7 +2,7 @@
 -- Weapon Merchant
 
 SET
-@Entry := 900015,
+@Entry := 522005,
 @ModelID1 := 7106, -- four different models for some variation
 @ModelID2 := 0,
 @ModelID3 := 0,
@@ -11,7 +11,7 @@ SET
 @Subname := "Weapons",
 @MinLevel := 25,
 @MaxLevel := 30,
-@Faction := 75,
+@Faction := 120,
 @NPCFlags := 129,
 @Rank := 0,
 @Type := 7,
@@ -24,12 +24,12 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 -- npc_vendor_clear.sql
 -- 
 
-SET @Entry = 900015;
+SET @Entry = 522005;
 
 DELETE FROM `npc_vendor` WHERE (`entry` = @Entry);
 
 SET
-@Entry := 900015,
+@Entry := 522005,
 @Map := 1,
 @X := -315.94293,
 @Y := 1448.59252,
@@ -58,7 +58,7 @@ VALUES (
 -- Clothing Merchant
 
 SET
-@Entry := 900016,
+@Entry := 522005,
 @ModelID1 := 7212, -- four different models for some variation
 @ModelID2 := 0,
 @ModelID3 := 0,
@@ -67,7 +67,7 @@ SET
 @Subname := "Armour",
 @MinLevel := 25,
 @MaxLevel := 30,
-@Faction := 75,
+@Faction := 120,
 @NPCFlags := 129,
 @Rank := 0,
 @Type := 7,
@@ -80,12 +80,12 @@ INSERT INTO `creature_template` (`entry`, `difficulty_entry_1`, `difficulty_entr
 -- npc_vendor_clear.sql
 -- 
 
-SET @Entry = 900016;
+SET @Entry = 522005;
 
 DELETE FROM `npc_vendor` WHERE (`entry` = @Entry);
 
 SET
-@Entry := 900016,
+@Entry := 522005,
 @Map := 1,
 @X := -316.53732,
 @Y := 1445.32824,
@@ -122,151 +122,151 @@ INSERT INTO `gameobject` (`id`, `map`, `zoneId`, `areaId`, `spawnMask`, `phaseMa
 
 -- Weapon: 776 / 49000c / 4512
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 776);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 776);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 776, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 776);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 776, 0, 0, 0, 0);
 
 -- Clothing: 1488 / 45500c / 4512
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 1488);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 1488);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 1488, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 1488);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 1488, 0, 0, 0, 0);
 
 -- Weapon: 1727 / 49000c / 4512
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 1727);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 1727);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 1727, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 1727);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 1727, 0, 0, 0, 0);
 
 -- Weapon: 1975 / 49000c / 4512
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 1975);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 1975);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 1975, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 1975);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 1975, 0, 0, 0, 0);
 
 -- Weapon: 1976 / 49000c / 4436
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 1976);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 1976);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 1976, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 1976);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 1976, 0, 0, 0, 0);
 
 -- Clothing: 1978 / 45500c / 4512
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 1978);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 1978);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 1978, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 1978);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 1978, 0, 0, 0, 0);
 
 -- Clothing: 2039 / 45500c / 4512
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 2039);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 2039);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 2039, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 2039);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 2039, 0, 0, 0, 0);
 
 -- Clothing: 2264 / 45500c / 4512
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 2264);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 2264);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 2264, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 2264);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 2264, 0, 0, 0, 0);
 
 -- Weapon: 2549 / 49000c / 4512
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 2549);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 2549);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 2549, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 2549);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 2549, 0, 0, 0, 0);
 
 -- Weapon: 2816 / 49000c / 4428
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 2816);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 2816);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 2816, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 2816);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 2816, 0, 0, 0, 0);
 
 -- Clothing: 4438 / 45500c / 4512
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 4438);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 4438);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 4438, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 4438);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 4438, 0, 0, 0, 0);
 
 -- Weapon: 6679 / 49000c / 4438
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6679);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6679);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6679, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6679);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6679, 0, 0, 0, 0);
 
 -- Weapon: 6681 / 49000c / 4424
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6681);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6681);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6681, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6681);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6681, 0, 0, 0, 0);
 
 -- Clothing: 6682 / 45500c / 4428
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6682);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6682);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6682, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6682);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6682, 0, 0, 0, 0);
 
 -- Clothing: 6685 / 45500c / 4428
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6685);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6685);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6685, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6685);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6685, 0, 0, 0, 0);
 
 -- Clothing: 6686 / 45500c / 4420
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6686);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6686);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6686, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6686);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6686, 0, 0, 0, 0);
 
 -- Weapon: 6687 / 49000c / 4420
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6687);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6687);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6687, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6687);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6687, 0, 0, 0, 0);
 
 -- Clothing: 6688 / 45500c / 4842
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6688);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6688);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6688, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6688);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6688, 0, 0, 0, 0);
 
 -- Weapon: 6689 / 49000c / 4842
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6689);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6689);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6689, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6689);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6689, 0, 0, 0, 0);
 
 -- Clothing: 6690 / 45500c / 4422
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6690);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6690);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6690, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6690);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6690, 0, 0, 0, 0);
 
 -- Weapon: 6691 / 49000c / 4422
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6691);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6691);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6691, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6691);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6691, 0, 0, 0, 0);
 
 -- Weapon: 6692 / 49000c / 4421
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6692);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6692);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6692, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6692);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6692, 0, 0, 0, 0);
 
 -- Clothing: 6693 / 45500c / 4421
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6693);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6693);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6693, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6693);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6693, 0, 0, 0, 0);
 
 -- Clothing: 6694 / 45500c / 4421
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6694);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6694);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6694, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6694);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6694, 0, 0, 0, 0);
 
 -- Clothing: 6695 / 45500c / 4425
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6695);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6695);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6695, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6695);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6695, 0, 0, 0, 0);
 
 -- Weapon: 6696 / 49000c / 4425
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 6696);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 6696);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 6696, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6696);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6696, 0, 0, 0, 0);
 
 -- Clothing: 6697 / 45500c / 4425
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 6697);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 6697);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 6697, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 6697);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 6697, 0, 0, 0, 0);
 
 -- Clothing: 24063 / 45500c / 4436
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 24063);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 24063);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 24063, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 24063);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 24063, 0, 0, 0, 0);
 
 -- Clothing: 24064 / 45500c / 4436
 UPDATE `item_template` SET `BuyPrice` = 45500 WHERE (`entry` = 24064);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900016 AND `item` = 24064);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900016, 0, 24064, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 24064);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 24064, 0, 0, 0, 0);
 
 -- Weapon: 24069 / 49000c / 4436
 UPDATE `item_template` SET `BuyPrice` = 49000 WHERE (`entry` = 24069);
-DELETE FROM `npc_vendor` WHERE (`entry` = 900015 AND `item` = 24069);
-INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (900015, 0, 24069, 0, 0, 0, 0);
+DELETE FROM `npc_vendor` WHERE (`entry` = 522005 AND `item` = 24069);
+INSERT INTO `npc_vendor` (`entry`, `slot`, `item`, `maxcount`, `incrtime`, `ExtendedCost`, `VerifiedBuild`) VALUES (522005, 0, 24069, 0, 0, 0, 0);
 

@@ -14,7 +14,29 @@ defaults:
   npc:
     runspeed: &defaultNpcRunspeed 1.14286
 
-entry_id_start: 900000
+entry_ids:
+  # Remember the structure
+  #   5ABC00
+  #   5 = this "expansion" of our work. "6" will become another large body of work
+  #   A = the group, organisation, or "namespace" of the IDs
+  #   B = the "type" of the thing being created
+  #   C = 0-8 is all you can eat, 9 is reserved
+  #   00 = go nuts
+  generic:
+    quests: 501000
+    npcs: 502000
+
+  vanguardalliance:
+    quests: 511000
+    npcs: 512000
+    gameobjects: 513000
+    creatures: 514000
+  
+  vendorgroups:
+    quests: 521000
+    npcs: 522000
+    gameobjects: 523000
+    creatures: 524000
 
 costs:
   base: 35000 # 1g 20s
@@ -133,7 +155,7 @@ dungeon_vendor_groups:
       min_level: 35
       max_level: 45
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -153,7 +175,7 @@ dungeon_vendor_groups:
       min_level: 35
       max_level: 45
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -173,7 +195,7 @@ dungeon_vendor_groups:
       min_level: 35
       max_level: 45
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -394,7 +416,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -414,7 +436,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -434,7 +456,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -575,7 +597,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -595,7 +617,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -720,7 +742,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -740,7 +762,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -760,7 +782,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -860,7 +882,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -880,7 +902,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -981,7 +1003,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed
@@ -1001,7 +1023,7 @@ dungeon_vendor_groups:
       min_level: 25
       max_level: 30
       npcflags: 129
-      faction: 75
+      faction: 120
       type: 7
       rank: 0
       runspeed: *defaultNpcRunspeed

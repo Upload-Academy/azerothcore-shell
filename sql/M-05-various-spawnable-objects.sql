@@ -6,7 +6,7 @@
 -- These are simply made to "exist" and be available for future use.
 -- The items aren't made visible by these SQL statements.
 
-SET @BaseEntry := 941000000;
+SET @BaseEntry := 523900;
 
 SET
 @Entry := @BaseEntry,

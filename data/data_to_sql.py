@@ -148,13 +148,10 @@ def new_npc_vendor_clear(data):
             Entry = data['Entry'],
         )
 
-def next_entry_id():
-    global last_entry_id
-    last_entry_id += 1
-    return last_entry_id - 1
-
 def generate_alliance_vanguard(data):
     for i, group in enumerate(data['alliance_vanguard_npcs']):
+        npc_entry_ids = data['entry_ids']['vanguardalliance']['npcs']
+
         safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
         out_file = f"../sql/A-AV-{i}-{safe_name}.sql"
         fd = open(out_file, 'w')
@@ -164,8 +161,8 @@ def generate_alliance_vanguard(data):
             print(f"Where: {group['where']}")
             print(f"safe_name = {out_file}")
 
-        for npc in group['npcs']:
-            entry = next_entry_id()
+        for i, npc in enumerate(group['npcs']):
+            entry = npc_entry_ids + i
             fd.write(new_vendor({
                 'Entry': entry,
                 'Model_1': npc['models'][0],
@@ -192,11 +189,11 @@ def generate_alliance_vanguard(data):
             }))
 
 def generate_dungeon_vendor_groups(data):
+    npc_ids = data['entry_ids']['vendorgroups']['npcs']
+    gameobject_ids = data['entry_ids']['vendorgroups']['gameobjects']
+
     for i, group in enumerate(data['dungeon_vendor_groups']):
-        # safe_name = "".join([c for c in group['where'] if c.isalpha() or c.isdigit() or c==' ']).rstrip()
         safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
-
-
         out_file = f"../sql/A-VG-{i}-{safe_name}.sql"
         out_fd = open(out_file, 'w')
         
@@ -205,11 +202,11 @@ def generate_dungeon_vendor_groups(data):
             print(f"Where: {group['where']}")
             print(f"safe_name = {safe_name}")
 
-        weaponVendorEntry = next_entry_id()
+        weaponVendorEntry = npc_ids + i
         if DEBUGGING: print(f"weaponVendorEntry = {weaponVendorEntry}")
-        clothingVendorEntry = next_entry_id()
+        clothingVendorEntry = npc_ids + i
         if DEBUGGING: print(f"clothingVendorEntry = {clothingVendorEntry}")
-        otherVendorEntry = next_entry_id()
+        otherVendorEntry = npc_ids + i
         if DEBUGGING: print(f"otherVendorEntry = {otherVendorEntry}")
 
         # The vendors themselves:
@@ -555,12 +552,6 @@ def main():
     data = None
     with open('entities.yaml', 'r') as fd:
         data = yaml.load(fd, Loader=yaml.CLoader)
-
-    global last_entry_id
-    last_entry_id = data['entry_id_start']
-
-    if DEBUGGING:
-        print(f"last_entry_id = {last_entry_id}")
 
     generate_dungeon_vendor_groups(data)
     generate_alliance_vanguard(data)
