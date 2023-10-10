@@ -22,10 +22,14 @@ function import() {
 
 # We _always_ do a backup of the database before we
 # import _any_ SQL
-mkdir -p $HOME/backups/database/acore_world/
-NOW=$(date '+%Y%m%d_%H%M%S')
-mysqldump -u acore acore_world > "${HOME}/backups/database/acore_world/${NOW}.sql"
-if [ $? -gt 0 ]; then echo "Backing up of database failed! Stopping."; exit 1; fi
+echo "Backing up database. Use WOS_DB_NO_BACKUP=true to disable"
+if [ "$WOS_DB_NO_BACKUP" = "true" ];
+then
+    mkdir -p $HOME/backups/database/acore_world/
+    NOW=$(date '+%Y%m%d_%H%M%S')
+    mysqldump -u acore acore_world > "${HOME}/backups/database/acore_world/${NOW}.sql"
+    if [ $? -gt 0 ]; then echo "Backing up of database failed! Stopping."; exit 1; fi
+fi
 
 # These are manually written SQL files and are not
 # directly written to by Python or any other scripts
