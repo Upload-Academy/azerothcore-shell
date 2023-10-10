@@ -1161,7 +1161,7 @@ alliance_vanguard_npcs:
         type: 7
         rank: 32
         runspeed: *defaultNpcRunspeed
-        map: 1
+        map: 0
         X: -8562.104492
         Y: 709.038513
         Z: 103.520973
@@ -1181,7 +1181,7 @@ alliance_vanguard_npcs:
         type: 7
         rank: 32
         runspeed: *defaultNpcRunspeed
-        map: 1
+        map: 0
         X: -8564.754883
         Y: 707.545959
         Z: 103.521019
@@ -1201,7 +1201,7 @@ alliance_vanguard_npcs:
         type: 7
         rank: 32
         runspeed: *defaultNpcRunspeed
-        map: 1
+        map: 0
         X: -8570.877930
         Y: 710.083313
         Z: 103.722351
