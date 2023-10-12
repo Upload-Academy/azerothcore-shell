@@ -21,6 +21,6 @@ INSERT INTO `conditions` (
     @SourceEntry,               -- SourceEntry
     @ConditionTypeOrReference,  -- ConditionTypeOrReference
     @ConditionTarget,           -- ConditionTarget
-    @QuestMaxLevel,             -- ConditionValue1
-    @QuestMaxLevelCondition     -- ConditionValue2
+    @ConditionValue1,           -- ConditionValue1
+    @ConditionValue2            -- ConditionValue2
 );
