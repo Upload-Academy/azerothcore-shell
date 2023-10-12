@@ -355,8 +355,8 @@ def generate_alliance_vanguard(data):
             'RewardText': group['Complete'],
         }))
         fd.write(sql_new_quest_condition({
-            'SourceTypeOrReferenceId': group['SourceTypeOrReferenceId'],
             'SourceEntry': entry,
+            'SourceTypeOrReferenceId': group['SourceTypeOrReferenceId'],
             'ConditionTypeOrReference': group['ConditionTypeOrReference'],
             'ConditionTarget': group['ConditionTarget'],
             'ConditionValue1': group['ConditionValue1'],

@@ -330,15 +330,21 @@ INSERT INTO `quest_offer_reward` (
 );
 
 SET
-@SourceTypeOrReferenceId := 19,
 @SourceEntry := 511000,
+@SourceTypeOrReferenceId := 19,
 @ConditionTypeOrReference := 27,
 @ConditionTarget := 0,
 @ConditionValue1 := 15,
 @ConditionValue2 := 4;
 
 -- Quest conditions
-DELETE FROM `conditions` WHERE (`SourceEntry` = @QuestEntry AND `ConditionTypeOrReference` = 27 AND `ConditionValue1` = @QuestMaxLevel AND `ConditionValue2` = 4);
+DELETE FROM `conditions` WHERE (
+    `SourceEntry` = @QuestEntry AND
+    `ConditionTypeOrReference` = @ConditionTypeOrReference AND
+    `ConditionValue1` = @ConditionValue1 AND
+    `ConditionValue2` = @ConditionValue2
+);
+
 INSERT INTO `conditions` (
     `SourceTypeOrReferenceId`,
     `SourceEntry`,
