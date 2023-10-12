@@ -1133,50 +1133,96 @@ dungeon_vendor_groups:
 
 alliance_vanguard_quests:
   - where: Stormwind
-    whom: 0 # the 0 element in the alliance_vanguard_npcs.$where.npc[] list
-    Flags: 4096 # daily
-    Level: 5
-    LevelMin: 5
-    RewardMoney: 25000
-    Title: "Medical Supplies"
-    Description: "We're always in need of medical supplies, even the basic stuff. If you can help us with our efforts, then there's some handsome coin in it for you."
-    AreaDescription: ""
-    Details: "Deliver 60 Minor Healing Potion and 60 Heavy Linen Bandage."
-    Complete: "Thank you. These supplies will help the cause."
-    RequiredItem1: 118
-    RequiredItem1Count: 60
-    Objective1Text: Fetch 60 Minor Healing Potion
-    RequiredItem2: 2581
-    RequiredItem2Count: 60
-    Objective2Text: Fetch 60 Heavy Linen Bandage
-    RequiredItem3: 0
-    RequiredItem3Count: 0
-    Objective3Text: ""
-    RequiredItem4: 0
-    RequiredItem4Count: 0
-    Objective4Text: ""
-    RequiredItem5: 0
-    RequiredItem5Count: 0
-    Objective5Text: ""
-    RequiredItem6: 0
-    RequiredItem6Count: 0
-    Objective6Text: ""
-    SpecialFlags: 1 # repeatable
-    EmoteOnComplete: 0
-    EmoteOnIncomplete: 0
-    QuestOfferRewardEmote1: 0
-    QuestOfferRewardEmote2: 0
-    QuestOfferRewardEmote3: 0
-    QuestOfferRewardEmote4: 0
-    QuestOfferRewardEmoteDelay1: 0
-    QuestOfferRewardEmoteDelay2: 0
-    QuestOfferRewardEmoteDelay3: 0
-    QuestOfferRewardEmoteDelay4: 0
-    SourceTypeOrReferenceId: 19 # Quest
-    ConditionTypeOrReference: 27
-    ConditionTarget: 0
-    ConditionValue1: 15
-    ConditionValue2: 4 # MaxLevel condition
+    quests:
+      - whom: 0 # the 0 element in the alliance_vanguard_npcs.$where.npc[] list
+        Flags: 4096 # daily
+        Level: 5
+        LevelMin: 5
+        RewardMoney: 25000
+        Title: "Medical Supplies"
+        Description: "We're always in need of medical supplies, even the basic stuff. If you can help us with our efforts, then there's some handsome coin in it for you."
+        AreaDescription: ""
+        Details: "Deliver 60 Minor Healing Potion and 60 Heavy Linen Bandage."
+        Complete: "Thank you. These supplies will help the cause."
+        RequiredItem1: 118
+        RequiredItem1Count: 60
+        Objective1Text: Fetch 60 Minor Healing Potion
+        RequiredItem2: 2581
+        RequiredItem2Count: 60
+        Objective2Text: Fetch 60 Heavy Linen Bandage
+        RequiredItem3: 0
+        RequiredItem3Count: 0
+        Objective3Text: ""
+        RequiredItem4: 0
+        RequiredItem4Count: 0
+        Objective4Text: ""
+        RequiredItem5: 0
+        RequiredItem5Count: 0
+        Objective5Text: ""
+        RequiredItem6: 0
+        RequiredItem6Count: 0
+        Objective6Text: ""
+        SpecialFlags: 1 # repeatable
+        EmoteOnComplete: 0
+        EmoteOnIncomplete: 0
+        QuestOfferRewardEmote1: 0
+        QuestOfferRewardEmote2: 0
+        QuestOfferRewardEmote3: 0
+        QuestOfferRewardEmote4: 0
+        QuestOfferRewardEmoteDelay1: 0
+        QuestOfferRewardEmoteDelay2: 0
+        QuestOfferRewardEmoteDelay3: 0
+        QuestOfferRewardEmoteDelay4: 0
+        SourceTypeOrReferenceId: 19 # Quest
+        ConditionTypeOrReference: 27
+        ConditionTarget: 0
+        ConditionValue1: 15
+        ConditionValue2: 4 # MaxLevel condition
+
+      - whom: 0 # the 0 element in the alliance_vanguard_npcs.$where.npc[] list
+        Flags: 4096 # daily
+        Level: 5
+        LevelMin: 5
+        RewardMoney: 2500
+        Title: "More Medical Supplies"
+        Description: "We're always in need of medical supplies, especially the good stuff. If you can help us with our efforts, then there's some handsome coin in it for you."
+        AreaDescription: ""
+        Details: "Deliver 60 Minor Healing Potion and 60 Heavy Linen Bandage."
+        Complete: "Thank you. These supplies will help the cause."
+        RequiredItem1: 118
+        RequiredItem1Count: 60
+        Objective1Text: Fetch 60 Minor Healing Potion
+        RequiredItem2: 2581
+        RequiredItem2Count: 60
+        Objective2Text: Fetch 60 Heavy Linen Bandage
+        RequiredItem3: 0
+        RequiredItem3Count: 0
+        Objective3Text: ""
+        RequiredItem4: 0
+        RequiredItem4Count: 0
+        Objective4Text: ""
+        RequiredItem5: 0
+        RequiredItem5Count: 0
+        Objective5Text: ""
+        RequiredItem6: 0
+        RequiredItem6Count: 0
+        Objective6Text: ""
+        SpecialFlags: 1 # repeatable
+        EmoteOnComplete: 0
+        EmoteOnIncomplete: 0
+        QuestOfferRewardEmote1: 0
+        QuestOfferRewardEmote2: 0
+        QuestOfferRewardEmote3: 0
+        QuestOfferRewardEmote4: 0
+        QuestOfferRewardEmoteDelay1: 0
+        QuestOfferRewardEmoteDelay2: 0
+        QuestOfferRewardEmoteDelay3: 0
+        QuestOfferRewardEmoteDelay4: 0
+        SourceTypeOrReferenceId: 19 # Quest
+        ConditionTypeOrReference: 27
+        ConditionTarget: 0
+        ConditionValue1: 15
+        ConditionValue2: 4 # MaxLevel condition
 
 
 alliance_vanguard_npcs:

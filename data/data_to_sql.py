@@ -291,77 +291,78 @@ def generate_alliance_vanguard(data):
             print(f"Where: {group['where']}")
             print(f"safe_name = {out_file}")
 
-        entry = quest_entry_ids + i
-        npc_id = npc_entry_ids + group['whom']
-        fd.write(sql_new_quest({
-            'Entry': entry,
-            'NPCEntry': npc_id,
-            'Flags': group['Flags'],
-            'Level': group['Level'],
-            'LevelMin': group['LevelMin'], 
-            'RewardMoney': group['RewardMoney'], 
-            'Title': group['Title'],
-            'Description': group['Description'],
-            'AreaDescription': group['AreaDescription'],
-            'Details': group['Details'],
-            'Complete': group['Complete'],
-            'RequiredItem1': group['RequiredItem1'],
-            'RequiredItem1Count': group['RequiredItem1Count'],
-            'Objective1Text': group['Objective1Text'],
-            'RequiredItem2': group['RequiredItem2'],
-            'RequiredItem2Count': group['RequiredItem2Count'],
-            'Objective2Text': group['Objective2Text'],
-            'RequiredItem3': group['RequiredItem3'],
-            'RequiredItem3Count': group['RequiredItem3Count'],
-            'Objective3Text': group['Objective3Text'],
-            'RequiredItem4': group['RequiredItem4'],
-            'RequiredItem4Count': group['RequiredItem4Count'],
-            'Objective4Text': group['Objective4Text'],
-            'RequiredItem5': group['RequiredItem5'],
-            'RequiredItem5Count': group['RequiredItem5Count'],
-            'Objective5Text': group['Objective5Text'],
-            'RequiredItem6': group['RequiredItem6'],
-            'RequiredItem6Count': group['RequiredItem6Count'],
-            'Objective6Text': group['Objective6Text'],
-        }))
-        fd.write(sql_new_quest_starter({
-            'QuestEntry': entry,
-            'NPCEntry': npc_id,
-        }))
-        fd.write(sql_new_quest_ender({
-            'QuestEntry': entry,
-            'NPCEntry': npc_id,
-        }))
-        fd.write(sql_new_quest_template_addon({
-            'Entry': entry,
-            'SpecialFlags': group['SpecialFlags'],
-        }))
-        fd.write(sql_new_quest_request_items({
-            'Entry': entry,
-            'EmoteOnComplete': group['EmoteOnComplete'],
-            'EmoteOnIncomplete': group['EmoteOnIncomplete'],
-            'CompleteText': group['Complete'],
-        }))
-        fd.write(sql_new_quest_offer_reward({
-            'Entry': entry,
-            'Emote1': group['QuestOfferRewardEmote1'],
-            'Emote2': group['QuestOfferRewardEmote2'],
-            'Emote3': group['QuestOfferRewardEmote3'],
-            'Emote4': group['QuestOfferRewardEmote4'],
-            'EmoteDelay1': group['QuestOfferRewardEmoteDelay1'],
-            'EmoteDelay2': group['QuestOfferRewardEmoteDelay2'],
-            'EmoteDelay3': group['QuestOfferRewardEmoteDelay3'],
-            'EmoteDelay4': group['QuestOfferRewardEmoteDelay4'],
-            'RewardText': group['Complete'],
-        }))
-        fd.write(sql_new_quest_condition({
-            'SourceEntry': entry,
-            'SourceTypeOrReferenceId': group['SourceTypeOrReferenceId'],
-            'ConditionTypeOrReference': group['ConditionTypeOrReference'],
-            'ConditionTarget': group['ConditionTarget'],
-            'ConditionValue1': group['ConditionValue1'],
-            'ConditionValue2': group['ConditionValue2'],
-        }))
+        for i, quest in enumerate(group['quests']):
+            entry = quest_entry_ids + i
+            npc_id = npc_entry_ids + quest['whom']
+            fd.write(sql_new_quest({
+                'Entry': entry,
+                'NPCEntry': npc_id,
+                'Flags': quest['Flags'],
+                'Level': quest['Level'],
+                'LevelMin': quest['LevelMin'], 
+                'RewardMoney': quest['RewardMoney'], 
+                'Title': quest['Title'],
+                'Description': quest['Description'],
+                'AreaDescription': quest['AreaDescription'],
+                'Details': quest['Details'],
+                'Complete': quest['Complete'],
+                'RequiredItem1': quest['RequiredItem1'],
+                'RequiredItem1Count': quest['RequiredItem1Count'],
+                'Objective1Text': quest['Objective1Text'],
+                'RequiredItem2': quest['RequiredItem2'],
+                'RequiredItem2Count': quest['RequiredItem2Count'],
+                'Objective2Text': quest['Objective2Text'],
+                'RequiredItem3': quest['RequiredItem3'],
+                'RequiredItem3Count': quest['RequiredItem3Count'],
+                'Objective3Text': quest['Objective3Text'],
+                'RequiredItem4': quest['RequiredItem4'],
+                'RequiredItem4Count': quest['RequiredItem4Count'],
+                'Objective4Text': quest['Objective4Text'],
+                'RequiredItem5': quest['RequiredItem5'],
+                'RequiredItem5Count': quest['RequiredItem5Count'],
+                'Objective5Text': quest['Objective5Text'],
+                'RequiredItem6': quest['RequiredItem6'],
+                'RequiredItem6Count': quest['RequiredItem6Count'],
+                'Objective6Text': quest['Objective6Text'],
+            }))
+            fd.write(sql_new_quest_starter({
+                'QuestEntry': entry,
+                'NPCEntry': npc_id,
+            }))
+            fd.write(sql_new_quest_ender({
+                'QuestEntry': entry,
+                'NPCEntry': npc_id,
+            }))
+            fd.write(sql_new_quest_template_addon({
+                'Entry': entry,
+                'SpecialFlags': quest['SpecialFlags'],
+            }))
+            fd.write(sql_new_quest_request_items({
+                'Entry': entry,
+                'EmoteOnComplete': quest['EmoteOnComplete'],
+                'EmoteOnIncomplete': quest['EmoteOnIncomplete'],
+                'CompleteText': quest['Complete'],
+            }))
+            fd.write(sql_new_quest_offer_reward({
+                'Entry': entry,
+                'Emote1': quest['QuestOfferRewardEmote1'],
+                'Emote2': quest['QuestOfferRewardEmote2'],
+                'Emote3': quest['QuestOfferRewardEmote3'],
+                'Emote4': quest['QuestOfferRewardEmote4'],
+                'EmoteDelay1': quest['QuestOfferRewardEmoteDelay1'],
+                'EmoteDelay2': quest['QuestOfferRewardEmoteDelay2'],
+                'EmoteDelay3': quest['QuestOfferRewardEmoteDelay3'],
+                'EmoteDelay4': quest['QuestOfferRewardEmoteDelay4'],
+                'RewardText': quest['Complete'],
+            }))
+            fd.write(sql_new_quest_condition({
+                'SourceEntry': entry,
+                'SourceTypeOrReferenceId': quest['SourceTypeOrReferenceId'],
+                'ConditionTypeOrReference': quest['ConditionTypeOrReference'],
+                'ConditionTarget': quest['ConditionTarget'],
+                'ConditionValue1': quest['ConditionValue1'],
+                'ConditionValue2': quest['ConditionValue2'],
+            }))
 
 def generate_dungeon_vendor_groups(data):
     npc_ids = data['entry_ids']['vendorgroups']['npcs']
