@@ -1,7 +1,7 @@
 
 SET
 @Entry := 511000,
-@NPCENtry := 0,
+@NPCENtry := 512000,
 @Flags = 4096, -- 4096 = Daily; 32768 = Weekly
 @Level := 5,
 @LevelMin := 5, 
@@ -257,14 +257,14 @@ INSERT INTO `quest_template` (
 
 SET
 @QuestEntry = 511000,
-@NPCEntry = 0;
+@NPCEntry = 512000;
 
 DELETE FROM `creature_queststarter` WHERE (`quest` = @QuestEntry) AND (`id` IN (@NPCEntry));
 INSERT INTO `creature_queststarter` (`id`, `quest`) VALUES (@NPCEntry, @QuestEntry);
 
 SET
 @QuestEntry = 511000,
-@NPCEntry = 0;
+@NPCEntry = 512000;
 
 DELETE FROM `creature_questender` WHERE (`quest` = @QuestEntry) AND (`id` IN (@NPCEntry));
 INSERT INTO `creature_questender` (`id`, `quest`) VALUES (@NPCEntry, @QuestEntry);

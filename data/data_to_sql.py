@@ -292,7 +292,7 @@ def generate_alliance_vanguard(data):
             print(f"safe_name = {out_file}")
 
         entry = quest_entry_ids + i
-        npc_id = npc_entry_ids = group['whom']
+        npc_id = npc_entry_ids + group['whom']
         fd.write(sql_new_quest({
             'Entry': entry,
             'NPCEntry': npc_id,
