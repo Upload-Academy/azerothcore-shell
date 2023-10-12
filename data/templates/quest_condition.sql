@@ -1,3 +1,12 @@
+
+SET
+@SourceTypeOrReferenceId := {SourceTypeOrReferenceId},
+@SourceEntry := {SourceEntry},
+@ConditionTypeOrReference := {ConditionTypeOrReference},
+@ConditionTarget := {ConditionTarget},
+@ConditionValue1 := {ConditionValue1},
+@ConditionValue2 := {ConditionValue2};
+
 -- Quest conditions
 DELETE FROM `conditions` WHERE (`SourceEntry` = @QuestEntry AND `ConditionTypeOrReference` = 27 AND `ConditionValue1` = @QuestMaxLevel AND `ConditionValue2` = 4);
 INSERT INTO `conditions` (
@@ -8,10 +17,10 @@ INSERT INTO `conditions` (
     `ConditionValue1`,
     `ConditionValue2`
 ) VALUES (
-    19, -- quest
-    @QuestEntry,-- quest id
-    27, -- condition to check: player level
-    0, -- ignore
-    @QuestMaxLevel, -- max level
-    @QuestMaxLevelCondition -- <= max level
+    @SourceTypeOrReferenceId,   -- SourceTypeOrReferenceId
+    @SourceEntry,               -- SourceEntry
+    @ConditionTypeOrReference,  -- ConditionTypeOrReference
+    @ConditionTarget,           -- ConditionTarget
+    @QuestMaxLevel,             -- ConditionValue1
+    @QuestMaxLevelCondition     -- ConditionValue2
 );

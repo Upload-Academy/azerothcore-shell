@@ -3,7 +3,7 @@
 
 SET
 @Entry := 522002,
-@ModelID1 := 7106, -- four different models for some variation
+@ModelID1 := 7106,
 @ModelID2 := 0,
 @ModelID3 := 0,
 @ModelID4 := 0,
@@ -59,7 +59,7 @@ VALUES (
 
 SET
 @Entry := 522002,
-@ModelID1 := 7212, -- four different models for some variation
+@ModelID1 := 7212,
 @ModelID2 := 0,
 @ModelID3 := 0,
 @ModelID4 := 0,

@@ -1,3 +1,4 @@
+
 SET
 @QuestEntry = {QuestEntry},
 @NPCEntry = {NPCEntry};

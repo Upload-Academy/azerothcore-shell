@@ -112,7 +112,7 @@ MAP_NORTHREND = 571
 # Global state maintained across the entire runtime
 last_entry_id = 0
    
-def new_vendor(data):
+def sql_new_vendor(data):
     with open('templates/npc.sql', 'r') as fd:
         return fd.read().format(
             Entry = data['Entry'],
@@ -131,7 +131,7 @@ def new_vendor(data):
             RunSpeed = data['RunSpeed'],
         )
 
-def new_vendor_spawn(data):
+def sql_new_vendor_spawn(data):
     with open('templates/npc_spawn.sql', 'r') as fd:
         return fd.read().format(
             Entry = data['Entry'],
@@ -142,28 +142,120 @@ def new_vendor_spawn(data):
             Orientation = data['Orientation']           
         )
 
-def new_npc_vendor_clear(data):
+def sql_new_npc_vendor_clear(data):
     with open('templates/npc_vendor_clear.sql', 'r') as fd:
         return fd.read().format(
             Entry = data['Entry'],
         )
 
-def generate_alliance_vanguard(data):
-    for i, group in enumerate(data['alliance_vanguard_npcs']):
-        npc_entry_ids = data['entry_ids']['vanguardalliance']['npcs']
+def sql_new_quest_template_addon(data):
+    with open('templates/quest_template_addon.sql', 'r') as fd:
+        return fd.read().format(
+            Entry = data['Entry'],
+            SpecialFlags = data['SpecialFlags'],
+        )
+    
+def sql_new_quest(data):
+    with open('templates/quest.sql', 'r') as fd:
+        return fd.read().format(
+            Entry = data['Entry'],
+            NPCEntry = data['NPCEntry'],
+            Flags = data['Flags'],
+            Level = data['Level'],
+            LevelMin = data['LevelMin'], 
+            RewardMoney = data['RewardMoney'], 
+            Title = data['Title'],
+            Description = data['Description'],
+            AreaDescription = data['AreaDescription'],
+            Details = data['Details'],
+            Complete = data['Complete'],
+            RequiredItem1 = data['RequiredItem1'],
+            RequiredItem1Count = data['RequiredItem1Count'],
+            Objective1Text = data['Objective1Text'],
+            RequiredItem2 = data['RequiredItem2'],
+            RequiredItem2Count = data['RequiredItem2Count'],
+            Objective2Text = data['Objective2Text'],
+            RequiredItem3 = data['RequiredItem3'],
+            RequiredItem3Count = data['RequiredItem3Count'],
+            Objective3Text = data['Objective3Text'],
+            RequiredItem4 = data['RequiredItem4'],
+            RequiredItem4Count = data['RequiredItem4Count'],
+            Objective4Text = data['Objective4Text'],
+            RequiredItem5 = data['RequiredItem5'],
+            RequiredItem5Count = data['RequiredItem5Count'],
+            Objective5Text = data['Objective5Text'],
+            RequiredItem6 = data['RequiredItem6'],
+            RequiredItem6Count = data['RequiredItem6Count'],
+            Objective6Text = data['Objective6Text'],
+        )
 
+def sql_new_quest_starter(data):
+    with open('templates/quest_starter.sql', 'r') as fd:
+        return fd.read().format(
+            QuestEntry = data['QuestEntry'],
+            NPCEntry = data['NPCEntry'],
+        )
+
+def sql_new_quest_ender(data):
+    with open('templates/quest_ender.sql', 'r') as fd:
+        return fd.read().format(
+            QuestEntry = data['QuestEntry'],
+            NPCEntry = data['NPCEntry'],
+        )
+
+def sql_new_quest_request_items(data):
+    with open('templates/quest_request_items.sql', 'r') as fd:
+        return fd.read().format(
+            Entry = data['Entry'],
+            EmoteOnComplete = data['EmoteOnComplete'],
+            EmoteOnIncomplete = data['EmoteOnIncomplete'],
+            CompleteText = data['CompleteText'],
+        )
+
+def sql_new_quest_offer_reward(data):
+    with open('templates/quest_offer_reward.sql', 'r') as fd:
+        return fd.read().format(
+            Entry = data['Entry'],
+            Emote1 = data['Emote1'],
+            Emote2 = data['Emote2'],
+            Emote3 = data['Emote3'],
+            Emote4 = data['Emote4'],
+            EmoteDelay1 = data['EmoteDelay1'],
+            EmoteDelay2 = data['EmoteDelay2'],
+            EmoteDelay3 = data['EmoteDelay3'],
+            EmoteDelay4 = data['EmoteDelay4'],
+            RewardText = data['RewardText'],
+        )
+
+def sql_new_quest_condition(data):
+    with open('templates/quest_condition.sql', 'r') as fd:
+        return fd.read().format(
+            SourceTypeOrReferenceId = data['SourceTypeOrReferenceId'],
+            SourceEntry = data['SourceEntry'],
+            ConditionTypeOrReference = data['ConditionTypeOrReference'],
+            ConditionTarget = data['ConditionTarget'],
+            ConditionValue1 = data['ConditionValue1'],
+            ConditionValue2 = data['ConditionValue2'],
+        )
+
+def generate_alliance_vanguard(data):
+    npc_entry_ids = data['entry_ids']['vanguardalliance']['npcs']
+    quest_entry_ids = data['entry_ids']['vanguardalliance']['quests']
+    
+    for i, group in enumerate(data['alliance_vanguard_npcs']):
         safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
-        out_file = f"../sql/A-AV-{i}-{safe_name}.sql"
+        out_file = f"../sql/A-AV-{i}-{safe_name}-npcs.sql"
         fd = open(out_file, 'w')
 
         if DEBUGGING:
             print(f"\generate_alliance_vanguard()")
+            print(f"NPC loop...")
             print(f"Where: {group['where']}")
             print(f"safe_name = {out_file}")
 
         for i, npc in enumerate(group['npcs']):
             entry = npc_entry_ids + i
-            fd.write(new_vendor({
+            fd.write(sql_new_vendor({
                 'Entry': entry,
                 'Model_1': npc['models'][0],
                 'Model_2': npc['models'][1],
@@ -179,7 +271,7 @@ def generate_alliance_vanguard(data):
                 'Type' : npc['type'],
                 'RunSpeed' : npc['runspeed'],
             }))
-            fd.write(new_vendor_spawn({
+            fd.write(sql_new_vendor_spawn({
                 'Entry': entry,
                 'Map': npc['map'],
                 'X': npc['X'],
@@ -187,6 +279,89 @@ def generate_alliance_vanguard(data):
                 'Z': npc['Z'],
                 'Orientation': npc['Orientation'],
             }))
+
+    for i, group in enumerate(data['alliance_vanguard_quests']):
+        safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])
+        out_file = f"../sql/A-AV-{i}-{safe_name}-quests.sql"
+        fd = open(out_file, 'w')
+
+        if DEBUGGING:
+            print(f"\generate_alliance_vanguard()")
+            print(f"Quest loop...")
+            print(f"Where: {group['where']}")
+            print(f"safe_name = {out_file}")
+
+        entry = quest_entry_ids + i
+        npc_id = npc_entry_ids = group['whom']
+        fd.write(sql_new_quest({
+            'Entry': entry,
+            'NPCEntry': npc_id,
+            'Flags': group['Flags'],
+            'Level': group['Level'],
+            'LevelMin': group['LevelMin'], 
+            'RewardMoney': group['RewardMoney'], 
+            'Title': group['Title'],
+            'Description': group['Description'],
+            'AreaDescription': group['AreaDescription'],
+            'Details': group['Details'],
+            'Complete': group['Complete'],
+            'RequiredItem1': group['RequiredItem1'],
+            'RequiredItem1Count': group['RequiredItem1Count'],
+            'Objective1Text': group['Objective1Text'],
+            'RequiredItem2': group['RequiredItem2'],
+            'RequiredItem2Count': group['RequiredItem2Count'],
+            'Objective2Text': group['Objective2Text'],
+            'RequiredItem3': group['RequiredItem3'],
+            'RequiredItem3Count': group['RequiredItem3Count'],
+            'Objective3Text': group['Objective3Text'],
+            'RequiredItem4': group['RequiredItem4'],
+            'RequiredItem4Count': group['RequiredItem4Count'],
+            'Objective4Text': group['Objective4Text'],
+            'RequiredItem5': group['RequiredItem5'],
+            'RequiredItem5Count': group['RequiredItem5Count'],
+            'Objective5Text': group['Objective5Text'],
+            'RequiredItem6': group['RequiredItem6'],
+            'RequiredItem6Count': group['RequiredItem6Count'],
+            'Objective6Text': group['Objective6Text'],
+        }))
+        fd.write(sql_new_quest_starter({
+            'QuestEntry': entry,
+            'NPCEntry': npc_id,
+        }))
+        fd.write(sql_new_quest_ender({
+            'QuestEntry': entry,
+            'NPCEntry': npc_id,
+        }))
+        fd.write(sql_new_quest_template_addon({
+            'Entry': entry,
+            'SpecialFlags': group['SpecialFlags'],
+        }))
+        fd.write(sql_new_quest_request_items({
+            'Entry': entry,
+            'EmoteOnComplete': group['EmoteOnComplete'],
+            'EmoteOnIncomplete': group['EmoteOnIncomplete'],
+            'CompleteText': group['Complete'],
+        }))
+        fd.write(sql_new_quest_offer_reward({
+            'Entry': entry,
+            'Emote1': group['QuestOfferRewardEmote1'],
+            'Emote2': group['QuestOfferRewardEmote2'],
+            'Emote3': group['QuestOfferRewardEmote3'],
+            'Emote4': group['QuestOfferRewardEmote4'],
+            'EmoteDelay1': group['QuestOfferRewardEmoteDelay1'],
+            'EmoteDelay2': group['QuestOfferRewardEmoteDelay2'],
+            'EmoteDelay3': group['QuestOfferRewardEmoteDelay3'],
+            'EmoteDelay4': group['QuestOfferRewardEmoteDelay4'],
+            'RewardText': group['Complete'],
+        }))
+        fd.write(sql_new_quest_condition({
+            'SourceTypeOrReferenceId': group['SourceTypeOrReferenceId'],
+            'SourceEntry': entry,
+            'ConditionTypeOrReference': group['ConditionTypeOrReference'],
+            'ConditionTarget': group['ConditionTarget'],
+            'ConditionValue1': group['ConditionValue1'],
+            'ConditionValue2': group['ConditionValue2'],
+        }))
 
 def generate_dungeon_vendor_groups(data):
     npc_ids = data['entry_ids']['vendorgroups']['npcs']
@@ -211,7 +386,7 @@ def generate_dungeon_vendor_groups(data):
 
         # The vendors themselves:
         if group['weapon_vendor']:
-            weaponVendor = new_vendor({
+            weaponVendor = sql_new_vendor({
                 'Entry': weaponVendorEntry,
                 'Model_1': group['weapon_vendor']['models'][0],
                 'Model_2': group['weapon_vendor']['models'][1],
@@ -227,7 +402,7 @@ def generate_dungeon_vendor_groups(data):
                 'Type' : group['weapon_vendor']['type'],
                 'RunSpeed' : group['weapon_vendor']['runspeed'],
             })
-            weaponVendorSpawn = new_vendor_spawn({
+            weaponVendorSpawn = sql_new_vendor_spawn({
                 'Entry': weaponVendorEntry,
                 'Map': group['weapon_vendor']['map'],
                 'X': group['weapon_vendor']['X'],
@@ -235,12 +410,12 @@ def generate_dungeon_vendor_groups(data):
                 'Z': group['weapon_vendor']['Z'],
                 'Orientation': group['weapon_vendor']['Orientation'],
             })
-            weaponVendorShopClear = new_npc_vendor_clear({
+            weaponVendorShopClear = sql_new_npc_vendor_clear({
                 'Entry': weaponVendorEntry,
             })
 
         if group['clothing_vendor']:
-            clothingVendor = new_vendor({
+            clothingVendor = sql_new_vendor({
                 'Entry': clothingVendorEntry,
                 'Model_1': group['clothing_vendor']['models'][0],
                 'Model_2': group['clothing_vendor']['models'][1],
@@ -256,7 +431,7 @@ def generate_dungeon_vendor_groups(data):
                 'Type' : group['clothing_vendor']['type'],
                 'RunSpeed' : group['clothing_vendor']['runspeed'],
             })
-            clothingVendorSpawn = new_vendor_spawn({
+            clothingVendorSpawn = sql_new_vendor_spawn({
                 'Entry': clothingVendorEntry,
                 'Map': group['clothing_vendor']['map'],
                 'X': group['clothing_vendor']['X'],
@@ -264,12 +439,12 @@ def generate_dungeon_vendor_groups(data):
                 'Z': group['clothing_vendor']['Z'],
                 'Orientation': group['clothing_vendor']['Orientation'],
             })
-            clothingVendorShopClear = new_npc_vendor_clear({
+            clothingVendorShopClear = sql_new_npc_vendor_clear({
                 'Entry': clothingVendorEntry,
             })
 
         if group['other_vendor']:
-            otherVendor = new_vendor({
+            otherVendor = sql_new_vendor({
                 'Entry': otherVendorEntry,
                 'Model_1': group['other_vendor']['models'][0],
                 'Model_2': group['other_vendor']['models'][1],
@@ -285,7 +460,7 @@ def generate_dungeon_vendor_groups(data):
                 'Type' : group['other_vendor']['type'],
                 'RunSpeed' : group['other_vendor']['runspeed'],
             })
-            otherVendorSpawn = new_vendor_spawn({
+            otherVendorSpawn = sql_new_vendor_spawn({
                 'Entry': otherVendorEntry,
                 'Map': group['other_vendor']['map'],
                 'X': group['other_vendor']['X'],
@@ -293,7 +468,7 @@ def generate_dungeon_vendor_groups(data):
                 'Z': group['other_vendor']['Z'],
                 'Orientation': group['other_vendor']['Orientation'],
             })
-            otherVendorShopClear = new_npc_vendor_clear({
+            otherVendorShopClear = sql_new_npc_vendor_clear({
                 'Entry': otherVendorEntry,
             })
 

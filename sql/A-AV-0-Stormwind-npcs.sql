@@ -1,7 +1,7 @@
 
 SET
 @Entry := 512000,
-@ModelID1 := 21754, -- four different models for some variation
+@ModelID1 := 21754,
 @ModelID2 := 0,
 @ModelID3 := 0,
 @ModelID4 := 0,
@@ -45,7 +45,7 @@ VALUES (
 
 SET
 @Entry := 512001,
-@ModelID1 := 21755, -- four different models for some variation
+@ModelID1 := 21755,
 @ModelID2 := 0,
 @ModelID3 := 0,
 @ModelID4 := 0,
@@ -89,7 +89,7 @@ VALUES (
 
 SET
 @Entry := 512002,
-@ModelID1 := 21756, -- four different models for some variation
+@ModelID1 := 21756,
 @ModelID2 := 0,
 @ModelID3 := 0,
 @ModelID4 := 0,

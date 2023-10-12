@@ -1,7 +1,7 @@
 
 SET
 @Entry := {Entry},
-@ModelID1 := {Model1}, -- four different models for some variation
+@ModelID1 := {Model1},
 @ModelID2 := {Model2},
 @ModelID3 := {Model3},
 @ModelID4 := {Model4},
