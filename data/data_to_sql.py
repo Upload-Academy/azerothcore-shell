@@ -238,6 +238,26 @@ def sql_new_quest_condition(data):
             ConditionValue2 = data['ConditionValue2'],
         )
 
+def generate_quest_condition(data, index, quest_id):
+    if 'condition_parts' in data:
+        if len(data['condition_parts']) <= 0:
+            if DEBUGGING: print('No condition parts')
+            return
+        
+        if index > len(data['condition_parts'])-1:
+            if DEBUGGING: print('Condition index out of range')
+            return
+        
+        condition = data['condition_parts'][index]
+        return sql_new_quest_condition({
+            'SourceEntry': quest_id,
+            'SourceTypeOrReferenceId': condition['SourceTypeOrReferenceId'],
+            'ConditionTypeOrReference': condition['ConditionTypeOrReference'],
+            'ConditionTarget': condition['ConditionTarget'],
+            'ConditionValue1': condition['ConditionValue1'],
+            'ConditionValue2': condition['ConditionValue2'],
+        })
+
 def generate_alliance_vanguard(data):
     npc_entry_ids = data['entry_ids']['vanguardalliance']['npcs']
     quest_entry_ids = data['entry_ids']['vanguardalliance']['quests']
@@ -355,14 +375,25 @@ def generate_alliance_vanguard(data):
                 'EmoteDelay4': quest['QuestOfferRewardEmoteDelay4'],
                 'RewardText': quest['Complete'],
             }))
-            fd.write(sql_new_quest_condition({
-                'SourceEntry': entry,
-                'SourceTypeOrReferenceId': quest['SourceTypeOrReferenceId'],
-                'ConditionTypeOrReference': quest['ConditionTypeOrReference'],
-                'ConditionTarget': quest['ConditionTarget'],
-                'ConditionValue1': quest['ConditionValue1'],
-                'ConditionValue2': quest['ConditionValue2'],
-            }))
+            # fd.write(generate_quest_condition({
+            #     'SourceEntry': entry,
+            #     'SourceTypeOrReferenceId': quest['SourceTypeOrReferenceId'],
+            #     'ConditionTypeOrReference': quest['ConditionTypeOrReference'],
+            #     'ConditionTarget': quest['ConditionTarget'],
+            #     'ConditionValue1': quest['ConditionValue1'],
+            #     'ConditionValue2': quest['ConditionValue2'],
+            # }))
+
+            if 'conditions' not in quest:
+                if DEBUGGING: print(f"No conditions found for quest {entry}")
+                continue
+
+            if len(quest['conditions']) <= 0:
+                continue
+
+            for condition in quest['conditions']:
+                if DEBUGGING: print(f"FOund {condition} for quest {entry}")
+                fd.write(generate_quest_condition(data, condition, entry))
 
 def generate_dungeon_vendor_groups(data):
     npc_ids = data['entry_ids']['vendorgroups']['npcs']

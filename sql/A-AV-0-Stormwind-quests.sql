@@ -697,6 +697,38 @@ SET
 @ConditionTypeOrReference := 27,
 @ConditionTarget := 0,
 @ConditionValue1 := 15,
+@ConditionValue2 := 3;
+
+-- Quest conditions
+DELETE FROM `conditions` WHERE (
+    `SourceEntry` = @QuestEntry AND
+    `ConditionTypeOrReference` = @ConditionTypeOrReference AND
+    `ConditionValue1` = @ConditionValue1 AND
+    `ConditionValue2` = @ConditionValue2
+);
+
+INSERT INTO `conditions` (
+    `SourceTypeOrReferenceId`,
+    `SourceEntry`,
+    `ConditionTypeOrReference`,
+    `ConditionTarget`,
+    `ConditionValue1`,
+    `ConditionValue2`
+) VALUES (
+    @SourceTypeOrReferenceId,   -- SourceTypeOrReferenceId
+    @SourceEntry,               -- SourceEntry
+    @ConditionTypeOrReference,  -- ConditionTypeOrReference
+    @ConditionTarget,           -- ConditionTarget
+    @ConditionValue1,           -- ConditionValue1
+    @ConditionValue2            -- ConditionValue2
+);
+
+SET
+@SourceEntry := 511001,
+@SourceTypeOrReferenceId := 19,
+@ConditionTypeOrReference := 27,
+@ConditionTarget := 0,
+@ConditionValue1 := 25,
 @ConditionValue2 := 4;
 
 -- Quest conditions
