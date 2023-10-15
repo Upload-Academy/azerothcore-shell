@@ -334,7 +334,7 @@ SET
 @SourceTypeOrReferenceId := 19,
 @ConditionTypeOrReference := 27,
 @ConditionTarget := 0,
-@ConditionValue1 := 15,
+@ConditionValue1 := 14,
 @ConditionValue2 := 4;
 
 -- Quest conditions
@@ -365,9 +365,9 @@ SET
 @Entry := 511001,
 @NPCENtry := 512000,
 @Flags = 4096, -- 4096 = Daily; 32768 = Weekly
-@Level := 5,
-@LevelMin := 5, 
-@RewardMoney := 2500, 
+@Level := 20,
+@LevelMin := 20, 
+@RewardMoney := 3500, 
 @Title := "More Medical Supplies",
 @Description := "We're always in need of medical supplies, especially the good stuff. If you can help us with our efforts, then there's some handsome coin in it for you.",
 @AreaDescription := "",
@@ -728,7 +728,7 @@ SET
 @SourceTypeOrReferenceId := 19,
 @ConditionTypeOrReference := 27,
 @ConditionTarget := 0,
-@ConditionValue1 := 25,
+@ConditionValue1 := 24,
 @ConditionValue2 := 4;
 
 -- Quest conditions

@@ -375,14 +375,6 @@ def generate_alliance_vanguard(data):
                 'EmoteDelay4': quest['QuestOfferRewardEmoteDelay4'],
                 'RewardText': quest['Complete'],
             }))
-            # fd.write(generate_quest_condition({
-            #     'SourceEntry': entry,
-            #     'SourceTypeOrReferenceId': quest['SourceTypeOrReferenceId'],
-            #     'ConditionTypeOrReference': quest['ConditionTypeOrReference'],
-            #     'ConditionTarget': quest['ConditionTarget'],
-            #     'ConditionValue1': quest['ConditionValue1'],
-            #     'ConditionValue2': quest['ConditionValue2'],
-            # }))
 
             if 'conditions' not in quest:
                 if DEBUGGING: print(f"No conditions found for quest {entry}")
@@ -392,7 +384,7 @@ def generate_alliance_vanguard(data):
                 continue
 
             for condition in quest['conditions']:
-                if DEBUGGING: print(f"FOund {condition} for quest {entry}")
+                if DEBUGGING: print(f"Found {condition} for quest {entry}")
                 fd.write(generate_quest_condition(data, condition, entry))
 
 def generate_dungeon_vendor_groups(data):
