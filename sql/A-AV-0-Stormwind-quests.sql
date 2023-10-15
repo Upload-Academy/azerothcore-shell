@@ -3,9 +3,9 @@ SET
 @Entry := 511000,
 @NPCENtry := 512000,
 @Flags = 4096, -- 4096 = Daily; 32768 = Weekly
-@Level := 5,
+@Level := 10,
 @LevelMin := 5, 
-@RewardMoney := 25000, 
+@RewardMoney := 2500, 
 @Title := "Medical Supplies",
 @Description := "We're always in need of medical supplies, even the basic stuff. If you can help us with our efforts, then there's some handsome coin in it for you.",
 @AreaDescription := "",
@@ -366,7 +366,7 @@ SET
 @NPCENtry := 512000,
 @Flags = 4096, -- 4096 = Daily; 32768 = Weekly
 @Level := 20,
-@LevelMin := 20, 
+@LevelMin := 15, 
 @RewardMoney := 3500, 
 @Title := "More Medical Supplies",
 @Description := "We're always in need of medical supplies, especially the good stuff. If you can help us with our efforts, then there's some handsome coin in it for you.",

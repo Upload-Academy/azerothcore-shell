@@ -1153,7 +1153,7 @@ condition_parts:
     ConditionTypeOrReference: 27
     ConditionTarget: 0
     ConditionValue1: 24
-    ConditionValue2: 4 # MaxLevel condition
+    ConditionValue2: 4 # <=
 
 alliance_vanguard_quests:
   - where: Stormwind
@@ -1161,9 +1161,9 @@ alliance_vanguard_quests:
       - whom: 0 # the 0 element in the alliance_vanguard_npcs.$where.npc[] list
         conditions: [0]
         Flags: 4096 # daily
-        Level: 5
+        Level: 10
         LevelMin: 5
-        RewardMoney: 25000
+        RewardMoney: 2500
         Title: "Medical Supplies"
         Description: "We're always in need of medical supplies, even the basic stuff. If you can help us with our efforts, then there's some handsome coin in it for you."
         AreaDescription: ""
@@ -1203,7 +1203,7 @@ alliance_vanguard_quests:
         conditions: [1, 2]
         Flags: 4096 # daily
         Level: 20
-        LevelMin: 20
+        LevelMin: 15
         RewardMoney: 3500
         Title: "More Medical Supplies"
         Description: "We're always in need of medical supplies, especially the good stuff. If you can help us with our efforts, then there's some handsome coin in it for you."
