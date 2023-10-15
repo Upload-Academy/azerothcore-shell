@@ -237,6 +237,14 @@ def sql_new_quest_condition(data):
             ConditionValue1 = data['ConditionValue1'],
             ConditionValue2 = data['ConditionValue2'],
         )
+    
+def sql_new_purge(table, column, entry):
+    with open('templates/purge_entry.sql', 'r') as fd:
+        return fd.read().format(
+            TableName = table,
+            ColumnName = column,
+            Entry = entry,
+        )
 
 def generate_quest_condition(data, index, quest_id):
     if 'condition_parts' in data:
@@ -261,6 +269,13 @@ def generate_quest_condition(data, index, quest_id):
 def generate_alliance_vanguard(data):
     npc_entry_ids = data['entry_ids']['vanguardalliance']['npcs']
     quest_entry_ids = data['entry_ids']['vanguardalliance']['quests']
+
+    # First, we purge everything...
+    out_file = f"../sql/A-AV-0-purge-all.sql"
+    fd = open(out_file, 'w')
+    fd.write(sql_new_purge('conditions', 'SourceEntry', quest_entry_ids//10))
+    fd.write(sql_new_purge('quest_template', 'ID', quest_entry_ids//10))
+    fd.write(sql_new_purge('creature_template', 'entry', npc_entry_ids//10))
     
     for i, group in enumerate(data['alliance_vanguard_npcs']):
         safe_name = "".join([c for c in group['where'] if re.match(r'\w', c)])

@@ -40,7 +40,11 @@ import "sql/M-07-the-argent-dawn.DELETE.sql"
 
 # These are automatically generated SQL files and as
 # such, we have to use wildcards to find and apply them
+
 # VG = Vendor Groups
-# AV = Alliance Vanguard
 for sqlfile in $(ls sql/A-VG-*.sql); do import $sqlfile; done
+
+# AV = Alliance Vanguard
+# Must purge first.
+for sqlfile in $(ls sql/A-AV-*-purge-all.sql); do import $sqlfile; done
 for sqlfile in $(ls sql/A-AV-*.sql); do import $sqlfile; done
