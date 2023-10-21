@@ -1,0 +1,5 @@
+instance_template:
+  map:
+  parent:
+  script:
+  allowmount: '0'

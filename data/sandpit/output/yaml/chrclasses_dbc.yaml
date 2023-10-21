@@ -1,0 +1,61 @@
+chrclasses_dbc:
+  id: '0'
+  field01: '0'
+  displaypower: '0'
+  petnametoken: '0'
+  name_lang_enus:
+  name_lang_engb:
+  name_lang_kokr:
+  name_lang_frfr:
+  name_lang_dede:
+  name_lang_encn:
+  name_lang_zhcn:
+  name_lang_entw:
+  name_lang_zhtw:
+  name_lang_eses:
+  name_lang_esmx:
+  name_lang_ruru:
+  name_lang_ptpt:
+  name_lang_ptbr:
+  name_lang_itit:
+  name_lang_unk:
+  name_lang_mask: '0'
+  name_female_lang_enus:
+  name_female_lang_engb:
+  name_female_lang_kokr:
+  name_female_lang_frfr:
+  name_female_lang_dede:
+  name_female_lang_encn:
+  name_female_lang_zhcn:
+  name_female_lang_entw:
+  name_female_lang_zhtw:
+  name_female_lang_eses:
+  name_female_lang_esmx:
+  name_female_lang_ruru:
+  name_female_lang_ptpt:
+  name_female_lang_ptbr:
+  name_female_lang_itit:
+  name_female_lang_unk:
+  name_female_lang_mask: '0'
+  name_male_lang_enus:
+  name_male_lang_engb:
+  name_male_lang_kokr:
+  name_male_lang_frfr:
+  name_male_lang_dede:
+  name_male_lang_encn:
+  name_male_lang_zhcn:
+  name_male_lang_entw:
+  name_male_lang_zhtw:
+  name_male_lang_eses:
+  name_male_lang_esmx:
+  name_male_lang_ruru:
+  name_male_lang_ptpt:
+  name_male_lang_ptbr:
+  name_male_lang_itit:
+  name_male_lang_unk:
+  name_male_lang_mask: '0'
+  filename:
+  spellclassset: '0'
+  flags: '0'
+  cinematicsequenceid: '0'
+  required_expansion: '0'

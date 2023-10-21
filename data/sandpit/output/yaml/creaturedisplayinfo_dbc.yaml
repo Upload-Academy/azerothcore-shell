@@ -1,0 +1,17 @@
+creaturedisplayinfo_dbc:
+  id: '0'
+  modelid: '0'
+  soundid: '0'
+  extendeddisplayinfoid: '0'
+  creaturemodelscale: '0'
+  creaturemodelalpha: '0'
+  texturevariation_1:
+  texturevariation_2:
+  texturevariation_3:
+  portraittexturename:
+  bloodlevel: '0'
+  bloodid: '0'
+  npcsoundid: '0'
+  particlecolorid: '0'
+  creaturegeosetdata: '0'
+  objecteffectpackageid: '0'

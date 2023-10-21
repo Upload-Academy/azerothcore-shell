@@ -1,0 +1,4 @@
+game_event_gameobject_quest:
+  evententry:
+  id: '0'
+  quest: '0'

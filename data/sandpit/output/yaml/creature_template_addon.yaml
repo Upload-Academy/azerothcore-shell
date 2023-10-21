@@ -1,0 +1,9 @@
+creature_template_addon:
+  entry: '0'
+  path_id: '0'
+  mount: '0'
+  bytes1: '0'
+  bytes2: '0'
+  emote: '0'
+  visibilitydistancetype: '0'
+  auras:

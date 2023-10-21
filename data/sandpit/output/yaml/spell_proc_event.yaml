@@ -1,0 +1,13 @@
+spell_proc_event:
+  entry: '0'
+  schoolmask: '0'
+  spellfamilyname: '0'
+  spellfamilymask0: '0'
+  spellfamilymask1: '0'
+  spellfamilymask2: '0'
+  procflags: '0'
+  procex: '0'
+  procphase: '0'
+  ppmrate: '0'
+  customchance: '0'
+  cooldown: '0'

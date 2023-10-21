@@ -1,0 +1,5 @@
+spell_pet_auras:
+  spell:
+  effectid: '0'
+  pet: '0'
+  aura:

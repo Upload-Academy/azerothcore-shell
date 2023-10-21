@@ -1,0 +1,11 @@
+mail_loot_template:
+  entry: '0'
+  item: '0'
+  reference: '0'
+  chance: '100'
+  questrequired: '0'
+  lootmode: '1'
+  groupid: '0'
+  mincount: '1'
+  maxcount: '1'
+  comment:

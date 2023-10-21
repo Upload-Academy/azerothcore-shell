@@ -1,0 +1,13 @@
+pet_levelstats:
+  creature_entry:
+  level:
+  hp: '0'
+  mana: '0'
+  armor: '0'
+  str: '0'
+  agi: '0'
+  sta: '0'
+  inte: '0'
+  spi: '0'
+  min_dmg: '0'
+  max_dmg: '0'

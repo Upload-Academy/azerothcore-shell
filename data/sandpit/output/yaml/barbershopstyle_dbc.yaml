@@ -1,0 +1,41 @@
+barbershopstyle_dbc:
+  id: '0'
+  type: '0'
+  displayname_lang_enus:
+  displayname_lang_engb:
+  displayname_lang_kokr:
+  displayname_lang_frfr:
+  displayname_lang_dede:
+  displayname_lang_encn:
+  displayname_lang_zhcn:
+  displayname_lang_entw:
+  displayname_lang_zhtw:
+  displayname_lang_eses:
+  displayname_lang_esmx:
+  displayname_lang_ruru:
+  displayname_lang_ptpt:
+  displayname_lang_ptbr:
+  displayname_lang_itit:
+  displayname_lang_unk:
+  displayname_lang_mask: '0'
+  description_lang_enus:
+  description_lang_engb:
+  description_lang_kokr:
+  description_lang_frfr:
+  description_lang_dede:
+  description_lang_encn:
+  description_lang_zhcn:
+  description_lang_entw:
+  description_lang_zhtw:
+  description_lang_eses:
+  description_lang_esmx:
+  description_lang_ruru:
+  description_lang_ptpt:
+  description_lang_ptbr:
+  description_lang_itit:
+  description_lang_unk:
+  description_lang_mask: '0'
+  cost_modifier: '0'
+  race: '0'
+  sex: '0'
+  data: '0'

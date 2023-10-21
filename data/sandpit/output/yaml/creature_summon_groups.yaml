@@ -1,0 +1,12 @@
+creature_summon_groups:
+  summonerid: '0'
+  summonertype: '0'
+  groupid: '0'
+  entry: '0'
+  position_x: '0'
+  position_y: '0'
+  position_z: '0'
+  orientation: '0'
+  summontype: '0'
+  summontime: '0'
+  comment:

@@ -1,0 +1,8 @@
+lfg_dungeon_template:
+  dungeonid: '0'
+  name:
+  position_x: '0'
+  position_y: '0'
+  position_z: '0'
+  orientation: '0'
+  verifiedbuild:

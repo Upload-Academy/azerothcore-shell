@@ -1,0 +1,18 @@
+worldmapoverlay_dbc:
+  id: '0'
+  mapareaid: '0'
+  areaid_1: '0'
+  areaid_2: '0'
+  areaid_3: '0'
+  areaid_4: '0'
+  mappointx: '0'
+  mappointy: '0'
+  texturename:
+  texturewidth: '0'
+  textureheight: '0'
+  offsetx: '0'
+  offsety: '0'
+  hitrecttop: '0'
+  hitrectleft: '0'
+  hitrectbottom: '0'
+  hitrectright: '0'

@@ -1,0 +1,24 @@
+mapdifficulty_dbc:
+  id: '0'
+  mapid: '0'
+  difficulty: '0'
+  message_lang_enus:
+  message_lang_engb:
+  message_lang_kokr:
+  message_lang_frfr:
+  message_lang_dede:
+  message_lang_encn:
+  message_lang_zhcn:
+  message_lang_entw:
+  message_lang_zhtw:
+  message_lang_eses:
+  message_lang_esmx:
+  message_lang_ruru:
+  message_lang_ptpt:
+  message_lang_ptbr:
+  message_lang_itit:
+  message_lang_unk:
+  message_lang_mask: '0'
+  raidduration: '0'
+  maxplayers: '0'
+  difficultystring:

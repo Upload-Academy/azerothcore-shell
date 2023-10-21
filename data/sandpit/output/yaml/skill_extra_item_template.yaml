@@ -1,0 +1,5 @@
+skill_extra_item_template:
+  spellid: '0'
+  requiredspecialization: '0'
+  additionalcreatechance: '0'
+  additionalmaxnum: '0'

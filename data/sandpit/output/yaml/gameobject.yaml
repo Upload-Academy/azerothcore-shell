@@ -1,0 +1,22 @@
+gameobject:
+  guid:
+  id: '0'
+  map: '0'
+  zoneid: '0'
+  areaid: '0'
+  spawnmask: '1'
+  phasemask: '1'
+  position_x: '0'
+  position_y: '0'
+  position_z: '0'
+  orientation: '0'
+  rotation0: '0'
+  rotation1: '0'
+  rotation2: '0'
+  rotation3: '0'
+  spawntimesecs: '0'
+  animprogress: '0'
+  state: '0'
+  scriptname:
+  verifiedbuild:
+  comment:

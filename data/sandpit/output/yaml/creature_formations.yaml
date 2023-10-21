@@ -1,0 +1,8 @@
+creature_formations:
+  leaderguid: '0'
+  memberguid: '0'
+  dist: '0'
+  angle: '0'
+  groupai: '0'
+  point_1: '0'
+  point_2: '0'

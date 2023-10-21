@@ -1,0 +1,5 @@
+game_event_quest_condition:
+  evententry:
+  quest: '0'
+  condition_id: '0'
+  num: '0'

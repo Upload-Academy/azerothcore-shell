@@ -1,0 +1,9 @@
+creature_movement_override:
+  spawnid: '0'
+  ground:
+  swim:
+  flight:
+  rooted:
+  chase:
+  random:
+  interactionpausetimer:

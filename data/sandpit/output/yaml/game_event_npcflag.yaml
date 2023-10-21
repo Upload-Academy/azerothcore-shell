@@ -1,0 +1,4 @@
+game_event_npcflag:
+  evententry:
+  guid: '0'
+  npcflag: '0'

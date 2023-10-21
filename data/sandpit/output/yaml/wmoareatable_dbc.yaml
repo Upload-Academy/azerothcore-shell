@@ -1,0 +1,29 @@
+wmoareatable_dbc:
+  id: '0'
+  wmoid: '0'
+  namesetid: '0'
+  wmogroupid: '0'
+  soundproviderpref: '0'
+  soundproviderprefunderwater: '0'
+  ambienceid: '0'
+  zonemusic: '0'
+  introsound: '0'
+  flags: '0'
+  areatableid: '0'
+  areaname_lang_enus:
+  areaname_lang_engb:
+  areaname_lang_kokr:
+  areaname_lang_frfr:
+  areaname_lang_dede:
+  areaname_lang_encn:
+  areaname_lang_zhcn:
+  areaname_lang_entw:
+  areaname_lang_zhtw:
+  areaname_lang_eses:
+  areaname_lang_esmx:
+  areaname_lang_ruru:
+  areaname_lang_ptpt:
+  areaname_lang_ptbr:
+  areaname_lang_itit:
+  areaname_lang_unk:
+  areaname_lang_mask: '0'

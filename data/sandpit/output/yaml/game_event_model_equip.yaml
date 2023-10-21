@@ -1,0 +1,5 @@
+game_event_model_equip:
+  evententry:
+  guid: '0'
+  modelid: '0'
+  equipment_id: '0'

@@ -1,0 +1,5 @@
+skill_perfect_item_template:
+  spellid: '0'
+  requiredspecialization: '0'
+  perfectcreatechance: '0'
+  perfectitemtype: '0'

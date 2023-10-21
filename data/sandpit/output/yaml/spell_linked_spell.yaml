@@ -1,0 +1,5 @@
+spell_linked_spell:
+  spell_trigger:
+  spell_effect: '0'
+  type: '0'
+  comment:

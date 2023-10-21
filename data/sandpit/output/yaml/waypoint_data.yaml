@@ -1,0 +1,12 @@
+waypoint_data:
+  id: '0'
+  point: '0'
+  position_x: '0'
+  position_y: '0'
+  position_z: '0'
+  orientation:
+  delay: '0'
+  move_type: '0'
+  action: '0'
+  action_chance: '100'
+  wpguid: '0'

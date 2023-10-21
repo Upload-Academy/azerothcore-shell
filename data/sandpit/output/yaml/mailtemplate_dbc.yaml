@@ -1,0 +1,36 @@
+mailtemplate_dbc:
+  id: '0'
+  subject_lang_enus:
+  subject_lang_engb:
+  subject_lang_kokr:
+  subject_lang_frfr:
+  subject_lang_dede:
+  subject_lang_encn:
+  subject_lang_zhcn:
+  subject_lang_entw:
+  subject_lang_zhtw:
+  subject_lang_eses:
+  subject_lang_esmx:
+  subject_lang_ruru:
+  subject_lang_ptpt:
+  subject_lang_ptbr:
+  subject_lang_itit:
+  subject_lang_unk:
+  subject_lang_mask: '0'
+  body_lang_enus:
+  body_lang_engb:
+  body_lang_kokr:
+  body_lang_frfr:
+  body_lang_dede:
+  body_lang_encn:
+  body_lang_zhcn:
+  body_lang_entw:
+  body_lang_zhtw:
+  body_lang_eses:
+  body_lang_esmx:
+  body_lang_ruru:
+  body_lang_ptpt:
+  body_lang_ptbr:
+  body_lang_itit:
+  body_lang_unk:
+  body_lang_mask: '0'

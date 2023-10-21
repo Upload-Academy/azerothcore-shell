@@ -1,0 +1,9 @@
+reputation_reward_rate:
+  faction: '0'
+  quest_rate: '1'
+  quest_daily_rate: '1'
+  quest_weekly_rate: '1'
+  quest_monthly_rate: '1'
+  quest_repeatable_rate: '1'
+  creature_rate: '1'
+  spell_rate: '1'

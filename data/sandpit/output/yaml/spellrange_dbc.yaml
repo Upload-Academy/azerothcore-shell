@@ -1,0 +1,41 @@
+spellrange_dbc:
+  id: '0'
+  rangemin_1: '0'
+  rangemin_2: '0'
+  rangemax_1: '0'
+  rangemax_2: '0'
+  flags: '0'
+  displayname_lang_enus:
+  displayname_lang_engb:
+  displayname_lang_kokr:
+  displayname_lang_frfr:
+  displayname_lang_dede:
+  displayname_lang_encn:
+  displayname_lang_zhcn:
+  displayname_lang_entw:
+  displayname_lang_zhtw:
+  displayname_lang_eses:
+  displayname_lang_esmx:
+  displayname_lang_ruru:
+  displayname_lang_ptpt:
+  displayname_lang_ptbr:
+  displayname_lang_itit:
+  displayname_lang_unk:
+  displayname_lang_mask: '0'
+  displaynameshort_lang_enus:
+  displaynameshort_lang_engb:
+  displaynameshort_lang_kokr:
+  displaynameshort_lang_frfr:
+  displaynameshort_lang_dede:
+  displaynameshort_lang_encn:
+  displaynameshort_lang_zhcn:
+  displaynameshort_lang_entw:
+  displaynameshort_lang_zhtw:
+  displaynameshort_lang_eses:
+  displaynameshort_lang_esmx:
+  displaynameshort_lang_ruru:
+  displaynameshort_lang_ptpt:
+  displaynameshort_lang_ptbr:
+  displaynameshort_lang_itit:
+  displaynameshort_lang_unk:
+  displaynameshort_lang_mask: '0'

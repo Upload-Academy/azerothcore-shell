@@ -1,0 +1,26 @@
+itemdisplayinfo_dbc:
+  id: '0'
+  modelname_1:
+  modelname_2:
+  modeltexture_1:
+  modeltexture_2:
+  inventoryicon_1:
+  inventoryicon_2:
+  geosetgroup_1: '0'
+  geosetgroup_2: '0'
+  geosetgroup_3: '0'
+  flags: '0'
+  spellvisualid: '0'
+  groupsoundindex: '0'
+  helmetgeosetvis_1: '0'
+  helmetgeosetvis_2: '0'
+  texture_1:
+  texture_2:
+  texture_3:
+  texture_4:
+  texture_5:
+  texture_6:
+  texture_7:
+  texture_8:
+  itemvisual: '0'
+  particlecolorid: '0'

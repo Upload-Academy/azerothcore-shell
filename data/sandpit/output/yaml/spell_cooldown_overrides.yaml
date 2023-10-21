@@ -1,0 +1,6 @@
+spell_cooldown_overrides:
+  id:
+  recoverytime: '0'
+  categoryrecoverytime: '0'
+  startrecoverytime: '0'
+  startrecoverycategory: '0'

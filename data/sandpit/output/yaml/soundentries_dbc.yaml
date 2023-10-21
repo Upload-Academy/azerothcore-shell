@@ -1,0 +1,31 @@
+soundentries_dbc:
+  id: '0'
+  soundtype: '0'
+  name:
+  file_1:
+  file_2:
+  file_3:
+  file_4:
+  file_5:
+  file_6:
+  file_7:
+  file_8:
+  file_9:
+  file_10:
+  freq_1: '0'
+  freq_2: '0'
+  freq_3: '0'
+  freq_4: '0'
+  freq_5: '0'
+  freq_6: '0'
+  freq_7: '0'
+  freq_8: '0'
+  freq_9: '0'
+  freq_10: '0'
+  directorybase:
+  volumefloat: '0'
+  flags: '0'
+  mindistance: '0'
+  distancecutoff: '0'
+  eaxdef: '0'
+  soundentriesadvancedid: '0'

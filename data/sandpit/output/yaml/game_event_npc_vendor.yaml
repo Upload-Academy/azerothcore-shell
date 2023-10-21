@@ -1,0 +1,8 @@
+game_event_npc_vendor:
+  evententry:
+  guid: '0'
+  slot: '0'
+  item: '0'
+  maxcount: '0'
+  incrtime: '0'
+  extendedcost: '0'

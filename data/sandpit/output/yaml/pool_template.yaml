@@ -1,0 +1,4 @@
+pool_template:
+  entry: '0'
+  max_limit: '0'
+  description:

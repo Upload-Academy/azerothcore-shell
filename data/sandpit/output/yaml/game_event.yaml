@@ -1,0 +1,11 @@
+game_event:
+  evententry:
+  start_time: '2000-01-01 17:00:00'
+  end_time: '2000-01-01 17:00:00'
+  occurence: '5184000'
+  length: '2592000'
+  holiday: '0'
+  holidaystage: '0'
+  description:
+  world_event: '0'
+  announce: '2'

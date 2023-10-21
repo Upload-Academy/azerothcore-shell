@@ -1,0 +1,7 @@
+creature_equip_template:
+  creatureid: '0'
+  id: '1'
+  itemid1: '0'
+  itemid2: '0'
+  itemid3: '0'
+  verifiedbuild:

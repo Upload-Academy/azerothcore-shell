@@ -1,0 +1,10 @@
+quest_poi:
+  questid: '0'
+  id: '0'
+  objectiveindex: '0'
+  mapid: '0'
+  worldmapareaid: '0'
+  floor: '0'
+  priority: '0'
+  flags: '0'
+  verifiedbuild:

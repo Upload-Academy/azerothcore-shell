@@ -1,0 +1,91 @@
+npc_text:
+  id: '0'
+  text0_0:
+  text0_1:
+  broadcasttextid0: '0'
+  lang0: '0'
+  probability0: '0'
+  em0_0: '0'
+  em0_1: '0'
+  em0_2: '0'
+  em0_3: '0'
+  em0_4: '0'
+  em0_5: '0'
+  text1_0:
+  text1_1:
+  broadcasttextid1: '0'
+  lang1: '0'
+  probability1: '0'
+  em1_0: '0'
+  em1_1: '0'
+  em1_2: '0'
+  em1_3: '0'
+  em1_4: '0'
+  em1_5: '0'
+  text2_0:
+  text2_1:
+  broadcasttextid2: '0'
+  lang2: '0'
+  probability2: '0'
+  em2_0: '0'
+  em2_1: '0'
+  em2_2: '0'
+  em2_3: '0'
+  em2_4: '0'
+  em2_5: '0'
+  text3_0:
+  text3_1:
+  broadcasttextid3: '0'
+  lang3: '0'
+  probability3: '0'
+  em3_0: '0'
+  em3_1: '0'
+  em3_2: '0'
+  em3_3: '0'
+  em3_4: '0'
+  em3_5: '0'
+  text4_0:
+  text4_1:
+  broadcasttextid4: '0'
+  lang4: '0'
+  probability4: '0'
+  em4_0: '0'
+  em4_1: '0'
+  em4_2: '0'
+  em4_3: '0'
+  em4_4: '0'
+  em4_5: '0'
+  text5_0:
+  text5_1:
+  broadcasttextid5: '0'
+  lang5: '0'
+  probability5: '0'
+  em5_0: '0'
+  em5_1: '0'
+  em5_2: '0'
+  em5_3: '0'
+  em5_4: '0'
+  em5_5: '0'
+  text6_0:
+  text6_1:
+  broadcasttextid6: '0'
+  lang6: '0'
+  probability6: '0'
+  em6_0: '0'
+  em6_1: '0'
+  em6_2: '0'
+  em6_3: '0'
+  em6_4: '0'
+  em6_5: '0'
+  text7_0:
+  text7_1:
+  broadcasttextid7: '0'
+  lang7: '0'
+  probability7: '0'
+  em7_0: '0'
+  em7_1: '0'
+  em7_2: '0'
+  em7_3: '0'
+  em7_4: '0'
+  em7_5: '0'
+  verifiedbuild:
