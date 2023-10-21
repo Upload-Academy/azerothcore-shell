@@ -4,7 +4,9 @@
 # If you do run it several times, then things should be OK,
 # but there's not guarantee.
 
-source config.sh
+export WHERE_WAS_I=$(pwd)
+
+source config.main.sh
 
 echo ""
 echo "#########################################################"
@@ -28,7 +30,7 @@ sudo apt autoremove
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow from 0.0.0.0/0 to any port 22 # SSH - restrict the crap out this!!
-sudo ufw allow from 0.0.0.0/0 to any port 8085 # world server
+sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
 sudo ufw enable
@@ -41,7 +43,7 @@ echo ""
 
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
-sudo mysql < sql/00-initial-database-setup.sql
+sudo mysql < sql/M-00-initial-database-setup.main.sql
 
 # Prevent the need to type the password all the time
 cat <<EOF > $HOME/.my.cnf 
@@ -62,7 +64,7 @@ then
   git pull
   cd $WHERE_WAS_I
 else
-  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch master --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 fi
 
 echo ""
@@ -118,8 +120,12 @@ echo ""
 # custom changes we'll end up overriding...
 if [ ! -f "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf" ];
 then
-  cp confs/worldserver.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/"
+  cp confs/worldserver.main.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
   echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+  echo "WorldServerPort = $AZEROTHCORE_SERVER_BIND_PORT" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+  echo "WorldDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;acore_world\"" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;acore_auth\"" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+  echo "CharacterDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;acore_characters\"" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
 fi
 
 if [ ! -f "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf" ];
@@ -150,8 +156,13 @@ echo ""
 echo "===================================================================================="
 echo ""
 
-read -p "Press any key to run worldserver..."
+# Shutdown an existing server, if applicable
+sudo systemctl stop azerothcore-world-server.service
 
+# Make the Console is enabled first
+sed -i 's/Console.Enable = 0/Console.Enable = 1/g' "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/worldserver.conf"
+
+read -p "Press any key to run worldserver..."
 cd "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/"
 ./worldserver
 
@@ -161,9 +172,11 @@ cd $WHERE_WAS_I
 
 # Additional SQL steps
 # Configure our realm related information
+mysql -u acore acore_auth -e "UPDATE realmlist SET name = '${AZEROTHCORE_SERVER_REALM_NAME}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET address = '${AZEROTHCORE_SERVER_REMOTE_ENDPOINT}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localAddress = '${AZEROTHCORE_SERVER_BIND_IP}' WHERE id = 1;"
 mysql -u acore acore_auth -e "UPDATE realmlist SET localSubnetMask = '${AZEROTHCORE_SERVER_LOCAL_SUBNETMASK}' WHERE id = 1;"
+mysql -u acore acore_auth -e "UPDATE realmlist SET port = '${AZEROTHCORE_SERVER_BIND_PORT}' WHERE id = 1;"
 
 # Configure our world content
 source import_sql.sh
@@ -175,6 +188,8 @@ Description=AzerothCore 3.3.5a World Server
 After=network.target
 
 [Service]
+User=superman
+Group=superman
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/worldserver.pid
@@ -191,6 +206,8 @@ Description=AzerothCore 3.3.5a Auth Server
 After=network.target
 
 [Service]
+User=superman
+Group=superman
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/authserver.pid
