@@ -1,5 +1,0 @@
-taxipath_dbc:
-  id: '0'
-  fromtaxinode: '0'
-  totaxinode: '0'
-  cost: '0'

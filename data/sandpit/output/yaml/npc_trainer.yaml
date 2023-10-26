@@ -1,8 +1,0 @@
-npc_trainer:
-  id: '0'
-  spellid: '0'
-  moneycost: '0'
-  reqskillline: '0'
-  reqskillrank: '0'
-  reqlevel: '0'
-  reqspell: '0'

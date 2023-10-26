@@ -1,7 +1,0 @@
-game_event_condition:
-  evententry:
-  condition_id: '0'
-  req_num: '0'
-  max_world_state_field: '0'
-  done_world_state_field: '0'
-  description:

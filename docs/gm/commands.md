@@ -13,3 +13,5 @@ useful GM commands I use over and over during development.
     - `.quest remove #id` is a useful one for quest development
 - `.gobject add #id`
 - `.gobject delete #guid`
+- `.setskill #id #level #level` (?)
+- `.setskill 762 300 300` (riding 300)

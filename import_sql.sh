@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export WORLD_DATABASE="acore_world_ptr"
+export CHARACTERS_DATABASE="acore_characters_ptr"
+
 function import() {
     imported_name="sql/imported/$(basename $1)"
     if [ -e $imported_name ];
@@ -9,7 +12,7 @@ function import() {
     fi
 
     echo "Importing: $1"
-    mysql -u acore acore_world < $1
+    mysql -u acore $WORLD_DATABASE < $1
     if [ $? -gt 0 ];
     then
         echo "MySQL import of '${1}' failed. Stopping."
@@ -23,28 +26,22 @@ function import() {
 # We _always_ do a backup of the database before we
 # import _any_ SQL
 echo "Backing up database."
-mkdir -p $HOME/backups/database/acore_world/
+mkdir -p $HOME/backups/database/${WORLD_DATABASE}/
 NOW=$(date '+%Y%m%d_%H%M%S')
-mysqldump -u acore acore_world > "${HOME}/backups/database/acore_world/${NOW}.sql"
+mysqldump -u acore $WORLD_DATABASE > "${HOME}/backups/database/${WORLD_DATABASE}/${NOW}.sql"
 if [ $? -gt 0 ]; then echo "Backing up of database failed! Stopping."; exit 1; fi
 
 # These are manually written SQL files and are not
 # directly written to by Python or any other scripts
-import "sql/M-01-quality-of-life.sql"
-import "sql/M-02-starting-mount-accessiblity.sql"
-import "sql/M-03-better-herb-spawns.sql"
-import "sql/M-04-better-mining-spawns.sql"
-import "sql/M-05-various-spawnable-objects.sql"
-import "sql/M-06-various-spawnable-npcs.sql"
-import "sql/M-07-the-argent-dawn.DELETE.sql"
+import "sql/m-01-quality-of-life.sql"
+import "sql/m-02-starting-mount-accessiblity.sql"
+import "sql/m-03-better-herb-spawns.sql"
+import "sql/m-04-better-mining-spawns.sql"
+import "sql/m-05-various-spawnable-objects.sql"
+import "sql/m-06-various-spawnable-npcs.sql"
 
 # These are automatically generated SQL files and as
-# such, we have to use wildcards to find and apply them
-
-# VG = Vendor Groups
-for sqlfile in $(ls sql/A-VG-*.sql); do import $sqlfile; done
-
-# AV = Alliance Vanguard
-# Must purge first.
-for sqlfile in $(ls sql/A-AV-*-purge-all.sql); do import $sqlfile; done
-for sqlfile in $(ls sql/A-AV-*.sql); do import $sqlfile; done
+# such, we have to use wildcards to find and apply them.
+# 
+# We ignore anything that starts with `m-*`.
+for sqlfile in $(ls sql/*.sql | grep -v 'm-*'); do import $sqlfile; done

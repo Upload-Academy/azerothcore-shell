@@ -1,8 +1,0 @@
-script_waypoint:
-  entry: '0'
-  pointid: '0'
-  location_x: '0'
-  location_y: '0'
-  location_z: '0'
-  waittime: '0'
-  point_comment:

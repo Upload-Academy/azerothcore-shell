@@ -1,8 +1,0 @@
-areatrigger_teleport:
-  id: '0'
-  name:
-  target_map: '0'
-  target_position_x: '0'
-  target_position_y: '0'
-  target_position_z: '0'
-  target_orientation: '0'

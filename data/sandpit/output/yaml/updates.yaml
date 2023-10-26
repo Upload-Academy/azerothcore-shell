@@ -1,6 +1,0 @@
-updates:
-  name:
-  hash:
-  state: released
-  timestamp: current_timestamp()
-  speed: '0'

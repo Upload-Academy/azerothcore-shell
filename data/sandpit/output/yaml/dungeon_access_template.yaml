@@ -1,8 +1,0 @@
-dungeon_access_template:
-  id:
-  map_id:
-  difficulty: '0'
-  min_level:
-  max_level:
-  min_avg_item_level:
-  comment:

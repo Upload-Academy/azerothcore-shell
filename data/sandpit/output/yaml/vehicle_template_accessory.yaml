@@ -1,8 +1,0 @@
-vehicle_template_accessory:
-  entry: '0'
-  accessory_entry: '0'
-  seat_id: '0'
-  minion: '0'
-  description:
-  summontype: '6'
-  summontimer: '30000'
