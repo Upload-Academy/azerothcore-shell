@@ -1,8 +1,5 @@
 #!/bin/bash
 
-export WORLD_DATABASE="acore_world_ptr"
-export CHARACTERS_DATABASE="acore_characters_ptr"
-
 function import() {
     imported_name="sql/imported/$(basename $1)"
     if [ -e $imported_name ];
@@ -12,7 +9,7 @@ function import() {
     fi
 
     echo "Importing: $1"
-    mysql -u acore $WORLD_DATABASE < $1
+    mysql -u acore $AZEROTHCORE_WORLD_DATABASE < $1
     if [ $? -gt 0 ];
     then
         echo "MySQL import of '${1}' failed. Stopping."
@@ -26,9 +23,9 @@ function import() {
 # We _always_ do a backup of the database before we
 # import _any_ SQL
 echo "Backing up database."
-mkdir -p $HOME/backups/database/${WORLD_DATABASE}/
+mkdir -p $HOME/backups/database/${AZEROTHCORE_WORLD_DATABASE}/
 NOW=$(date '+%Y%m%d_%H%M%S')
-mysqldump -u acore $WORLD_DATABASE > "${HOME}/backups/database/${WORLD_DATABASE}/${NOW}.sql"
+mysqldump -u acore $AZEROTHCORE_WORLD_DATABASE > "${HOME}/backups/database/${AZEROTHCORE_WORLD_DATABASE}/${NOW}.sql"
 if [ $? -gt 0 ]; then echo "Backing up of database failed! Stopping."; exit 1; fi
 
 # These are manually written SQL files and are not
