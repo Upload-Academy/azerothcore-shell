@@ -44,7 +44,7 @@ echo ""
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
 # sudo mysql < sql/m-00-initial-database-setup.main.sql
-sudo mysql "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/create/create_mysql.sql"
+sudo mysql < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/create/create_mysql.sql"
 
 cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_auth/"
 for sqlfile in $(ls *.sql); do sudo mysql acore_auth < $sqlfile; done
