@@ -1,5 +1,5 @@
 
--- 05 Better Mining Node Spawn NUMBERS (not rates!)
+-- Better Mining Node Spawn NUMBERS (not rates!)
 
 -- Current values as of 2023-09-24:
 -- +-------+-----------+---------------------------------------------------------------------------------------+

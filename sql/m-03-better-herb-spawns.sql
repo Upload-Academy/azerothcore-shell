@@ -1,5 +1,5 @@
 
--- 04 Better Herb Node Spawn NUMBERS (not rates!)
+-- Better Herb Node Spawn NUMBERS (not rates!)
 
 -- Structure
 -- gameobject_template.entry -> gameobject.id -> gameobject.guid -> pool_gameobject.guid;

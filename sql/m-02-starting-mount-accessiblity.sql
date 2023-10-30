@@ -24,8 +24,8 @@ SET
 -- 02.3
 -- These are the quest IDs for each faction's riding trainer
 SET
-@ridingTrainerHumanRandalHunterQuest := 90000,
-@ridingTrainerOrcKildarQuest := 90001;
+@ridingTrainerHumanRandalHunterQuest := 91100000,
+@ridingTrainerOrcKildarQuest := 91100001;
 
 -- 03 mount updates for level 10 quest giver/rewarder
 
