@@ -33,7 +33,7 @@ sudo ufw allow from 0.0.0.0/0 to any port 22 # SSH - restrict the crap out this!
 sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
-sudo ufw enable --force enable
+sudo ufw --force enable
 
 echo ""
 echo "#########################################################"
@@ -43,7 +43,19 @@ echo ""
 
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
-sudo mysql < sql/m-00-initial-database-setup.main.sql
+# sudo mysql < sql/m-00-initial-database-setup.main.sql
+sudo mysql "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/create/create_mysql.sql"
+
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_auth/"
+for sqlfile in $(ls *.sql); do sudo mysql acore_auth < $sqlfile; done
+
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_characters/"
+for sqlfile in $(ls *.sql); do sudo mysql acore_characters < $sqlfile; done
+
+cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
+for sqlfile in $(ls *.sql); do sudo mysql acore_world < $sqlfile; done
+
+cd $WHERE_WAS_I
 
 # Prevent the need to type the password all the time
 cat <<EOF > $HOME/.my.cnf 
