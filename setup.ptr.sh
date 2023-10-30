@@ -18,6 +18,22 @@ sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world 
 
 echo ""
 echo "#########################################################"
+echo "# AzerothCore "
+echo "#########################################################"
+echo ""
+
+# Clone AzerothCore
+if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
+then
+  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+  git pull
+  cd $WHERE_WAS_I
+else
+  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+fi
+
+echo ""
+echo "#########################################################"
 echo "# Initialise Database"
 echo "#########################################################"
 echo ""
@@ -35,22 +51,6 @@ cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
 for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_WORLD_DATABASE < $sqlfile; done
 
 cd $WHERE_WAS_I
-
-echo ""
-echo "#########################################################"
-echo "# AzerothCore "
-echo "#########################################################"
-echo ""
-
-# Clone AzerothCore
-if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
-then
-  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-  git pull
-  cd $WHERE_WAS_I
-else
-  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-fi
 
 echo ""
 echo "#########################################################"
