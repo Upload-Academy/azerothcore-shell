@@ -33,7 +33,7 @@ sudo ufw allow from 0.0.0.0/0 to any port 22 # SSH - restrict the crap out this!
 sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world server
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
-sudo ufw enable
+sudo ufw enable --force enable
 
 echo ""
 echo "#########################################################"
@@ -43,7 +43,7 @@ echo ""
 
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
-sudo mysql < sql/M-00-initial-database-setup.main.sql
+sudo mysql < sql/m-00-initial-database-setup.main.sql
 
 # Prevent the need to type the password all the time
 cat <<EOF > $HOME/.my.cnf 
@@ -141,7 +141,7 @@ echo "#########################################################"
 echo ""
 
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
-cp confs/modules/*.conf "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
+cp confs/modules/*.conf.dist "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 
 # Now we need to run the worldserver so that the database is populated
 echo ""
