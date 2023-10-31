@@ -16,8 +16,10 @@ echo ""
 
 # Install the required packages (requires root)
 # (This is the MariaDB set of packages)
+# This disables dumb TUI popups, preventing automated installs
+export DEBIAN_FRONTEND=noninteractive
 sudo apt update
-sudo apt install -y git cmake make gcc g++ clang libssl-dev libbz2-dev libreadline-dev libncurses-dev libboost-all-dev mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat unzip ufw
+sudo apt install -y git cmake make gcc g++ clang libssl-dev libbz2-dev libreadline-dev libncurses-dev libboost-all-dev mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat unzip ufw python3-venv net-tools
 
 # Install extra nice to have
 sudo apt install -y fail2ban lsof
@@ -61,6 +63,9 @@ echo ""
 # NOTE: you should probably lock down MySQL, especially the root user
 # sudo mysql < sql/m-00-initial-database-setup.main.sql
 
+# Obviously need to make sure the server is active
+sudo systemctl restart mariadb
+
 if [ ! -f "./database.create.lock" ];
 then
   echo "Creating the databases..."
@@ -72,30 +77,30 @@ fi
 
 if [ ! -f "./database.${AZEROTHCORE_AUTH_DATABASE}.lock" ];
 then
+  touch "./database.${AZEROTHCORE_AUTH_DATABASE}.lock"
   echo "Creating the auth tables..."
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_auth/"
   for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_AUTH_DATABASE < $sqlfile; done
-  touch "./database.${AZEROTHCORE_AUTH_DATABASE}.lock"
 else
   echo "Auth tables already created, skipping..."
 fi
 
 if [ ! -f "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock" ];
 then
+  touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
   echo "Creating the character tables..."
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_characters/"
   for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < $sqlfile; done
-  touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
 else
   echo "Character tables already created, skipping..."
 fi
 
 if [ ! -f "./database.${AZEROTHCORE_WORLD_DATABASE}.lock" ];
 then
+  touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
   echo "Creating the world tables..."
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
   for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_WORLD_DATABASE < $sqlfile; done
-  touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
 else
   echo "World tables already created, skipping..."
 fi
@@ -114,17 +119,7 @@ echo "# AzerothCore - Modules"
 echo "#########################################################"
 echo ""
 
-# Pull and "install" the modules we want to compile in
-rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"; git clone --depth 1 https://github.com/milestorme/mod-solo-lfg "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"
-rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"; git clone --depth 1 https://github.com/azerothcore/mod-solocraft.git "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"
-
-# Apply the solo-lfg patch to our core's code
-cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-git apply "modules/mod-solo-lfg/lfg-solo.patch" # needed core patch
-cd $WHERE_WAS_I
-
-# Apply the SQL required for mod-solocraft
-sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
+source setup.modules.sh
 
 echo ""
 echo "#########################################################"
@@ -260,6 +255,16 @@ ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/authserver
 
 [Install]
 WantedBy=multi-user.target
+EOF
+
+# This ensures the admin group, of which the user installing WoS should be a member,
+# can manage the auth and world server systemd services without a password. This is
+# required for the scheduled living-world scripts.
+sudo cat <<EOF > /etc/sudoers.d/999-wos 
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl start azerothcore-world-server.service
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl start azerothcore-auth-server.service
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl stop azerothcore-world-server.service
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl stop azerothcore-auth-server.service
 EOF
 
 # Move the service files into place

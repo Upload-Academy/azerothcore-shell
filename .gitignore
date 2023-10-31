@@ -1,3 +1,4 @@
 *.pyo
 *.pyc
 venv/
+living-world.*.sh

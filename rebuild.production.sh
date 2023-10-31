@@ -6,7 +6,7 @@
 
 export WHERE_WAS_I=$(pwd)
 
-source config.ptr.sh
+source config.production.sh
 
 # Clone AzerothCore
 if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
@@ -42,4 +42,4 @@ cd $WHERE_WAS_I
 source import_sql.sh
 
 # Restart the PTR
-sudo systemctl restart azerothcore-ptr-world-server.service
+sudo systemctl restart azerothcore-world-server.service

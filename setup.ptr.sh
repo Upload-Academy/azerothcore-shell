@@ -44,20 +44,20 @@ echo ""
 
 if [ ! -f "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock" ];
 then
+  touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
   echo "Creating the character tables..."
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_characters/"
   for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < $sqlfile; done
-  touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
 else
   echo "Character tables already created, skipping..."
 fi
 
 if [ ! -f "./database.${AZEROTHCORE_WORLD_DATABASE}.lock" ];
 then
+  touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
   echo "Creating the world tables..."
   cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
   for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_WORLD_DATABASE < $sqlfile; done
-  touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
 else
   echo "World tables already created, skipping..."
 fi
@@ -70,17 +70,7 @@ echo "# AzerothCore - Modules"
 echo "#########################################################"
 echo ""
 
-# Pull and "install" the modules we want to compile in
-rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"; git clone --depth 1 https://github.com/milestorme/mod-solo-lfg "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solo-lfg"
-rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"; git clone --depth 1 https://github.com/azerothcore/mod-solocraft.git "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft"
-
-# Apply the solo-lfg patch to our core's code
-cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-git apply "modules/mod-solo-lfg/lfg-solo.patch" # needed core patch
-cd $WHERE_WAS_I
-
-# Apply the SQL required for mod-solocraft
-sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
+source setup.modules.sh
 
 echo ""
 echo "#########################################################"
@@ -187,6 +177,14 @@ ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver
 
 [Install]
 WantedBy=multi-user.target
+EOF
+
+# This ensures the admin group, of which the user installing WoS should be a member,
+# can manage the auth and world server systemd services without a password. This is
+# required for the scheduled living-world scripts.
+sudo cat <<EOF > /etc/sudoers.d/999-wos-ptr 
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl start azerothcore-ptr-world-server.service
+%admin ALL = (root) NOPASSWD: /usr/bin/systemctl stop azerothcore-ptr-world-server.service
 EOF
 
 # Move the service files into place
