@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $WHERE_WAS_I
+
 # Create systemd .service files
 cat <<EOF > azerothcore-world-server.service
 [Unit]

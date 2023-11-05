@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd $WHERE_WAS_I
+
 function import() {
     imported_name="sql/imported/$(basename $1)"
     if [ -e $imported_name ];

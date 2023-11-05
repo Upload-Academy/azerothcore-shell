@@ -6,6 +6,8 @@ echo "# Initialise Database"
 echo "#########################################################"
 echo ""
 
+cd $WHERE_WAS_I
+
 # Prepare MariaDB server for AzerothCore (need to be root)
 # NOTE: you should probably lock down MySQL, especially the root user
 # sudo mysql < sql/m-00-initial-database-setup.main.sql

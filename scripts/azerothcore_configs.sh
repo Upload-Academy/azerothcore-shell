@@ -6,6 +6,8 @@ echo "# Server Configuration Files"
 echo "#########################################################"
 echo ""
 
+cd $WHERE_WAS_I
+
 # Move our configurations in place
 # ... but only if they don't already exist, because there might be
 # custom changes we'll end up overriding...

@@ -6,6 +6,8 @@ echo "# First run of World Server"
 echo "#########################################################"
 echo ""
 
+cd $WHERE_WAS_I
+
 mkdir -p "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 cp confs/modules/*.conf.dist "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/modules/"
 
