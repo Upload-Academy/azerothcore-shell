@@ -20,3 +20,5 @@ then
   # Extract them to the server's data directory
   unzip "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data/v16.zip" -d "${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/data"
 fi
+
+cd $WHERE_WAS_I

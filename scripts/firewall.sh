@@ -13,3 +13,5 @@ sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world 
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 sudo ufw allow from 0.0.0.0/0 to any port 3306 # MariaDB server
 sudo ufw --force enable
+
+cd $WHERE_WAS_I

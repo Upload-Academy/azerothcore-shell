@@ -17,3 +17,5 @@ cmake ../ -DCMAKE_INSTALL_PREFIX="${HOME}/${AZEROTHCORE_SERVER_DIR}/" \
 # make/compile our project and install it to AZEROTHCORE_SERVER_DIR
 make -j $(nproc --all)
 make install
+
+cd $WHERE_WAS_I

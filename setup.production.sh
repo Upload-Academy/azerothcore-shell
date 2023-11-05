@@ -4,9 +4,9 @@
 # If you do run it several times, then things should be OK,
 # but there's not guarantee.
 
+source config.production.sh
 export WHERE_WAS_I=$(pwd)
 
-. config.production.sh
 . scripts/os.sh
 . scripts/firewall.sh
 . scripts/azerothcore_source.sh

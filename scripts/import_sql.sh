@@ -44,3 +44,5 @@ import "sql/m-06-various-spawnable-npcs.sql"
 # 
 # We ignore anything that starts with `m-*`.
 for sqlfile in $(ls sql/*.sql | grep -v 'm-*'); do import $sqlfile; done
+
+cd $WHERE_WAS_I

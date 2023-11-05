@@ -16,3 +16,5 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -yq fail2ban lsof net-tools
 
 # A bit of clean up
 sudo DEBIAN_FRONTEND=noninteractive apt autoremove
+
+cd $WHERE_WAS_I

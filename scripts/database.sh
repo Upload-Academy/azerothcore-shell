@@ -61,3 +61,5 @@ cat <<EOF > $HOME/.my.cnf
 [client]
 password=acore
 EOF
+
+cd $WHERE_WAS_I

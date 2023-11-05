@@ -28,3 +28,5 @@ then
 fi
 
 echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${HOME}/${AZEROTHCORE_SERVER_DIR}/etc/authserver.conf"
+
+cd $WHERE_WAS_I

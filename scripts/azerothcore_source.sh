@@ -15,3 +15,5 @@ then
 else
   git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
 fi
+
+cd $WHERE_WAS_I

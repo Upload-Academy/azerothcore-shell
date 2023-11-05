@@ -59,3 +59,5 @@ sudo systemctl start azerothcore-auth-server.service
 
 sudo systemctl enable azerothcore-world-server.service
 sudo systemctl start azerothcore-world-server.service
+
+cd $WHERE_WAS_I
