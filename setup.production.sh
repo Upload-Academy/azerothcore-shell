@@ -7,7 +7,7 @@
 export WHERE_WAS_I=$(pwd)
 
 . config.production.sh
-. script/os.sh
+. scripts/os.sh
 . scripts/firewall.sh
 . scripts/azerothcore.sh
 . scripts/database.sh
