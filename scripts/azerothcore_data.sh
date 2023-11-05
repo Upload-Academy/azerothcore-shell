@@ -2,12 +2,9 @@
 
 echo ""
 echo "#########################################################"
-echo "# AzerothCore - compile all"
+echo "# AzerothCore - Data Files"
 echo "#########################################################"
 echo ""
-
-# Include our compile script (including modules)
-source compile.sh
 
 # Return HOME
 cd $WHERE_WAS_I
