@@ -44,7 +44,7 @@ Primarily, I want to solve some critical issues playing WoW solo, but *without s
 1. Making professions and gathering actually worth it;
 1. And more...
 
-So I wanted to make a project that brings to gether AzerothCore, some modules, some custom code (as a module), and a balanced configuration, so that others can experience my solution to this.
+So I wanted to make a project that brings together AzerothCore, some modules, some custom code (as a module), and a balanced configuration, so that others can experience my solution to this.
 
 ## OK, how do I get the ball rolling?
 
