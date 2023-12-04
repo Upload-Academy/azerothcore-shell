@@ -26,13 +26,9 @@ function sql_raw {
     mysql -u acore $1 -e "${1}"
 }
 
-module mod-solocraft https://github.com/azerothcore/mod-solocraft.git
-sql $AZEROTHCORE_CHARACTERS_DATABASE "modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
+module mod-solo-fg https://github.com/milestorme/mod-solo-lfg.git
+patch modules/mod-solo-lfg/lfg-solo.patch 
 
-module mod-solo-lfg https://github.com/milestorme/mod-solo-lfg.git
-patch modules/mod-solo-lfg/lfg-solo.patch
-
-module mod-autobalance https://github.com/azerothcore/mod-autobalance.git
 module mod-eluna https://github.com/azerothcore/mod-eluna.git
 
 cd $WHERE_WAS_I

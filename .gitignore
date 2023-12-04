@@ -2,3 +2,4 @@
 *.pyc
 venv/
 living-world.*.sh
+sql/imported

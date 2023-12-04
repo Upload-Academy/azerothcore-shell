@@ -33,21 +33,18 @@ export AZEROTHCORE_SERVER_REMOTE_ENDPOINT="127.0.0.1"
 # address (or DNS that resolve to it.)
 export AZEROTHCORE_SERVER_BIND_IP="127.0.0.1"
 
-# !!!
-# You can probably ignore everything below this point
-# !!!
-
-export AZEROTHCORE_SOURCE_DIR="azerothcore"
-export AZEROTHCORE_SOURCE_BRANCH="master"
-export AZEROTHCORE_SERVER_DIR="azerothcore-server"
-export AZEROTHCORE_SERVER_BACKUPS_DIR="azerothcore-server-backups"
-export AZEROTHCORE_SERVER_REALM_NAME="AzerothCore PTR"
+# You can probably ignore these flags
+export AZEROTHCORE_SOURCE_DIR=azerothcore
+export AZEROTHCORE_SOURCE_BRANCH=master
+export AZEROTHCORE_SERVER_DIR=azerothcore-server
+export AZEROTHCORE_SERVER_BACKUPS_DIR=azerothcore-server-backups
+export AZEROTHCORE_SERVER_REALM_NAME=AzerothCore
 export AZEROTHCORE_SERVER_BIND_PORT=8085
-export AZEROTHCORE_SERVER_LOCAL_SUBNETMASK="255.255.255.0"
+export AZEROTHCORE_SERVER_LOCAL_SUBNETMASK=255.255.255.0
 export AZEROTHCORE_AUTH_DATABASE="acore_auth"
-export AZEROTHCORE_WORLD_DATABASE="acore_world_ptr"
-export AZEROTHCORE_CHARACTERS_DATABASE="acore_characters_ptr"
+export AZEROTHCORE_WORLD_DATABASE="acore_world"
+export AZEROTHCORE_CHARACTERS_DATABASE="acore_characters"
 export DB_CREATE=true
-export DB_MANAGE_AUTH=false
+export DB_MANAGE_AUTH=true
 export DB_MANAGE_WORLD=true
 export DB_MANAGE_CHARACTERS=true 

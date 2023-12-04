@@ -42,12 +42,15 @@ EOF
 # This ensures the admin group, of which the user installing WoS should be a member,
 # can manage the auth and world server systemd services without a password. This is
 # required for the scheduled living-world scripts.
-sudo cat <<EOF > /etc/sudoers.d/999-wos 
+cat <<EOF > 999-wos 
 %admin ALL = (root) NOPASSWD: /usr/bin/systemctl start azerothcore-world-server.service
 %admin ALL = (root) NOPASSWD: /usr/bin/systemctl start azerothcore-auth-server.service
 %admin ALL = (root) NOPASSWD: /usr/bin/systemctl stop azerothcore-world-server.service
 %admin ALL = (root) NOPASSWD: /usr/bin/systemctl stop azerothcore-auth-server.service
 EOF
+
+sudo mv 999-wos /etc/sudoers.d/
+sudo chown root:root /etc/sudoers.d/999-wos
 
 # Move the service files into place
 sudo mv azerothcore-world-server.service /etc/systemd/system/azerothcore-world-server.service

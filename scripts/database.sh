@@ -15,43 +15,55 @@ cd $WHERE_WAS_I
 # Obviously need to make sure the server is active
 sudo systemctl restart mariadb
 
-if [ ! -f "./database.create.lock" ];
+if [ "$DB_CREATE" == true ];
 then
-  echo "Creating the databases..."
-  sudo mysql < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/create/create_mysql.sql"
-  touch ./database.create.lock
-else
-  echo "Database already created, skiping..."
+  if [ ! -f "./database.create.lock" ];
+  then
+    echo "Creating the databases..."
+    sudo mysql < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/create/create_mysql.sql"
+    touch ./database.create.lock
+  else
+    echo "Database already created, skiping..."
+  fi
 fi
 
-if [ ! -f "./database.${AZEROTHCORE_AUTH_DATABASE}.lock" ];
+if [ "$DB_MANAGE_AUTH" == true ];
 then
-  touch "./database.${AZEROTHCORE_AUTH_DATABASE}.lock"
-  echo "Creating the auth tables..."
-  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_auth/"
-  for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_AUTH_DATABASE < $sqlfile; done
-else
-  echo "Auth tables already created, skipping..."
+  if [ ! -f "./database.${AZEROTHCORE_AUTH_DATABASE}.lock" ];
+  then
+    touch "./database.${AZEROTHCORE_AUTH_DATABASE}.lock"
+    echo "Creating the auth tables..."
+    cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_auth/"
+    for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_AUTH_DATABASE < $sqlfile; done
+  else
+    echo "Auth tables already created, skipping..."
+  fi
 fi
 
-if [ ! -f "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock" ];
+if [ "$DB_MANAGE_CHARACTERS" == true ];
 then
-  touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
-  echo "Creating the character tables..."
-  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_characters/"
-  for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < $sqlfile; done
-else
-  echo "Character tables already created, skipping..."
+  if [ ! -f "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock" ];
+  then
+    touch "./database.${AZEROTHCORE_CHARACTERS_DATABASE}.lock"
+    echo "Creating the character tables..."
+    cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_characters/"
+    for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_CHARACTERS_DATABASE < $sqlfile; done
+  else
+    echo "Character tables already created, skipping..."
+  fi
 fi
 
-if [ ! -f "./database.${AZEROTHCORE_WORLD_DATABASE}.lock" ];
+if [ "$DB_MANAGE_WORLD" == true ];
 then
-  touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
-  echo "Creating the world tables..."
-  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
-  for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_WORLD_DATABASE < $sqlfile; done
-else
-  echo "World tables already created, skipping..."
+  if [ ! -f "./database.${AZEROTHCORE_WORLD_DATABASE}.lock" ];
+  then
+    touch "./database.${AZEROTHCORE_WORLD_DATABASE}.lock"
+    echo "Creating the world tables..."
+    cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}/data/sql/base/db_world/"
+    for sqlfile in $(ls *.sql); do sudo mysql $AZEROTHCORE_WORLD_DATABASE < $sqlfile; done
+  else
+    echo "World tables already created, skipping..."
+  fi
 fi
 
 cd $WHERE_WAS_I
