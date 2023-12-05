@@ -44,7 +44,27 @@ export AZEROTHCORE_SERVER_LOCAL_SUBNETMASK=255.255.255.0
 export AZEROTHCORE_AUTH_DATABASE="acore_auth"
 export AZEROTHCORE_WORLD_DATABASE="acore_world"
 export AZEROTHCORE_CHARACTERS_DATABASE="acore_characters"
+
+# Modules
+export AZEROTHCORE_MODULES=(
+    "module mod-eluna master https://github.com/azerothcore/mod-eluna.git"
+    "module mod-autobalance master https://github.com/azerothcore/mod-autobalance.git"
+    "module mod-solo-lfg master https://github.com/azerothcore/mod-solo-lfg.git"
+)
+
+# Behaviour flags
 export DB_CREATE=true
 export DB_MANAGE_AUTH=true
 export DB_MANAGE_WORLD=true
 export DB_MANAGE_CHARACTERS=true 
+export RUN_OS=true
+export RUN_FIREWALL=true
+export RUN_AZEROTHCORE_SOURCE=true
+export RUN_AZEROTHCORE_DATABASE=true
+export RUN_AZEROTHCORE_DATA=true
+export RUN_AZEROTHCORE_MODULES=true
+export RUN_AZEROTHCORE_COMPILE=true
+export RUN_AZEROTHCORE_CONFIGS=true
+export RUN_AZEROTHCORE_WORLDSERVER_RUN=true
+export RUN_IMPORT_SQL=true
+export RUN_SYSTEMD=true

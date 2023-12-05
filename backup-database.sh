@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source config.production.sh
+source $1
 
 echo "Backing up database."
 mkdir -p "${HOME}/backups/database/${AZEROTHCORE_WORLD_DATABASE}/"

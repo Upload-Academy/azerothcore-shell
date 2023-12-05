@@ -9,7 +9,7 @@ echo ""
 
 function module {
     rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}"
-    git clone --depth 1 $2 "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}"
+    git clone --depth 1 --branch $2 $3 "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}"
 }
 
 function patch {
@@ -26,9 +26,6 @@ function sql_raw {
     mysql -u acore $1 -e "${1}"
 }
 
-module mod-solo-fg https://github.com/milestorme/mod-solo-lfg.git
-patch modules/mod-solo-lfg/lfg-solo.patch 
-
-module mod-eluna https://github.com/azerothcore/mod-eluna.git
+for module in $AZEROTHCORE_MODULES; do eval $module; done
 
 cd $WHERE_WAS_I

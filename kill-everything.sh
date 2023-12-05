@@ -7,9 +7,8 @@ echo ""
 echo "NOW is your chance to bail: hit Control + C if running this script was a mistake..."
 read -p "(or press any key to continue...)" -n1 -s
 
+source $1
 export WHERE_WAS_I=$(pwd)
-
-source config.production.sh
 
 # Stop services
 sudo systemctl disable azerothcore-auth-server.service
