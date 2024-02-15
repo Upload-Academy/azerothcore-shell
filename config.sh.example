@@ -33,7 +33,16 @@ export AZEROTHCORE_SERVER_REMOTE_ENDPOINT="127.0.0.1"
 # address (or DNS that resolve to it.)
 export AZEROTHCORE_SERVER_BIND_IP="127.0.0.1"
 
-# You can probably ignore these flags
+# This defines the parent directory that will contain everything
+# that's built, installed, and more. The end result is a path
+# like "/home/mike/azerothcore_servers/...". You can change
+# this if you don't like that path name.
+export AZEROTHCORE_SOURCE_PARENT_DIR=azerothcore_servers
+
+# !!!
+# You can probably ignore everything below this point
+# !!!
+
 export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SOURCE_BRANCH=master
 export AZEROTHCORE_SERVER_DIR=azerothcore-server

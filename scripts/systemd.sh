@@ -14,8 +14,8 @@ Group=superman
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/worldserver.pid
-WorkingDirectory=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/
-ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver
+WorkingDirectory=${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bin/
+ExecStart=${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bin/worldserver
 
 [Install]
 WantedBy=multi-user.target
@@ -32,8 +32,8 @@ Group=superman
 PrivateTmp=true
 Type=simple
 PIDFile=/run/azerothcore/authserver.pid
-WorkingDirectory=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/
-ExecStart=${HOME}/${AZEROTHCORE_SERVER_DIR}/bin/authserver
+WorkingDirectory=${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bin/
+ExecStart=${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bin/authserver
 
 [Install]
 WantedBy=multi-user.target

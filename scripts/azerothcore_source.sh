@@ -7,13 +7,13 @@ echo "#########################################################"
 echo ""
 
 # Clone AzerothCore
-if [ -d "${HOME}/${AZEROTHCORE_SOURCE_DIR}" ];
+if [ -d "${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}" ];
 then
-  cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+  cd "${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}"
   git pull
   cd $WHERE_WAS_I
 else
-  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
+  git clone https://github.com/azerothcore/azerothcore-wotlk.git --branch $AZEROTHCORE_SOURCE_BRANCH --single-branch --depth 1 "${HOME}/${AZEROTHCORE_SOURCE_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}"
 fi
 
 cd $WHERE_WAS_I
