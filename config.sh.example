@@ -37,7 +37,7 @@ export AZEROTHCORE_SERVER_BIND_IP="127.0.0.1"
 # that's built, installed, and more. The end result is a path
 # like "/home/mike/azerothcore_servers/...". You can change
 # this if you don't like that path name.
-export AZEROTHCORE_SOURCE_PARENT_DIR=azerothcore_servers
+export AZEROTHCORE_INSTALL_PARENT_DIR=azerothcore_servers
 
 # !!!
 # You can probably ignore everything below this point
@@ -47,6 +47,7 @@ export AZEROTHCORE_SOURCE_DIR=azerothcore
 export AZEROTHCORE_SOURCE_BRANCH=master
 export AZEROTHCORE_SERVER_DIR=azerothcore-server
 export AZEROTHCORE_SERVER_BACKUPS_DIR=azerothcore-server-backups
+export DATABASE_LOCK_DIR="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/locks/"
 export AZEROTHCORE_SERVER_REALM_NAME=AzerothCore
 export AZEROTHCORE_SERVER_BIND_PORT=8085
 export AZEROTHCORE_SERVER_LOCAL_SUBNETMASK=255.255.255.0
@@ -77,3 +78,6 @@ export RUN_AZEROTHCORE_CONFIGS=true
 export RUN_AZEROTHCORE_WORLDSERVER_RUN=true
 export RUN_IMPORT_SQL=true
 export RUN_SYSTEMD=true
+
+# Internal variables
+export WHERE_WAS_I=$(pwd)

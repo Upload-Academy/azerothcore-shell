@@ -13,7 +13,7 @@ sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world 
 sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
 
 # The database must be kept closed off from the world
-sudo ufw allow from $AZEROTHCORE_SERVER_BIND_PORT to any port 3306 # MariaDB server
+sudo ufw allow from $AZEROTHCORE_SERVER_BIND_IP to any port 3306 # MariaDB server
 sudo ufw allow from 127.0.0.1 to any port 3306 # MariaDB server
 
 sudo ufw default deny incoming
