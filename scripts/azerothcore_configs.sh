@@ -6,6 +6,9 @@ echo "# Server Configuration Files"
 echo "#########################################################"
 echo ""
 
+source scripts/functions.sh
+if [ "$1" = "" ]; then error "Did you forget to provide a configuration file?"; else source $1; fi
+
 cd $WHERE_WAS_I
 
 ETC_PATH="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/etc"
@@ -13,10 +16,10 @@ ETC_PATH="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/et
 # Check for the "purge" subcommand being passed to the script
 if [ "$1" = "purge" ];
 then
-  echo "Purging existing configurations..."
+  info "purging existing configurations..."
   NOW=$(date '+%Y%m%d_%H%M%S')
-  cp "${ETC_PATH}/worldserver.conf" "${ETC_PATH}/worldserver.conf.backup.${NOW}"
-  cp "${ETC_PATH}/authserver.conf" "${ETC_PATH}/authserver.conf.backup.${NOW}"
+  cp "${ETC_PATH}/worldserver.conf" "${ETC_PATH}/worldserver.conf.backup.${NOW}" || error "failed to backup world configuration file"
+  cp "${ETC_PATH}/authserver.conf" "${ETC_PATH}/authserver.conf.backup.${NOW}" || error "failed to backup auth configuration file"
   rm -f "${ETC_PATH}/worldserver.conf"
   rm -f "${ETC_PATH}/authserver.conf"
 fi
@@ -27,30 +30,34 @@ fi
 if [ ! -f "${ETC_PATH}/worldserver.conf" ];
 then
   COPY_TO="${ETC_PATH}/worldserver.conf"
-  echo "Copying worldserver.main.conf to $COPY_TO"
-  cp configurations/worldserver.main.conf $COPY_TO
+  info "copying worldserver.main.conf to $COPY_TO"
+  cp configurations/worldserver.main.conf $COPY_TO || error "failed to copy worldserver configuration file"
 
-  echo "Updating $COPY_TO..."
-  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${ETC_PATH}/worldserver.conf"
-  echo "WorldServerPort = $AZEROTHCORE_SERVER_BIND_PORT" >> "${ETC_PATH}/worldserver.conf"
-  echo "WorldDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_WORLD_DATABASE\"" >> "${ETC_PATH}/worldserver.conf"
-  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> "${ETC_PATH}/worldserver.conf"
-  echo "CharacterDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_CHARACTERS_DATABASE\"" >> "${ETC_PATH}/worldserver.conf"
+  info "updating $COPY_TO..."
+
+  # Don't be a smart arse and replace these with 'info' calls
+  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${ETC_PATH}/worldserver.conf" || error "failed to update BindIP"
+  echo "WorldServerPort = $AZEROTHCORE_SERVER_BIND_PORT" >> "${ETC_PATH}/worldserver.conf" || error "failed to update WorldServerPort"
+  echo "WorldDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_WORLD_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update WorldDatabaseInfo"
+  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update LoginDatabaseInfo"
+  echo "CharacterDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_CHARACTERS_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update CharacterDatabaseInfo"
 else
-  echo "Leaving existing ${ETC_PATH}/worldserver.conf alone"
+  info "leaving existing ${ETC_PATH}/worldserver.conf alone"
 fi
 
 if [ ! -f "${ETC_PATH}/authserver.conf" ];
 then
   COPY_TO="${ETC_PATH}/authserver.conf"
-  echo "Copying authserver.conf to $COPY_TO"
+  info "copying authserver.conf to $COPY_TO"
   cp configurations/authserver.conf $COPY_TO
 
-  echo "Updating $COPY_TO..."
-  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> $COPY_TO
-  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> $COPY_TO
+  info "Updating $COPY_TO..."
+  
+  # Don't be a smart arse and replace these with 'info' calls
+  echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> $COPY_TO || error "failed to update BindIP"
+  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> $COPY_TO || error "failed to update LoginDatabaseInfo"
 else
-  echo "Leaving existing ${ETC_PATH}/authserver.conf alone"
+  info "leaving existing ${ETC_PATH}/authserver.conf alone"
 fi
 
 cd $WHERE_WAS_I

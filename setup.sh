@@ -6,15 +6,10 @@
 # If you do run it several times, then things should be OK,
 # but there's no guarantee.
 
-# Need a config file to work with
-if [ "$1" = "" ];
-then
-    echo "Did you forget to provide a configuration file?"
-    echo "Usage: setup.sh <config.sh>"
-    exit 1
-fi
+source scripts/functions.sh
 
-source $1
+# Need a config file to work with
+if [ "$1" = "" ]; then error "Did you forget to provide a configuration file?"; else source $1; fi
 
 [ "$RUN_OS" == true ] && . scripts/os.sh
 [ "$RUN_FIREWALL" == true ] && . scripts/firewall.sh

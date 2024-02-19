@@ -6,31 +6,24 @@ echo "# Firewall"
 echo "#########################################################"
 echo ""
 
-# Need a config file to work with when executed directly
-if [ "$1" = "" ];
-then
-    echo "Did you forget to provide a configuration file?"
-    echo "Usage: firewall.sh <config.sh>"
-    exit 1
-fi
+source scripts/functions.sh
+if [ "$1" = "" ]; then error "no configuration file passed"; else source $1; fi
 
-sudo ufw default allow outgoing
-if [ ! $? -eq 0 ]; then echo "Package metadata update failed. Stopping." && exit 1; fi
-
-sudo ufw allow from 0.0.0.0/0 to any port 22 # SSH - restrict the crap out this!!
-sudo ufw allow from 0.0.0.0/0 to any port 3724 # auth server
+sudo ufw default allow outgoing || error "allowing outgoing network traffic failed"
+sudo ufw allow from 0.0.0.0/0 to any port 22 || error "allowing SSH network traffic failed"
+sudo ufw allow from 0.0.0.0/0 to any port 3724 || error "allowing Auth Server network traffic failed"
 
 # This rule is more dynamic as you can run multiple worlds
 # across multiple ports, but the authserver (above) only
 # runs once
-sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT # world server
+sudo ufw allow from 0.0.0.0/0 to any port $AZEROTHCORE_SERVER_BIND_PORT || error "allowing World Server port ${AZEROTHCORE_SERVER_BIND_PORT} failed"
 
 # The database must be kept closed off from the world
-sudo ufw allow from $AZEROTHCORE_SERVER_BIND_IP to any port 3306 # database server
-sudo ufw allow from 127.0.0.1 to any port 3306 # database server
+sudo ufw allow from $AZEROTHCORE_SERVER_BIND_IP to any port 3306 || error "failed to restrict port 3306 to ${AZEROTHCORE_SERVER_BIND_IP}"
+sudo ufw allow from 127.0.0.1 to any port 3306 || error "failed to restrict port 3306 to 127.0.0.1"
 
 # Block absolutely everything else
-sudo ufw default deny incoming
-sudo ufw --force enable
+sudo ufw default deny incoming || error "failed to set default deny policy on incoming traffic"
+sudo ufw --force enable || error "failed to (forcefully) enable ufw"
 
 cd $WHERE_WAS_I

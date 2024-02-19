@@ -6,56 +6,36 @@ echo "# Import Custom SQL"
 echo "#########################################################"
 echo ""
 
-# Need a config file to work with
-if [ "$1" = "" ];
-then
-    echo "Did you forget to provide a configuration file?"
-    echo "Usage: kill-everything.sh <config.sh>"
-    exit 1
-fi
+source scripts/functions.sh
+if [ "$1" = "" ]; then error "Did you forget to provide a configuration file?"; else source $1; fi
 
-source $1
 cd $WHERE_WAS_I
 IMPORT_LOCK_PATH="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/locks"
 
 function import_auth() {
-    LOCK_FILE="${IMPORT_LOCK_PATH}/sqlimport.$(basename $1).lock"
+    LOCK_FILE="${IMPORT_LOCK_PATH}/sqlimport.auth.$(basename $1).lock"
     if [ -e $LOCK_FILE ];
     then
-        echo "File $1 already imported. Ignoring."
+        warning "file $1 already imported"
         return
     fi
 
-    echo "Importing: $1"
-    mysql -u acore $AZEROTHCORE_AUTH_DATABASE < $1
-    if [ $? -gt 0 ];
-    then
-        echo "MySQL import of '${1}' failed. Stopping."
-        exit 1
-    fi
-
-    mkdir -p sql/imported/auth
-    touch "sql/imported/auth/$(basename $1)"
+    info "SQL importing: $1"
+    mysql -u acore $AZEROTHCORE_AUTH_DATABASE < $1 || error "SQL import of '${1}' failed"
+    touch $LOCK_FILE || error "failed to create lockfile"
 }
 
 function import_world() {
-    LOCK_FILE="${IMPORT_LOCK_PATH}/sqlimport.$(basename $1).lock"
+    LOCK_FILE="${IMPORT_LOCK_PATH}/sqlimport.world.$(basename $1).lock"
     if [ -e $LOCK_FILE ];
     then
-        echo "File $1 already imported. Ignoring."
+        warning "file $1 already imported"
         return
     fi
 
-    echo "Importing: $1"
-    mysql -u acore $AZEROTHCORE_WORLD_DATABASE < $1
-    if [ $? -gt 0 ];
-    then
-        echo "MySQL import of '${1}' failed. Stopping."
-        exit 1
-    fi
-
-    mkdir -p sql/imported/world
-    touch "sql/imported/world/$(basename $1)"
+    info "SQL importing: $1"
+    mysql -u acore $AZEROTHCORE_WORLD_DATABASE < $1 || error "SQL import of '${1}' failed"
+    touch $LOCK_FILE || error "failed to create lockfile"
 }
 
 # We _always_ do a backup of the database before we
