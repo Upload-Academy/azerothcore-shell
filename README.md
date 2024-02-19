@@ -4,7 +4,7 @@
 
 ACBS is a series of shell scripts (bash) that allow you to easily create an AzerothCore server. This means you can emulate a World of Warcraft 3.3.5a server, allowing 3.3.5a clients to connect to the server and enjoy the game locally or on a private/public network with friends.
 
-## How
+## How?
 
 *This is very much a work in progress.*
 

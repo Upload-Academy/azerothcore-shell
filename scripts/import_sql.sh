@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo ""
+echo "#########################################################"
+echo "# Import Custom SQL"
+echo "#########################################################"
+echo ""
+
 # Need a config file to work with
 if [ "$1" = "" ];
 then
@@ -8,6 +14,7 @@ then
     exit 1
 fi
 
+source $1
 cd $WHERE_WAS_I
 IMPORT_LOCK_PATH="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/locks"
 
