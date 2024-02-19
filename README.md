@@ -32,6 +32,10 @@ bash scripts/os.sh <config.sh>
 
 Where `<config.sh>` is replaced with a configuration you've copied from `./config.sh.example`.
 
+### Requirements
+
+* Ubuntu 22.04 LTS
+
 ### Instructions
 
 To get the AC server up and running with defaults, run the following commands:
