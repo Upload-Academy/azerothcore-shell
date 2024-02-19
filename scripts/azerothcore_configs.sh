@@ -14,7 +14,7 @@ cd $WHERE_WAS_I
 ETC_PATH="${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/etc"
 
 # Check for the "purge" subcommand being passed to the script
-if [ "$1" = "purge" ];
+if [ "$2" = "purge" ];
 then
   info "purging existing configurations..."
   NOW=$(date '+%Y%m%d_%H%M%S')
