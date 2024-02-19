@@ -1,38 +1,41 @@
 #!/bin/bash
 
-
 echo ""
 echo "#########################################################"
 echo "# AzerothCore - Modules"
 echo "#########################################################"
 echo ""
 
+source scripts/functions.sh
+if [ "$1" = "" ]; then error "Did you forget to provide a configuration file?"; else source $1; fi
+
 function module {
-    rm -rf "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}"
-    git clone --depth 1 $2 "${HOME}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}"
+    if [ -e "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}" ]
+    then
+        warning "skipping ${1} as directory exists"
+    else
+        git clone \
+            --depth 1 \
+            --branch $2 \
+            $3 \
+            "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}" \
+            || error "failed to clone module ${3}"
+    fi
 }
 
 function patch {
-    cd "${HOME}/${AZEROTHCORE_SOURCE_DIR}"
-    git apply "${1}" # needed core patch
+    cd "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}" || error "failed to change into source directory"
+    git apply "${1}" || error "failed to git apply patch to core"
     cd $WHERE_WAS_I
 }
 
 function sql {
-    mysql -u acore $1 < "${HOME}/${AZEROTHCORE_SOURCE_DIR}/${2}"
+    mysql -u acore $1 < "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}/${2}" || erro "failed to import SQL file"
 }
 
 function sql_raw {
-    mysql -u acore $1 -e "${1}"
+    mysql -u acore $1 -e "${1}" || error "failed to execute raw SQL"
 }
 
-module mod-solocraft https://github.com/azerothcore/mod-solocraft.git
-sql $AZEROTHCORE_CHARACTERS_DATABASE "modules/mod-solocraft/data/sql/db-characters/mod_solo_craft.sql"
-
-module mod-solo-lfg https://github.com/milestorme/mod-solo-lfg.git
-patch modules/mod-solo-lfg/lfg-solo.patch
-
-module mod-autobalance https://github.com/azerothcore/mod-autobalance.git
-module mod-eluna https://github.com/azerothcore/mod-eluna.git
-
+for module in "${AZEROTHCORE_MODULES[@]}"; do eval $module; done
 cd $WHERE_WAS_I

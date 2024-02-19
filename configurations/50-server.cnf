@@ -1,0 +1,20 @@
+# MariaDB server configuration
+
+[server]
+# No config
+
+[embedded]
+# No config
+
+[mariadb]
+# No config
+
+[mariadb-10.6]
+# No config
+
+[mysqld]
+pid-file = /run/mysqld/mysqld.pid
+basedir = /usr
+expire_logs_days = 10
+character-set-server = utf8mb4
+collation-server = utf8mb4_general_ci
