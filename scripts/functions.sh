@@ -9,7 +9,6 @@ error() {
 
 warning() {
     echo "WARNING: ${1} -- Continuing..."
-    echo ""
 }
 
 info() {

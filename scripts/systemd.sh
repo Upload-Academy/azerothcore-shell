@@ -28,7 +28,7 @@ ExecStart=${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bi
 
 [Install]
 WantedBy=multi-user.target
-EOF || error "failed to create ${AZEROTHCORE_SERVER_DIR}-world.service"
+EOF
 
 cat <<EOF > "${AZEROTHCORE_SERVER_DIR}-auth.service"
 [Unit]
@@ -46,22 +46,25 @@ ExecStart=${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bi
 
 [Install]
 WantedBy=multi-user.target
-EOF || error "failed to create ${AZEROTHCORE_SERVER_DIR}-auth.service"
+EOF
 
 # Move the service files into place
 sudo mv ${AZEROTHCORE_SERVER_DIR}-world.service /etc/systemd/system/${AZEROTHCORE_SERVER_DIR}-world.service \
     || error "failed to move worldserver .service file into place"
+
 sudo mv ${AZEROTHCORE_SERVER_DIR}-auth.service /etc/systemd/system/${AZEROTHCORE_SERVER_DIR}-auth.service \
     || error "failed to move authserver .service file into place"
 
 # Enable and start our services
 sudo systemctl enable ${AZEROTHCORE_SERVER_DIR}-auth.service \
     || error "failed to enable authserver service"
+
 sudo systemctl start ${AZEROTHCORE_SERVER_DIR}-auth.service \
     || error "failed to start authserver service"
 
 sudo systemctl enable ${AZEROTHCORE_SERVER_DIR}-world.service \
     || error "failed to start worldserver service"
+
 sudo systemctl start ${AZEROTHCORE_SERVER_DIR}-world.service \
     || error "failed to start worldserver service"
 
