@@ -29,7 +29,7 @@ then
     -d "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SERVER_DIR}/bin/data" \
     || error "failed to unzip data files in installation directory"
 else
-  info "skipping data file download and extraction as everything is in place(?)"
+  warning "skipping data file download and extraction as everything is in place(?)"
 fi
 
 cd $WHERE_WAS_I

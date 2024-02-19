@@ -38,9 +38,9 @@ then
   # Don't be a smart arse and replace these with 'info' calls
   echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> "${ETC_PATH}/worldserver.conf" || error "failed to update BindIP"
   echo "WorldServerPort = $AZEROTHCORE_SERVER_BIND_PORT" >> "${ETC_PATH}/worldserver.conf" || error "failed to update WorldServerPort"
-  echo "WorldDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_WORLD_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update WorldDatabaseInfo"
-  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update LoginDatabaseInfo"
-  echo "CharacterDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_CHARACTERS_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update CharacterDatabaseInfo"
+  echo "WorldDatabaseInfo = \"${MARIADB_SERVER_IP};${MARIADB_SERVER_PORT};acore;acore;$AZEROTHCORE_WORLD_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update WorldDatabaseInfo"
+  echo "LoginDatabaseInfo = \"${MARIADB_SERVER_IP};${MARIADB_SERVER_PORT};acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update LoginDatabaseInfo"
+  echo "CharacterDatabaseInfo = \"${MARIADB_SERVER_IP};${MARIADB_SERVER_PORT};acore;acore;$AZEROTHCORE_CHARACTERS_DATABASE\"" >> "${ETC_PATH}/worldserver.conf" || error "failed to update CharacterDatabaseInfo"
 else
   info "leaving existing ${ETC_PATH}/worldserver.conf alone"
 fi
@@ -55,7 +55,7 @@ then
   
   # Don't be a smart arse and replace these with 'info' calls
   echo "BindIP = $AZEROTHCORE_SERVER_BIND_IP" >> $COPY_TO || error "failed to update BindIP"
-  echo "LoginDatabaseInfo = \"${AZEROTHCORE_SERVER_BIND_IP};3306;acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> $COPY_TO || error "failed to update LoginDatabaseInfo"
+  echo "LoginDatabaseInfo = \"${MARIADB_SERVER_IP};${MARIADB_SERVER_PORT};acore;acore;$AZEROTHCORE_AUTH_DATABASE\"" >> $COPY_TO || error "failed to update LoginDatabaseInfo"
 else
   info "leaving existing ${ETC_PATH}/authserver.conf alone"
 fi

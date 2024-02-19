@@ -12,7 +12,7 @@ if [ "$1" = "" ]; then error "Did you forget to provide a configuration file?"; 
 function module {
     if [ -e "${HOME}/${AZEROTHCORE_INSTALL_PARENT_DIR}/${AZEROTHCORE_SOURCE_DIR}/modules/${1}" ]
     then
-        info "skipping ${1} as directory exists"
+        warning "skipping ${1} as directory exists"
     else
         git clone \
             --depth 1 \
